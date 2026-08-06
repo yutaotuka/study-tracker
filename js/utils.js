@@ -64,3 +64,20 @@ export function el(tag, opts = {}) {
   }
   return node;
 }
+
+// 学習期間のラベルを days から作る（日付をずらしても文字列を直す必要がない）
+export function periodLabel(days, style = "short") {
+  if (!days.length) return "";
+  const a = days[0].date;
+  const b = days.at(-1).date;
+  const [ay, am, ad] = a.split("-");
+  const [, bm, bd] = b.split("-");
+  if (style === "short") {
+    return `${Number(am)}/${Number(ad)}〜${Number(bm)}/${Number(bd)}`;
+  }
+  if (style === "dot") return `${ay}.${am}.${ad} – ${bm}.${bd}`;
+  if (style === "long") {
+    return `${ay}年${Number(am)}月${Number(ad)}日〜${Number(bm)}月${Number(bd)}日`;
+  }
+  return `${a}〜${b}`;
+}

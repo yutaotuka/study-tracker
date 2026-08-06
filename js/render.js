@@ -9,6 +9,7 @@ import {
   pct,
   fmtDate,
   todayIso,
+  periodLabel,
   el,
 } from "./utils.js";
 
@@ -115,7 +116,7 @@ export function renderToday(root) {
         outOfRange
           ? el("p", {
               class: "muted",
-              text: "今日は学習期間（8/6〜10/15）の範囲外なので、初日の内容を表示しています。",
+              text: `今日は学習期間（${periodLabel(PLAN.days)}）の範囲外なので、初日の内容を表示しています。`,
             })
           : null,
         el("ul", { class: "today-list", children: items }),
@@ -555,12 +556,18 @@ export function renderRules(root) {
   root.appendChild(
     el("h2", { text: "前提" })
   );
+  const totalTarget = round1(sum(PLAN.days, (d) => d.target));
   const info = [
-    ["期間", "2026年8月6日（木）〜10月15日（木） 全10週・71日"],
+    [
+      "期間",
+      `${periodLabel(PLAN.days, "long")} 全${PLAN.weeks.length}週・${
+        PLAN.days.length
+      }日`,
+    ],
     ["ペース", "週15時間（平日2.0h／土日2.5h）※10週目は8日間で17h"],
     ["内訳", "独習JavaScript 7h ／ Claude Code Academy 3h ／ その他技術 3h ／ 振り返り 2h"],
-    ["総時間", "152時間"],
-    ["ゴール", "JSの土台を作り直す＋成果物1本＋周辺3技術の概要把握"],
+    ["総時間", `${totalTarget}時間`],
+    ["ゴール", "JSの土台を作り直す＋学習トラッカーを自作して公開＋周辺3技術の概要把握"],
     ["教材", "独習JavaScript 新版 ／ 独習PHP 第4版 ／ Claude Code Academy（iOS開発はスキップ）"],
   ];
   const dl = el("dl", { class: "info" });

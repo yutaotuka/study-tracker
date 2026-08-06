@@ -2,7 +2,7 @@
 import * as store from "./storage.js";
 import * as view from "./render.js";
 import * as sync from "./sync.js";
-import { debounce, todayIso, weekOf } from "./utils.js";
+import { debounce, todayIso, weekOf, periodLabel } from "./utils.js";
 import { PLAN } from "./data.js";
 
 const main = document.querySelector("#main");
@@ -184,7 +184,7 @@ document.querySelector("#jump-today").addEventListener("click", () => {
   const iso = todayIso();
   const wk = weekOf(PLAN.days, iso);
   if (wk == null) {
-    alert("今日は学習期間（8/6〜10/15）の範囲外です。");
+    alert(`今日は学習期間（${periodLabel(PLAN.days)}）の範囲外です。`);
     return;
   }
   filters.logs.week = String(wk);
@@ -386,6 +386,10 @@ window.addEventListener("beforeunload", (e) => {
     e.returnValue = "";
   }
 });
+
+// ヘッダーに期間を表示（日付をずらしても自動で追従する）
+document.querySelector("#period").textContent =
+  `JS再入門 + Claude Code ／ ${periodLabel(PLAN.days, "dot")}`;
 
 window.addEventListener("hashchange", render);
 render();

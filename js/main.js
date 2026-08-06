@@ -1,0 +1,393 @@
+// 初期化・ルーティング・イベント登録
+import * as store from "./storage.js";
+import * as view from "./render.js";
+import * as sync from "./sync.js";
+import { debounce, todayIso, weekOf } from "./utils.js";
+import { PLAN } from "./data.js";
+
+const main = document.querySelector("#main");
+const nav = document.querySelector("#nav");
+
+const VIEWS = ["summary", "steps", "tasks", "logs", "rules"];
+
+const filters = {
+  steps: { week: "all", cat: "all", q: "", hideDone: false },
+  tasks: { track: "all", week: "all" },
+  logs: { week: "all" },
+};
+
+function currentView() {
+  const hash = location.hash.replace("#", "");
+  return VIEWS.includes(hash) ? hash : "summary";
+}
+
+function render() {
+  const v = currentView();
+  for (const btn of nav.querySelectorAll("a")) {
+    btn.classList.toggle("active", btn.dataset.view === v);
+  }
+  if (v === "summary") view.renderSummary(main);
+  else if (v === "steps") view.renderSteps(main, filters.steps);
+  else if (v === "tasks") view.renderTasks(main, filters.tasks);
+  else if (v === "logs") view.renderLogs(main, filters.logs);
+  else view.renderRules(main);
+}
+
+// ---------- イベント委譲（main配下のクリックを1箇所で処理） ----------
+main.addEventListener("click", (e) => {
+  // 手順のチェック
+  const stepRow = e.target.closest("tr[data-id]");
+  if (stepRow && e.target.matches('input[type="checkbox"]')) {
+    store.toggleStep(stepRow.dataset.id);
+    stepRow.classList.toggle("done", e.target.checked);
+    if (filters.steps.hideDone) render();
+    return;
+  }
+
+  // JS課題のチェック
+  const card = e.target.closest(".task-card");
+  if (card && e.target.matches('input[type="checkbox"]')) {
+    store.toggleTask(card.dataset.id);
+    card.classList.toggle("done", e.target.checked);
+    // 件数表示だけ更新する（カード全体は再描画しない）
+    const counter = main.querySelector("p.count");
+    if (counter) {
+      const rows = PLAN.tasks.filter(
+        (t) =>
+          (filters.tasks.track === "all" || t.track === filters.tasks.track) &&
+          (filters.tasks.week === "all" ||
+            t.week === Number(filters.tasks.week))
+      );
+      const d = rows.filter((t) => store.isTaskDone(t.id)).length;
+      const h = Math.round(rows.reduce((a, t) => a + t.h, 0) * 10) / 10;
+      counter.textContent = `${rows.length} 件（完了 ${d}） ／ 目安 ${h} h`;
+    }
+    return;
+  }
+
+  // レビュー依頼文のコピー
+  if (e.target.matches("button.copy")) {
+    const text = e.target.dataset.copy;
+    navigator.clipboard
+      .writeText(text)
+      .then(() => {
+        const before = e.target.textContent;
+        e.target.textContent = "コピーしました";
+        setTimeout(() => (e.target.textContent = before), 1500);
+      })
+      .catch(() => alert("コピーに失敗しました。手動で選択してください。"));
+  }
+});
+
+// ---------- 入力系 ----------
+const saveLog = debounce((date, field, value) => {
+  store.setLog(date, { [field]: value });
+  if (currentView() === "logs") {
+    // 合計セルだけ更新（全体再描画は避ける）
+    const row = main.querySelector(`tr[data-date="${date}"]`);
+    if (!row) return;
+    const l = store.getLog(date);
+    const total = Math.round((l.js + l.cc + l.other + l.review) * 10) / 10;
+    const cell = row.querySelector("td.total");
+    if (cell) {
+      cell.textContent = `${total}h`;
+      cell.classList.toggle("muted", !total);
+    }
+  }
+}, 250);
+
+main.addEventListener("input", (e) => {
+  // 日次ログの入力
+  const logRow = e.target.closest("tr[data-date]");
+  if (logRow && e.target.dataset.field) {
+    const field = e.target.dataset.field;
+    const value =
+      field === "memo" ? e.target.value : Number(e.target.value) || 0;
+    saveLog(logRow.dataset.date, field, value);
+    return;
+  }
+
+  // 手順の検索
+  if (e.target.matches("input.search")) {
+    filters.steps.q = e.target.value;
+    debouncedRenderSteps();
+  }
+});
+
+const debouncedRenderSteps = debounce(() => {
+  const pos = window.scrollY;
+  view.renderSteps(main, filters.steps);
+  const input = main.querySelector("input.search");
+  if (input) {
+    input.focus();
+    input.setSelectionRange(input.value.length, input.value.length);
+  }
+  window.scrollTo(0, pos);
+}, 250);
+
+main.addEventListener("change", (e) => {
+  if (e.target.matches("select.week-filter")) {
+    const v = currentView();
+    if (v === "steps") {
+      filters.steps.week = e.target.value;
+      view.renderSteps(main, filters.steps);
+    } else if (v === "tasks") {
+      filters.tasks.week = e.target.value;
+      view.renderTasks(main, filters.tasks);
+    } else if (v === "logs") {
+      filters.logs.week = e.target.value;
+      view.renderLogs(main, filters.logs);
+    }
+  }
+  if (e.target.matches("select.track-filter")) {
+    filters.tasks.track = e.target.value;
+    view.renderTasks(main, filters.tasks);
+  }
+  if (e.target.matches("select.cat-filter")) {
+    filters.steps.cat = e.target.value;
+    view.renderSteps(main, filters.steps);
+  }
+  if (e.target.matches("#hide-done")) {
+    filters.steps.hideDone = e.target.checked;
+    view.renderSteps(main, filters.steps);
+  }
+});
+
+// ---------- ヘッダーのボタン ----------
+document.querySelector("#export").addEventListener("click", () => {
+  store.exportJson();
+});
+
+document.querySelector("#import-file").addEventListener("change", async (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+  try {
+    await store.importJson(file);
+    alert("読み込みました。");
+    render();
+  } catch (err) {
+    console.error(err);
+    alert("読み込みに失敗しました。ファイル形式を確認してください。");
+  } finally {
+    e.target.value = "";
+  }
+});
+
+document.querySelector("#reset").addEventListener("click", () => {
+  if (confirm("入力した進捗を全て消します。よろしいですか？")) {
+    store.resetAll();
+    render();
+  }
+});
+
+document.querySelector("#jump-today").addEventListener("click", () => {
+  const iso = todayIso();
+  const wk = weekOf(PLAN.days, iso);
+  if (wk == null) {
+    alert("今日は学習期間（8/6〜10/15）の範囲外です。");
+    return;
+  }
+  filters.logs.week = String(wk);
+  location.hash = "#logs";
+  render();
+  const row = main.querySelector(`tr[data-date="${iso}"]`);
+  if (row) {
+    row.classList.add("today");
+    row.scrollIntoView({ block: "center", behavior: "smooth" });
+    row.querySelector('input[data-field="js"]')?.focus();
+  }
+});
+
+// ---------- JSONのドラッグ＆ドロップ読み込み ----------
+document.addEventListener("dragover", (e) => {
+  if (e.dataTransfer?.types.includes("Files")) {
+    e.preventDefault();
+    document.body.classList.add("dragging");
+  }
+});
+document.addEventListener("dragleave", (e) => {
+  if (e.relatedTarget === null) document.body.classList.remove("dragging");
+});
+document.addEventListener("drop", async (e) => {
+  const file = e.dataTransfer?.files?.[0];
+  if (!file) return;
+  e.preventDefault();
+  document.body.classList.remove("dragging");
+  if (!file.name.endsWith(".json")) {
+    alert("JSONファイルをドロップしてください。");
+    return;
+  }
+  try {
+    await store.importJson(file);
+    render();
+    setStatus("読み込みました", "ok");
+  } catch (err) {
+    console.error(err);
+    alert("読み込みに失敗しました。ファイル形式を確認してください。");
+  }
+});
+
+// ---------- 同期 ----------
+const statusEl = document.querySelector("#sync-status");
+const dialog = document.querySelector("#sync-dialog");
+const tokenInput = document.querySelector("#token-input");
+const gistInput = document.querySelector("#gist-input");
+const rememberBox = document.querySelector("#remember-token");
+
+let dirty = false;
+
+function setStatus(text, kind = "") {
+  statusEl.textContent = text;
+  statusEl.className = `sync-status ${kind}`;
+}
+
+function fmtTime(iso) {
+  if (!iso) return "";
+  const d = new Date(iso);
+  const p = (n) => String(n).padStart(2, "0");
+  return `${d.getMonth() + 1}/${d.getDate()} ${p(d.getHours())}:${p(
+    d.getMinutes()
+  )}`;
+}
+
+function refreshStatus() {
+  if (!sync.isConfigured()) {
+    setStatus(
+      "未接続：進捗はこのブラウザにのみ保存されます。端末をまたぐには「同期設定」から接続してください。",
+      "warn"
+    );
+    return;
+  }
+  const last = sync.getLastSynced();
+  const remembered = sync.isTokenRemembered() ? "" : "（このタブ限り）";
+  setStatus(
+    dirty
+      ? `未同期の変更があります。最終同期 ${fmtTime(last)}${remembered}`
+      : `同期済み ${fmtTime(last)}${remembered}`,
+    dirty ? "warn" : "ok"
+  );
+}
+
+async function doPush(manual = false) {
+  if (!sync.isConfigured()) {
+    if (manual) openDialog();
+    return;
+  }
+  try {
+    setStatus("同期中…");
+    const res = await sync.push(store.getState(), {
+      confirmOverwrite: (remoteAt) =>
+        confirm(
+          `別の端末で ${fmtTime(remoteAt)} に更新されています。\n` +
+            "OKでこの端末の内容を反映、キャンセルで中止します。\n" +
+            "（相手の内容を取り込みたい場合は中止して「同期」をもう一度押してください）"
+        ),
+    });
+    if (res.skipped) {
+      dirty = true;
+      setStatus("同期を中止しました。相手の内容を取り込むには再読み込みしてください。", "warn");
+      return;
+    }
+    dirty = false;
+    refreshStatus();
+  } catch (err) {
+    console.error(err);
+    setStatus(`同期できませんでした：${err.message}`, "error");
+  }
+}
+
+async function doPull() {
+  if (!sync.isConfigured()) return;
+  try {
+    setStatus("読み込み中…");
+    const remote = await sync.pullIfNewer();
+    if (remote) {
+      store.replaceState(remote);
+      render();
+    }
+    dirty = false;
+    refreshStatus();
+  } catch (err) {
+    console.error(err);
+    setStatus(`同期できませんでした：${err.message}`, "error");
+  }
+}
+
+const pushSoon = debounce(() => doPush(), 4000);
+
+store.onChange(() => {
+  if (!sync.isConfigured()) return;
+  dirty = true;
+  refreshStatus();
+  pushSoon();
+});
+
+function openDialog() {
+  tokenInput.value = "";
+  gistInput.value = sync.getGistId();
+  rememberBox.checked = sync.isTokenRemembered();
+  dialog.showModal();
+}
+
+document.querySelector("#sync-settings").addEventListener("click", openDialog);
+document.querySelector("#sync-cancel").addEventListener("click", () => {
+  dialog.close();
+});
+
+document.querySelector("#sync-connect").addEventListener("click", async () => {
+  const token = tokenInput.value.trim();
+  if (!token && !sync.getToken()) {
+    alert("トークンを入力してください。");
+    return;
+  }
+  if (token) sync.setToken(token, rememberBox.checked);
+  sync.setGistId(gistInput.value.trim());
+  dialog.close();
+
+  try {
+    if (!sync.getGistId()) {
+      setStatus("Gistを作成中…");
+      const id = await sync.createGist(store.getState());
+      alert(
+        `Gistを作成しました。\nGist ID: ${id}\n` +
+          "別の端末ではこのIDを同期設定に貼ってください。"
+      );
+    } else {
+      await doPull();
+    }
+    dirty = false;
+    refreshStatus();
+  } catch (err) {
+    console.error(err);
+    setStatus(`接続できませんでした：${err.message}`, "error");
+  }
+});
+
+document.querySelector("#sync-disconnect").addEventListener("click", () => {
+  if (!confirm("この端末の接続を解除します。進捗自体は残ります。")) return;
+  sync.disconnect();
+  dialog.close();
+  refreshStatus();
+});
+
+document.querySelector("#sync-now").addEventListener("click", async () => {
+  if (!sync.isConfigured()) {
+    openDialog();
+    return;
+  }
+  await doPull();
+  await doPush(true);
+});
+
+// 離脱時に未同期があれば警告
+window.addEventListener("beforeunload", (e) => {
+  if (dirty && sync.isConfigured()) {
+    e.preventDefault();
+    e.returnValue = "";
+  }
+});
+
+window.addEventListener("hashchange", render);
+render();
+refreshStatus();
+doPull();

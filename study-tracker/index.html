@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>学習トラッカー | JS再入門 + Claude Code</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="title">
+        <h1>学習トラッカー</h1>
+        <p class="sub">JS再入門 + Claude Code ／ 2026.08.06 – 10.15</p>
+      </div>
+      <div class="actions">
+        <button type="button" id="jump-today">今日へ</button>
+        <button type="button" id="sync-now">同期</button>
+        <button type="button" id="sync-settings">同期設定</button>
+        <button type="button" id="export">書き出し</button>
+        <label class="file-btn">
+          読み込み
+          <input type="file" id="import-file" accept="application/json" hidden />
+        </label>
+        <button type="button" id="reset" class="danger">リセット</button>
+      </div>
+    </header>
+
+    <p id="sync-status" class="sync-status">読み込み中…</p>
+
+    <dialog id="sync-dialog">
+      <form method="dialog" id="sync-form">
+        <h2>同期設定（GitHub Gist）</h2>
+        <p class="dialog-lead">
+          非公開のGistに進捗を保存して、別の端末やブラウザから続きを使えるようにします。
+        </p>
+
+        <ol class="dialog-steps">
+          <li>
+            GitHubで
+            <strong>Settings → Developer settings → Personal access tokens →
+            Tokens (classic)</strong>
+            を開く
+          </li>
+          <li>
+            <strong>Generate new token (classic)</strong> を押し、スコープは
+            <code>gist</code> だけにチェックを入れる
+          </li>
+          <li>有効期限を設定して生成し、表示されたトークンをコピーする</li>
+          <li>下の欄に貼って「接続」を押す（初回はGistが自動で作られます）</li>
+        </ol>
+
+        <label class="field">
+          <span>アクセストークン</span>
+          <input
+            type="password"
+            id="token-input"
+            placeholder="ghp_..."
+            autocomplete="off"
+          />
+        </label>
+
+        <label class="field">
+          <span>Gist ID（2台目以降は1台目のIDを貼る）</span>
+          <input type="text" id="gist-input" placeholder="空欄なら新規作成" />
+        </label>
+
+        <label class="check">
+          <input type="checkbox" id="remember-token" />
+          <span>
+            この端末にトークンを記憶する
+            <em>
+              共用端末ではチェックを外してください。外した場合はタブを閉じると消えます。
+            </em>
+          </span>
+        </label>
+
+        <p class="dialog-note">
+          トークンはこのブラウザ内にのみ保存され、GitHub以外には送信されません。
+          スコープを <code>gist</code> だけに絞り、有効期限を設定しておくと安全です。
+        </p>
+
+        <menu>
+          <button type="button" id="sync-disconnect" class="danger">
+            接続を解除
+          </button>
+          <span class="spacer"></span>
+          <button type="button" id="sync-cancel">閉じる</button>
+          <button type="button" id="sync-connect" class="primary">接続</button>
+        </menu>
+      </form>
+    </dialog>
+
+    <nav id="nav">
+      <a href="#summary" data-view="summary">サマリー</a>
+      <a href="#steps" data-view="steps">週別タスク手順</a>
+      <a href="#tasks" data-view="tasks">課題一覧</a>
+      <a href="#logs" data-view="logs">日次ログ</a>
+      <a href="#rules" data-view="rules">ルール</a>
+    </nav>
+
+    <main id="main"></main>
+
+    <footer class="site-footer">
+      <p>
+        進捗はこのブラウザの localStorage に保存されます。端末をまたいで使うには
+        「同期設定」からGistを接続するか、「書き出し」で保存したJSONを別の端末で「読み込み」してください。
+        JSONファイルはこの画面にドラッグ＆ドロップしても読み込めます。
+      </p>
+    </footer>
+
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>

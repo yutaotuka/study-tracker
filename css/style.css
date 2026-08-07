@@ -424,6 +424,10 @@ td.plan {
   background: #e7effb;
   color: var(--js);
 }
+.chip.cat-trn {
+  background: #ede7f6;
+  color: #6a3fa0;
+}
 .chip.cat-cc {
   background: #e6f2ea;
   color: var(--cc);
@@ -502,6 +506,9 @@ td.plan {
 
 .week-detail dt.cat-js {
   color: var(--js);
+}
+.week-detail dt.cat-trn {
+  color: #6a3fa0;
 }
 .week-detail dt.cat-cc {
   color: var(--cc);
@@ -737,12 +744,14 @@ table.logs td.total {
 .chip.track-chip-2 { background: #efe6f7; color: #7a4fa3; }
 .chip.track-chip-3 { background: #fdf3dc; color: #c98a00; }
 .chip.track-chip-4 { background: #fbe6e6; color: #c0392b; }
+.chip.track-chip-5 { background: #e6f2ea; color: #2e8b57; }
 
 .task-card.track-0 { border-left: 3px solid #2f6fd0; }
 .task-card.track-1 { border-left: 3px solid #2e8b57; }
 .task-card.track-2 { border-left: 3px solid #7a4fa3; }
 .task-card.track-3 { border-left: 3px solid #c98a00; }
 .task-card.track-4 { border-left: 3px solid #c0392b; }
+.task-card.track-5 { border-left: 3px solid #2e8b57; }
 
 .task-card .meta .chip {
   margin-right: 4px;

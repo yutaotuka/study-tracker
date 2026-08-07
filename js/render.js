@@ -19,7 +19,7 @@ export function weekStats(weekNo) {
   const target = sum(days, (d) => d.target);
   const actual = sum(days, (d) => {
     const l = store.getLog(d.date);
-    return l.js + l.cc + l.other + l.review;
+    return l.js + l.trn + l.cc + l.review;
   });
   const steps = PLAN.steps.filter((s) => s.week === weekNo);
   const stepsDone = steps.filter((s) => store.isStepDone(s.id)).length;
@@ -36,7 +36,7 @@ export function totalStats() {
   const target = sum(PLAN.days, (d) => d.target);
   const actual = sum(PLAN.days, (d) => {
     const l = store.getLog(d.date);
-    return l.js + l.cc + l.other + l.review;
+    return l.js + l.trn + l.cc + l.review;
   });
   const byCat = {};
   for (const c of CATS) {
@@ -94,7 +94,7 @@ export function renderToday(root) {
   );
 
   const log = store.getLog(day.date);
-  const done = round1(log.js + log.cc + log.other + log.review);
+  const done = round1(log.js + log.trn + log.cc + log.review);
 
   root.appendChild(
     el("section", {
@@ -185,10 +185,10 @@ export function renderSummary(root) {
             children: [
               el("dt", { class: "cat-js", text: "JS" }),
               el("dd", { text: w.js }),
+              el("dt", { class: "cat-trn", text: "TRN" }),
+              el("dd", { text: w.other }),
               el("dt", { class: "cat-cc", text: "CC" }),
               el("dd", { text: w.cc }),
-              el("dt", { class: "cat-other", text: "他" }),
-              el("dd", { text: w.other }),
             ],
           }),
           el("footer", {
@@ -316,7 +316,7 @@ function catSelect(value) {
 }
 
 // ---------- 課題 ----------
-export const TRACKS = ["JS", "Claude Code", "PHP", "Shopify", "kintone"];
+export const TRACKS = ["JS基礎", "TypeScript", "React", "Next.js", "コンバート", "Claude Code"];
 
 export function renderTasks(root, filters) {
   root.replaceChildren();
@@ -465,9 +465,9 @@ export function renderLogs(root, filters) {
             "週",
             "目標",
             "その日の目安",
-            "JS",
+            "JS基礎",
+            "TS/React/Next",
             "Claude Code",
-            "その他",
             "振り返り",
             "計",
             "メモ",
@@ -480,7 +480,7 @@ export function renderLogs(root, filters) {
   const tbody = el("tbody");
   for (const d of days) {
     const l = store.getLog(d.date);
-    const total = round1(l.js + l.cc + l.other + l.review);
+    const total = round1(l.js + l.trn + l.cc + l.review);
     const cells = CATS.map((c) => {
       const inp = el("input", {
         class: "num",
@@ -533,7 +533,7 @@ export function renderLogs(root, filters) {
 
   const t = sum(days, (d) => {
     const l = store.getLog(d.date);
-    return l.js + l.cc + l.other + l.review;
+    return l.js + l.trn + l.cc + l.review;
   });
   root.appendChild(
     el("p", {

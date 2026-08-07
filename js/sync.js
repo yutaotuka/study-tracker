@@ -5,11 +5,16 @@
 //     （タブを閉じれば消える）。自分専用の端末でのみ「この端末に記憶する」を選べる。
 //   - Gist ID は秘密ではないので localStorage に置く。
 //   - 競合は「相手が新しければ確認する」方式。勝手に上書きしない。
+//
+// v1との関係:
+//   トークンとGist IDのキーはv1と共通にしてある。既に接続済みなら再設定は不要。
+//   進捗の中身は同じGist内の別ファイル（study-progress-v2.json）に保存するので、
+//   v1の進捗ファイルは上書きされない。
 
 const TOKEN_KEY = "study-tracker-token";
 const GIST_KEY = "study-tracker-gist-id";
-const SYNCED_KEY = "study-tracker-last-synced";
-const FILENAME = "study-progress.json";
+const SYNCED_KEY = "study-tracker-v2-last-synced";
+const FILENAME = "study-progress-v2.json";
 const API = "https://api.github.com";
 
 // ---------- トークン ----------
@@ -132,7 +137,9 @@ export async function pull() {
   const json = await call(`/gists/${id}`);
   const file = json.files && json.files[FILENAME];
   if (!file) {
-    throw new SyncError(`Gistに ${FILENAME} がありません`, "no-file");
+    // 既存のGistを流用した場合、まだこのバージョンのファイルが無いことがある。
+    // エラーにせず「リモートに何も無い」として扱い、次回のpushで作られるようにする。
+    return { state: null, updatedAt: json.updated_at };
   }
   // 1MBを超えると content が truncated になり raw_url からの取得が必要になる
   let content = file.content;
@@ -183,6 +190,11 @@ export async function push(state, { confirmOverwrite } = {}) {
 export async function pullIfNewer() {
   if (!isConfigured()) return null;
   const { state, updatedAt } = await pull();
+  if (state === null) {
+    // リモートにまだこのバージョンのデータが無い。この端末の内容を正とする。
+    markSynced(updatedAt);
+    return null;
+  }
   const lastSynced = getLastSynced();
   if (!lastSynced || new Date(updatedAt) > new Date(lastSynced)) {
     markSynced(updatedAt);
@@ -191,6 +203,7 @@ export async function pullIfNewer() {
   return null;
 }
 
+/** 接続を解除する。トークンとGist IDはv1と共通なので両方の接続が切れる。 */
 export function disconnect() {
   clearToken();
   setGistId("");

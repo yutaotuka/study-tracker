@@ -1,15 +1,15 @@
 // 汎用ユーティリティ
 export const CATS = [
-  { key: "js", label: "JS", cat: "JS" },
+  { key: "js", label: "JS基礎", cat: "JS基礎" },
+  { key: "trn", label: "TS/React/Next", cat: "TS/React/Next" },
   { key: "cc", label: "Claude Code", cat: "Claude Code" },
-  { key: "other", label: "その他技術", cat: "その他技術" },
   { key: "review", label: "振り返り", cat: "振り返り" },
 ];
 
 export const CAT_CLASS = {
-  JS: "cat-js",
+  JS基礎: "cat-js",
+  "TS/React/Next": "cat-trn",
   "Claude Code": "cat-cc",
-  その他技術: "cat-other",
   振り返り: "cat-review",
 };
 

@@ -1,11 +1,11 @@
 // 進捗データの保存・読み込み（localStorage + JSONエクスポート/インポート）
-const KEY = "study-tracker-v1";
+const KEY = "study-tracker-v2";
 
 const EMPTY = {
   version: 1,
   steps: {},   // { "s1": true }
   tasks: {},   // { "t1": true }
-  logs: {},    // { "2026-08-06": { js: 1, cc: 0.5, other: 0.5, review: 0, memo: "" } }
+  logs: {},    // { "2026-08-07": { js: 1, trn: 0.5, cc: 0.5, review: 0, memo: "" } }
   updatedAt: null,
 };
 
@@ -72,14 +72,14 @@ export function toggleTask(id) {
 }
 
 export function getLog(date) {
-  return state.logs[date] || { js: 0, cc: 0, other: 0, review: 0, memo: "" };
+  return state.logs[date] || { js: 0, trn: 0, cc: 0, review: 0, memo: "" };
 }
 
 export function setLog(date, patch) {
   const cur = getLog(date);
   const next = { ...cur, ...patch };
   const empty =
-    !next.js && !next.cc && !next.other && !next.review && !next.memo.trim();
+    !next.js && !next.trn && !next.cc && !next.review && !next.memo.trim();
   if (empty) delete state.logs[date];
   else state.logs[date] = next;
   persist();

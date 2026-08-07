@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>学習トラッカー | JS再入門 + Claude Code</title>
+    <title>学習トラッカー v2 | TypeScript / React / Next.js</title>
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
@@ -32,6 +32,7 @@
         <h2>同期設定（GitHub Gist）</h2>
         <p class="dialog-lead">
           非公開のGistに進捗を保存して、別の端末やブラウザから続きを使えるようにします。
+          <strong>以前のバージョンで接続済みなら、この設定は不要です</strong>（トークンとGist IDを引き継ぎます）。
         </p>
 
         <ol class="dialog-steps">
@@ -47,6 +48,12 @@
           </li>
           <li>有効期限を設定して生成し、表示されたトークンをコピーする</li>
           <li>下の欄に貼って「接続」を押す（初回はGistが自動で作られます）</li>
+        </ol>
+        <p class="dialog-note">
+          既に接続済みの場合、進捗は同じGist内の <code>study-progress-v2.json</code> に保存されます。
+          以前の進捗ファイルは上書きされません。
+        </p>
+        <ol class="dialog-steps" hidden>
         </ol>
 
         <label class="field">

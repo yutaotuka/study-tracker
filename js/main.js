@@ -87,7 +87,7 @@ const saveLog = debounce((date, field, value) => {
     const row = main.querySelector(`tr[data-date="${date}"]`);
     if (!row) return;
     const l = store.getLog(date);
-    const total = Math.round((l.js + l.cc + l.other + l.review) * 10) / 10;
+    const total = Math.round((l.js + l.trn + l.cc + l.review) * 10) / 10;
     const cell = row.querySelector("td.total");
     if (cell) {
       cell.textContent = `${total}h`;
@@ -389,7 +389,7 @@ window.addEventListener("beforeunload", (e) => {
 
 // ヘッダーに期間を表示（日付をずらしても自動で追従する）
 document.querySelector("#period").textContent =
-  `JS再入門 + Claude Code ／ ${periodLabel(PLAN.days, "dot")}`;
+  `TypeScript / React / Next.js 案件に向けて ／ ${periodLabel(PLAN.days, "dot")}`;
 
 window.addEventListener("hashchange", render);
 render();

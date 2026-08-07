@@ -8,12 +8,13 @@ import { PLAN } from "./data.js";
 const main = document.querySelector("#main");
 const nav = document.querySelector("#nav");
 
-const VIEWS = ["summary", "steps", "tasks", "logs", "rules"];
+const VIEWS = ["summary", "steps", "tasks", "logs", "refs", "rules"];
 
 const filters = {
   steps: { week: "all", cat: "all", q: "", hideDone: false },
   tasks: { track: "all", week: "all" },
   logs: { week: "all" },
+  refs: { track: "all" },
 };
 
 function currentView() {
@@ -30,6 +31,7 @@ function render() {
   else if (v === "steps") view.renderSteps(main, filters.steps);
   else if (v === "tasks") view.renderTasks(main, filters.tasks);
   else if (v === "logs") view.renderLogs(main, filters.logs);
+  else if (v === "refs") view.renderRefs(main, filters.refs);
   else view.renderRules(main);
 }
 
@@ -138,6 +140,10 @@ main.addEventListener("change", (e) => {
       filters.logs.week = e.target.value;
       view.renderLogs(main, filters.logs);
     }
+  }
+  if (e.target.matches("select.ref-filter")) {
+    filters.refs.track = e.target.value;
+    view.renderRefs(main, filters.refs);
   }
   if (e.target.matches("select.track-filter")) {
     filters.tasks.track = e.target.value;

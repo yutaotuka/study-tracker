@@ -2423,5 +2423,223 @@ export const PLAN = {
     "6. Ch11の商品データ20件は使い回す／Ch11(作る)→TS-3(型を付ける)→R-1(Reactで描画)→コンバート と一貫して使う。作り直さない。",
     "7. 遅れたらReactとNext.jsを優先し、他を削る／削る順番は Claude Code講座 → 振り返り → JS基礎の後半。5〜7週目のReact/Next.jsだけは死守する。ここが案件の必須スキルそのもの。",
     "8. 9/30に終わらなくても参画後に続ける前提でよい／8週は圧縮した計画なので、完璧に終わらせることより、参画時点で「Next.jsのアプリを1本作ってコンバートした経験がある」状態を作ることを優先する。"
+  ],
+  "references": [
+    {
+      "track": "JS基礎",
+      "name": "独習JavaScript 新版（CodeMafia 外村将大・翔泳社）",
+      "cost": "購入済み",
+      "url": "",
+      "week": "1〜4週目",
+      "scope": "Ch1-8, 11-14, 16",
+      "note": "Ch9/10/15/17 は今回スキップ。Ch6-8（関数・スコープ・this）とCh13（非同期）が最重要"
+    },
+    {
+      "track": "JS基礎",
+      "name": "MDN Web Docs（日本語）",
+      "cost": "無料",
+      "url": "https://developer.mozilla.org/ja/docs/Web/JavaScript",
+      "week": "随時",
+      "scope": "リファレンスとして必要なときだけ",
+      "note": "配列メソッドの仕様確認など。通読はしない"
+    },
+    {
+      "track": "TypeScript",
+      "name": "サバイバルTypeScript",
+      "cost": "無料",
+      "url": "https://typescriptbook.jp/",
+      "week": "2週目",
+      "scope": "「TypeScriptのあらまし」「なぜTypeScriptを使うのか」",
+      "note": "まず「なぜ型が必要か」を掴む。手を動かすのは3週目から"
+    },
+    {
+      "track": "TypeScript",
+      "name": "サバイバルTypeScript",
+      "cost": "無料",
+      "url": "https://typescriptbook.jp/reference/values-types-variables",
+      "week": "3週目",
+      "scope": "「値・型・変数」章：基本の型／型注釈／型推論／ユニオン型／リテラル型",
+      "note": "★TS-1の教材。手を動かしながら読む"
+    },
+    {
+      "track": "TypeScript",
+      "name": "サバイバルTypeScript",
+      "cost": "無料",
+      "url": "https://typescriptbook.jp/reference/object-oriented/interface",
+      "week": "3週目",
+      "scope": "interface と type エイリアスの違い",
+      "note": "★TS-2の教材。使い分けの基準を自分の言葉でメモに残す"
+    },
+    {
+      "track": "TypeScript",
+      "name": "サバイバルTypeScript",
+      "cost": "無料",
+      "url": "https://typescriptbook.jp/reference/generics",
+      "week": "4週目",
+      "scope": "ジェネリクス／ユーティリティ型（Partial・Pick・Omit・Record）",
+      "note": "★TS-2後半の教材。型を引数として渡す感覚を掴む"
+    },
+    {
+      "track": "TypeScript",
+      "name": "サバイバルTypeScript",
+      "cost": "無料",
+      "url": "https://typescriptbook.jp/reference/tsconfig",
+      "week": "3週目",
+      "scope": "tsconfig.json の strict 系オプション",
+      "note": "全部覚えなくていい。strict が何を見ているかだけ"
+    },
+    {
+      "track": "TypeScript",
+      "name": "TypeScript 公式ハンドブック",
+      "cost": "無料",
+      "url": "https://www.typescriptlang.org/docs/handbook/intro.html",
+      "week": "随時",
+      "scope": "サバイバルTypeScriptで足りないときの参照先",
+      "note": "英語。日本語で足りるので基本は使わない"
+    },
+    {
+      "track": "TypeScript",
+      "name": "TypeScript Playground",
+      "cost": "無料",
+      "url": "https://www.typescriptlang.org/play",
+      "week": "2〜4週目",
+      "scope": "型を試すときのブラウザ実行環境",
+      "note": "環境構築せずに型だけ試せる。エラーの再現に便利"
+    },
+    {
+      "track": "React",
+      "name": "React 公式ドキュメント（日本語）",
+      "cost": "無料",
+      "url": "https://ja.react.dev/learn",
+      "week": "5週目",
+      "scope": "「クイックスタート」→「インストール」",
+      "note": "★まずここから。80%の概念がクイックスタートに載っている"
+    },
+    {
+      "track": "React",
+      "name": "React 公式ドキュメント（日本語）",
+      "cost": "無料",
+      "url": "https://ja.react.dev/learn/describing-the-ui",
+      "week": "5週目",
+      "scope": "「UI の記述」：コンポーネント／props／条件分岐／リストとkey",
+      "note": "★R-1の教材。Ch11の商品データで手を動かす"
+    },
+    {
+      "track": "React",
+      "name": "React 公式ドキュメント（日本語）",
+      "cost": "無料",
+      "url": "https://ja.react.dev/learn/adding-interactivity",
+      "week": "5週目",
+      "scope": "「インタラクティビティの追加」：state／イベント／再レンダリング",
+      "note": "★useStateはここ。フォームとイベント処理もこの章"
+    },
+    {
+      "track": "React",
+      "name": "React 公式ドキュメント（日本語）",
+      "cost": "無料",
+      "url": "https://ja.react.dev/learn/managing-state",
+      "week": "6週目",
+      "scope": "「state の管理」：リフトアップ／state構造の選び方",
+      "note": "★R-3の教材。設計の話ができるかはここで決まる"
+    },
+    {
+      "track": "React",
+      "name": "React 公式ドキュメント（日本語）",
+      "cost": "無料",
+      "url": "https://ja.react.dev/learn/escape-hatches",
+      "week": "6週目",
+      "scope": "「避難ハッチ」：useEffect／依存配列／カスタムフック",
+      "note": "★R-2の教材。一番ハマる箇所。Ch7のクロージャの知識が効く"
+    },
+    {
+      "track": "React",
+      "name": "React 公式：三目並べチュートリアル",
+      "cost": "無料",
+      "url": "https://ja.react.dev/learn/tutorial-tic-tac-toe",
+      "week": "5週目",
+      "scope": "手を動かす題材が欲しいときに（任意）",
+      "note": "時間があればでよい。優先は自分の商品一覧アプリ"
+    },
+    {
+      "track": "React",
+      "name": "React TypeScript Cheatsheet",
+      "cost": "無料",
+      "url": "https://react-typescript-cheatsheet.netlify.app/",
+      "week": "5週目",
+      "scope": "props・イベント・useStateの型の書き方",
+      "note": "★Reactでよく使う型の教材。英語だがコード例中心で読める"
+    },
+    {
+      "track": "Next.js",
+      "name": "Next.js Learn（公式チュートリアル）",
+      "cost": "無料",
+      "url": "https://nextjs.org/learn",
+      "week": "7週目",
+      "scope": "App Router のコース。環境構築〜ルーティング〜データ取得",
+      "note": "★7週目の主教材。英語だが手を動かす形式なので進めやすい"
+    },
+    {
+      "track": "Next.js",
+      "name": "Next.js 公式ドキュメント",
+      "cost": "無料",
+      "url": "https://nextjs.org/docs/app/building-your-application/routing",
+      "week": "7週目",
+      "scope": "Routing：layout / page / 動的ルート",
+      "note": "★N-1の教材。ファイル構成の決まりを確認する"
+    },
+    {
+      "track": "Next.js",
+      "name": "Next.js 公式ドキュメント",
+      "cost": "無料",
+      "url": "https://nextjs.org/docs/app/building-your-application/rendering/server-components",
+      "week": "7週目",
+      "scope": "Server Components と Client Components",
+      "note": "★N-2の教材。ここが案件で一番効く。境界の判断基準を作る"
+    },
+    {
+      "track": "Next.js",
+      "name": "Next.js 公式ドキュメント",
+      "cost": "無料",
+      "url": "https://nextjs.org/docs/app/building-your-application/data-fetching",
+      "week": "7週目",
+      "scope": "Data Fetching とキャッシュ",
+      "note": "★N-3の教材。Ch13のfetchと何が変わるかを比べる"
+    },
+    {
+      "track": "Next.js",
+      "name": "Next.js 日本語訳（コミュニティ）",
+      "cost": "無料",
+      "url": "https://ja.next-community-docs.dev/docs/app-router/",
+      "week": "7週目",
+      "scope": "英語で詰まったときの補助",
+      "note": "公式ではないため、最終的な確認は本家で行う"
+    },
+    {
+      "track": "AI駆動開発",
+      "name": "Claude Code Academy",
+      "cost": "購入済み",
+      "url": "https://claude-code-academy.dev/",
+      "week": "1〜8週目",
+      "scope": "入門の残り／Skills入門1-6／ハーネス1-9・21-25／セキュリティ1-9",
+      "note": "Skills入門7-18、ハーネス10-20・26-32、iOS開発はスキップ"
+    },
+    {
+      "track": "AI駆動開発",
+      "name": "Claude Code 公式ドキュメント",
+      "cost": "無料",
+      "url": "https://code.claude.com/docs",
+      "week": "随時",
+      "scope": "CLAUDE.md／サブエージェント／権限設定の正確な仕様",
+      "note": "講座で分からなかったときの一次情報"
+    },
+    {
+      "track": "AI駆動開発",
+      "name": "Cursor",
+      "cost": "無料枠あり",
+      "url": "https://cursor.com/",
+      "week": "7週目",
+      "scope": "インストールと基本操作（Cmd+K・チャット・Tab補完）",
+      "note": "★案件の推奨スキル。Claude Codeとの使い分けを言語化する"
+    }
   ]
 };

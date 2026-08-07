@@ -543,6 +543,71 @@ export function renderLogs(root, filters) {
   );
 }
 
+// ---------- 教材 ----------
+export function renderRefs(root, filters) {
+  root.replaceChildren();
+  const track = filters.track;
+  const refs = PLAN.references || [];
+  const tracks = [...new Set(refs.map((r) => r.track))];
+
+  root.appendChild(
+    el("p", {
+      class: "lead",
+      text:
+        "各テーマで使う教材と、読む範囲です。★が付いているものは課題に直結します。" +
+        "書籍以外はすべて無料で、追加購入は不要です。",
+    })
+  );
+
+  const bar1 = el("div", { class: "toolbar" });
+  const sel = el("select", { class: "ref-filter" });
+  sel.appendChild(el("option", { text: "全分野", attrs: { value: "all" } }));
+  for (const t of tracks) {
+    const n = refs.filter((r) => r.track === t).length;
+    sel.appendChild(el("option", { text: `${t}（${n}）`, attrs: { value: t } }));
+  }
+  sel.value = track;
+  bar1.appendChild(sel);
+  root.appendChild(bar1);
+
+  const rows = track === "all" ? refs : refs.filter((r) => r.track === track);
+
+  const wrap = el("div", { class: "ref-list" });
+  let lastTrack = null;
+  for (const r of rows) {
+    if (r.track !== lastTrack) {
+      wrap.appendChild(el("h3", { class: "ref-track", text: r.track }));
+      lastTrack = r.track;
+    }
+    const title = r.url
+      ? el("a", {
+          class: "ref-name",
+          text: r.name,
+          attrs: { href: r.url, target: "_blank", rel: "noopener noreferrer" },
+        })
+      : el("span", { class: "ref-name", text: r.name });
+
+    wrap.appendChild(
+      el("article", {
+        class: `ref-card ${r.scope.includes("★") || r.note.includes("★") ? "key" : ""}`,
+        children: [
+          el("header", {
+            children: [
+              title,
+              el("span", { class: "chip ref-week", text: r.week }),
+              el("span", { class: "chip ref-cost", text: r.cost }),
+            ],
+          }),
+          el("p", { class: "ref-scope", text: r.scope }),
+          r.note ? el("p", { class: "ref-note muted", text: r.note }) : null,
+          r.url ? el("p", { class: "ref-url muted", text: r.url }) : null,
+        ],
+      })
+    );
+  }
+  root.appendChild(wrap);
+}
+
 // ---------- ルール ----------
 export function renderRules(root) {
   root.replaceChildren();

@@ -1,6 +1,6 @@
 // 画面描画（DOM組み立てのみ。イベント登録は main.js 側）
-import { PLAN } from "./data.js";
-import * as store from "./storage.js";
+import { PLAN } from "./data.js?v=2";
+import * as store from "./storage.js?v=2";
 import {
   CATS,
   CAT_CLASS,
@@ -11,7 +11,7 @@ import {
   todayIso,
   periodLabel,
   el,
-} from "./utils.js";
+} from "./utils.js?v=2";
 
 // ---------- 集計 ----------
 export function weekStats(weekNo) {
@@ -549,6 +549,18 @@ export function renderRefs(root, filters) {
   const track = filters.track;
   const refs = PLAN.references || [];
   const tracks = [...new Set(refs.map((r) => r.track))];
+
+  if (refs.length === 0) {
+    root.appendChild(
+      el("p", {
+        class: "empty",
+        text:
+          "教材データが読み込めませんでした。js/data.js が古い可能性があります。" +
+          "最新のファイルに差し替えたうえで、Cmd+Shift+R で再読み込みしてください。",
+      })
+    );
+    return;
+  }
 
   root.appendChild(
     el("p", {

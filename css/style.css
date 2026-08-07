@@ -869,6 +869,12 @@ a.ref-name:hover {
 }
 
 /* ---------- footer ---------- */
+.version {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 10px;
+}
+
 .site-footer {
   max-width: 1180px;
   margin: 0 auto;

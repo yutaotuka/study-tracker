@@ -13,6 +13,21 @@ export const CAT_CLASS = {
   振り返り: "cat-review",
 };
 
+// 2階建て（コア／余力）の表示用
+export const TIER_CLASS = {
+  コア: "tier-core",
+  余力: "tier-opt",
+  済: "tier-done",
+  対象外: "tier-out",
+};
+
+// 課題の週ラベル。0=8/23までに完了、-1=今回の計画から外した
+export function weekLabel(week) {
+  if (week === 0) return "完了済み";
+  if (week < 0) return "今回は対象外";
+  return `${week}週目`;
+}
+
 export function sum(arr, fn = (x) => x) {
   return arr.reduce((a, b) => a + fn(b), 0);
 }

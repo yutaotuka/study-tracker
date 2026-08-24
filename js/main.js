@@ -1,9 +1,9 @@
 // 初期化・ルーティング・イベント登録
-import * as store from "./storage.js?v=2";
-import * as view from "./render.js?v=2";
-import * as sync from "./sync.js?v=2";
-import { debounce, todayIso, weekOf, periodLabel } from "./utils.js?v=2";
-import { PLAN } from "./data.js?v=2";
+import * as store from "./storage.js?v=3";
+import * as view from "./render.js?v=3";
+import * as sync from "./sync.js?v=3";
+import { debounce, todayIso, weekOf, periodLabel } from "./utils.js?v=3";
+import { PLAN } from "./data.js?v=3";
 
 const main = document.querySelector("#main");
 const nav = document.querySelector("#nav");
@@ -11,8 +11,8 @@ const nav = document.querySelector("#nav");
 const VIEWS = ["summary", "steps", "tasks", "logs", "refs", "rules"];
 
 const filters = {
-  steps: { week: "all", cat: "all", q: "", hideDone: false },
-  tasks: { track: "all", week: "all" },
+  steps: { week: "all", cat: "all", q: "", hideDone: false, coreOnly: false },
+  tasks: { track: "all", week: "all", scope: "active" },
   logs: { week: "all" },
   refs: { track: "all" },
 };
@@ -54,8 +54,12 @@ main.addEventListener("click", (e) => {
     // 件数表示だけ更新する（カード全体は再描画しない）
     const counter = main.querySelector("p.count");
     if (counter) {
+      const sc =
+        view.TASK_SCOPES.find((x) => x.value === filters.tasks.scope) ||
+        view.TASK_SCOPES[0];
       const rows = PLAN.tasks.filter(
         (t) =>
+          sc.match(t) &&
           (filters.tasks.track === "all" || t.track === filters.tasks.track) &&
           (filters.tasks.week === "all" ||
             t.week === Number(filters.tasks.week))
@@ -81,16 +85,49 @@ main.addEventListener("click", (e) => {
   }
 });
 
+// ---------- メモの書き出しテンプレ ----------
+main.addEventListener("click", (e) => {
+  const btn = e.target.closest("button.tpl");
+  if (!btn) return;
+  const box = btn.closest("[data-date]");
+  const ta = box?.querySelector("textarea[data-field='memo']");
+  if (!ta) return;
+  const cur = ta.value;
+  const needsBreak = cur && !cur.endsWith("\n");
+  ta.value = cur + (needsBreak ? "\n" : "") + btn.dataset.tpl;
+  ta.focus();
+  ta.setSelectionRange(ta.value.length, ta.value.length);
+  store.setLog(box.dataset.date, { memo: ta.value });
+});
+
+// ---------- 日次ログを Markdown でコピー ----------
+main.addEventListener("click", (e) => {
+  const btn = e.target.closest("button.md-copy");
+  if (!btn) return;
+  const md = view.logsMarkdown(filters.logs.week);
+  if (!md) {
+    alert("コピーする記録がありません。");
+    return;
+  }
+  navigator.clipboard
+    .writeText(md)
+    .then(() => {
+      const before = btn.textContent;
+      btn.textContent = "コピーしました（Obsidianに貼れます）";
+      setTimeout(() => (btn.textContent = before), 2000);
+    })
+    .catch(() => alert("コピーに失敗しました。手動で選択してください。"));
+});
+
 // ---------- 入力系 ----------
 const saveLog = debounce((date, field, value) => {
   store.setLog(date, { [field]: value });
-  if (currentView() === "logs") {
-    // 合計セルだけ更新（全体再描画は避ける）
-    const row = main.querySelector(`tr[data-date="${date}"]`);
-    if (!row) return;
-    const l = store.getLog(date);
-    const total = Math.round((l.js + l.trn + l.cc + l.review) * 10) / 10;
-    const cell = row.querySelector("td.total");
+  // 合計表示だけ更新する（全体再描画は避ける）。
+  // 日次ログの行と、サマリーの「今日の記録」の両方が対象。
+  const l = store.getLog(date);
+  const total = Math.round((l.js + l.trn + l.cc + l.review) * 10) / 10;
+  for (const box of main.querySelectorAll(`[data-date="${date}"]`)) {
+    const cell = box.querySelector(".total");
     if (cell) {
       cell.textContent = `${total}h`;
       cell.classList.toggle("muted", !total);
@@ -100,7 +137,7 @@ const saveLog = debounce((date, field, value) => {
 
 main.addEventListener("input", (e) => {
   // 日次ログの入力
-  const logRow = e.target.closest("tr[data-date]");
+  const logRow = e.target.closest("[data-date]");
   if (logRow && e.target.dataset.field) {
     const field = e.target.dataset.field;
     const value =
@@ -148,6 +185,9 @@ main.addEventListener("change", (e) => {
   if (e.target.matches("select.track-filter")) {
     filters.tasks.track = e.target.value;
     view.renderTasks(main, filters.tasks);
+  } else if (e.target.classList.contains("scope-filter")) {
+    filters.tasks.scope = e.target.value;
+    view.renderTasks(main, filters.tasks);
   }
   if (e.target.matches("select.cat-filter")) {
     filters.steps.cat = e.target.value;
@@ -155,6 +195,9 @@ main.addEventListener("change", (e) => {
   }
   if (e.target.matches("#hide-done")) {
     filters.steps.hideDone = e.target.checked;
+    view.renderSteps(main, filters.steps);
+  } else if (e.target.id === "core-only") {
+    filters.steps.coreOnly = e.target.checked;
     view.renderSteps(main, filters.steps);
   }
 });

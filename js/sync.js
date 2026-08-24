@@ -14,6 +14,7 @@
 const TOKEN_KEY = "study-tracker-token";
 const GIST_KEY = "study-tracker-gist-id";
 const SYNCED_KEY = "study-tracker-v2-last-synced";
+// v3も同じGistファイルを使う。同期設定のやり直しは不要。
 const FILENAME = "study-progress-v2.json";
 const API = "https://api.github.com";
 

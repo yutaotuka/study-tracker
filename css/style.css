@@ -897,3 +897,152 @@ a.ref-name:hover {
     display: none;
   }
 }
+
+
+/* ===== v3: 2階建て（コア／余力）の表示 ===== */
+.chip.tier-core {
+  background: #7f1d1d;
+  color: #fff;
+  font-weight: 700;
+}
+.chip.tier-opt {
+  background: #e5e7eb;
+  color: #4b5563;
+}
+.chip.tier-done {
+  background: #d1fae5;
+  color: #065f46;
+}
+.chip.tier-out {
+  background: #f3f4f6;
+  color: #9ca3af;
+}
+table.steps tr.optional td:not(:first-child) {
+  opacity: 0.72;
+}
+.task-card.optional {
+  opacity: 0.9;
+}
+.task-card.out {
+  opacity: 0.55;
+}
+.notice.revision {
+  border-left: 4px solid #7f1d1d;
+  background: #fef2f2;
+}
+.notice.revision p:first-child {
+  font-weight: 700;
+}
+
+
+/* ===== v3: 課題カードの追加セクション ===== */
+.task-card ul.task-sub,
+.task-card ol.task-sub {
+  margin: 4px 0 10px;
+  padding-left: 1.4em;
+}
+.task-card ul.task-sub li,
+.task-card ol.task-sub li {
+  margin-bottom: 4px;
+  line-height: 1.6;
+}
+.task-card code {
+  background: #eef2f7;
+  border-radius: 3px;
+  padding: 1px 5px;
+  font-size: 0.92em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+
+/* ===== v3: 課題タブの表示範囲 ===== */
+.hidden-note {
+  margin: -6px 0 12px;
+  font-size: 12px;
+}
+select.scope-filter {
+  margin-left: auto;
+}
+
+
+/* ===== v3: メモを書きやすくする ===== */
+.today-log {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--line);
+}
+.today-log h3 {
+  margin: 0 0 8px;
+  font-size: 14px;
+}
+.today-log .num-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.today-log .num-field {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.today-log .num-field input.num {
+  width: 64px;
+}
+.today-log .total-line {
+  margin: 0 0 10px;
+  font-size: 13px;
+}
+.today-log .total-line .total {
+  font-weight: 700;
+}
+.memo-tpl {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+  font-size: 12px;
+}
+button.tpl {
+  font: inherit;
+  font-size: 12px;
+  padding: 3px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  cursor: pointer;
+}
+button.tpl:hover {
+  background: #eef2f7;
+}
+textarea.memo-big {
+  width: 100%;
+  font: inherit;
+  line-height: 1.7;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  resize: vertical;
+  box-sizing: border-box;
+}
+textarea.memo {
+  width: 100%;
+  min-width: 220px;
+  font: inherit;
+  font-size: 12px;
+  line-height: 1.6;
+  padding: 5px 8px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  resize: vertical;
+  box-sizing: border-box;
+}
+textarea.memo:focus {
+  min-height: 5em;
+}
+button.md-copy {
+  margin-left: auto;
+}

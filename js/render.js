@@ -1,6 +1,6 @@
 // 画面描画（DOM組み立てのみ。イベント登録は main.js 側）
-import { PLAN } from "./data.js?v=2";
-import * as store from "./storage.js?v=2";
+import { PLAN } from "./data.js?v=3";
+import * as store from "./storage.js?v=3";
 import {
   CATS,
   CAT_CLASS,
@@ -11,7 +11,9 @@ import {
   todayIso,
   periodLabel,
   el,
-} from "./utils.js?v=2";
+  TIER_CLASS,
+  weekLabel,
+} from "./utils.js?v=3";
 
 // ---------- 集計 ----------
 export function weekStats(weekNo) {
@@ -23,16 +25,21 @@ export function weekStats(weekNo) {
   });
   const steps = PLAN.steps.filter((s) => s.week === weekNo);
   const stepsDone = steps.filter((s) => store.isStepDone(s.id)).length;
+  const core = steps.filter((s) => s.tier === "コア");
   return {
     target: round1(target),
     actual: round1(actual),
     ratio: target ? actual / target : 0,
     steps: steps.length,
     stepsDone,
+    core: core.length,
+    coreDone: core.filter((s) => store.isStepDone(s.id)).length,
+    coreHours: round1(sum(core, (x) => x.h)),
   };
 }
 
 export function totalStats() {
+  const coreSteps = PLAN.steps.filter((s) => s.tier === "コア");
   const target = sum(PLAN.days, (d) => d.target);
   const actual = sum(PLAN.days, (d) => {
     const l = store.getLog(d.date);
@@ -52,6 +59,12 @@ export function totalStats() {
     stepsDone: PLAN.steps.filter((s) => store.isStepDone(s.id)).length,
     tasks: PLAN.tasks.length,
     tasksDone: PLAN.tasks.filter((t) => store.isTaskDone(t.id)).length,
+    core: coreSteps.length,
+    coreDone: coreSteps.filter((s) => store.isStepDone(s.id)).length,
+    coreHours: round1(sum(coreSteps, (s) => s.h)),
+    coreLeftHours: round1(
+      sum(coreSteps.filter((s) => !store.isStepDone(s.id)), (s) => s.h)
+    ),
   };
 }
 
@@ -86,6 +99,7 @@ export function renderToday(root) {
   const items = day.plan.map((p) =>
     el("li", {
       children: [
+        el("span", { class: `chip ${TIER_CLASS[p.tier]}`, text: p.tier }),
         el("span", { class: `chip ${CAT_CLASS[p.cat]}`, text: p.cat }),
         el("span", { class: "todo", text: p.todo }),
         el("span", { class: "hh", text: `${p.h}h` }),
@@ -122,16 +136,109 @@ export function renderToday(root) {
         el("ul", { class: "today-list", children: items }),
         el("p", {
           class: "muted",
-          text: "目安なので前後に1〜2日ずれても問題ありません。週の合計が合っていればOKです。",
+          text: "「コア」を先に片付けてください。時間が足りない日は「余力」を落として構いません。前後1〜2日のずれは問題ありません。",
         }),
+        outOfRange ? null : todayLog(day),
       ],
     })
   );
 }
 
+// 今日の記録欄。日次ログのタブを開かなくてもここで書ける
+export const MEMO_TEMPLATES = [
+  { label: "詰まった", text: "詰まった: " },
+  { label: "分かった", text: "分かった: " },
+  { label: "明日", text: "明日: " },
+];
+
+function todayLog(day) {
+  const l = store.getLog(day.date);
+  const total = round1(l.js + l.trn + l.cc + l.review);
+
+  const nums = CATS.map((c) => {
+    const inp = el("input", {
+      class: "num",
+      attrs: {
+        type: "number", min: "0", max: "24", step: "0.5",
+        "data-field": c.key,
+        value: l[c.key] ? String(l[c.key]) : "",
+      },
+    });
+    return el("label", {
+      class: "num-field",
+      children: [el("span", { text: c.label }), inp],
+    });
+  });
+
+  const memo = el("textarea", {
+    class: "memo-big",
+    attrs: {
+      "data-field": "memo",
+      rows: "4",
+      placeholder:
+        "例）詰まった: varのループで3,3,3になる理由が腑に落ちない\n分かった: クロージャは作られた場所の変数を覚えている\n明日: Ch8のthisから",
+    },
+  });
+  memo.value = l.memo || "";
+
+  const tpl = el("div", {
+    class: "memo-tpl",
+    children: [
+      el("span", { class: "muted", text: "書き出し:" }),
+      ...MEMO_TEMPLATES.map((t) =>
+        el("button", {
+          class: "tpl",
+          text: t.label,
+          attrs: { type: "button", "data-tpl": t.text },
+        })
+      ),
+    ],
+  });
+
+  return el("div", {
+    class: "today-log",
+    attrs: { "data-date": day.date },
+    children: [
+      el("h3", { text: "今日の記録" }),
+      el("div", { class: "num-row", children: nums }),
+      el("p", {
+        class: "total-line",
+        children: [
+          el("span", { class: "muted", text: "計 " }),
+          el("span", { class: `total ${total ? "" : "muted"}`, text: `${total}h` }),
+          el("span", { class: "muted", text: ` / 目標 ${day.target}h` }),
+        ],
+      }),
+      tpl,
+      memo,
+      el("p", {
+        class: "muted",
+        text: "自動保存されます。1〜3行で十分です。書けない日は時間だけでも入れてください。",
+      }),
+    ],
+  });
+}
+
 export function renderSummary(root) {
   root.replaceChildren();
   const t = totalStats();
+
+  if (PLAN.meta) {
+    root.appendChild(
+      el("section", {
+        class: "notice revision",
+        children: [
+          el("p", {
+            text: `${PLAN.meta.revisedOn} 再設計版（${PLAN.meta.period}・${PLAN.meta.totalHours}h）。コア ${PLAN.meta.coreHours}h ＋ 余力 ${PLAN.meta.optionalHours}h の2階建てです。`,
+          }),
+          el("p", {
+            class: "muted",
+            text: "コアだけ終われば、参画時に「ReactアプリをNext.jsへコンバートした経験がある」状態になります。余力は、コアが予定どおり進んだときだけ手を付けてください。",
+          }),
+        ],
+      })
+    );
+  }
 
   renderToday(root);
 
@@ -141,7 +248,12 @@ export function renderSummary(root) {
       children: [
         statCard("実施時間", `${t.actual} h`, `目標 ${t.target} h`),
         statCard("達成率", `${pct(t.actual, t.target)} %`, "全期間"),
-        statCard("手順の消化", `${t.stepsDone} / ${t.steps}`, "週別タスク手順"),
+        statCard(
+          "コアの消化",
+          `${t.coreDone} / ${t.core}`,
+          `残り ${t.coreLeftHours} h（コア全体 ${t.coreHours} h）`
+        ),
+        statCard("手順の消化", `${t.stepsDone} / ${t.steps}`, "コア＋余力"),
         statCard("課題", `${t.tasksDone} / ${t.tasks}`, "全分野・自分でやる課題"),
       ],
     })
@@ -192,7 +304,7 @@ export function renderSummary(root) {
             ],
           }),
           el("footer", {
-            text: `${s.actual} / ${s.target} h ・ 手順 ${s.stepsDone}/${s.steps}`,
+            text: `${s.actual} / ${s.target} h ・ コア ${s.coreDone}/${s.core}（${s.coreHours}h） ・ 全手順 ${s.stepsDone}/${s.steps}`,
           }),
         ],
       })
@@ -204,7 +316,7 @@ export function renderSummary(root) {
 // ---------- 週別タスク手順 ----------
 export function renderSteps(root, filters) {
   root.replaceChildren();
-  const { week, cat, q, hideDone } = filters;
+  const { week, cat, q, hideDone, coreOnly } = filters;
 
   const bar1 = el("div", { class: "toolbar" });
   bar1.appendChild(weekSelect(week));
@@ -224,6 +336,15 @@ export function renderSteps(root, filters) {
   });
   cb.querySelector("input").checked = !!hideDone;
   bar1.appendChild(cb);
+  const cb2 = el("label", {
+    class: "toggle",
+    children: [
+      el("input", { attrs: { type: "checkbox", id: "core-only" } }),
+      el("span", { text: "コアのみ" }),
+    ],
+  });
+  cb2.querySelector("input").checked = !!coreOnly;
+  bar1.appendChild(cb2);
   root.appendChild(bar1);
 
   let rows = PLAN.steps;
@@ -237,11 +358,15 @@ export function renderSteps(root, filters) {
     );
   }
   if (hideDone) rows = rows.filter((s) => !store.isStepDone(s.id));
+  if (coreOnly) rows = rows.filter((s) => s.tier === "コア");
 
+  const coreH = round1(sum(rows.filter((r) => r.tier === "コア"), (r) => r.h));
   root.appendChild(
     el("p", {
       class: "count",
-      text: `${rows.length} 件 ／ 目安 ${round1(sum(rows, (r) => r.h))} h`,
+      text: `${rows.length} 件 ／ 目安 ${round1(
+        sum(rows, (r) => r.h)
+      )} h（うちコア ${coreH} h）`,
     })
   );
 
@@ -257,9 +382,15 @@ export function renderSteps(root, filters) {
     el("thead", {
       children: [
         el("tr", {
-          children: ["", "週", "カテゴリ", "やること", "成果物・確認", "目安"].map(
-            (h) => el("th", { text: h })
-          ),
+          children: [
+            "",
+            "週",
+            "階層",
+            "カテゴリ",
+            "やること",
+            "成果物・確認",
+            "目安",
+          ].map((h) => el("th", { text: h })),
         }),
       ],
     })
@@ -270,11 +401,16 @@ export function renderSteps(root, filters) {
     const box = el("input", { attrs: { type: "checkbox" } });
     box.checked = done;
     const tr = el("tr", {
-      class: done ? "done" : "",
+      class: `${done ? "done" : ""} ${s.tier === "余力" ? "optional" : ""}`.trim(),
       attrs: { "data-id": s.id },
       children: [
         el("td", { children: [box] }),
         el("td", { text: String(s.week) }),
+        el("td", {
+          children: [
+            el("span", { class: `chip ${TIER_CLASS[s.tier]}`, text: s.tier }),
+          ],
+        }),
         el("td", {
           children: [
             el("span", { class: `chip ${CAT_CLASS[s.cat]}`, text: s.cat }),
@@ -318,9 +454,31 @@ function catSelect(value) {
 // ---------- 課題 ----------
 export const TRACKS = ["JS基礎", "TypeScript", "React", "Next.js", "コンバート", "Claude Code"];
 
+// 中身がある項目だけ「見出し＋リスト」を返す（空なら何も出さない）
+function section(title, items, make, cls = "") {
+  if (!items || items.length === 0) return [];
+  const tag = title.startsWith("進め方") ? "ol" : "ul";
+  return [
+    el("h4", { text: title }),
+    el(tag, {
+      class: `task-sub ${cls}`.trim(),
+      children: items.map(make),
+    }),
+  ];
+}
+
+// 課題タブの表示範囲
+export const TASK_SCOPES = [
+  { value: "active", label: "今回やる分", match: (t) => t.week > 0 },
+  { value: "core", label: "コアのみ", match: (t) => t.tier === "コア" },
+  { value: "done", label: "完了済み", match: (t) => t.tier === "済" },
+  { value: "out", label: "今回は対象外", match: (t) => t.tier === "対象外" },
+  { value: "all", label: "全て", match: () => true },
+];
+
 export function renderTasks(root, filters) {
   root.replaceChildren();
-  const { track, week } = filters;
+  const { track, week, scope = "active" } = filters;
 
   root.appendChild(
     el("div", {
@@ -333,7 +491,7 @@ export function renderTasks(root, filters) {
         el("p", {
           class: "muted",
           text:
-            "青い枠の「身につくこと」は先に読めます。JSは必ず、自分で書く → 詰まる → 書き終わってからClaude Codeにレビューさせる。目安(h)は週別タスク手順に含まれる時間で、追加で必要な時間ではありません。",
+            "青い枠の「身につくこと」は先に読めます。必ず、自分で書く → 詰まる → 書き終わってからAIにレビューさせる。「完了済み」は8/23までに終えたもの、「今回は対象外」は9/30までの計画から外して参画後に回したものです。目安(h)は週別タスク手順に含まれる時間で、追加で必要な時間ではありません。",
         }),
       ],
     })
@@ -351,9 +509,24 @@ export function renderTasks(root, filters) {
   tsel.value = track;
   bar1.appendChild(tsel);
   bar1.appendChild(weekSelect(week));
+
+  const ssel = el("select", { class: "scope-filter" });
+  for (const sc of TASK_SCOPES) {
+    const n = PLAN.tasks.filter(sc.match).length;
+    ssel.appendChild(
+      el("option", {
+        text: `${sc.label}（${n}）`,
+        attrs: { value: sc.value },
+      })
+    );
+  }
+  ssel.value = scope;
+  bar1.appendChild(ssel);
   root.appendChild(bar1);
 
   let rows = PLAN.tasks;
+  const sc = TASK_SCOPES.find((x) => x.value === scope) || TASK_SCOPES[0];
+  rows = rows.filter(sc.match);
   if (track !== "all") rows = rows.filter((t) => t.track === track);
   if (week !== "all") rows = rows.filter((t) => t.week === Number(week));
 
@@ -366,6 +539,24 @@ export function renderTasks(root, filters) {
       )} h`,
     })
   );
+  {
+    const hidden = PLAN.tasks.length - PLAN.tasks.filter(sc.match).length;
+    if (hidden > 0) {
+      const done = PLAN.tasks.filter((t) => t.tier === "済" && !sc.match(t)).length;
+      const out = PLAN.tasks.filter((t) => t.tier === "対象外" && !sc.match(t)).length;
+      const parts = [];
+      if (done) parts.push(`完了済み${done}本`);
+      if (out) parts.push(`今回は対象外${out}本`);
+      const other = hidden - done - out;
+      if (other > 0) parts.push(`ほか${other}本`);
+      root.appendChild(
+        el("p", {
+          class: "muted hidden-note",
+          text: `${parts.join("・")}を隠しています（左の切り替えで「全て」にすると出ます）`,
+        })
+      );
+    }
+  }
 
   if (rows.length === 0) {
     root.appendChild(
@@ -392,7 +583,11 @@ export function renderTasks(root, filters) {
 
     wrap.appendChild(
       el("article", {
-        class: `task-card track-${TRACKS.indexOf(t.track)} ${done ? "done" : ""}`,
+        class: `task-card track-${TRACKS.indexOf(t.track)} ${
+          done ? "done" : ""
+        } ${t.tier === "対象外" ? "out" : ""} ${
+          t.tier === "余力" ? "optional" : ""
+        }`.replace(/\s+/g, " ").trim(),
         attrs: { "data-id": t.id },
         children: [
           el("header", {
@@ -412,19 +607,39 @@ export function renderTasks(root, filters) {
                     class: `chip track-chip-${TRACKS.indexOf(t.track)}`,
                     text: t.track,
                   }),
-                  el("span", { text: ` ${t.week}週目 ・ 目安${t.h}h` }),
+                  el("span", {
+                    class: `chip ${TIER_CLASS[t.tier]}`,
+                    text: t.tier,
+                  }),
+                  el("span", {
+                    text: ` ${weekLabel(t.week)} ・ 目安${t.h}h`,
+                  }),
                 ],
               }),
             ],
           }),
           el("h4", { text: "この課題で身につくこと" }),
           el("p", { class: "goal", text: t.goal }),
-          el("h4", { text: "要件（この通りに作る）" }),
+          ...section("作るファイル", t.files, (f) =>
+            el("li", {
+              children: [
+                el("code", { text: f.path }),
+                el("span", { class: "muted", text: ` … ${f.note}` }),
+              ],
+            })
+          ),
+          ...section("進め方（この順で手を動かす）", t.steps, (x) =>
+            el("li", { text: x })
+          ),
+          el("h4", { text: "要件（できたか自分で判定する）" }),
           reqs,
           el("h4", { text: "使う主な機能" }),
           el("p", { class: "muted", text: t.feats }),
           el("h4", { text: "完成の判定基準" }),
           el("p", { class: "judge", text: t.judge }),
+          ...section("詰まったときのヒント（答えではない）", t.hints, (x) =>
+            el("li", { text: x })
+          ),
           el("h4", { text: "レビュー依頼文" }),
           el("p", { class: "review", text: t.review }),
           copyBtn,
@@ -447,6 +662,13 @@ export function renderLogs(root, filters) {
       class: "hint",
       text:
         "「その日の目安」に沿って進め、実施時間とメモを入力します（自動保存・前後1〜2日のずれはOK）",
+    })
+  );
+  bar1.appendChild(
+    el("button", {
+      class: "copy md-copy",
+      text: "この範囲をMarkdownでコピー",
+      attrs: { type: "button" },
     })
   );
   root.appendChild(bar1);
@@ -495,10 +717,11 @@ export function renderLogs(root, filters) {
       });
       return el("td", { children: [inp] });
     });
-    const memo = el("input", {
+    const memo = el("textarea", {
       class: "memo",
-      attrs: { type: "text", "data-field": "memo", value: l.memo || "" },
+      attrs: { "data-field": "memo", rows: l.memo ? "3" : "1" },
     });
+    memo.value = l.memo || "";
 
     tbody.appendChild(
       el("tr", {
@@ -653,4 +876,54 @@ export function renderRules(root) {
     dl.appendChild(el("dd", { text: v }));
   }
   root.appendChild(dl);
+}
+
+
+// ---------- 日次ログを Markdown にする（Obsidianへ貼るため） ----------
+export function logsMarkdown(week) {
+  const days =
+    week === "all" ? PLAN.days : PLAN.days.filter((d) => d.week === Number(week));
+  if (!days.length) return "";
+
+  const target = round1(sum(days, (d) => d.target));
+  const actual = round1(
+    sum(days, (d) => {
+      const l = store.getLog(d.date);
+      return l.js + l.trn + l.cc + l.review;
+    })
+  );
+  const head =
+    week === "all"
+      ? `# 学習ログ ${fmtDate(days[0].date)}〜${fmtDate(days.at(-1).date)}`
+      : `# ${week}週目（${fmtDate(days[0].date)}〜${fmtDate(days.at(-1).date)}）`;
+
+  const lines = [head, "", `実施 ${actual}h / 目標 ${target}h`, ""];
+
+  for (const d of days) {
+    const l = store.getLog(d.date);
+    const t = round1(l.js + l.trn + l.cc + l.review);
+    if (!t && !l.memo) continue;
+    lines.push(`## ${fmtDate(d.date)}（${d.wd}） ${t}h`);
+    const parts = CATS.filter((c) => l[c.key]).map(
+      (c) => `${c.label} ${l[c.key]}h`
+    );
+    if (parts.length) lines.push(parts.join(" / "));
+    if (l.memo) {
+      lines.push("");
+      for (const line of l.memo.split("\n")) {
+        lines.push(line.trim() ? `- ${line.trim()}` : "");
+      }
+    }
+    lines.push("");
+  }
+
+  const done = PLAN.steps.filter(
+    (s) => (week === "all" || s.week === Number(week)) && store.isStepDone(s.id)
+  );
+  if (done.length) {
+    lines.push("## 終えた手順");
+    for (const s of done) lines.push(`- [${s.tier}][${s.cat}] ${s.todo}`);
+    lines.push("");
+  }
+  return lines.join("\n").replace(/\n{3,}/g, "\n\n");
 }

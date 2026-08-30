@@ -1046,3 +1046,16 @@ textarea.memo:focus {
 button.md-copy {
   margin-left: auto;
 }
+
+
+/* ===== v3: 今回読まない章 ===== */
+h2.skip-head {
+  margin-top: 28px;
+}
+table.skipped td:first-child {
+  white-space: nowrap;
+  font-weight: 700;
+}
+table.skipped tr.watch {
+  background: #fff7ed;
+}

@@ -841,6 +841,49 @@ export function renderRefs(root, filters) {
     );
   }
   root.appendChild(wrap);
+
+  // 今回読まない章と、戻るタイミング
+  if (PLAN.skipped && PLAN.skipped.length && track === "all") {
+    root.appendChild(
+      el("h2", { class: "skip-head", text: "今回読まない章と、戻るタイミング" })
+    );
+    root.appendChild(
+      el("p", {
+        class: "muted",
+        text:
+          "通読しません。ただし「飛ばしっぱなし」にしないよう、戻る条件を決めてあります。" +
+          "先回りして読まず、下の条件に当たったときだけ該当節を開いてください。",
+      })
+    );
+    const t = el("table", { class: "steps skipped" });
+    t.appendChild(
+      el("thead", {
+        children: [
+          el("tr", {
+            children: ["章", "内容", "今回の扱い", "戻るタイミング"].map((h) =>
+              el("th", { text: h })
+            ),
+          }),
+        ],
+      })
+    );
+    const tb = el("tbody");
+    for (const k of PLAN.skipped) {
+      tb.appendChild(
+        el("tr", {
+          class: k.how.startsWith("★") ? "watch" : "",
+          children: [
+            el("td", { text: k.ch }),
+            el("td", { text: k.title }),
+            el("td", { text: k.how }),
+            el("td", { class: "muted", text: k.when }),
+          ],
+        })
+      );
+    }
+    t.appendChild(tb);
+    root.appendChild(t);
+  }
 }
 
 // ---------- ルール ----------

@@ -438,7 +438,7 @@ window.addEventListener("beforeunload", (e) => {
 
 // ヘッダーに期間を表示（日付をずらしても自動で追従する）
 document.querySelector("#period").textContent =
-  `TypeScript / React / Next.js 案件に向けて ／ ${periodLabel(PLAN.days, "dot")}`;
+  `TypeScript / React / Next.js ／ ${periodLabel(PLAN.days, "dot")}`;
 
 window.addEventListener("hashchange", render);
 render();

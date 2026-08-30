@@ -1059,3 +1059,38 @@ table.skipped td:first-child {
 table.skipped tr.watch {
   background: #fff7ed;
 }
+
+
+/* ===== v3: 分野（TypeScript / React / Next.js …） ===== */
+.chip.tr-js { background: #dbeafe; color: #1e3a8a; }
+.chip.tr-ts { background: #dbeafe; color: #1e40af; border: 1px solid #93c5fd; }
+.chip.tr-react { background: #cffafe; color: #155e75; }
+.chip.tr-next { background: #e5e7eb; color: #111827; }
+.chip.tr-conv { background: #fee2e2; color: #991b1b; }
+.chip.tr-cc { background: #dcfce7; color: #166534; }
+.chip.tr-rv { background: #f3f4f6; color: #4b5563; }
+
+.track-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 8px 0 18px;
+}
+.track-row {
+  display: grid;
+  grid-template-columns: 110px 1fr 150px;
+  align-items: center;
+  gap: 10px;
+}
+.track-row .chip {
+  justify-self: start;
+}
+.track-row .bar.slim {
+  height: 8px;
+}
+.track-num {
+  font-size: 12px;
+  color: var(--muted);
+  text-align: right;
+  white-space: nowrap;
+}

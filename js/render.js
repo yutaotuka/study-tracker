@@ -13,6 +13,8 @@ import {
   el,
   TIER_CLASS,
   weekLabel,
+  TRACK_LIST,
+  TRACK_CLASS,
 } from "./utils.js?v=3";
 
 // ---------- 集計 ----------
@@ -100,7 +102,7 @@ export function renderToday(root) {
     el("li", {
       children: [
         el("span", { class: `chip ${TIER_CLASS[p.tier]}`, text: p.tier }),
-        el("span", { class: `chip ${CAT_CLASS[p.cat]}`, text: p.cat }),
+        el("span", { class: `chip ${TRACK_CLASS[p.track]}`, text: p.track }),
         el("span", { class: "todo", text: p.todo }),
         el("span", { class: "hh", text: `${p.h}h` }),
       ],
@@ -270,6 +272,37 @@ export function renderSummary(root) {
   }
   root.appendChild(catWrap);
 
+  // 分野別の進み具合（手順の消化から出す。日次ログの入力は4枠のまま）
+  root.appendChild(el("h2", { text: "分野別の進み具合" }));
+  root.appendChild(
+    el("p", {
+      class: "muted",
+      text: "終えた手順の目安時間から出しています。今どの分野にいるかの目安です。",
+    })
+  );
+  const trWrap = el("div", { class: "track-list" });
+  for (const tr of TRACK_LIST) {
+    const all = PLAN.steps.filter((s) => s.track === tr);
+    if (!all.length) continue;
+    const done = all.filter((s) => store.isStepDone(s.id));
+    const h = round1(sum(all, (s) => s.h));
+    const dh = round1(sum(done, (s) => s.h));
+    trWrap.appendChild(
+      el("div", {
+        class: "track-row",
+        children: [
+          el("span", { class: `chip ${TRACK_CLASS[tr]}`, text: tr }),
+          bar(h ? dh / h : 0, "slim"),
+          el("span", {
+            class: "track-num",
+            text: `${done.length}/${all.length}件 ・ ${dh}/${h}h`,
+          }),
+        ],
+      })
+    );
+  }
+  root.appendChild(trWrap);
+
   root.appendChild(el("h2", { text: "週別の進捗" }));
   const list = el("div", { class: "week-list" });
   for (const w of PLAN.weeks) {
@@ -320,7 +353,7 @@ export function renderSteps(root, filters) {
 
   const bar1 = el("div", { class: "toolbar" });
   bar1.appendChild(weekSelect(week));
-  bar1.appendChild(catSelect(cat));
+  bar1.appendChild(trackSelect(cat));
   bar1.appendChild(
     el("input", {
       class: "search",
@@ -349,7 +382,7 @@ export function renderSteps(root, filters) {
 
   let rows = PLAN.steps;
   if (week !== "all") rows = rows.filter((s) => s.week === Number(week));
-  if (cat !== "all") rows = rows.filter((s) => s.cat === cat);
+  if (cat !== "all") rows = rows.filter((s) => s.track === cat);
   if (q) {
     const k = q.toLowerCase();
     rows = rows.filter(
@@ -386,7 +419,7 @@ export function renderSteps(root, filters) {
             "",
             "週",
             "階層",
-            "カテゴリ",
+            "分野",
             "やること",
             "成果物・確認",
             "目安",
@@ -413,7 +446,7 @@ export function renderSteps(root, filters) {
         }),
         el("td", {
           children: [
-            el("span", { class: `chip ${CAT_CLASS[s.cat]}`, text: s.cat }),
+            el("span", { class: `chip ${TRACK_CLASS[s.track]}`, text: s.track }),
           ],
         }),
         el("td", { text: s.todo }),
@@ -439,13 +472,15 @@ function weekSelect(value) {
   return sel;
 }
 
-function catSelect(value) {
+function trackSelect(value) {
   const sel = el("select", { class: "cat-filter" });
-  sel.appendChild(
-    el("option", { text: "全カテゴリ", attrs: { value: "all" } })
-  );
-  for (const c of CATS) {
-    sel.appendChild(el("option", { text: c.cat, attrs: { value: c.cat } }));
+  sel.appendChild(el("option", { text: "全分野", attrs: { value: "all" } }));
+  for (const t of TRACK_LIST) {
+    const n = PLAN.steps.filter((s) => s.track === t).length;
+    if (!n) continue;
+    sel.appendChild(
+      el("option", { text: `${t}（${n}）`, attrs: { value: t } })
+    );
   }
   sel.value = value;
   return sel;
@@ -738,7 +773,10 @@ export function renderLogs(root, filters) {
               el("span", {
                 class: "plan-item",
                 children: [
-                  el("span", { class: `chip ${CAT_CLASS[p.cat]}`, text: p.cat }),
+                  el("span", {
+                    class: `chip ${TRACK_CLASS[p.track]}`,
+                    text: p.track,
+                  }),
                   el("span", { text: p.todo }),
                 ],
               })

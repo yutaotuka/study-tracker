@@ -68,7 +68,8 @@ export const PLAN = {
       "todo": "Ch7(スコープ)を読む",
       "out": "読了",
       "h": 1.0,
-      "tier": "コア"
+      "tier": "コア",
+      "track": "JS基礎"
     },
     {
       "id": "v3s2",
@@ -78,7 +79,8 @@ export const PLAN = {
       "todo": "課題「スコープ可視化」。varのsetTimeout問題を必ず再現する",
       "out": "varとletの差を説明できる",
       "h": 1.5,
-      "tier": "コア"
+      "tier": "コア",
+      "track": "JS基礎"
     },
     {
       "id": "v3s3",
@@ -88,7 +90,8 @@ export const PLAN = {
       "todo": "Ch8(this)を読み、課題「this早見表」を作る",
       "out": "6パターンを予想して当てられる",
       "h": 2.0,
-      "tier": "コア"
+      "tier": "コア",
+      "track": "JS基礎"
     },
     {
       "id": "v3s4",
@@ -98,7 +101,8 @@ export const PLAN = {
       "todo": "Ch11(コレクション)を読む",
       "out": "読了",
       "h": 1.5,
-      "tier": "コア"
+      "tier": "コア",
+      "track": "JS基礎"
     },
     {
       "id": "v3s5",
@@ -108,7 +112,8 @@ export const PLAN = {
       "todo": "課題「配列メソッド総当たり」。商品データ20件をdata.jsとして保存する",
       "out": "data.js（最後まで使い回す）",
       "h": 2.5,
-      "tier": "コア"
+      "tier": "コア",
+      "track": "JS基礎"
     },
     {
       "id": "v3s6",
@@ -118,17 +123,19 @@ export const PLAN = {
       "todo": "分割代入とスプレッド構文を書く（Ch11〜12あたり）★Reactのstate更新で必須",
       "out": "組み替えが書ける",
       "h": 1.0,
-      "tier": "コア"
+      "tier": "コア",
+      "track": "JS基礎"
     },
     {
       "id": "v3s7",
       "week": 1,
       "cat": "TS/React/Next",
       "no": 1,
-      "todo": "Node.jsとTypeScriptを入れて .ts を1本コンパイルする",
+      "todo": "ts_typescript/ を作り、Node.jsとTypeScriptを入れて .ts を1本コンパイルする",
       "out": "tsc で .js が出力される",
       "h": 1.0,
-      "tier": "コア"
+      "tier": "コア",
+      "track": "TypeScript"
     },
     {
       "id": "v3s8",
@@ -138,7 +145,8 @@ export const PLAN = {
       "todo": "サバイバルTypeScriptで「なぜ型が必要か」と基本の型を読む",
       "out": "読了メモ",
       "h": 1.5,
-      "tier": "コア"
+      "tier": "コア",
+      "track": "TypeScript"
     },
     {
       "id": "v3s9",
@@ -148,7 +156,8 @@ export const PLAN = {
       "todo": "型注釈を書いてみる。わざと型エラーを出して読み方に慣れる",
       "out": "エラーを自力で読める",
       "h": 1.5,
-      "tier": "コア"
+      "tier": "コア",
+      "track": "TypeScript"
     },
     {
       "id": "v3s10",
@@ -158,7 +167,8 @@ export const PLAN = {
       "todo": "CLAUDE.mdを書く(課題CC-1)",
       "out": "CLAUDE.md",
       "h": 1.5,
-      "tier": "余力"
+      "tier": "余力",
+      "track": "Claude Code"
     },
     {
       "id": "v3s11",
@@ -168,7 +178,8 @@ export const PLAN = {
       "todo": "日次ログ記入と弱点メモの更新",
       "out": "日次ログ",
       "h": 1.0,
-      "tier": "余力"
+      "tier": "余力",
+      "track": "振り返り"
     },
     {
       "id": "v3s12",
@@ -178,7 +189,8 @@ export const PLAN = {
       "todo": "Ch13(非同期処理)を読む。イベントループの図をメモに描く",
       "out": "読了 + 図",
       "h": 1.5,
-      "tier": "コア"
+      "tier": "コア",
+      "track": "JS基礎"
     },
     {
       "id": "v3s13",
@@ -188,7 +200,8 @@ export const PLAN = {
       "todo": "課題「fetchで一覧取得」。通信中/成功/失敗の3状態を作る",
       "out": "3状態が画面に出る",
       "h": 1.5,
-      "tier": "コア"
+      "tier": "コア",
+      "track": "JS基礎"
     },
     {
       "id": "v3s14",
@@ -198,7 +211,8 @@ export const PLAN = {
       "todo": "TS: 型推論が効く場所を確認し、注釈を書く場所を決める(課題TS-1)",
       "out": "書く場所の基準をメモ",
       "h": 1.5,
-      "tier": "コア"
+      "tier": "コア",
+      "track": "TypeScript"
     },
     {
       "id": "v3s15",
@@ -208,7 +222,8 @@ export const PLAN = {
       "todo": "TS: ユニオン型・リテラル型・オプショナルを使う",
       "out": "絞り込みが書ける",
       "h": 1.5,
-      "tier": "コア"
+      "tier": "コア",
+      "track": "TypeScript"
     },
     {
       "id": "v3s16",
@@ -218,7 +233,8 @@ export const PLAN = {
       "todo": "TS: interface と type の使い分けを整理する(課題TS-2)",
       "out": "使い分けの基準を書ける",
       "h": 1.5,
-      "tier": "コア"
+      "tier": "コア",
+      "track": "TypeScript"
     },
     {
       "id": "v3s17",
@@ -228,7 +244,8 @@ export const PLAN = {
       "todo": "TS: ジェネリクスを使う。型を引数として渡す感覚を掴む",
       "out": "汎用関数が書ける",
       "h": 2.0,
-      "tier": "コア"
+      "tier": "コア",
+      "track": "TypeScript"
     },
     {
       "id": "v3s18",
@@ -238,7 +255,8 @@ export const PLAN = {
       "todo": "TS: 型の絞り込み(typeof / in / タグ付きユニオン)を書く",
       "out": "絞り込みで型が確定する",
       "h": 1.5,
-      "tier": "コア"
+      "tier": "コア",
+      "track": "TypeScript"
     },
     {
       "id": "v3s19",
@@ -248,7 +266,8 @@ export const PLAN = {
       "todo": "TS: 1週目のdata.jsに型を付けてTS化する(課題TS-3)",
       "out": "型付きのdata.ts",
       "h": 2.0,
-      "tier": "コア"
+      "tier": "コア",
+      "track": "TypeScript"
     },
     {
       "id": "v3s20",
@@ -258,7 +277,8 @@ export const PLAN = {
       "todo": "TS: Partial / Pick / Omit / Record を使ってみる",
       "out": "ユーティリティ型の使用例",
       "h": 1.5,
-      "tier": "余力"
+      "tier": "余力",
+      "track": "TypeScript"
     },
     {
       "id": "v3s21",
@@ -268,7 +288,8 @@ export const PLAN = {
       "todo": "TSで詰まった型エラーを弱点リストに記録する",
       "out": "弱点リスト追記",
       "h": 1.0,
-      "tier": "余力"
+      "tier": "余力",
+      "track": "振り返り"
     },
     {
       "id": "v3s22",
@@ -278,7 +299,8 @@ export const PLAN = {
       "todo": "日次ログ記入と配分調整",
       "out": "日次ログ",
       "h": 0.5,
-      "tier": "余力"
+      "tier": "余力",
+      "track": "振り返り"
     },
     {
       "id": "v3s23",
@@ -288,7 +310,8 @@ export const PLAN = {
       "todo": "React公式で環境を作り、最初のコンポーネントを書く",
       "out": "画面が出る",
       "h": 2.0,
-      "tier": "コア"
+      "tier": "コア",
+      "track": "React"
     },
     {
       "id": "v3s24",
@@ -298,7 +321,8 @@ export const PLAN = {
       "todo": "props と state を理解する(課題R-1)",
       "out": "親子でデータが渡せる",
       "h": 2.0,
-      "tier": "コア"
+      "tier": "コア",
+      "track": "React"
     },
     {
       "id": "v3s25",
@@ -308,7 +332,8 @@ export const PLAN = {
       "todo": "props に TypeScript の型を付ける",
       "out": "型付きpropsが動く",
       "h": 1.5,
-      "tier": "コア"
+      "tier": "コア",
+      "track": "React"
     },
     {
       "id": "v3s26",
@@ -318,7 +343,8 @@ export const PLAN = {
       "todo": "リスト描画と key、条件分岐を書く(1週目のデータを使う)",
       "out": "配列から一覧が出る",
       "h": 2.0,
-      "tier": "コア"
+      "tier": "コア",
+      "track": "React"
     },
     {
       "id": "v3s27",
@@ -328,7 +354,8 @@ export const PLAN = {
       "todo": "フォームとイベント処理を書く",
       "out": "入力が状態に反映される",
       "h": 1.5,
-      "tier": "コア"
+      "tier": "コア",
+      "track": "React"
     },
     {
       "id": "v3s28",
@@ -338,7 +365,8 @@ export const PLAN = {
       "todo": "絞り込みUIを作る(配列メソッドがそのまま使えることを確認)",
       "out": "絞り込みが効く",
       "h": 2.0,
-      "tier": "コア"
+      "tier": "コア",
+      "track": "React"
     },
     {
       "id": "v3s29",
@@ -348,7 +376,8 @@ export const PLAN = {
       "todo": "Reactでよく使う型を覚える(ReactNode/イベント型/ComponentProps)",
       "out": "型付きで書ける",
       "h": 1.0,
-      "tier": "コア"
+      "tier": "コア",
+      "track": "TypeScript"
     },
     {
       "id": "v3s30",
@@ -358,7 +387,8 @@ export const PLAN = {
       "todo": "レビュー役サブエージェントを作り、自分のReactコードを見せる(課題CC-5)",
       "out": "指摘を自分で直す",
       "h": 2.0,
-      "tier": "余力"
+      "tier": "余力",
+      "track": "Claude Code"
     },
     {
       "id": "v3s31",
@@ -368,7 +398,8 @@ export const PLAN = {
       "todo": "ReactとJSの対応関係を整理する(どこがJSの知識で説明できるか)",
       "out": "対応メモ",
       "h": 1.0,
-      "tier": "余力"
+      "tier": "余力",
+      "track": "振り返り"
     },
     {
       "id": "v3s32",
@@ -378,7 +409,8 @@ export const PLAN = {
       "todo": "日次ログ記入と配分調整",
       "out": "日次ログ",
       "h": 1.0,
-      "tier": "余力"
+      "tier": "余力",
+      "track": "振り返り"
     },
     {
       "id": "v3s33",
@@ -388,7 +420,8 @@ export const PLAN = {
       "todo": "useState を掘る。再レンダリングがいつ起きるか確認する",
       "out": "説明できる",
       "h": 1.5,
-      "tier": "コア"
+      "tier": "コア",
+      "track": "React"
     },
     {
       "id": "v3s34",
@@ -398,7 +431,8 @@ export const PLAN = {
       "todo": "useEffect の基本と実行タイミングを確認する",
       "out": "いつ動くか説明できる",
       "h": 1.5,
-      "tier": "コア"
+      "tier": "コア",
+      "track": "React"
     },
     {
       "id": "v3s35",
@@ -408,7 +442,8 @@ export const PLAN = {
       "todo": "★依存配列を空にして古い値を掴むバグを再現し、直す(課題R-2)",
       "out": "バグの再現と修正",
       "h": 1.5,
-      "tier": "コア"
+      "tier": "コア",
+      "track": "React"
     },
     {
       "id": "v3s36",
@@ -418,7 +453,8 @@ export const PLAN = {
       "todo": "useEffect + fetch でデータ取得を書く(Ch13と比べる)",
       "out": "3状態が動く",
       "h": 1.5,
-      "tier": "コア"
+      "tier": "コア",
+      "track": "React"
     },
     {
       "id": "v3s37",
@@ -428,7 +464,8 @@ export const PLAN = {
       "todo": "状態をどこに置くか(リフトアップ)を設計する(課題R-3)",
       "out": "置き場を説明できる",
       "h": 1.5,
-      "tier": "コア"
+      "tier": "コア",
+      "track": "React"
     },
     {
       "id": "v3s38",
@@ -438,7 +475,8 @@ export const PLAN = {
       "todo": "コンポーネントを責務で分割し、理由を書く★設計の話ができると評価が変わる",
       "out": "分割の理由を書ける",
       "h": 1.0,
-      "tier": "コア"
+      "tier": "コア",
+      "track": "React"
     },
     {
       "id": "v3s39",
@@ -448,7 +486,8 @@ export const PLAN = {
       "todo": "localStorage保存を足して小アプリを完成させる(課題CONV-1)",
       "out": "リロードしても残る",
       "h": 2.0,
-      "tier": "コア"
+      "tier": "コア",
+      "track": "コンバート"
     },
     {
       "id": "v3s40",
@@ -458,7 +497,8 @@ export const PLAN = {
       "todo": "カスタムフックに切り出す",
       "out": "動くカスタムフック",
       "h": 1.5,
-      "tier": "余力"
+      "tier": "余力",
+      "track": "React"
     },
     {
       "id": "v3s41",
@@ -468,7 +508,8 @@ export const PLAN = {
       "todo": "Cursorをインストールし、Claude Codeとの使い分けを決める(課題CC-6)",
       "out": "使い分けメモ",
       "h": 2.0,
-      "tier": "余力"
+      "tier": "余力",
+      "track": "Claude Code"
     },
     {
       "id": "v3s42",
@@ -478,7 +519,8 @@ export const PLAN = {
       "todo": "フックで詰まった点を弱点リストに記録する",
       "out": "弱点リスト追記",
       "h": 1.0,
-      "tier": "余力"
+      "tier": "余力",
+      "track": "振り返り"
     },
     {
       "id": "v3s43",
@@ -488,7 +530,8 @@ export const PLAN = {
       "todo": "日次ログ記入。コンバートに向けて準備確認",
       "out": "日次ログ",
       "h": 1.0,
-      "tier": "余力"
+      "tier": "余力",
+      "track": "振り返り"
     },
     {
       "id": "v3s44",
@@ -498,7 +541,8 @@ export const PLAN = {
       "todo": "Next.js公式Learnで環境構築し、App Routerの全体像を掴む",
       "out": "アプリが起動する",
       "h": 1.5,
-      "tier": "コア"
+      "tier": "コア",
+      "track": "Next.js"
     },
     {
       "id": "v3s45",
@@ -508,7 +552,8 @@ export const PLAN = {
       "todo": "ルーティング、layout と page を書く(課題N-1)",
       "out": "複数ページを行き来できる",
       "h": 1.5,
-      "tier": "コア"
+      "tier": "コア",
+      "track": "Next.js"
     },
     {
       "id": "v3s46",
@@ -518,7 +563,8 @@ export const PLAN = {
       "todo": "Server ComponentでuseStateを使いエラーを出す。違いを体感する",
       "out": "エラーを再現・理解",
       "h": 1.0,
-      "tier": "コア"
+      "tier": "コア",
+      "track": "Next.js"
     },
     {
       "id": "v3s47",
@@ -528,7 +574,8 @@ export const PLAN = {
       "todo": "★4週目のReactアプリをNext.jsへコンバートする計画を書く(課題CONV-2)",
       "out": "移行計画メモ",
       "h": 1.0,
-      "tier": "コア"
+      "tier": "コア",
+      "track": "コンバート"
     },
     {
       "id": "v3s48",
@@ -538,7 +585,8 @@ export const PLAN = {
       "todo": "コンポーネントを App Router の構成へ移す",
       "out": "同じ画面が出る",
       "h": 2.0,
-      "tier": "コア"
+      "tier": "コア",
+      "track": "コンバート"
     },
     {
       "id": "v3s49",
@@ -548,7 +596,8 @@ export const PLAN = {
       "todo": "'use client' の境界を決めて分ける(課題N-2)",
       "out": "境界の理由を書ける",
       "h": 2.0,
-      "tier": "コア"
+      "tier": "コア",
+      "track": "Next.js"
     },
     {
       "id": "v3s50",
@@ -558,7 +607,8 @@ export const PLAN = {
       "todo": "サーバー側でのデータ取得に置き換える(課題N-3)",
       "out": "サーバーで取得できる",
       "h": 1.0,
-      "tier": "コア"
+      "tier": "コア",
+      "track": "Next.js"
     },
     {
       "id": "v3s51",
@@ -568,7 +618,8 @@ export const PLAN = {
       "todo": "★コンバートで詰まった点と判断理由を記録する",
       "out": "コンバート記録",
       "h": 1.0,
-      "tier": "コア"
+      "tier": "コア",
+      "track": "コンバート"
     },
     {
       "id": "v3s52",
@@ -578,7 +629,8 @@ export const PLAN = {
       "todo": "データ取得のキャッシュ挙動を確認する(再読み込みで再取得されるか)",
       "out": "キャッシュを説明できる",
       "h": 1.0,
-      "tier": "余力"
+      "tier": "余力",
+      "track": "Next.js"
     },
     {
       "id": "v3s53",
@@ -588,7 +640,8 @@ export const PLAN = {
       "todo": "型を整理する。any を潰し、共通の型を切り出す",
       "out": "anyゼロ",
       "h": 1.5,
-      "tier": "余力"
+      "tier": "余力",
+      "track": "TypeScript"
     },
     {
       "id": "v3s54",
@@ -598,7 +651,8 @@ export const PLAN = {
       "todo": "リファクタと命名の見直し。AIの提案は採否を自分で判断する",
       "out": "リファクタ済み",
       "h": 1.5,
-      "tier": "余力"
+      "tier": "余力",
+      "track": "コンバート"
     },
     {
       "id": "v3s55",
@@ -608,7 +662,8 @@ export const PLAN = {
       "todo": "Server/Clientの判断基準を自分の言葉で書く",
       "out": "判断基準メモ",
       "h": 1.0,
-      "tier": "余力"
+      "tier": "余力",
+      "track": "振り返り"
     },
     {
       "id": "v3s56",
@@ -618,7 +673,8 @@ export const PLAN = {
       "todo": "Vercelにデプロイして公開URLを用意する(課題CONV-3)",
       "out": "公開URL",
       "h": 1.0,
-      "tier": "コア"
+      "tier": "コア",
+      "track": "コンバート"
     },
     {
       "id": "v3s57",
@@ -628,7 +684,8 @@ export const PLAN = {
       "todo": "READMEを書く(何を作ったか/技術選定/学んだこと)",
       "out": "README",
       "h": 1.0,
-      "tier": "コア"
+      "tier": "コア",
+      "track": "コンバート"
     },
     {
       "id": "v3s58",
@@ -638,7 +695,8 @@ export const PLAN = {
       "todo": "React版とNext.js版の違いを言語化する(参画後に説明できる形に)",
       "out": "説明メモ",
       "h": 1.5,
-      "tier": "コア"
+      "tier": "コア",
+      "track": "コンバート"
     },
     {
       "id": "v3s59",
@@ -648,7 +706,8 @@ export const PLAN = {
       "todo": "想定質問への回答を準備する(Server/Client、型設計、AI活用)",
       "out": "想定Q&A",
       "h": 1.5,
-      "tier": "コア"
+      "tier": "コア",
+      "track": "コンバート"
     },
     {
       "id": "v3s60",
@@ -658,7 +717,8 @@ export const PLAN = {
       "todo": "不要な再レンダリングを1箇所見つけて直す(key / 派生stateの見直し)",
       "out": "改善の理由を書ける",
       "h": 1.0,
-      "tier": "余力"
+      "tier": "余力",
+      "track": "React"
     },
     {
       "id": "v3s61",
@@ -668,7 +728,8 @@ export const PLAN = {
       "todo": "6週間を1枚に総括し、スキルシートに書ける形にする",
       "out": "総括メモ",
       "h": 1.0,
-      "tier": "余力"
+      "tier": "余力",
+      "track": "振り返り"
     }
   ],
   "tasks": [
@@ -1184,7 +1245,7 @@ export const PLAN = {
         }
       ],
       "steps": [
-        "ts_typescript/ フォルダで npx tsc --init して tsconfig.json を作る",
+        "1週目に作った ts_typescript/ フォルダをそのまま使う（tsconfig.json は作成済みのはず）",
         "01_annotation.ts を作り、npx tsc --noEmit で型チェックだけ回す（毎回これで確認する）",
         "実験3のエラーは、消さずにコメントアウトして残しておく。あとで読み返す材料になる",
         "エラーメッセージは英語のまま notes に貼り、日本語で1行要約を添える"
@@ -1925,14 +1986,16 @@ export const PLAN = {
           "cat": "JS基礎",
           "todo": "Ch7(スコープ)を読む",
           "h": 1.0,
-          "tier": "コア"
+          "tier": "コア",
+          "track": "JS基礎"
         },
         {
           "id": "v3s7",
           "cat": "TS/React/Next",
-          "todo": "Node.jsとTypeScriptを入れて .ts を1本コンパイルする",
+          "todo": "ts_typescript/ を作り、Node.jsとTypeScriptを入れて .ts を1本コンパイルする",
           "h": 1.0,
-          "tier": "コア"
+          "tier": "コア",
+          "track": "TypeScript"
         }
       ]
     },
@@ -1947,14 +2010,16 @@ export const PLAN = {
           "cat": "Claude Code",
           "todo": "CLAUDE.mdを書く(課題CC-1)",
           "h": 1.5,
-          "tier": "余力"
+          "tier": "余力",
+          "track": "Claude Code"
         },
         {
           "id": "v3s2",
           "cat": "JS基礎",
           "todo": "課題「スコープ可視化」。varのsetTimeout問題を必ず再現する",
           "h": 1.5,
-          "tier": "コア"
+          "tier": "コア",
+          "track": "JS基礎"
         }
       ]
     },
@@ -1969,14 +2034,16 @@ export const PLAN = {
           "cat": "TS/React/Next",
           "todo": "サバイバルTypeScriptで「なぜ型が必要か」と基本の型を読む",
           "h": 1.5,
-          "tier": "コア"
+          "tier": "コア",
+          "track": "TypeScript"
         },
         {
           "id": "v3s4",
           "cat": "JS基礎",
           "todo": "Ch11(コレクション)を読む",
           "h": 1.5,
-          "tier": "コア"
+          "tier": "コア",
+          "track": "JS基礎"
         }
       ]
     },
@@ -1991,7 +2058,8 @@ export const PLAN = {
           "cat": "JS基礎",
           "todo": "Ch8(this)を読み、課題「this早見表」を作る",
           "h": 2.0,
-          "tier": "コア"
+          "tier": "コア",
+          "track": "JS基礎"
         }
       ]
     },
@@ -2006,7 +2074,8 @@ export const PLAN = {
           "cat": "TS/React/Next",
           "todo": "型注釈を書いてみる。わざと型エラーを出して読み方に慣れる",
           "h": 1.5,
-          "tier": "コア"
+          "tier": "コア",
+          "track": "TypeScript"
         }
       ]
     },
@@ -2021,7 +2090,8 @@ export const PLAN = {
           "cat": "JS基礎",
           "todo": "課題「配列メソッド総当たり」。商品データ20件をdata.jsとして保存する",
           "h": 2.5,
-          "tier": "コア"
+          "tier": "コア",
+          "track": "JS基礎"
         }
       ]
     },
@@ -2036,14 +2106,16 @@ export const PLAN = {
           "cat": "JS基礎",
           "todo": "分割代入とスプレッド構文を書く（Ch11〜12あたり）★Reactのstate更新で必須",
           "h": 1.0,
-          "tier": "コア"
+          "tier": "コア",
+          "track": "JS基礎"
         },
         {
           "id": "v3s11",
           "cat": "振り返り",
           "todo": "日次ログ記入と弱点メモの更新",
           "h": 1.0,
-          "tier": "余力"
+          "tier": "余力",
+          "track": "振り返り"
         }
       ]
     },
@@ -2058,14 +2130,16 @@ export const PLAN = {
           "cat": "TS/React/Next",
           "todo": "TS: 型推論が効く場所を確認し、注釈を書く場所を決める(課題TS-1)",
           "h": 1.5,
-          "tier": "コア"
+          "tier": "コア",
+          "track": "TypeScript"
         },
         {
           "id": "v3s12",
           "cat": "JS基礎",
           "todo": "Ch13(非同期処理)を読む。イベントループの図をメモに描く",
           "h": 1.5,
-          "tier": "コア"
+          "tier": "コア",
+          "track": "JS基礎"
         }
       ]
     },
@@ -2080,7 +2154,8 @@ export const PLAN = {
           "cat": "TS/React/Next",
           "todo": "TS: ユニオン型・リテラル型・オプショナルを使う",
           "h": 1.5,
-          "tier": "コア"
+          "tier": "コア",
+          "track": "TypeScript"
         }
       ]
     },
@@ -2095,14 +2170,16 @@ export const PLAN = {
           "cat": "TS/React/Next",
           "todo": "TS: interface と type の使い分けを整理する(課題TS-2)",
           "h": 1.5,
-          "tier": "コア"
+          "tier": "コア",
+          "track": "TypeScript"
         },
         {
           "id": "v3s17",
           "cat": "TS/React/Next",
           "todo": "TS: ジェネリクスを使う。型を引数として渡す感覚を掴む",
           "h": 2.0,
-          "tier": "コア"
+          "tier": "コア",
+          "track": "TypeScript"
         }
       ]
     },
@@ -2117,7 +2194,8 @@ export const PLAN = {
           "cat": "JS基礎",
           "todo": "課題「fetchで一覧取得」。通信中/成功/失敗の3状態を作る",
           "h": 1.5,
-          "tier": "コア"
+          "tier": "コア",
+          "track": "JS基礎"
         }
       ]
     },
@@ -2132,7 +2210,8 @@ export const PLAN = {
           "cat": "TS/React/Next",
           "todo": "TS: 型の絞り込み(typeof / in / タグ付きユニオン)を書く",
           "h": 1.5,
-          "tier": "コア"
+          "tier": "コア",
+          "track": "TypeScript"
         }
       ]
     },
@@ -2147,7 +2226,8 @@ export const PLAN = {
           "cat": "TS/React/Next",
           "todo": "TS: 1週目のdata.jsに型を付けてTS化する(課題TS-3)",
           "h": 2.0,
-          "tier": "コア"
+          "tier": "コア",
+          "track": "TypeScript"
         }
       ]
     },
@@ -2162,21 +2242,24 @@ export const PLAN = {
           "cat": "TS/React/Next",
           "todo": "TS: Partial / Pick / Omit / Record を使ってみる",
           "h": 1.5,
-          "tier": "余力"
+          "tier": "余力",
+          "track": "TypeScript"
         },
         {
           "id": "v3s21",
           "cat": "振り返り",
           "todo": "TSで詰まった型エラーを弱点リストに記録する",
           "h": 1.0,
-          "tier": "余力"
+          "tier": "余力",
+          "track": "振り返り"
         },
         {
           "id": "v3s22",
           "cat": "振り返り",
           "todo": "日次ログ記入と配分調整",
           "h": 0.5,
-          "tier": "余力"
+          "tier": "余力",
+          "track": "振り返り"
         }
       ]
     },
@@ -2191,7 +2274,8 @@ export const PLAN = {
           "cat": "TS/React/Next",
           "todo": "React公式で環境を作り、最初のコンポーネントを書く",
           "h": 2.0,
-          "tier": "コア"
+          "tier": "コア",
+          "track": "React"
         }
       ]
     },
@@ -2206,7 +2290,8 @@ export const PLAN = {
           "cat": "Claude Code",
           "todo": "レビュー役サブエージェントを作り、自分のReactコードを見せる(課題CC-5)",
           "h": 2.0,
-          "tier": "余力"
+          "tier": "余力",
+          "track": "Claude Code"
         }
       ]
     },
@@ -2221,14 +2306,16 @@ export const PLAN = {
           "cat": "TS/React/Next",
           "todo": "props と state を理解する(課題R-1)",
           "h": 2.0,
-          "tier": "コア"
+          "tier": "コア",
+          "track": "React"
         },
         {
           "id": "v3s25",
           "cat": "TS/React/Next",
           "todo": "props に TypeScript の型を付ける",
           "h": 1.5,
-          "tier": "コア"
+          "tier": "コア",
+          "track": "React"
         }
       ]
     },
@@ -2243,7 +2330,8 @@ export const PLAN = {
           "cat": "TS/React/Next",
           "todo": "リスト描画と key、条件分岐を書く(1週目のデータを使う)",
           "h": 2.0,
-          "tier": "コア"
+          "tier": "コア",
+          "track": "React"
         }
       ]
     },
@@ -2258,7 +2346,8 @@ export const PLAN = {
           "cat": "TS/React/Next",
           "todo": "フォームとイベント処理を書く",
           "h": 1.5,
-          "tier": "コア"
+          "tier": "コア",
+          "track": "React"
         }
       ]
     },
@@ -2273,7 +2362,8 @@ export const PLAN = {
           "cat": "TS/React/Next",
           "todo": "絞り込みUIを作る(配列メソッドがそのまま使えることを確認)",
           "h": 2.0,
-          "tier": "コア"
+          "tier": "コア",
+          "track": "React"
         }
       ]
     },
@@ -2288,21 +2378,24 @@ export const PLAN = {
           "cat": "TS/React/Next",
           "todo": "Reactでよく使う型を覚える(ReactNode/イベント型/ComponentProps)",
           "h": 1.0,
-          "tier": "コア"
+          "tier": "コア",
+          "track": "TypeScript"
         },
         {
           "id": "v3s31",
           "cat": "振り返り",
           "todo": "ReactとJSの対応関係を整理する(どこがJSの知識で説明できるか)",
           "h": 1.0,
-          "tier": "余力"
+          "tier": "余力",
+          "track": "振り返り"
         },
         {
           "id": "v3s32",
           "cat": "振り返り",
           "todo": "日次ログ記入と配分調整",
           "h": 1.0,
-          "tier": "余力"
+          "tier": "余力",
+          "track": "振り返り"
         }
       ]
     },
@@ -2317,14 +2410,16 @@ export const PLAN = {
           "cat": "TS/React/Next",
           "todo": "useState を掘る。再レンダリングがいつ起きるか確認する",
           "h": 1.5,
-          "tier": "コア"
+          "tier": "コア",
+          "track": "React"
         },
         {
           "id": "v3s34",
           "cat": "TS/React/Next",
           "todo": "useEffect の基本と実行タイミングを確認する",
           "h": 1.5,
-          "tier": "コア"
+          "tier": "コア",
+          "track": "React"
         }
       ]
     },
@@ -2339,7 +2434,8 @@ export const PLAN = {
           "cat": "Claude Code",
           "todo": "Cursorをインストールし、Claude Codeとの使い分けを決める(課題CC-6)",
           "h": 2.0,
-          "tier": "余力"
+          "tier": "余力",
+          "track": "Claude Code"
         }
       ]
     },
@@ -2354,14 +2450,16 @@ export const PLAN = {
           "cat": "TS/React/Next",
           "todo": "★依存配列を空にして古い値を掴むバグを再現し、直す(課題R-2)",
           "h": 1.5,
-          "tier": "コア"
+          "tier": "コア",
+          "track": "React"
         },
         {
           "id": "v3s36",
           "cat": "TS/React/Next",
           "todo": "useEffect + fetch でデータ取得を書く(Ch13と比べる)",
           "h": 1.5,
-          "tier": "コア"
+          "tier": "コア",
+          "track": "React"
         }
       ]
     },
@@ -2376,7 +2474,8 @@ export const PLAN = {
           "cat": "TS/React/Next",
           "todo": "状態をどこに置くか(リフトアップ)を設計する(課題R-3)",
           "h": 1.5,
-          "tier": "コア"
+          "tier": "コア",
+          "track": "React"
         }
       ]
     },
@@ -2391,14 +2490,16 @@ export const PLAN = {
           "cat": "TS/React/Next",
           "todo": "コンポーネントを責務で分割し、理由を書く★設計の話ができると評価が変わる",
           "h": 1.0,
-          "tier": "コア"
+          "tier": "コア",
+          "track": "React"
         },
         {
           "id": "v3s40",
           "cat": "TS/React/Next",
           "todo": "カスタムフックに切り出す",
           "h": 1.5,
-          "tier": "余力"
+          "tier": "余力",
+          "track": "React"
         }
       ]
     },
@@ -2413,7 +2514,8 @@ export const PLAN = {
           "cat": "TS/React/Next",
           "todo": "localStorage保存を足して小アプリを完成させる(課題CONV-1)",
           "h": 2.0,
-          "tier": "コア"
+          "tier": "コア",
+          "track": "コンバート"
         }
       ]
     },
@@ -2428,14 +2530,16 @@ export const PLAN = {
           "cat": "振り返り",
           "todo": "フックで詰まった点を弱点リストに記録する",
           "h": 1.0,
-          "tier": "余力"
+          "tier": "余力",
+          "track": "振り返り"
         },
         {
           "id": "v3s43",
           "cat": "振り返り",
           "todo": "日次ログ記入。コンバートに向けて準備確認",
           "h": 1.0,
-          "tier": "余力"
+          "tier": "余力",
+          "track": "振り返り"
         }
       ]
     },
@@ -2450,14 +2554,16 @@ export const PLAN = {
           "cat": "TS/React/Next",
           "todo": "Next.js公式Learnで環境構築し、App Routerの全体像を掴む",
           "h": 1.5,
-          "tier": "コア"
+          "tier": "コア",
+          "track": "Next.js"
         },
         {
           "id": "v3s45",
           "cat": "TS/React/Next",
           "todo": "ルーティング、layout と page を書く(課題N-1)",
           "h": 1.5,
-          "tier": "コア"
+          "tier": "コア",
+          "track": "Next.js"
         }
       ]
     },
@@ -2472,14 +2578,16 @@ export const PLAN = {
           "cat": "TS/React/Next",
           "todo": "Server ComponentでuseStateを使いエラーを出す。違いを体感する",
           "h": 1.0,
-          "tier": "コア"
+          "tier": "コア",
+          "track": "Next.js"
         },
         {
           "id": "v3s47",
           "cat": "TS/React/Next",
           "todo": "★4週目のReactアプリをNext.jsへコンバートする計画を書く(課題CONV-2)",
           "h": 1.0,
-          "tier": "コア"
+          "tier": "コア",
+          "track": "コンバート"
         }
       ]
     },
@@ -2494,7 +2602,8 @@ export const PLAN = {
           "cat": "TS/React/Next",
           "todo": "コンポーネントを App Router の構成へ移す",
           "h": 2.0,
-          "tier": "コア"
+          "tier": "コア",
+          "track": "コンバート"
         }
       ]
     },
@@ -2509,7 +2618,8 @@ export const PLAN = {
           "cat": "TS/React/Next",
           "todo": "'use client' の境界を決めて分ける(課題N-2)",
           "h": 2.0,
-          "tier": "コア"
+          "tier": "コア",
+          "track": "Next.js"
         }
       ]
     },
@@ -2524,14 +2634,16 @@ export const PLAN = {
           "cat": "TS/React/Next",
           "todo": "サーバー側でのデータ取得に置き換える(課題N-3)",
           "h": 1.0,
-          "tier": "コア"
+          "tier": "コア",
+          "track": "Next.js"
         },
         {
           "id": "v3s51",
           "cat": "TS/React/Next",
           "todo": "★コンバートで詰まった点と判断理由を記録する",
           "h": 1.0,
-          "tier": "コア"
+          "tier": "コア",
+          "track": "コンバート"
         }
       ]
     },
@@ -2546,14 +2658,16 @@ export const PLAN = {
           "cat": "TS/React/Next",
           "todo": "データ取得のキャッシュ挙動を確認する(再読み込みで再取得されるか)",
           "h": 1.0,
-          "tier": "余力"
+          "tier": "余力",
+          "track": "Next.js"
         },
         {
           "id": "v3s53",
           "cat": "TS/React/Next",
           "todo": "型を整理する。any を潰し、共通の型を切り出す",
           "h": 1.5,
-          "tier": "余力"
+          "tier": "余力",
+          "track": "TypeScript"
         }
       ]
     },
@@ -2568,14 +2682,16 @@ export const PLAN = {
           "cat": "TS/React/Next",
           "todo": "リファクタと命名の見直し。AIの提案は採否を自分で判断する",
           "h": 1.5,
-          "tier": "余力"
+          "tier": "余力",
+          "track": "コンバート"
         },
         {
           "id": "v3s55",
           "cat": "振り返り",
           "todo": "Server/Clientの判断基準を自分の言葉で書く",
           "h": 1.0,
-          "tier": "余力"
+          "tier": "余力",
+          "track": "振り返り"
         }
       ]
     },
@@ -2590,14 +2706,16 @@ export const PLAN = {
           "cat": "TS/React/Next",
           "todo": "Vercelにデプロイして公開URLを用意する(課題CONV-3)",
           "h": 1.0,
-          "tier": "コア"
+          "tier": "コア",
+          "track": "コンバート"
         },
         {
           "id": "v3s57",
           "cat": "TS/React/Next",
           "todo": "READMEを書く(何を作ったか/技術選定/学んだこと)",
           "h": 1.0,
-          "tier": "コア"
+          "tier": "コア",
+          "track": "コンバート"
         }
       ]
     },
@@ -2612,14 +2730,16 @@ export const PLAN = {
           "cat": "TS/React/Next",
           "todo": "React版とNext.js版の違いを言語化する(参画後に説明できる形に)",
           "h": 1.5,
-          "tier": "コア"
+          "tier": "コア",
+          "track": "コンバート"
         },
         {
           "id": "v3s59",
           "cat": "TS/React/Next",
           "todo": "想定質問への回答を準備する(Server/Client、型設計、AI活用)",
           "h": 1.5,
-          "tier": "コア"
+          "tier": "コア",
+          "track": "コンバート"
         }
       ]
     },
@@ -2634,14 +2754,16 @@ export const PLAN = {
           "cat": "TS/React/Next",
           "todo": "不要な再レンダリングを1箇所見つけて直す(key / 派生stateの見直し)",
           "h": 1.0,
-          "tier": "余力"
+          "tier": "余力",
+          "track": "React"
         },
         {
           "id": "v3s61",
           "cat": "振り返り",
           "todo": "6週間を1枚に総括し、スキルシートに書ける形にする",
           "h": 1.0,
-          "tier": "余力"
+          "tier": "余力",
+          "track": "振り返り"
         }
       ]
     }
@@ -2685,7 +2807,7 @@ export const PLAN = {
     {
       "no": "8",
       "title": "メモはアプリに書く。Obsidianは週末だけ",
-      "body": "平日はサマリーの「今日の記録」に1〜3行だけ書く（詰まった／分かった／明日）。週末に「この範囲をMarkdownでコピー」を押して notes/learning-log.md に貼り、そこで整える。二重に書こうとすると必ず止まる。常設のノートは learning-log.md / weak-points.md / convert-log.md / qa.md の4つだけ。"
+      "body": "平日はサマリーの「今日の記録」に1〜3行だけ書く（詰まった／分かった／明日）。週末に「この範囲をMarkdownでコピー」を押して notes/learning-log.md に貼り、そこで整える。二重に書こうとすると必ず止まる。常設のノートは learning-log.md（日々の記録）/ weak-points.md（つまずき）/ setup.md（手順集）/ convert-log.md（コンバートの判断）/ qa.md（想定Q&A）の5つだけ。これ以上増やさない。"
     },
     {
       "no": "9",

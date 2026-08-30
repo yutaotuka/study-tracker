@@ -6,6 +6,27 @@ export const CATS = [
   { key: "review", label: "振り返り", cat: "振り返り" },
 ];
 
+// 分野（今どの技術をやっているか）。時間の入力単位ではなく表示用
+export const TRACK_LIST = [
+  "JS基礎",
+  "TypeScript",
+  "React",
+  "Next.js",
+  "コンバート",
+  "Claude Code",
+  "振り返り",
+];
+
+export const TRACK_CLASS = {
+  JS基礎: "tr-js",
+  TypeScript: "tr-ts",
+  React: "tr-react",
+  "Next.js": "tr-next",
+  コンバート: "tr-conv",
+  "Claude Code": "tr-cc",
+  振り返り: "tr-rv",
+};
+
 export const CAT_CLASS = {
   JS基礎: "cat-js",
   "TS/React/Next": "cat-trn",

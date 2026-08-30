@@ -15,12 +15,28 @@ import { fileURLToPath } from "node:url";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const GIST_FILENAME = "study-progress-v2.json";
+// 分野の短縮表示（Slack/Discordの1行に収めるため）
+const TRACK_LABEL = {
+  JS基礎: "JS",
+  TypeScript: "TS",
+  React: "React",
+  "Next.js": "Next",
+  コンバート: "コンバート",
+  "Claude Code": "CC",
+  振り返り: "振",
+};
+
+// 分野が無い古いデータでも落ちないよう、カテゴリからの対応も残す
 const CAT_LABEL = {
   JS基礎: "JS",
   "TS/React/Next": "TRN",
   "Claude Code": "CC",
   振り返り: "振",
 };
+
+function label(item) {
+  return TRACK_LABEL[item.track] || CAT_LABEL[item.cat] || item.cat;
+}
 
 // ---------- 日付（JST固定） ----------
 export function todayJst(now = new Date()) {
@@ -66,12 +82,12 @@ export function buildMessage(plan, progress, dateIso) {
   const core = day.plan.filter((p) => p.tier !== "余力");
   const opt = day.plan.filter((p) => p.tier === "余力");
   for (const p of core) {
-    lines.push(`• [${CAT_LABEL[p.cat] || p.cat}] ${p.todo} — ${p.h}h`);
+    lines.push(`• [${label(p)}] ${p.todo} — ${p.h}h`);
   }
   if (opt.length) {
     lines.push(`_余力があれば_`);
     for (const p of opt) {
-      lines.push(`◦ [${CAT_LABEL[p.cat] || p.cat}] ${p.todo} — ${p.h}h`);
+      lines.push(`◦ [${label(p)}] ${p.todo} — ${p.h}h`);
     }
   }
 
@@ -113,6 +129,25 @@ export function buildMessage(plan, progress, dateIso) {
   lines.push(`• 手順 ${doneSteps} / ${plan.steps.length} 完了（コア＋余力）`);
   lines.push(`• 課題 ${doneTasks} / ${plan.tasks.length} 完了`);
 
+  // 今週どの分野をやっているか
+  const weekTracks = [
+    ...new Set(
+      plan.steps
+        .filter((s) => s.week === day.week && s.tier === "コア" && s.track)
+        .map((s) => s.track)
+    ),
+  ];
+  if (weekTracks.length) {
+    const parts = weekTracks.map((tr) => {
+      const all = plan.steps.filter(
+        (s) => s.week === day.week && s.track === tr && s.tier === "コア"
+      );
+      const d = all.filter((s) => progress.steps?.[s.id]).length;
+      return `${TRACK_LABEL[tr] || tr} ${d}/${all.length}`;
+    });
+    lines.push(`• 今週の分野: ${parts.join(" ／ ")}`);
+  }
+
   // --- 遅れ ---
   // 今週分: 今日より前の日に割り当てられているのに未完了のもの
   const thisWeekLate = [];
@@ -130,8 +165,7 @@ export function buildMessage(plan, progress, dateIso) {
     (s) => s.week < day.week && s.tier === "コア" && !progress.steps?.[s.id]
   );
 
-  const listLine = (s) =>
-    `• [${CAT_LABEL[s.cat] || s.cat}] ${s.todo} — ${s.h}h`;
+  const listLine = (s) => `• [${label(s)}] ${s.todo} — ${s.h}h`;
 
   if (thisWeekLate.length || pastWeeks.length) {
     lines.push("");

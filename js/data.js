@@ -307,7 +307,7 @@ export const PLAN = {
       "week": 3,
       "cat": "TS/React/Next",
       "no": 1,
-      "todo": "React公式で環境を作り、最初のコンポーネントを書く",
+      "todo": "React公式で環境を作る。★まずクイックスタートを写経する（自作しない）",
       "out": "画面が出る",
       "h": 2.0,
       "tier": "コア",
@@ -538,7 +538,7 @@ export const PLAN = {
       "week": 5,
       "cat": "TS/React/Next",
       "no": 1,
-      "todo": "Next.js公式Learnで環境構築し、App Routerの全体像を掴む",
+      "todo": "Next.js公式Learnで環境構築。★ここも写経から入る",
       "out": "アプリが起動する",
       "h": 1.5,
       "tier": "コア",
@@ -1459,6 +1459,7 @@ export const PLAN = {
       "feats": "コンポーネント, props, useState, JSX, key",
       "judge": "一覧が20件描画され、ボタンで表示が絞り込まれる／propsとstateの違いを説明できる",
       "hints": [
+        "★ゼロから書こうとしない。まずReact公式のクイックスタートを写経して動かし、そのあと自分のデータに差し替える。写経→改造→自作の順（ルール3b）",
         "画面が真っ白なときは、まずブラウザのコンソールを見る。JSXの閉じ忘れが多い",
         "「絞り込んだ結果」は state にしない。PRODUCTS と「絞り込むかどうかのbool」から計算で出す。これは R-3 で詳しくやる",
         "key に index を使うと、並べ替えたときに表示が壊れる。Ch11の sort と繋がる話"
@@ -1778,6 +1779,7 @@ export const PLAN = {
       "feats": "App Router, layout/page, 動的ルート, Link, loading/error",
       "judge": "3ページ以上を行き来でき、/products/7 で id が取れる",
       "hints": [
+        "★Next.js Learn の手順どおりに写経してから、自分のページを足す。いきなり構成を考えない（ルール3b）",
         "app/ の中では、フォルダ名がそのままURLになる。[id] のような角括弧が動的部分",
         "error.tsx は 'use client' が必須。理由は N-2 で分かる",
         "Next.js Learn の第1〜4章がこの課題の教材"
@@ -2272,7 +2274,7 @@ export const PLAN = {
         {
           "id": "v3s23",
           "cat": "TS/React/Next",
-          "todo": "React公式で環境を作り、最初のコンポーネントを書く",
+          "todo": "React公式で環境を作る。★まずクイックスタートを写経する（自作しない）",
           "h": 2.0,
           "tier": "コア",
           "track": "React"
@@ -2552,7 +2554,7 @@ export const PLAN = {
         {
           "id": "v3s44",
           "cat": "TS/React/Next",
-          "todo": "Next.js公式Learnで環境構築し、App Routerの全体像を掴む",
+          "todo": "Next.js公式Learnで環境構築。★ここも写経から入る",
           "h": 1.5,
           "tier": "コア",
           "track": "Next.js"
@@ -2783,6 +2785,11 @@ export const PLAN = {
       "no": "3",
       "title": "課題は必ず自分で書いてからAIに見せる",
       "body": "最初からAIに書かせない。自分で書いて詰まって、書き終わってからレビューさせる。AI駆動での開発は求人でよく求められるが、AIの出力を評価できないと駆動にならない。"
+    },
+    {
+      "no": "3b",
+      "title": "★React・Next.jsは「写経 → 改造 → 自作」の3段で進める",
+      "body": "JS基礎は本を読めばゼロから書けるが、ReactとNext.jsは書き方の型を知らないと1行も書けない。いきなり自作しようとすると白紙の前で時間が溶ける。①写経: 公式チュートリアルを見ながらそのまま書く（AIは見ない。理解より手を動かす）。②改造: 写経したものを1箇所だけ変える。壊して直す。ここで理解が入る。③自作: 何も見ずに書く。ルール3が効くのはここから。公式を写すのは「AIに書かせる」ことではないので、ルール3とは矛盾しない。"
     },
     {
       "no": "4",

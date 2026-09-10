@@ -1094,3 +1094,45 @@ table.skipped tr.watch {
   text-align: right;
   white-space: nowrap;
 }
+
+
+/* ===== v4: 計画期間より前の記録（薄く出す） ===== */
+details.past-logs {
+  margin: 0 0 16px;
+  padding: 8px 12px;
+  border: 1px dashed var(--line);
+  border-radius: 6px;
+  background: #fafafa;
+  opacity: 0.72;
+}
+details.past-logs:hover,
+details.past-logs[open] {
+  opacity: 1;
+}
+details.past-logs > summary {
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--muted);
+}
+details.past-logs table.logs.past {
+  margin-top: 10px;
+  filter: grayscale(1);
+}
+details.past-logs table.logs.past th,
+details.past-logs table.logs.past td {
+  color: #6b7280;
+  font-size: 12px;
+}
+p.past-total {
+  margin: -4px 0 14px;
+  font-size: 12px;
+}
+
+
+/* 学習済みの日（割り当てなし） */
+.spare-day.done-day {
+  color: var(--muted);
+}
+table.logs tr[data-date] td.plan .muted {
+  font-size: 12px;
+}

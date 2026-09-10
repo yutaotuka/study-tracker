@@ -15,6 +15,7 @@ import {
   weekLabel,
   TRACK_LIST,
   TRACK_CLASS,
+  wdOf,
 } from "./utils.js?v=4";
 
 // ---------- 集計 ----------
@@ -98,7 +99,7 @@ export function renderToday(root) {
   const day = today || PLAN.days[0];
   const outOfRange = !today;
 
-  const isSpare = day.plan.length === 0;
+  const isSpare = day.plan.length === 0 && !day.done;
   const items = day.plan.map((p) =>
     el("li", {
       children: [
@@ -138,7 +139,14 @@ export function renderToday(root) {
               text: `今日は学習期間（${periodLabel(PLAN.days)}）の範囲外なので、初日の内容を表示しています。`,
             })
           : null,
-        isSpare
+        day.done
+          ? el("p", {
+              class: "spare-day done-day",
+              text:
+                "この日の学習はすでに終わっています。割り当てはありません。" +
+                "実施時間の記録だけ残してください。",
+            })
+          : isSpare
           ? el("p", {
               class: "spare-day",
               text:
@@ -288,6 +296,18 @@ export function renderSummary(root) {
     );
   }
   root.appendChild(catWrap);
+
+  {
+    const ph = pastLogHours();
+    if (ph > 0) {
+      root.appendChild(
+        el("p", {
+          class: "muted past-total",
+          text: `通算 ${round1(t.actual + ph)} h（今の計画 ${t.actual} h ＋ これ以前 ${ph} h）。過去の記録は日次ログのタブで見られます。`,
+        })
+      );
+    }
+  }
 
   // 分野別の進み具合（手順の消化から出す。日次ログの入力は4枠のまま）
   root.appendChild(el("h2", { text: "分野別の進み具合" }));
@@ -703,6 +723,95 @@ export function renderTasks(root, filters) {
 }
 
 // ---------- 日次ログ ----------
+// 計画期間より前に記録した日（v1〜v3の期間）。消さずに見られるようにする
+export function pastLogDates() {
+  const first = PLAN.days[0].date;
+  const logs = store.getState().logs || {};
+  return Object.keys(logs)
+    .filter((d) => d < first)
+    .sort();
+}
+
+export function pastLogHours() {
+  return round1(
+    sum(pastLogDates(), (d) => {
+      const l = store.getLog(d);
+      return l.js + l.trn + l.cc + l.review;
+    })
+  );
+}
+
+function pastLogSection() {
+  const dates = pastLogDates();
+  if (!dates.length) return null;
+
+  const table = el("table", { class: "logs past" });
+  table.appendChild(
+    el("thead", {
+      children: [
+        el("tr", {
+          children: ["日付", "曜", "JS基礎", "TS/React/Next", "Claude Code", "振り返り", "計", "メモ"].map(
+            (h) => el("th", { text: h })
+          ),
+        }),
+      ],
+    })
+  );
+  const tb = el("tbody");
+  for (const date of dates) {
+    const l = store.getLog(date);
+    const total = round1(l.js + l.trn + l.cc + l.review);
+    const cells = CATS.map((c) => {
+      const inp = el("input", {
+        class: "num",
+        attrs: {
+          type: "number", min: "0", max: "24", step: "0.5",
+          "data-field": c.key,
+          value: l[c.key] ? String(l[c.key]) : "",
+        },
+      });
+      return el("td", { children: [inp] });
+    });
+    const memo = el("textarea", {
+      class: "memo",
+      attrs: { "data-field": "memo", rows: l.memo ? "2" : "1" },
+    });
+    memo.value = l.memo || "";
+    tb.appendChild(
+      el("tr", {
+        attrs: { "data-date": date },
+        children: [
+          el("td", { text: fmtDate(date) }),
+          el("td", { text: wdOf(date) }),
+          ...cells,
+          el("td", { class: `total ${total ? "" : "muted"}`, text: `${total}h` }),
+          el("td", { children: [memo] }),
+        ],
+      })
+    );
+  }
+  table.appendChild(tb);
+
+  const box = el("details", { class: "past-logs" });
+  box.appendChild(
+    el("summary", {
+      text: `これまでの記録 ${dates.length}日分（${fmtDate(dates[0])}〜${fmtDate(
+        dates.at(-1)
+      )}） 計 ${pastLogHours()}h`,
+    })
+  );
+  box.appendChild(
+    el("p", {
+      class: "muted",
+      text:
+        "今の計画（" +
+        periodLabel(PLAN.days) +
+        "）が始まる前に記録した分です。達成率の集計には入りませんが、記録は残っています。編集もできます。",
+    })
+  );
+  box.appendChild(table);
+  return box;
+}
 export function renderLogs(root, filters) {
   root.replaceChildren();
   const week = filters.week;
@@ -724,6 +833,9 @@ export function renderLogs(root, filters) {
     })
   );
   root.appendChild(bar1);
+
+  const past = pastLogSection();
+  if (past) root.appendChild(past);
 
   let days = PLAN.days;
   if (week !== "all") days = days.filter((d) => d.week === Number(week));
@@ -787,7 +899,14 @@ export function renderLogs(root, filters) {
           el("td", {
             class: "plan",
             children: d.plan.length === 0
-              ? [el("span", { class: "muted", text: "予備日（積み残しを片付ける）" })]
+              ? [
+                  el("span", {
+                    class: "muted",
+                    text: d.done
+                      ? "学習済み（割り当てなし）"
+                      : "予備日（積み残しを片付ける）",
+                  }),
+                ]
               : d.plan.map((p) =>
               el("span", {
                 class: "plan-item",

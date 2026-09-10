@@ -7,8 +7,8 @@ export const PLAN = {
     "coreHours": 59.5,
     "optionalHours": 9.5,
     "totalHours": 69.0,
-    "targetHours": 84.0,
-    "bufferHours": 15.0,
+    "targetHours": 82.0,
+    "bufferHours": 13.0,
     "note": "9/10時点の進捗（15.8h・終えた手順4件）と、案件開始が11月になったことを受けた再設計"
   },
   "weeks": [
@@ -16,23 +16,23 @@ export const PLAN = {
       "no": 1,
       "start": "2026-09-10",
       "end": "2026-09-13",
-      "js": "Ch11 コレクションを読み切る ＋ 分割代入・スプレッド ★",
+      "js": "Ch11 コレクションを読み切る ＋ 分割代入・スプレッド ★（9/10は学習済み）",
       "cc": "―",
-      "other": "TypeScript「なぜ型が必要か」を読み終える"
+      "other": "―"
     },
     {
       "no": 2,
       "start": "2026-09-14",
       "end": "2026-09-20",
-      "js": "Ch13 非同期処理 ★（JS基礎はここで終わり）",
+      "js": "―",
       "cc": "CLAUDE.mdを書く（余力枠）",
-      "other": "型注釈・型推論・union・interface/type・ジェネリクス・絞り込み"
+      "other": "「なぜ型が必要か」〜型注釈・型推論・union・interface/type・ジェネリクス・絞り込み"
     },
     {
       "no": 3,
       "start": "2026-09-21",
       "end": "2026-09-27",
-      "js": "課題「fetchで一覧取得」で JS基礎は完了",
+      "js": "Ch13 非同期処理 ★ と課題「fetchで一覧取得」でJS基礎は完了",
       "cc": "―",
       "other": "data.tsのTS化 ＋ React入門（★写経から入る）"
     },
@@ -98,17 +98,6 @@ export const PLAN = {
     {
       "id": "v4s4",
       "week": 1,
-      "cat": "TS/React/Next",
-      "no": 1,
-      "todo": "サバイバルTypeScriptの続き。「なぜ型が必要か」と基本の型を読み終える",
-      "out": "読了メモ",
-      "h": 1.5,
-      "tier": "コア",
-      "track": "TypeScript"
-    },
-    {
-      "id": "v4s5",
-      "week": 1,
       "cat": "振り返り",
       "no": 1,
       "todo": "週の振り返りと日次ログ。learning-log.md へ貼る",
@@ -118,10 +107,21 @@ export const PLAN = {
       "track": "振り返り"
     },
     {
-      "id": "v4s6",
+      "id": "v4s5",
       "week": 2,
       "cat": "TS/React/Next",
       "no": 1,
+      "todo": "サバイバルTypeScriptの続き。「なぜ型が必要か」と基本の型を読み終える",
+      "out": "読了メモ",
+      "h": 1.5,
+      "tier": "コア",
+      "track": "TypeScript"
+    },
+    {
+      "id": "v4s6",
+      "week": 2,
+      "cat": "TS/React/Next",
+      "no": 2,
       "todo": "TS: 型注釈を書いてみる。わざと型エラーを出して読み方に慣れる",
       "out": "エラーを自力で読める",
       "h": 1.5,
@@ -132,7 +132,7 @@ export const PLAN = {
       "id": "v4s7",
       "week": 2,
       "cat": "TS/React/Next",
-      "no": 2,
+      "no": 3,
       "todo": "TS: 型推論が効く場所を確認し、注釈を書く場所を決める(課題TS-1)",
       "out": "書く場所の基準をメモ",
       "h": 1.5,
@@ -143,7 +143,7 @@ export const PLAN = {
       "id": "v4s8",
       "week": 2,
       "cat": "TS/React/Next",
-      "no": 3,
+      "no": 4,
       "todo": "TS: ユニオン型・リテラル型・オプショナルを使う",
       "out": "絞り込みが書ける",
       "h": 1.5,
@@ -154,7 +154,7 @@ export const PLAN = {
       "id": "v4s9",
       "week": 2,
       "cat": "TS/React/Next",
-      "no": 4,
+      "no": 5,
       "todo": "TS: interface と type の使い分けを整理する(課題TS-2)",
       "out": "使い分けの基準を書ける",
       "h": 1.5,
@@ -165,7 +165,7 @@ export const PLAN = {
       "id": "v4s10",
       "week": 2,
       "cat": "TS/React/Next",
-      "no": 5,
+      "no": 6,
       "todo": "TS: ジェネリクスを使う。型を引数として渡す感覚を掴む",
       "out": "汎用関数が書ける",
       "h": 2.0,
@@ -176,7 +176,7 @@ export const PLAN = {
       "id": "v4s11",
       "week": 2,
       "cat": "TS/React/Next",
-      "no": 6,
+      "no": 7,
       "todo": "TS: 型の絞り込み(typeof / in / タグ付きユニオン)を書く",
       "out": "絞り込みで型が確定する",
       "h": 1.5,
@@ -185,17 +185,6 @@ export const PLAN = {
     },
     {
       "id": "v4s12",
-      "week": 2,
-      "cat": "JS基礎",
-      "no": 1,
-      "todo": "Ch13(非同期処理)を読む。イベントループの図をメモに描く",
-      "out": "読了 + 図",
-      "h": 1.5,
-      "tier": "コア",
-      "track": "JS基礎"
-    },
-    {
-      "id": "v4s13",
       "week": 2,
       "cat": "Claude Code",
       "no": 1,
@@ -206,7 +195,7 @@ export const PLAN = {
       "track": "Claude Code"
     },
     {
-      "id": "v4s14",
+      "id": "v4s13",
       "week": 2,
       "cat": "振り返り",
       "no": 1,
@@ -217,10 +206,21 @@ export const PLAN = {
       "track": "振り返り"
     },
     {
-      "id": "v4s15",
+      "id": "v4s14",
       "week": 3,
       "cat": "JS基礎",
       "no": 1,
+      "todo": "Ch13(非同期処理)を読む。イベントループの図をメモに描く",
+      "out": "読了 + 図",
+      "h": 1.5,
+      "tier": "コア",
+      "track": "JS基礎"
+    },
+    {
+      "id": "v4s15",
+      "week": 3,
+      "cat": "JS基礎",
+      "no": 2,
       "todo": "課題「fetchで一覧取得」。通信中/成功/失敗の3状態を作る",
       "out": "3状態が画面に出る",
       "h": 1.5,
@@ -1862,7 +1862,16 @@ export const PLAN = {
       "date": "2026-09-10",
       "wd": "木",
       "week": 1,
+      "target": 0.0,
+      "done": true,
+      "plan": []
+    },
+    {
+      "date": "2026-09-11",
+      "wd": "金",
+      "week": 1,
       "target": 2.0,
+      "done": false,
       "plan": [
         {
           "id": "v4s1",
@@ -1875,26 +1884,11 @@ export const PLAN = {
       ]
     },
     {
-      "date": "2026-09-11",
-      "wd": "金",
-      "week": 1,
-      "target": 2.0,
-      "plan": [
-        {
-          "id": "v4s4",
-          "cat": "TS/React/Next",
-          "todo": "サバイバルTypeScriptの続き。「なぜ型が必要か」と基本の型を読み終える",
-          "h": 1.5,
-          "tier": "コア",
-          "track": "TypeScript"
-        }
-      ]
-    },
-    {
       "date": "2026-09-12",
       "wd": "土",
       "week": 1,
       "target": 2.5,
+      "done": false,
       "plan": [
         {
           "id": "v4s2",
@@ -1911,6 +1905,7 @@ export const PLAN = {
       "wd": "日",
       "week": 1,
       "target": 2.5,
+      "done": false,
       "plan": [
         {
           "id": "v4s3",
@@ -1921,7 +1916,7 @@ export const PLAN = {
           "track": "JS基礎"
         },
         {
-          "id": "v4s5",
+          "id": "v4s4",
           "cat": "振り返り",
           "todo": "週の振り返りと日次ログ。learning-log.md へ貼る",
           "h": 0.5,
@@ -1935,6 +1930,41 @@ export const PLAN = {
       "wd": "月",
       "week": 2,
       "target": 2.0,
+      "done": false,
+      "plan": [
+        {
+          "id": "v4s5",
+          "cat": "TS/React/Next",
+          "todo": "サバイバルTypeScriptの続き。「なぜ型が必要か」と基本の型を読み終える",
+          "h": 1.5,
+          "tier": "コア",
+          "track": "TypeScript"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-15",
+      "wd": "火",
+      "week": 2,
+      "target": 2.0,
+      "done": false,
+      "plan": [
+        {
+          "id": "v4s12",
+          "cat": "Claude Code",
+          "todo": "CLAUDE.mdを書く(課題CC-1)",
+          "h": 1.5,
+          "tier": "余力",
+          "track": "Claude Code"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-16",
+      "wd": "水",
+      "week": 2,
+      "target": 2.0,
+      "done": false,
       "plan": [
         {
           "id": "v4s6",
@@ -1947,42 +1977,11 @@ export const PLAN = {
       ]
     },
     {
-      "date": "2026-09-15",
-      "wd": "火",
-      "week": 2,
-      "target": 2.0,
-      "plan": [
-        {
-          "id": "v4s12",
-          "cat": "JS基礎",
-          "todo": "Ch13(非同期処理)を読む。イベントループの図をメモに描く",
-          "h": 1.5,
-          "tier": "コア",
-          "track": "JS基礎"
-        }
-      ]
-    },
-    {
-      "date": "2026-09-16",
-      "wd": "水",
-      "week": 2,
-      "target": 2.0,
-      "plan": [
-        {
-          "id": "v4s13",
-          "cat": "Claude Code",
-          "todo": "CLAUDE.mdを書く(課題CC-1)",
-          "h": 1.5,
-          "tier": "余力",
-          "track": "Claude Code"
-        }
-      ]
-    },
-    {
       "date": "2026-09-17",
       "wd": "木",
       "week": 2,
       "target": 2.0,
+      "done": false,
       "plan": [
         {
           "id": "v4s7",
@@ -2007,6 +2006,7 @@ export const PLAN = {
       "wd": "金",
       "week": 2,
       "target": 2.0,
+      "done": false,
       "plan": [
         {
           "id": "v4s9",
@@ -2023,6 +2023,7 @@ export const PLAN = {
       "wd": "土",
       "week": 2,
       "target": 2.5,
+      "done": false,
       "plan": [
         {
           "id": "v4s10",
@@ -2039,6 +2040,7 @@ export const PLAN = {
       "wd": "日",
       "week": 2,
       "target": 2.5,
+      "done": false,
       "plan": [
         {
           "id": "v4s11",
@@ -2049,7 +2051,7 @@ export const PLAN = {
           "track": "TypeScript"
         },
         {
-          "id": "v4s14",
+          "id": "v4s13",
           "cat": "振り返り",
           "todo": "週の振り返りと日次ログ",
           "h": 0.5,
@@ -2063,6 +2065,7 @@ export const PLAN = {
       "wd": "月",
       "week": 3,
       "target": 2.0,
+      "done": false,
       "plan": [
         {
           "id": "v4s16",
@@ -2079,11 +2082,12 @@ export const PLAN = {
       "wd": "火",
       "week": 3,
       "target": 2.0,
+      "done": false,
       "plan": [
         {
-          "id": "v4s15",
+          "id": "v4s14",
           "cat": "JS基礎",
-          "todo": "課題「fetchで一覧取得」。通信中/成功/失敗の3状態を作る",
+          "todo": "Ch13(非同期処理)を読む。イベントループの図をメモに描く",
           "h": 1.5,
           "tier": "コア",
           "track": "JS基礎"
@@ -2095,6 +2099,7 @@ export const PLAN = {
       "wd": "水",
       "week": 3,
       "target": 2.0,
+      "done": false,
       "plan": [
         {
           "id": "v4s17",
@@ -2111,13 +2116,7 @@ export const PLAN = {
       "wd": "木",
       "week": 3,
       "target": 2.0,
-      "plan": []
-    },
-    {
-      "date": "2026-09-25",
-      "wd": "金",
-      "week": 3,
-      "target": 2.0,
+      "done": false,
       "plan": [
         {
           "id": "v4s18",
@@ -2130,10 +2129,28 @@ export const PLAN = {
       ]
     },
     {
+      "date": "2026-09-25",
+      "wd": "金",
+      "week": 3,
+      "target": 2.0,
+      "done": false,
+      "plan": [
+        {
+          "id": "v4s15",
+          "cat": "JS基礎",
+          "todo": "課題「fetchで一覧取得」。通信中/成功/失敗の3状態を作る",
+          "h": 1.5,
+          "tier": "コア",
+          "track": "JS基礎"
+        }
+      ]
+    },
+    {
       "date": "2026-09-26",
       "wd": "土",
       "week": 3,
       "target": 2.5,
+      "done": false,
       "plan": [
         {
           "id": "v4s19",
@@ -2150,6 +2167,7 @@ export const PLAN = {
       "wd": "日",
       "week": 3,
       "target": 2.5,
+      "done": false,
       "plan": [
         {
           "id": "v4s20",
@@ -2174,6 +2192,7 @@ export const PLAN = {
       "wd": "月",
       "week": 4,
       "target": 2.0,
+      "done": false,
       "plan": [
         {
           "id": "v4s22",
@@ -2190,6 +2209,7 @@ export const PLAN = {
       "wd": "火",
       "week": 4,
       "target": 2.0,
+      "done": false,
       "plan": [
         {
           "id": "v4s23",
@@ -2206,6 +2226,7 @@ export const PLAN = {
       "wd": "水",
       "week": 4,
       "target": 2.0,
+      "done": false,
       "plan": [
         {
           "id": "v4s24",
@@ -2222,6 +2243,7 @@ export const PLAN = {
       "wd": "木",
       "week": 4,
       "target": 2.0,
+      "done": false,
       "plan": [
         {
           "id": "v4s25",
@@ -2238,6 +2260,7 @@ export const PLAN = {
       "wd": "金",
       "week": 4,
       "target": 2.0,
+      "done": false,
       "plan": [
         {
           "id": "v4s26",
@@ -2254,6 +2277,7 @@ export const PLAN = {
       "wd": "土",
       "week": 4,
       "target": 2.5,
+      "done": false,
       "plan": [
         {
           "id": "v4s27",
@@ -2278,6 +2302,7 @@ export const PLAN = {
       "wd": "日",
       "week": 4,
       "target": 2.5,
+      "done": false,
       "plan": [
         {
           "id": "v4s29",
@@ -2302,6 +2327,7 @@ export const PLAN = {
       "wd": "月",
       "week": 5,
       "target": 2.0,
+      "done": false,
       "plan": [
         {
           "id": "v4s31",
@@ -2318,6 +2344,7 @@ export const PLAN = {
       "wd": "火",
       "week": 5,
       "target": 2.0,
+      "done": false,
       "plan": [
         {
           "id": "v4s38",
@@ -2334,6 +2361,7 @@ export const PLAN = {
       "wd": "水",
       "week": 5,
       "target": 2.0,
+      "done": false,
       "plan": [
         {
           "id": "v4s32",
@@ -2350,6 +2378,7 @@ export const PLAN = {
       "wd": "木",
       "week": 5,
       "target": 2.0,
+      "done": false,
       "plan": [
         {
           "id": "v4s33",
@@ -2366,6 +2395,7 @@ export const PLAN = {
       "wd": "金",
       "week": 5,
       "target": 2.0,
+      "done": false,
       "plan": [
         {
           "id": "v4s34",
@@ -2382,6 +2412,7 @@ export const PLAN = {
       "wd": "土",
       "week": 5,
       "target": 2.5,
+      "done": false,
       "plan": [
         {
           "id": "v4s35",
@@ -2398,6 +2429,7 @@ export const PLAN = {
       "wd": "日",
       "week": 5,
       "target": 2.5,
+      "done": false,
       "plan": [
         {
           "id": "v4s36",
@@ -2430,6 +2462,7 @@ export const PLAN = {
       "wd": "月",
       "week": 6,
       "target": 2.0,
+      "done": false,
       "plan": [
         {
           "id": "v4s40",
@@ -2446,6 +2479,7 @@ export const PLAN = {
       "wd": "火",
       "week": 6,
       "target": 2.0,
+      "done": false,
       "plan": [
         {
           "id": "v4s41",
@@ -2462,6 +2496,7 @@ export const PLAN = {
       "wd": "水",
       "week": 6,
       "target": 2.0,
+      "done": false,
       "plan": [
         {
           "id": "v4s42",
@@ -2478,6 +2513,7 @@ export const PLAN = {
       "wd": "木",
       "week": 6,
       "target": 2.0,
+      "done": false,
       "plan": [
         {
           "id": "v4s43",
@@ -2502,6 +2538,7 @@ export const PLAN = {
       "wd": "金",
       "week": 6,
       "target": 2.0,
+      "done": false,
       "plan": [
         {
           "id": "v4s45",
@@ -2526,6 +2563,7 @@ export const PLAN = {
       "wd": "土",
       "week": 6,
       "target": 2.5,
+      "done": false,
       "plan": [
         {
           "id": "v4s47",
@@ -2542,6 +2580,7 @@ export const PLAN = {
       "wd": "日",
       "week": 6,
       "target": 2.5,
+      "done": false,
       "plan": [
         {
           "id": "v4s48",
@@ -2579,12 +2618,12 @@ export const PLAN = {
     {
       "no": "2",
       "title": "★バッファは最初から入っている。使い切る前提で組んでいない",
-      "body": "目標84hに対して割り当ては69h（82%）。差の15hがバッファ。1日の目標も平日2.0hに置いてあるので、2.5h取れた日は貯金になる。『予定どおり行かない日がある』ことを最初から見込んでいるので、1日できなかったくらいで組み直さなくてよい。"
+      "body": "目標82hに対して割り当ては69h。差の13hがバッファ。1日の目標も平日2.0hに置いてあるので、2.5h取れた日は貯金になる。『予定どおり行かない日がある』ことを最初から見込んでいるので、1日できなかったくらいで組み直さなくてよい。"
     },
     {
       "no": "3",
       "title": "JS基礎は3週目の課題「fetchで一覧取得」で終わり",
-      "body": "8/30〜9/10でJS基礎に12hを使い、TypeScriptは1.5hだった。同じ配分に戻さない。4週目以降にJSへ戻るのは、Reactで必要になった時だけにする。"
+      "body": "8/30〜9/10でJS基礎に14.3hを使い、TypeScriptは1.5hだった。同じ配分に戻さない。4週目以降にJSへ戻るのは、Reactで必要になった時だけにする。"
     },
     {
       "no": "4",

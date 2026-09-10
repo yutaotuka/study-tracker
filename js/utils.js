@@ -67,6 +67,14 @@ export function fmtDate(iso) {
   return `${Number(m)}/${Number(d)}`;
 }
 
+// ISO日付から曜日を出す（計画に無い過去の日でも使えるように）
+export function wdOf(iso) {
+  const [y, m, d] = iso.split("-").map(Number);
+  return ["日", "月", "火", "水", "木", "金", "土"][
+    new Date(y, m - 1, d).getDay()
+  ];
+}
+
 export function todayIso() {
   const d = new Date();
   const p = (n) => String(n).padStart(2, "0");

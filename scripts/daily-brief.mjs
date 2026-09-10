@@ -73,12 +73,20 @@ export function buildMessage(plan, progress, dateIso) {
   const week = plan.weeks.find((w) => w.no === day.week);
 
   lines.push(`*学習ブリーフ ${Number(m)}/${Number(d)}（${day.wd}）・${day.week}週目*`);
-  if (week) lines.push(`今週: ${week.other}`);
+  if (week) {
+    const topic = [week.js, week.other, week.cc]
+      .filter((x) => x && x !== "―")
+      .join(" ／ ");
+    if (topic) lines.push(`今週: ${topic}`);
+  }
   lines.push(`今日の目標 ${day.target}h`);
   lines.push("");
 
   // --- 今日やること ---
-  if (day.plan.length === 0) {
+  if (day.plan.length === 0 && day.done) {
+    lines.push("*この日の学習は完了しています*");
+    lines.push("割り当てはありません。実施時間の記録だけ残してください。");
+  } else if (day.plan.length === 0) {
     lines.push("*今日は予備日です*");
     lines.push("割り当てはありません。積み残しがあればここで片付けてください。");
   } else {

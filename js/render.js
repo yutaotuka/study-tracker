@@ -1,6 +1,6 @@
 // 画面描画（DOM組み立てのみ。イベント登録は main.js 側）
-import { PLAN } from "./data.js?v=3";
-import * as store from "./storage.js?v=3";
+import { PLAN } from "./data.js?v=4";
+import * as store from "./storage.js?v=4";
 import {
   CATS,
   CAT_CLASS,
@@ -15,7 +15,7 @@ import {
   weekLabel,
   TRACK_LIST,
   TRACK_CLASS,
-} from "./utils.js?v=3";
+} from "./utils.js?v=4";
 
 // ---------- 集計 ----------
 export function weekStats(weekNo) {
@@ -98,6 +98,7 @@ export function renderToday(root) {
   const day = today || PLAN.days[0];
   const outOfRange = !today;
 
+  const isSpare = day.plan.length === 0;
   const items = day.plan.map((p) =>
     el("li", {
       children: [
@@ -111,6 +112,8 @@ export function renderToday(root) {
 
   const log = store.getLog(day.date);
   const done = round1(log.js + log.trn + log.cc + log.review);
+  const assigned = round1(sum(day.plan, (p) => p.h));
+  const slack = round1(day.target - assigned);
 
   root.appendChild(
     el("section", {
@@ -125,7 +128,7 @@ export function renderToday(root) {
               class: "meta",
               text: `${fmtDate(day.date)}（${day.wd}） ${day.week}週目 ・ 目標${
                 day.target
-              }h ・ 実施${done}h`,
+              }h ・ 割当${assigned}h${slack > 0 ? `（余裕${slack}h）` : ""} ・ 実施${done}h`,
             }),
           ],
         }),
@@ -135,7 +138,14 @@ export function renderToday(root) {
               text: `今日は学習期間（${periodLabel(PLAN.days)}）の範囲外なので、初日の内容を表示しています。`,
             })
           : null,
-        el("ul", { class: "today-list", children: items }),
+        isSpare
+          ? el("p", {
+              class: "spare-day",
+              text:
+                "予備日です。割り当てはありません。積み残しがあればここで片付け、" +
+                "無ければ休むか先に進んでください。",
+            })
+          : el("ul", { class: "today-list", children: items }),
         el("p", {
           class: "muted",
           text: "「コア」を先に片付けてください。時間が足りない日は「余力」を落として構いません。前後1〜2日のずれは問題ありません。",
@@ -231,11 +241,11 @@ export function renderSummary(root) {
         class: "notice revision",
         children: [
           el("p", {
-            text: `${PLAN.meta.revisedOn} 再設計版（${PLAN.meta.period}・${PLAN.meta.totalHours}h）。コア ${PLAN.meta.coreHours}h ＋ 余力 ${PLAN.meta.optionalHours}h の2階建てです。`,
+            text: `${PLAN.meta.revisedOn} 再設計版（${PLAN.meta.period}）。目標 ${PLAN.meta.targetHours}h に対して割り当ては ${PLAN.meta.totalHours}h（コア ${PLAN.meta.coreHours}h ＋ 余力 ${PLAN.meta.optionalHours}h）。差の ${PLAN.meta.bufferHours}h がバッファです。`,
           }),
           el("p", {
             class: "muted",
-            text: "コアだけ終われば、参画時に「ReactアプリをNext.jsへコンバートした経験がある」状態になります。余力は、コアが予定どおり進んだときだけ手を付けてください。",
+            text: "予定どおり行かない日を最初から見込んでいます。1日できなくても組み直さなくて大丈夫です。コアだけ終われば「ReactアプリをNext.jsへコンバートして公開した経験がある」状態になります。",
           }),
         ],
       })
@@ -257,6 +267,13 @@ export function renderSummary(root) {
         ),
         statCard("手順の消化", `${t.stepsDone} / ${t.steps}`, "コア＋余力"),
         statCard("課題", `${t.tasksDone} / ${t.tasks}`, "全分野・自分でやる課題"),
+        statCard(
+          "バッファ",
+          `${PLAN.meta ? PLAN.meta.bufferHours : 0} h`,
+          `目標 ${PLAN.meta ? PLAN.meta.targetHours : 0} h − 割当 ${
+            PLAN.meta ? PLAN.meta.totalHours : 0
+          } h`
+        ),
       ],
     })
   );
@@ -769,7 +786,9 @@ export function renderLogs(root, filters) {
           el("td", { class: "muted", text: `${d.target}h` }),
           el("td", {
             class: "plan",
-            children: d.plan.map((p) =>
+            children: d.plan.length === 0
+              ? [el("span", { class: "muted", text: "予備日（積み残しを片付ける）" })]
+              : d.plan.map((p) =>
               el("span", {
                 class: "plan-item",
                 children: [

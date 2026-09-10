@@ -78,7 +78,12 @@ export function buildMessage(plan, progress, dateIso) {
   lines.push("");
 
   // --- 今日やること ---
-  lines.push("*今日やること*");
+  if (day.plan.length === 0) {
+    lines.push("*今日は予備日です*");
+    lines.push("割り当てはありません。積み残しがあればここで片付けてください。");
+  } else {
+    lines.push("*今日やること*");
+  }
   const core = day.plan.filter((p) => p.tier !== "余力");
   const opt = day.plan.filter((p) => p.tier === "余力");
   for (const p of core) {

@@ -1136,3 +1136,14 @@ p.past-total {
 table.logs tr[data-date] td.plan .muted {
   font-size: 12px;
 }
+
+
+/* 0週目（完了済み 9/10〜9/13）は控えめに */
+.week-card.done-week-card {
+  opacity: 0.75;
+  border-style: dashed;
+}
+.week-no.done-week {
+  background: #e5e7eb;
+  color: #4b5563;
+}

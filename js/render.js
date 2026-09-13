@@ -1,6 +1,6 @@
 // 画面描画（DOM組み立てのみ。イベント登録は main.js 側）
-import { PLAN } from "./data.js?v=4";
-import * as store from "./storage.js?v=4";
+import { PLAN } from "./data.js?v=5";
+import * as store from "./storage.js?v=5";
 import {
   CATS,
   CAT_CLASS,
@@ -16,7 +16,7 @@ import {
   TRACK_LIST,
   TRACK_CLASS,
   wdOf,
-} from "./utils.js?v=4";
+} from "./utils.js?v=5";
 
 // ---------- 集計 ----------
 export function weekStats(weekNo) {
@@ -29,7 +29,10 @@ export function weekStats(weekNo) {
   const steps = PLAN.steps.filter((s) => s.week === weekNo);
   const stepsDone = steps.filter((s) => store.isStepDone(s.id)).length;
   const core = steps.filter((s) => s.tier === "コア");
+  const opt = steps.filter((s) => s.tier === "余力");
   return {
+    opt: opt.length,
+    optDone: opt.filter((s) => store.isStepDone(s.id)).length,
     target: round1(target),
     actual: round1(actual),
     ratio: target ? actual / target : 0,
@@ -249,11 +252,11 @@ export function renderSummary(root) {
         class: "notice revision",
         children: [
           el("p", {
-            text: `${PLAN.meta.revisedOn} 再設計版（${PLAN.meta.period}）。目標 ${PLAN.meta.targetHours}h に対して割り当ては ${PLAN.meta.totalHours}h（コア ${PLAN.meta.coreHours}h ＋ 余力 ${PLAN.meta.optionalHours}h）。差の ${PLAN.meta.bufferHours}h がバッファです。`,
+            text: `${PLAN.meta.revisedOn} 再設計版（${PLAN.meta.period}）。日に配っているのはコア ${PLAN.meta.coreHours}h だけで、目標 ${PLAN.meta.targetHours}h との差 ${PLAN.meta.bufferHours}h がバッファです。余力 ${PLAN.meta.optionalHours}h は日付を持ちません。`,
           }),
           el("p", {
             class: "muted",
-            text: "予定どおり行かない日を最初から見込んでいます。1日できなくても組み直さなくて大丈夫です。コアだけ終われば「ReactアプリをNext.jsへコンバートして公開した経験がある」状態になります。",
+            text: "「今日やること」に出るのはコアだけです。上から順にやれば最優先が片付きます。余力はコアが終わった日に、手順タブの「余力」から拾ってください。",
           }),
         ],
       })
@@ -278,8 +281,8 @@ export function renderSummary(root) {
         statCard(
           "バッファ",
           `${PLAN.meta ? PLAN.meta.bufferHours : 0} h`,
-          `目標 ${PLAN.meta ? PLAN.meta.targetHours : 0} h − 割当 ${
-            PLAN.meta ? PLAN.meta.totalHours : 0
+          `目標 ${PLAN.meta ? PLAN.meta.targetHours : 0} h − コア ${
+            PLAN.meta ? PLAN.meta.coreHours : 0
           } h`
         ),
       ],
@@ -346,11 +349,14 @@ export function renderSummary(root) {
     const s = weekStats(w.no);
     list.appendChild(
       el("article", {
-        class: "week-card",
+        class: `week-card ${w.no === 0 ? "done-week-card" : ""}`.trim(),
         children: [
           el("header", {
             children: [
-              el("span", { class: "week-no", text: `${w.no}週目` }),
+              el("span", {
+                class: `week-no ${w.no === 0 ? "done-week" : ""}`.trim(),
+                text: w.no === 0 ? "完了済み" : `${w.no}週目`,
+              }),
               el("span", {
                 class: "week-range",
                 text: `${fmtDate(w.start)}〜${fmtDate(w.end)}`,
@@ -374,7 +380,12 @@ export function renderSummary(root) {
             ],
           }),
           el("footer", {
-            text: `${s.actual} / ${s.target} h ・ コア ${s.coreDone}/${s.core}（${s.coreHours}h） ・ 全手順 ${s.stepsDone}/${s.steps}`,
+            text:
+              w.no === 0
+                ? `${s.actual} h（この期間は計画の対象外。記録だけ残しています）`
+                : `${s.actual} / ${s.target} h ・ コア ${s.coreDone}/${s.core}（${s.coreHours}h）${
+                    s.opt ? ` ・ 余力 ${s.optDone}/${s.opt}` : ""
+                  }`,
           }),
         ],
       })
@@ -502,7 +513,10 @@ function weekSelect(value) {
   sel.appendChild(el("option", { text: "全ての週", attrs: { value: "all" } }));
   for (const w of PLAN.weeks) {
     sel.appendChild(
-      el("option", { text: `${w.no}週目`, attrs: { value: String(w.no) } })
+      el("option", {
+        text: w.no === 0 ? "完了済み（9/10〜9/13）" : `${w.no}週目`,
+        attrs: { value: String(w.no) },
+      })
     );
   }
   sel.value = value;

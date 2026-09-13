@@ -92,15 +92,20 @@ export function buildMessage(plan, progress, dateIso) {
   } else {
     lines.push("*今日やること*");
   }
-  const core = day.plan.filter((p) => p.tier !== "余力");
-  const opt = day.plan.filter((p) => p.tier === "余力");
-  for (const p of core) {
+  for (const p of day.plan) {
     lines.push(`• [${label(p)}] ${p.todo} — ${p.h}h`);
   }
-  if (opt.length) {
-    lines.push(`_余力があれば_`);
-    for (const p of opt) {
-      lines.push(`◦ [${label(p)}] ${p.todo} — ${p.h}h`);
+
+  // 余力枠は日付を持たない。今週のぶんをまとめて出す
+  const weekOpt = plan.steps.filter(
+    (s) => s.week === day.week && s.tier === "余力"
+  );
+  const weekOptLeft = weekOpt.filter((s) => !progress?.steps?.[s.id]);
+  if (weekOptLeft.length) {
+    lines.push("");
+    lines.push(`_今週の余力枠（コアが終わったら）_`);
+    for (const s of weekOptLeft) {
+      lines.push(`◦ [${label(s)}] ${s.todo} — ${s.h}h`);
     }
   }
 

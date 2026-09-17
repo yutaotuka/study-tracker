@@ -22,6 +22,7 @@ const TRACK_LABEL = {
   React: "React",
   "Next.js": "Next",
   コンバート: "コンバート",
+  テスト: "テスト",
   "Claude Code": "CC",
   振り返り: "振",
 };
@@ -94,6 +95,22 @@ export function buildMessage(plan, progress, dateIso) {
   }
   for (const p of day.plan) {
     lines.push(`• [${label(p)}] ${p.todo} — ${p.h}h`);
+  }
+
+  // ★飛ばしたJSの章に戻る場面がある日は、その節をここに出す。
+  //   アプリを開かなくても、朝の通知だけで「どこを開けばいいか」が分かる。
+  const refMap = Object.fromEntries(
+    (plan.featureRefs || []).map((r) => [r.key, r])
+  );
+  const refKeys = [...new Set(day.plan.flatMap((p) => p.refs || []))];
+  if (refKeys.length) {
+    lines.push("");
+    lines.push("_詰まったら開く章（先に読まない）_");
+    for (const k of refKeys) {
+      const r = refMap[k];
+      if (!r) continue;
+      lines.push(`▸ ${r.ch} ${r.chTitle} ／ ${r.sec} — ${r.feature}`);
+    }
   }
 
   // 余力枠は日付を持たない。今週のぶんをまとめて出す

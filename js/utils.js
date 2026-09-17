@@ -13,6 +13,7 @@ export const TRACK_LIST = [
   "React",
   "Next.js",
   "コンバート",
+  "テスト",
   "Claude Code",
   "振り返り",
 ];
@@ -23,6 +24,7 @@ export const TRACK_CLASS = {
   React: "tr-react",
   "Next.js": "tr-next",
   コンバート: "tr-conv",
+  テスト: "tr-test",
   "Claude Code": "tr-cc",
   振り返り: "tr-rv",
 };

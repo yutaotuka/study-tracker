@@ -1147,3 +1147,192 @@ table.logs tr[data-date] td.plan .muted {
   background: #e5e7eb;
   color: #4b5563;
 }
+
+
+/* ===== v6: テスト分野 ===== */
+.chip.tr-test { background: #fef3c7; color: #92400e; }
+
+/* ===== v6: 参照する章（飛ばしたJSの回収） ===== */
+.chip.ref-chip {
+  background: #fff7ed;
+  color: #9a3412;
+  border: 1px solid #fdba74;
+  font-weight: 600;
+  cursor: help;
+}
+table.steps td .chip.ref-chip {
+  margin-left: 8px;
+}
+.today-list .chip.ref-chip {
+  margin-left: 6px;
+}
+
+details.today-refs {
+  margin: 10px 0 4px;
+  padding: 10px 12px;
+  border: 1px solid #fdba74;
+  border-radius: 6px;
+  background: #fffbf5;
+}
+details.today-refs > summary {
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+  color: #9a3412;
+}
+details.today-refs p.muted {
+  margin: 6px 0 0;
+}
+
+h4.ref-head {
+  color: #9a3412;
+}
+ul.ref-list-in-task {
+  list-style: none;
+  padding-left: 0;
+}
+li.ref-detail {
+  margin: 0 0 10px;
+  padding: 8px 10px;
+  border-left: 3px solid #fdba74;
+  background: #fffbf5;
+}
+.ref-detail-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.ref-sec {
+  font-size: 13px;
+  font-weight: 600;
+}
+.ref-why {
+  margin: 6px 0 0;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.ref-watch {
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: #b45309;
+}
+
+/* 機能 ⇄ 章 の一覧 */
+.ref-feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 10px 0 20px;
+}
+article.ref-feature {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 10px 12px;
+  background: #fff;
+}
+article.ref-feature > header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+.ref-feature-name {
+  font-weight: 700;
+}
+
+/* JSの復習方針の表 */
+table.js-review-table td.pri {
+  text-align: center;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.chip.fill-yes { background: #fee2e2; color: #991b1b; border: 1px solid #fca5a5; }
+.chip.fill-part { background: #ffedd5; color: #9a3412; border: 1px solid #fdba74; }
+.chip.fill-hold { background: #fef9c3; color: #854d0e; }
+.chip.fill-later { background: #e0e7ff; color: #3730a3; }
+.chip.fill-no { background: #f3f4f6; color: #6b7280; }
+.chip.fill-done { background: #dcfce7; color: #166534; }
+
+/* ===== v6: 期（第1期／フェーズA〜C） ===== */
+.phase-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 12px;
+  margin: 10px 0 22px;
+}
+article.phase-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 12px 14px;
+  background: #fff;
+}
+article.phase-card > header {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+.phase-name {
+  font-weight: 700;
+  font-size: 15px;
+}
+.phase-range {
+  font-size: 12px;
+  color: var(--muted);
+}
+.phase-deadline {
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 700;
+  color: #991b1b;
+}
+.phase-title {
+  margin: 0 0 4px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.phase-aim {
+  margin: 0 0 8px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.phase-num {
+  margin: 6px 0 0;
+  font-size: 12px;
+}
+.phase-note {
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: #9a3412;
+}
+.chip.week-phase {
+  background: #eef2ff;
+  color: #3730a3;
+  font-size: 11px;
+}
+
+/* ===== v6: ルールの表示（v5では [object Object] と出ていた） ===== */
+ol.rules > li {
+  margin-bottom: 14px;
+}
+ol.rules > li.key-rule .rule-title {
+  color: #9a3412;
+}
+.rule-no {
+  display: inline-block;
+  min-width: 26px;
+  font-weight: 700;
+  color: var(--muted);
+}
+.rule-title {
+  font-weight: 700;
+}
+.rule-body {
+  margin: 4px 0 0 26px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #374151;
+}

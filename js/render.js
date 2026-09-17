@@ -1,6 +1,6 @@
 // 画面描画（DOM組み立てのみ。イベント登録は main.js 側）
-import { PLAN } from "./data.js?v=5";
-import * as store from "./storage.js?v=5";
+import { PLAN } from "./data.js?v=6";
+import * as store from "./storage.js?v=6";
 import {
   CATS,
   CAT_CLASS,
@@ -16,7 +16,7 @@ import {
   TRACK_LIST,
   TRACK_CLASS,
   wdOf,
-} from "./utils.js?v=5";
+} from "./utils.js?v=6";
 
 // ---------- 集計 ----------
 export function weekStats(weekNo) {
@@ -94,6 +94,62 @@ function statCard(label, value, sub) {
   });
 }
 
+// ---------- ★参照する章（飛ばしたJSの章を機能から引く） ----------
+// data.js の featureRefs をキーで引けるようにする
+const REF_MAP = Object.fromEntries(
+  (PLAN.featureRefs || []).map((r) => [r.key, r])
+);
+
+export function refOf(key) {
+  return REF_MAP[key] || null;
+}
+
+// 手順・課題に付ける小さなバッジ（例：「参照 Ch15 イベント伝播」）
+export function refChips(refs, opts = {}) {
+  if (!refs || !refs.length) return [];
+  return refs
+    .map((k) => refOf(k))
+    .filter(Boolean)
+    .map((r) =>
+      el("span", {
+        class: "chip ref-chip",
+        text: opts.short ? `${r.ch}` : `参照 ${r.ch} ${r.sec}`,
+        attrs: { title: `${r.ch} ${r.chTitle} ／ ${r.sec}\n\n${r.why}` },
+      })
+    );
+}
+
+// 課題カードの中に出す詳しい版。なぜ読むのか・何にハマるのかまで出す
+export function refDetail(refs) {
+  if (!refs || !refs.length) return [];
+  const items = refs
+    .map((k) => refOf(k))
+    .filter(Boolean)
+    .map((r) =>
+      el("li", {
+        class: "ref-detail",
+        children: [
+          el("div", {
+            class: "ref-detail-head",
+            children: [
+              el("span", { class: "chip ref-chip", text: `${r.ch} ${r.chTitle}` }),
+              el("span", { class: "ref-sec", text: r.sec }),
+            ],
+          }),
+          el("p", { class: "ref-why", text: r.why }),
+          r.watch
+            ? el("p", { class: "ref-watch", text: `ハマりどころ: ${r.watch}` })
+            : null,
+        ],
+      })
+    );
+  if (!items.length) return [];
+  return [
+    el("h4", { class: "ref-head", text: "詰まったら開く章（先回りして読まない）" }),
+    el("ul", { class: "task-sub ref-list-in-task", children: items }),
+  ];
+}
+
 // ---------- サマリー ----------
 // 今日（期間外なら初日）の目安パネル
 export function renderToday(root) {
@@ -109,6 +165,7 @@ export function renderToday(root) {
         el("span", { class: `chip ${TIER_CLASS[p.tier]}`, text: p.tier }),
         el("span", { class: `chip ${TRACK_CLASS[p.track]}`, text: p.track }),
         el("span", { class: "todo", text: p.todo }),
+        ...refChips(p.refs),
         el("span", { class: "hh", text: `${p.h}h` }),
       ],
     })
@@ -161,10 +218,32 @@ export function renderToday(root) {
           class: "muted",
           text: "「コア」を先に片付けてください。時間が足りない日は「余力」を落として構いません。前後1〜2日のずれは問題ありません。",
         }),
+        todayRefBox(day),
         outOfRange ? null : todayLog(day),
       ],
     })
   );
+}
+
+// ★今日やることの中に「飛ばした章に戻る」ものがあれば、その場に出す。
+//   教材タブまで探しに行かなくても、必要な日に必要な節だけ目に入る形にする。
+export function todayRefBox(day) {
+  const keys = [...new Set((day.plan || []).flatMap((p) => p.refs || []))];
+  if (!keys.length) return null;
+  return el("details", {
+    class: "today-refs",
+    attrs: { open: "" },
+    children: [
+      el("summary", {
+        text: `今日の内容には、飛ばした章に戻る場面があります（${keys.length}件）`,
+      }),
+      el("p", {
+        class: "muted",
+        text: "先に読まないでください。自分で書いてみて詰まってから、下の節だけ開きます（ルール14）。",
+      }),
+      ...refDetail(keys),
+    ],
+  });
 }
 
 // 今日の記録欄。日次ログのタブを開かなくてもここで書ける
@@ -258,6 +337,12 @@ export function renderSummary(root) {
             class: "muted",
             text: "「今日やること」に出るのはコアだけです。上から順にやれば最優先が片付きます。余力はコアが終わった日に、手順タブの「余力」から拾ってください。",
           }),
+          el("p", {
+            class: "muted",
+            text:
+              "飛ばした独習JavaScriptの章は、機能を作る場面で回収します。該当する日には" +
+              "「今日やること」の下に開く節が出ます。方針は教材タブの「JSの復習方針」にあります。",
+          }),
         ],
       })
     );
@@ -343,6 +428,15 @@ export function renderSummary(root) {
   }
   root.appendChild(trWrap);
 
+  root.appendChild(el("h2", { text: "期ごとの進み具合" }));
+  root.appendChild(
+    el("p", {
+      class: "muted",
+      text: "4週ごとに締め切りを置いています。バーはコアの手順の消化です。",
+    })
+  );
+  root.appendChild(phaseList());
+
   root.appendChild(el("h2", { text: "週別の進捗" }));
   const list = el("div", { class: "week-list" });
   for (const w of PLAN.weeks) {
@@ -361,6 +455,9 @@ export function renderSummary(root) {
                 class: "week-range",
                 text: `${fmtDate(w.start)}〜${fmtDate(w.end)}`,
               }),
+              w.phaseName
+                ? el("span", { class: "chip week-phase", text: w.phaseName })
+                : null,
               el("span", {
                 class: "week-pct",
                 text: `${pct(s.actual, s.target)}%`,
@@ -497,7 +594,12 @@ export function renderSteps(root, filters) {
             el("span", { class: `chip ${TRACK_CLASS[s.track]}`, text: s.track }),
           ],
         }),
-        el("td", { text: s.todo }),
+        el("td", {
+          children: [
+            el("span", { text: s.todo }),
+            ...refChips(s.refs),
+          ],
+        }),
         el("td", { class: "muted", text: s.out }),
         el("td", { text: `${s.h}h` }),
       ],
@@ -512,11 +614,15 @@ function weekSelect(value) {
   const sel = el("select", { class: "week-filter" });
   sel.appendChild(el("option", { text: "全ての週", attrs: { value: "all" } }));
   for (const w of PLAN.weeks) {
+    // 18週あるので、どの期の週かが分かるようにラベルへ入れる
+    const label =
+      w.no === 0
+        ? "完了済み（9/10〜9/13）"
+        : `${w.no}週目 ${fmtDate(w.start)}〜${fmtDate(w.end)}${
+            w.phaseName ? `・${w.phaseName}` : ""
+          }`;
     sel.appendChild(
-      el("option", {
-        text: w.no === 0 ? "完了済み（9/10〜9/13）" : `${w.no}週目`,
-        attrs: { value: String(w.no) },
-      })
+      el("option", { text: label, attrs: { value: String(w.no) } })
     );
   }
   sel.value = value;
@@ -538,7 +644,7 @@ function trackSelect(value) {
 }
 
 // ---------- 課題 ----------
-export const TRACKS = ["JS基礎", "TypeScript", "React", "Next.js", "コンバート", "Claude Code"];
+export const TRACKS = ["JS基礎", "TypeScript", "React", "Next.js", "コンバート", "テスト", "Claude Code"];
 
 // 中身がある項目だけ「見出し＋リスト」を返す（空なら何も出さない）
 function section(title, items, make, cls = "") {
@@ -726,6 +832,7 @@ export function renderTasks(root, filters) {
           ...section("詰まったときのヒント（答えではない）", t.hints, (x) =>
             el("li", { text: x })
           ),
+          ...refDetail(t.refs),
           el("h4", { text: "レビュー依頼文" }),
           el("p", { class: "review", text: t.review }),
           copyBtn,
@@ -1032,64 +1139,177 @@ export function renderRefs(root, filters) {
   }
   root.appendChild(wrap);
 
-  // 今回読まない章と、戻るタイミング
-  if (PLAN.skipped && PLAN.skipped.length && track === "all") {
-    root.appendChild(
-      el("h2", { class: "skip-head", text: "今回読まない章と、戻るタイミング" })
-    );
-    root.appendChild(
+  // ★飛ばしたJSの章をどうするか（いつでもここで確認できる）
+  root.appendChild(jsReviewSection());
+  root.appendChild(featureRefSection());
+}
+
+// ---------- ★JSの復習方針 ----------
+const FILL_CLASS = {
+  埋める: "fill-yes",
+  一部だけ埋める: "fill-part",
+  "保留（案件次第）": "fill-hold",
+  後回しでよい: "fill-later",
+  埋めない: "fill-no",
+  読了: "fill-done",
+};
+
+export function jsReviewSection() {
+  const wrap = el("section", { class: "js-review" });
+  const rows = PLAN.jsReview || [];
+  wrap.appendChild(
+    el("h2", { class: "skip-head", text: "JSの復習方針（飛ばした章をどうするか）" })
+  );
+  wrap.appendChild(
+    el("p", {
+      class: "muted",
+      text:
+        "★全部は埋めません。埋めるのは Ch15 と Ch10 の一部だけです。" +
+        "本を最後まで読み切ることは目的ではありません。目的は、型付きのReact/Next.jsアプリを設計して作れることです。",
+    })
+  );
+  wrap.appendChild(
+    el("p", {
+      class: "muted",
+      text:
+        "穴埋め専用の時間枠は作りません。その章が必要になる機能を、フェーズAの要件に仕込んであります（ルール14）。" +
+        "必要になってから、該当節だけ開いてください。",
+    })
+  );
+
+  if (!rows.length) {
+    wrap.appendChild(
       el("p", {
-        class: "muted",
-        text:
-          "通読しません。ただし「飛ばしっぱなし」にしないよう、戻る条件を決めてあります。" +
-          "先回りして読まず、下の条件に当たったときだけ該当節を開いてください。",
+        class: "empty",
+        text: "復習方針のデータが読み込めませんでした。js/data.js が古い可能性があります。",
       })
     );
-    const t = el("table", { class: "steps skipped" });
-    t.appendChild(
-      el("thead", {
+    return wrap;
+  }
+
+  const t = el("table", { class: "steps skipped js-review-table" });
+  t.appendChild(
+    el("thead", {
+      children: [
+        el("tr", {
+          children: ["章", "内容", "方針", "優先度", "理由", "いつ読むか"].map(
+            (h) => el("th", { text: h })
+          ),
+        }),
+      ],
+    })
+  );
+  const tb = el("tbody");
+  for (const k of rows) {
+    tb.appendChild(
+      el("tr", {
+        class: k.priority === "高" ? "watch" : "",
         children: [
-          el("tr", {
-            children: ["章", "内容", "今回の扱い", "戻るタイミング"].map((h) =>
-              el("th", { text: h })
-            ),
+          el("td", { text: k.ch }),
+          el("td", { text: k.title }),
+          el("td", {
+            children: [
+              el("span", {
+                class: `chip ${FILL_CLASS[k.how] || "fill-no"}`,
+                text: k.how,
+              }),
+            ],
           }),
+          el("td", { class: "pri", text: k.priority }),
+          el("td", { class: "muted", text: k.why }),
+          el("td", { class: "muted", text: k.when }),
         ],
       })
     );
-    const tb = el("tbody");
-    for (const k of PLAN.skipped) {
-      tb.appendChild(
-        el("tr", {
-          class: k.how.startsWith("★") ? "watch" : "",
-          children: [
-            el("td", { text: k.ch }),
-            el("td", { text: k.title }),
-            el("td", { text: k.how }),
-            el("td", { class: "muted", text: k.when }),
-          ],
-        })
-      );
-    }
-    t.appendChild(tb);
-    root.appendChild(t);
   }
+  t.appendChild(tb);
+  wrap.appendChild(t);
+  return wrap;
+}
+
+// ---------- ★機能 ⇄ 参照する章 ----------
+export function featureRefSection() {
+  const wrap = el("section", { class: "feature-refs" });
+  const rows = PLAN.featureRefs || [];
+  wrap.appendChild(
+    el("h2", { class: "skip-head", text: "この機能を作るときに、この章を開く" })
+  );
+  wrap.appendChild(
+    el("p", {
+      class: "muted",
+      text:
+        "飛ばした章は、機能を作る場面で回収します。該当する手順と課題には「参照 Ch○○」のバッジが付いていて、" +
+        "その日の「今日やること」にも自動で出ます。探しに行かなくて大丈夫です。",
+    })
+  );
+
+  if (!rows.length) {
+    wrap.appendChild(
+      el("p", { class: "empty", text: "対応表のデータが読み込めませんでした。" })
+    );
+    return wrap;
+  }
+
+  const list = el("div", { class: "ref-feature-list" });
+  for (const r of [...rows].sort((a, b) => a.week - b.week)) {
+    list.appendChild(
+      el("article", {
+        class: "ref-feature",
+        children: [
+          el("header", {
+            children: [
+              el("span", { class: "chip ref-week", text: `${r.week}週目` }),
+              el("span", { class: "ref-feature-name", text: r.feature }),
+              el("span", { class: "chip ref-chip", text: `${r.ch} ${r.chTitle}` }),
+            ],
+          }),
+          el("p", { class: "ref-sec", text: `読む節: ${r.sec}` }),
+          el("p", { class: "ref-why", text: r.why }),
+          r.watch
+            ? el("p", { class: "ref-watch", text: `ハマりどころ: ${r.watch}` })
+            : null,
+        ],
+      })
+    );
+  }
+  wrap.appendChild(list);
+  return wrap;
 }
 
 // ---------- ルール ----------
 export function renderRules(root) {
   root.replaceChildren();
   root.appendChild(el("h2", { text: "守るルール" }));
+  // ルールは {no, title, body} のオブジェクト。
+  // v5までは文字列として渡していたため画面に [object Object] と出ていた
   root.appendChild(
     el("ol", {
       class: "rules",
-      children: PLAN.rules.map((r) => el("li", { text: r })),
+      children: PLAN.rules.map((r) =>
+        el("li", {
+          class: r.title.startsWith("★") ? "key-rule" : "",
+          children: [
+            el("span", { class: "rule-no", text: r.no }),
+            el("span", { class: "rule-title", text: r.title }),
+            el("p", { class: "rule-body", text: r.body }),
+          ],
+        })
+      ),
     })
   );
+
+  root.appendChild(el("h2", { text: "期と締め切り" }));
   root.appendChild(
-    el("h2", { text: "前提" })
+    el("p", {
+      class: "muted",
+      text: "4週ごとに締め切りを置いています。遠い締め切りは必ず緩むためです。",
+    })
   );
+  root.appendChild(phaseList());
+
+  root.appendChild(el("h2", { text: "前提" }));
   const totalTarget = round1(sum(PLAN.days, (d) => d.target));
+  const core = PLAN.meta ? PLAN.meta.coreHours : 0;
   const info = [
     [
       "期間",
@@ -1097,11 +1317,24 @@ export function renderRules(root) {
         PLAN.days.length
       }日`,
     ],
-    ["ペース", "週15時間（平日2.0h／土日2.5h）※10週目は8日間で17h"],
-    ["内訳", "独習JavaScript 7h ／ Claude Code Academy 3h ／ その他技術 3h ／ 振り返り 2h"],
-    ["総時間", `${totalTarget}時間`],
-    ["ゴール", "JSの土台を作り直す＋学習トラッカーを自作して公開＋周辺3技術の概要把握"],
-    ["教材", "独習JavaScript 新版 ／ 独習PHP 第4版 ／ Claude Code Academy（iOS開発はスキップ）"],
+    ["ペース", "週15時間（平日2.0h／土日2.5h）。年末年始（12/29〜1/3）は目標0h"],
+    ["時間の内訳", `目標 ${totalTarget}h ＝ コア ${core}h ＋ バッファ ${round1(totalTarget - core)}h。余力 ${
+      PLAN.meta ? PLAN.meta.optionalHours : 0
+    }h は日付を持たない`],
+    [
+      "ゴール",
+      "①型付きのReact/Next.jsアプリをコンバートして公開する（10/18）" +
+        "②要件定義から自分で作ったアプリを公開する（11/15）" +
+        "③テストが通りCIが緑の状態にする（12/13）",
+    ],
+    [
+      "教材",
+      "独習JavaScript 新版 ／ サバイバルTypeScript ／ React・Next.js 公式 ／ Vitest・Testing Library",
+    ],
+    [
+      "飛ばしたJSの章",
+      "埋めるのは Ch15 と Ch10 の一部だけ。教材タブの「JSの復習方針」に理由まで書いてある",
+    ],
   ];
   const dl = el("dl", { class: "info" });
   for (const [k, v] of info) {
@@ -1109,6 +1342,55 @@ export function renderRules(root) {
     dl.appendChild(el("dd", { text: v }));
   }
   root.appendChild(dl);
+}
+
+// 期（第1期／フェーズA〜C）の一覧
+export function phaseList() {
+  const wrap = el("div", { class: "phase-list" });
+  for (const p of PLAN.phases || []) {
+    const weeks = PLAN.weeks.filter(
+      (w) => w.no >= p.weeks[0] && w.no <= p.weeks[1]
+    );
+    const actual = round1(
+      sum(
+        PLAN.days.filter((d) => weeks.some((w) => w.no === d.week)),
+        (d) => {
+          const l = store.getLog(d.date);
+          return l.js + l.trn + l.cc + l.review;
+        }
+      )
+    );
+    const coreSteps = PLAN.steps.filter(
+      (s) => s.tier === "コア" && s.week >= p.weeks[0] && s.week <= p.weeks[1]
+    );
+    const doneN = coreSteps.filter((s) => store.isStepDone(s.id)).length;
+    wrap.appendChild(
+      el("article", {
+        class: "phase-card",
+        children: [
+          el("header", {
+            children: [
+              el("span", { class: "phase-name", text: p.name }),
+              el("span", {
+                class: "phase-range",
+                text: `${fmtDate(p.start)}〜${fmtDate(p.end)}`,
+              }),
+              el("span", { class: "phase-deadline", text: `締切 ${fmtDate(p.deadline)}` }),
+            ],
+          }),
+          el("p", { class: "phase-title", text: p.title }),
+          el("p", { class: "phase-aim", text: `ゴール: ${p.aim}` }),
+          bar(coreSteps.length ? doneN / coreSteps.length : 0, "slim"),
+          el("p", {
+            class: "phase-num muted",
+            text: `実施 ${actual} / 目標 ${p.target} h ・ コア ${doneN}/${coreSteps.length}件（${p.core}h）・ バッファ ${p.buffer}h`,
+          }),
+          p.note ? el("p", { class: "phase-note", text: p.note }) : null,
+        ],
+      })
+    );
+  }
+  return wrap;
 }
 
 

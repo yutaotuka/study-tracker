@@ -1336,3 +1336,158 @@ ol.rules > li.key-rule .rule-title {
   line-height: 1.7;
   color: #374151;
 }
+
+
+/* ===== v6: 理解度チェック ===== */
+.today-checks {
+  margin: 14px 0 6px;
+  padding: 12px 14px;
+  border: 2px solid #c7d2fe;
+  border-radius: 8px;
+  background: #f5f7ff;
+}
+.today-checks h3 {
+  margin: 0 0 6px;
+  font-size: 15px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.ck-count {
+  font-size: 12px;
+  font-weight: 700;
+  color: #4338ca;
+}
+.ck-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+article.ck-card {
+  border: 1px solid var(--line);
+  border-left: 4px solid #a5b4fc;
+  border-radius: 6px;
+  padding: 10px 12px;
+  background: #fff;
+}
+article.ck-card > header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+.ck-todo {
+  font-size: 12px;
+  color: var(--muted);
+}
+.ck-q {
+  margin: 0 0 6px;
+  font-size: 14px;
+  line-height: 1.7;
+  font-weight: 600;
+}
+.ck-judge {
+  margin: 0 0 8px;
+  font-size: 12px;
+  color: #047857;
+}
+article.ck-card.ck-r-o { border-left-color: #10b981; background: #f0fdf4; }
+article.ck-card.ck-r-d { border-left-color: #f59e0b; background: #fffbeb; }
+article.ck-card.ck-r-x { border-left-color: #ef4444; background: #fef2f2; }
+
+.ck-buttons {
+  display: flex;
+  gap: 8px;
+}
+button.ck-btn {
+  min-width: 48px;
+  padding: 6px 12px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+}
+button.ck-btn:hover {
+  border-color: #9ca3af;
+}
+button.ck-o.on { background: #10b981; border-color: #10b981; color: #fff; }
+button.ck-d.on { background: #f59e0b; border-color: #f59e0b; color: #fff; }
+button.ck-x.on { background: #ef4444; border-color: #ef4444; color: #fff; }
+
+textarea.ck-note {
+  width: 100%;
+  margin-top: 8px;
+  padding: 6px 8px;
+  font: inherit;
+  font-size: 13px;
+  border: 1px solid #fca5a5;
+  border-radius: 4px;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+/* 形式のチップ */
+.chip.ck-predict { background: #dbeafe; color: #1e40af; }
+.chip.ck-repro   { background: #fae8ff; color: #86198f; }
+.chip.ck-explain { background: #dcfce7; color: #166534; }
+.chip.ck-cloze   { background: #fef3c7; color: #92400e; }
+
+/* 手順タブの行に畳んで出す */
+details.row-check {
+  margin-top: 6px;
+  font-size: 12px;
+}
+details.row-check > summary {
+  cursor: pointer;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+details.row-check.answered > summary {
+  font-weight: 700;
+}
+details.row-check.ck-r-o > summary { color: #047857; }
+details.row-check.ck-r-d > summary { color: #b45309; }
+details.row-check.ck-r-x > summary { color: #b91c1c; }
+details.row-check article.ck-card {
+  margin-top: 8px;
+}
+
+/* ×の一覧 */
+details.weak-box {
+  margin: 14px 0 18px;
+  padding: 10px 14px;
+  border: 1px solid #fca5a5;
+  border-radius: 8px;
+  background: #fef2f2;
+}
+details.weak-box > summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: #b91c1c;
+}
+ul.weak-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 10px 0;
+}
+ul.weak-list > li {
+  padding: 8px 0;
+  border-top: 1px solid #fecaca;
+}
+.weak-todo {
+  margin-left: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.weak-note {
+  margin: 4px 0 0 0;
+  font-size: 12px;
+}

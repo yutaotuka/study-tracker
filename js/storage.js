@@ -8,6 +8,9 @@ const EMPTY = {
   steps: {},   // { "s1": true }
   tasks: {},   // { "t1": true }
   logs: {},    // { "2026-08-07": { js: 1, trn: 0.5, cc: 0.5, review: 0, memo: "" } }
+  // ★理解度チェック。手順IDごとに { r: "o"|"d"|"x", note: "×のときだけ書く答え" }
+  // 「終わった(steps)」と「分かった(checks)」を分けて持つ。ここが今回の肝
+  checks: {},
   updatedAt: null,
 };
 
@@ -60,6 +63,32 @@ export function isStepDone(id) {
 export function toggleStep(id) {
   if (state.steps[id]) delete state.steps[id];
   else state.steps[id] = true;
+  persist();
+}
+
+/** 理解度チェックの判定を取る。未回答なら null */
+export function getCheck(id) {
+  return state.checks[id] || null;
+}
+
+/**
+ * 判定を付ける。同じ判定をもう一度押すと未回答に戻る。
+ * ×以外に変えたときは、書いてあった答えも一緒に消す。
+ */
+export function setCheck(id, result) {
+  const cur = state.checks[id];
+  if (cur && cur.r === result) delete state.checks[id];
+  else if (result === "x") state.checks[id] = { r: "x", note: cur?.note || "" };
+  else state.checks[id] = { r: result };
+  persist();
+}
+
+/** ×のときの答えを書き残す（weak-points.md の材料になる） */
+export function setCheckNote(id, note) {
+  const cur = state.checks[id];
+  if (!cur) return;
+  if (!note.trim()) delete cur.note;
+  else cur.note = note;
   persist();
 }
 

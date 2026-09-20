@@ -1,9 +1,9 @@
 // 初期化・ルーティング・イベント登録
-import * as store from "./storage.js?v=6";
-import * as view from "./render.js?v=6";
-import * as sync from "./sync.js?v=6";
-import { debounce, todayIso, weekOf, periodLabel } from "./utils.js?v=6";
-import { PLAN } from "./data.js?v=6";
+import * as store from "./storage.js?v=7";
+import * as view from "./render.js?v=7";
+import * as sync from "./sync.js?v=7";
+import { debounce, todayIso, weekOf, periodLabel } from "./utils.js?v=7";
+import { PLAN } from "./data.js?v=7";
 
 const main = document.querySelector("#main");
 const nav = document.querySelector("#nav");
@@ -71,19 +71,78 @@ main.addEventListener("click", (e) => {
     return;
   }
 
+  // ★理解度チェックの○△×
+  const ckBtn = e.target.closest("button.ck-btn");
+  if (ckBtn) {
+    const id = ckBtn.dataset.check;
+    store.setCheck(id, ckBtn.dataset.result);
+    refreshCheckCards(id);
+    return;
+  }
+
+  // ×の一覧をMarkdownでコピー（weak-points.md へ貼る）
+  if (e.target.matches("button.weak-copy")) {
+    const md = view.weakMarkdown();
+    if (!md) {
+      alert("×が付いた項目はありません。");
+      return;
+    }
+    copyText(e.target, md, "コピーしました（weak-points.md に貼れます）");
+    return;
+  }
+
   // レビュー依頼文のコピー
   if (e.target.matches("button.copy")) {
-    const text = e.target.dataset.copy;
-    navigator.clipboard
-      .writeText(text)
-      .then(() => {
-        const before = e.target.textContent;
-        e.target.textContent = "コピーしました";
-        setTimeout(() => (e.target.textContent = before), 1500);
-      })
-      .catch(() => alert("コピーに失敗しました。手動で選択してください。"));
+    copyText(e.target, e.target.dataset.copy, "コピーしました");
   }
 });
+
+function copyText(btn, text, done) {
+  navigator.clipboard
+    .writeText(text)
+    .then(() => {
+      const before = btn.textContent;
+      btn.textContent = done;
+      setTimeout(() => (btn.textContent = before), 2000);
+    })
+    .catch(() => alert("コピーに失敗しました。手動で選択してください。"));
+}
+
+/**
+ * ★チェックのカードだけを差し替える。
+ * 画面全体を描き直すと、textareaのカーソルやスクロールが飛ぶため。
+ * 同じ手順のカードはサマリーと手順タブの両方に出ることがあるので、全部更新する。
+ */
+function refreshCheckCards(id) {
+  const step = PLAN.steps.find((s) => s.id === id);
+  if (!step) return;
+  for (const old of main.querySelectorAll(`[data-check-card="${id}"]`)) {
+    const next = view.checkCard(step);
+    if (next) old.replaceWith(next);
+  }
+  // 「今日のチェック 1/3」の件数と、手順タブの見出しも直す
+  const day = PLAN.days.find((d) => d.date === todayIso());
+  if (day) {
+    const items = (day.plan || []).filter((p) => p.check);
+    const counter = main.querySelector(".today-checks .ck-count");
+    if (counter && items.length) {
+      const n = items.filter((p) => store.getCheck(p.id)).length;
+      counter.textContent = `${n} / ${items.length}`;
+    }
+  }
+  const cur = store.getCheck(id);
+  for (const det of main.querySelectorAll("details.row-check")) {
+    if (!det.querySelector(`[data-check-card="${id}"]`)) continue;
+    det.className = `row-check${cur ? ` answered ck-r-${cur.r}` : ""}`;
+    const label = det.querySelector("summary span:last-child");
+    if (label) {
+      const mark = view.CHECK_RESULTS.find((r) => r.key === cur?.r)?.label;
+      label.textContent = cur
+        ? `理解度チェック（${mark}）`
+        : "理解度チェック（未回答）";
+    }
+  }
+}
 
 // ---------- メモの書き出しテンプレ ----------
 main.addEventListener("click", (e) => {
@@ -135,7 +194,18 @@ const saveLog = debounce((date, field, value) => {
   }
 }, 250);
 
+// ★×のときの答え（自動保存）
+const saveCheckNote = debounce((id, text) => {
+  store.setCheckNote(id, text);
+}, 400);
+
 main.addEventListener("input", (e) => {
+  // 理解度チェックの答え
+  if (e.target.matches("textarea.ck-note")) {
+    saveCheckNote(e.target.dataset.checkNote, e.target.value);
+    return;
+  }
+
   // 日次ログの入力
   const logRow = e.target.closest("[data-date]");
   if (logRow && e.target.dataset.field) {

@@ -1,6 +1,6 @@
 // 画面描画（DOM組み立てのみ。イベント登録は main.js 側）
-import { PLAN } from "./data.js?v=6";
-import * as store from "./storage.js?v=6";
+import { PLAN } from "./data.js?v=7";
+import * as store from "./storage.js?v=7";
 import {
   CATS,
   CAT_CLASS,
@@ -16,7 +16,7 @@ import {
   TRACK_LIST,
   TRACK_CLASS,
   wdOf,
-} from "./utils.js?v=6";
+} from "./utils.js?v=7";
 
 // ---------- 集計 ----------
 export function weekStats(weekNo) {
@@ -219,6 +219,7 @@ export function renderToday(root) {
           text: "「コア」を先に片付けてください。時間が足りない日は「余力」を落として構いません。前後1〜2日のずれは問題ありません。",
         }),
         todayRefBox(day),
+        outOfRange ? null : todayChecks(day),
         outOfRange ? null : todayLog(day),
       ],
     })
@@ -244,6 +245,133 @@ export function todayRefBox(day) {
       ...refDetail(keys),
     ],
   });
+}
+
+// ---------- ★理解度チェック ----------
+// 「終わった」と「分かった」は別物。手順ごとに1問、5〜10分で自分に問う。
+export const CHECK_RESULTS = PLAN.checkResults || [
+  { key: "o", label: "○", note: "見ないでできた" },
+  { key: "d", label: "△", note: "詰まったが、調べて分かった" },
+  { key: "x", label: "×", note: "分からなかった" },
+];
+const NEEDS_NOTE = PLAN.checkNeedsNote || "x";
+
+export const CHECK_TYPE_CLASS = {
+  予測: "ck-predict",
+  再現: "ck-repro",
+  説明: "ck-explain",
+  穴埋め: "ck-cloze",
+};
+
+// 1件分のチェック（問い・○の条件・○△×ボタン・×のときだけ答え欄）
+export function checkCard(step) {
+  const c = step.check;
+  if (!c) return null;
+  const cur = store.getCheck(step.id);
+
+  const buttons = el("div", {
+    class: "ck-buttons",
+    children: CHECK_RESULTS.map((r) => {
+      const b = el("button", {
+        class: `ck-btn ck-${r.key}${cur && cur.r === r.key ? " on" : ""}`,
+        text: r.label,
+        attrs: {
+          type: "button",
+          "data-check": step.id,
+          "data-result": r.key,
+          title: `${r.note}（もう一度押すと取り消し）`,
+        },
+      });
+      return b;
+    }),
+  });
+
+  const note = el("textarea", {
+    class: "ck-note",
+    attrs: {
+      "data-check-note": step.id,
+      rows: "2",
+      placeholder:
+        "分からなかったことを1行だけ。週末に weak-points.md へ移します（例：依存配列に何を入れるかの基準が言えない）",
+    },
+  });
+  note.value = (cur && cur.note) || "";
+
+  return el("article", {
+    class: `ck-card${cur ? ` answered ck-r-${cur.r}` : ""}`,
+    attrs: { "data-check-card": step.id },
+    children: [
+      el("header", {
+        children: [
+          el("span", {
+            class: `chip ${CHECK_TYPE_CLASS[c.type] || ""}`,
+            text: c.type,
+          }),
+          el("span", { class: `chip ${TRACK_CLASS[step.track]}`, text: step.track }),
+          el("span", { class: "ck-todo", text: step.todo }),
+        ],
+      }),
+      el("p", { class: "ck-q", text: c.q }),
+      el("p", { class: "ck-judge", text: `○にする条件: ${c.judge}` }),
+      buttons,
+      cur && cur.r === NEEDS_NOTE ? note : null,
+    ],
+  });
+}
+
+// 今日の割り当てに対応するチェックをまとめて出す
+export function todayChecks(day) {
+  const items = (day.plan || []).filter((p) => p.check);
+  if (!items.length) return null;
+  const answered = items.filter((p) => store.getCheck(p.id)).length;
+
+  return el("section", {
+    class: "today-checks",
+    children: [
+      el("h3", {
+        children: [
+          el("span", { text: "今日の理解度チェック" }),
+          el("span", {
+            class: "ck-count",
+            text: `${answered} / ${items.length}`,
+          }),
+        ],
+      }),
+      el("p", {
+        class: "muted",
+        text:
+          "手順を終えたら、その場で答えてください。5〜10分です。" +
+          "★×が出た日は失敗ではありません。穴が見つかった日です（ルール13b）。",
+      }),
+      el("div", {
+        class: "ck-list",
+        children: items.map((p) => checkCard(p)),
+      }),
+    ],
+  });
+}
+
+// ○△×の集計
+export function checkStats(steps) {
+  const out = { o: 0, d: 0, x: 0, none: 0, total: 0 };
+  for (const s of steps) {
+    if (!s.check) continue;
+    out.total++;
+    const c = store.getCheck(s.id);
+    if (!c) out.none++;
+    else out[c.r] = (out[c.r] || 0) + 1;
+  }
+  return out;
+}
+
+// ×が付いた項目（weak-points.md へ移す材料）
+export function weakItems() {
+  return PLAN.steps
+    .filter((s) => {
+      const c = store.getCheck(s.id);
+      return c && c.r === "x";
+    })
+    .map((s) => ({ ...s, note: store.getCheck(s.id).note || "" }));
 }
 
 // 今日の記録欄。日次ログのタブを開かなくてもここで書ける
@@ -363,6 +491,15 @@ export function renderSummary(root) {
         ),
         statCard("手順の消化", `${t.stepsDone} / ${t.steps}`, "コア＋余力"),
         statCard("課題", `${t.tasksDone} / ${t.tasks}`, "全分野・自分でやる課題"),
+        (() => {
+          const c = checkStats(PLAN.steps);
+          const answered = c.o + c.d + c.x;
+          return statCard(
+            "理解度チェック",
+            answered ? `○${c.o} △${c.d} ×${c.x}` : "未回答",
+            `${answered} / ${c.total} 問に回答`
+          );
+        })(),
         statCard(
           "バッファ",
           `${PLAN.meta ? PLAN.meta.bufferHours : 0} h`,
@@ -394,6 +531,55 @@ export function renderSummary(root) {
           text: `通算 ${round1(t.actual + ph)} h（今の計画 ${t.actual} h ＋ これ以前 ${ph} h）。過去の記録は日次ログのタブで見られます。`,
         })
       );
+    }
+  }
+
+  // ★×が付いた項目。ここが weak-points.md に移すもの
+  {
+    const weak = weakItems();
+    if (weak.length) {
+      const box = el("details", { class: "weak-box", attrs: { open: "" } });
+      box.appendChild(
+        el("summary", { text: `分からなかったこと ${weak.length}件（×）` })
+      );
+      box.appendChild(
+        el("p", {
+          class: "muted",
+          text:
+            "穴が見えている状態です。週末にここを notes/weak-points.md へ移してください。" +
+            "下のボタンでMarkdownとしてコピーできます。",
+        })
+      );
+      box.appendChild(
+        el("ul", {
+          class: "weak-list",
+          children: weak.map((s) =>
+            el("li", {
+              children: [
+                el("span", {
+                  class: `chip ${TRACK_CLASS[s.track]}`,
+                  text: s.track,
+                }),
+                el("span", { class: "weak-todo", text: s.todo }),
+                s.note
+                  ? el("p", { class: "weak-note", text: s.note })
+                  : el("p", {
+                      class: "weak-note muted",
+                      text: "（答えが未記入です。何が分からなかったか1行書いてください）",
+                    }),
+              ],
+            })
+          ),
+        })
+      );
+      box.appendChild(
+        el("button", {
+          class: "copy weak-copy",
+          text: "×をMarkdownでコピー",
+          attrs: { type: "button" },
+        })
+      );
+      root.appendChild(box);
     }
   }
 
@@ -576,6 +762,7 @@ export function renderSteps(root, filters) {
   const tbody = el("tbody");
   for (const s of rows) {
     const done = store.isStepDone(s.id);
+    const cur = store.getCheck(s.id);
     const box = el("input", { attrs: { type: "checkbox" } });
     box.checked = done;
     const tr = el("tr", {
@@ -598,6 +785,30 @@ export function renderSteps(root, filters) {
           children: [
             el("span", { text: s.todo }),
             ...refChips(s.refs),
+            // ★理解度チェックの問い。先に読んでから手を動かしてもよい
+            s.check
+              ? el("details", {
+                  class: `row-check${cur ? ` answered ck-r-${cur.r}` : ""}`,
+                  children: [
+                    el("summary", {
+                      children: [
+                        el("span", {
+                          class: `chip ${CHECK_TYPE_CLASS[s.check.type] || ""}`,
+                          text: s.check.type,
+                        }),
+                        el("span", {
+                          text: cur
+                            ? `理解度チェック（${
+                                CHECK_RESULTS.find((r) => r.key === cur.r)?.label || ""
+                              }）`
+                            : "理解度チェック（未回答）",
+                        }),
+                      ],
+                    }),
+                    checkCard(s),
+                  ],
+                })
+              : null,
           ],
         }),
         el("td", { class: "muted", text: s.out }),
@@ -1440,5 +1651,50 @@ export function logsMarkdown(week) {
     for (const s of done) lines.push(`- [${s.tier}][${s.cat}] ${s.todo}`);
     lines.push("");
   }
+
+  // ★理解度チェックの結果。○の数より、×に何が並んでいるかが大事
+  const inRange = PLAN.steps.filter(
+    (s) => (week === "all" || s.week === Number(week)) && s.check
+  );
+  const st = checkStats(inRange);
+  if (st.o + st.d + st.x > 0) {
+    lines.push("## 理解度チェック");
+    lines.push(`○ ${st.o} ／ △ ${st.d} ／ × ${st.x}（未回答 ${st.none}）`);
+    lines.push("");
+    const xs = inRange.filter((s) => store.getCheck(s.id)?.r === "x");
+    if (xs.length) {
+      lines.push("### × 分からなかったこと");
+      for (const s of xs) {
+        lines.push(`- **${s.todo}**`);
+        lines.push(`  - 問い: ${s.check.q}`);
+        const note = store.getCheck(s.id).note;
+        lines.push(`  - 分からなかった点: ${note || "（未記入）"}`);
+      }
+      lines.push("");
+    }
+    const ds = inRange.filter((s) => store.getCheck(s.id)?.r === "d");
+    if (ds.length) {
+      lines.push("### △ 調べて分かったこと");
+      for (const s of ds) lines.push(`- ${s.todo}`);
+      lines.push("");
+    }
+  }
   return lines.join("\n").replace(/\n{3,}/g, "\n\n");
+}
+
+// ★の項目だけを weak-points.md 用に切り出す
+export function weakMarkdown() {
+  const weak = weakItems();
+  if (!weak.length) return "";
+  const lines = ["## 分からなかったこと（理解度チェックの×）", ""];
+  for (const s of weak) {
+    lines.push(`### ${s.todo}`);
+    lines.push("");
+    lines.push(`- 分野: ${s.track} ／ ${s.week}週目`);
+    lines.push(`- 問い: ${s.check.q}`);
+    lines.push(`- 分からなかった点: ${s.note || "（未記入）"}`);
+    lines.push("- 分かったこと: ");
+    lines.push("");
+  }
+  return lines.join("\n");
 }

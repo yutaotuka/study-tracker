@@ -1491,3 +1491,18 @@ ul.weak-list > li {
   margin: 4px 0 0 0;
   font-size: 12px;
 }
+
+
+/* ===== v6.5: 動画のセクション参照 ===== */
+.chip.ref-chip.ref-video {
+  background: #eef2ff;
+  color: #3730a3;
+  border-color: #a5b4fc;
+}
+
+/* ===== v6.5: 休む日（年末年始） ===== */
+.spare-day.rest-day {
+  background: #f0fdf4;
+  border-color: #86efac;
+  color: #166534;
+}

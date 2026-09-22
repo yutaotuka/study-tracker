@@ -1,6 +1,6 @@
 // 画面描画（DOM組み立てのみ。イベント登録は main.js 側）
-import { PLAN } from "./data.js?v=10";
-import * as store from "./storage.js?v=10";
+import { PLAN } from "./data.js?v=11";
+import * as store from "./storage.js?v=11";
 import {
   CATS,
   CAT_CLASS,
@@ -16,7 +16,7 @@ import {
   TRACK_LIST,
   TRACK_CLASS,
   wdOf,
-} from "./utils.js?v=10";
+} from "./utils.js?v=11";
 
 // ---------- 集計 ----------
 export function weekStats(weekNo) {
@@ -110,13 +110,20 @@ export function refChips(refs, opts = {}) {
   return refs
     .map((k) => refOf(k))
     .filter(Boolean)
-    .map((r) =>
-      el("span", {
-        class: "chip ref-chip",
-        text: opts.short ? `${r.ch}` : `参照 ${r.ch} ${r.sec}`,
+    .map((r) => {
+      // kind が "動画" なら動画のセクション、無ければ書籍の章
+      const video = r.kind === "動画";
+      const label = opts.short
+        ? r.ch
+        : video
+          ? `動画 ${r.ch} ${r.sec}`
+          : `参照 ${r.ch} ${r.sec}`;
+      return el("span", {
+        class: video ? "chip ref-chip ref-video" : "chip ref-chip",
+        text: label,
         attrs: { title: `${r.ch} ${r.chTitle} ／ ${r.sec}\n\n${r.why}` },
-      })
-    );
+      });
+    });
 }
 
 // 課題カードの中に出す詳しい版。なぜ読むのか・何にハマるのかまで出す
@@ -132,8 +139,14 @@ export function refDetail(refs) {
           el("div", {
             class: "ref-detail-head",
             children: [
-              el("span", { class: "chip ref-chip", text: `${r.ch} ${r.chTitle}` }),
-              el("span", { class: "ref-sec", text: r.sec }),
+              el("span", {
+                class: r.kind === "動画" ? "chip ref-chip ref-video" : "chip ref-chip",
+                text: `${r.ch} ${r.chTitle}`,
+              }),
+              el("span", {
+                class: "ref-sec",
+                text: r.kind === "動画" ? `${r.sec}（動画）` : r.sec,
+              }),
             ],
           }),
           el("p", { class: "ref-why", text: r.why }),
@@ -145,7 +158,12 @@ export function refDetail(refs) {
     );
   if (!items.length) return [];
   return [
-    el("h4", { class: "ref-head", text: "詰まったら開く章（先回りして読まない）" }),
+    el("h4", {
+      class: "ref-head",
+      text: refs.some((k) => (refOf(k) || {}).kind === "動画")
+        ? "先に見る動画 ／ 詰まったら開く章"
+        : "詰まったら開く章（先回りして読まない）",
+    }),
     el("ul", { class: "task-sub ref-list-in-task", children: items }),
   ];
 }
@@ -158,7 +176,8 @@ export function renderToday(root) {
   const day = today || PLAN.days[0];
   const outOfRange = !today;
 
-  const isSpare = day.plan.length === 0 && !day.done;
+  const isSpare = day.plan.length === 0 && !day.done && !day.rest;
+  const isRest = !!day.rest;
   const items = day.plan.map((p) =>
     el("li", {
       children: [
@@ -206,12 +225,20 @@ export function renderToday(root) {
                 "この日の学習はすでに終わっています。割り当てはありません。" +
                 "実施時間の記録だけ残してください。",
             })
+          : isRest
+          ? el("p", {
+              class: "spare-day rest-day",
+              text:
+                "★休む日です（年末年始）。目標0h。計画に入っている休みなので、" +
+                "取り返そうとしなくて構いません。",
+            })
           : isSpare
           ? el("p", {
               class: "spare-day",
               text:
-                "予備日です。割り当てはありません。積み残しがあればここで片付け、" +
-                "無ければ休むか先に進んでください。",
+                (day.spare ? "★毎週木曜は予備日です。" : "予備日です。") +
+                "割り当てはありません。月火水で遅れた分をここで取り返し、" +
+                "遅れていなければ休んでください。前倒しで使わないこと。",
             })
           : el("ul", { class: "today-list", children: items }),
         el("p", {
@@ -1236,6 +1263,10 @@ export function renderLogs(root, filters) {
                     class: "muted",
                     text: d.done
                       ? "学習済み（割り当てなし）"
+                      : d.rest
+                      ? "★休む日（年末年始・目標0h）"
+                      : d.spare
+                      ? "★予備日（木）／積み残しを片付ける"
                       : "予備日（積み残しを片付ける）",
                   }),
                 ]

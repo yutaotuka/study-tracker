@@ -1,18 +1,18 @@
 // 学習計画v6（2026/9/10〜2027/1/17・全19週）の静的データ
-// 目標 257.0h ／ コア 175.5h ／ 余力 17.5h ／ バッファ 81.5h
+// 目標 197.0h ／ コア 135.5h ／ 余力 17.5h ／ バッファ 61.5h
 export const PLAN = {
   "meta": {
     "version": "v6",
-    "revisedOn": "2026-09-22",
+    "revisedOn": "2026-09-30",
     "period": "9/10〜1/17",
-    "coreHours": 175.5,
+    "coreHours": 135.5,
     "optionalHours": 17.5,
-    "totalHours": 193.0,
-    "targetHours": 257.0,
-    "bufferHours": 81.5,
-    "spareHours": 36.0,
-    "assignedHours": 175.5,
-    "note": "★9/22に全体を1週間後ろへ倒して18週にした。理由は2つ。①TypeScriptに動画（Udemy・柴山コース）で入り直す時間を作るため。読むだけでは勘違いに気づけず、予測テストで20問中13問を外したため。②毎週木曜を予備日にして、遅れを取り返す場所を作るため。内容は1hも削っていない。締切は 第1期10/25 ／ A 11/22 ／ B 12/20 ／ C 1/17"
+    "totalHours": 153.0,
+    "targetHours": 197.0,
+    "bufferHours": 61.5,
+    "spareHours": 30.0,
+    "assignedHours": 135.5,
+    "note": "★9/30に組み直した。3週間の実績が週7.5h（当時の目標15hの半分）だったため、日付を倒すのをやめて中身を削る方に切り替えた。①1日の目標を0.5h下げた（平日1.5h／土日2.0h＝週11.5h）。②後ろの40.0hを外した（フェーズB4週目とフェーズC全部）。③第1期を8週に延ばした。締切は 第1期11/8 ／ A 12/13 ／ B 1/17。外した手順はIDを残してあるので1つずつ戻せる（ルール12b）"
   },
   "phases": [
     {
@@ -20,72 +20,54 @@ export const PLAN = {
       "name": "第1期",
       "weeks": [
         1,
-        6
+        8
       ],
       "title": "TypeScript → React → Next.js → コンバートして公開",
-      "deadline": "2026-10-25",
+      "deadline": "2026-11-08",
       "aim": "型付きのReact/Next.jsアプリを1本、公開した状態にする",
-      "note": "★9/22に1週間倒して6週にした。動画で入り直す時間と、毎週の予備日（木）を入れるため。ここから先は動かさない",
+      "note": "★9/30に8週へ延ばした。3週間の実績が週7.5hだったため、内容ではなく期間を合わせた。残り48.5h",
       "start": "2026-09-14",
-      "end": "2026-10-25",
-      "target": 90.0,
-      "core": 59.5,
+      "end": "2026-11-08",
+      "target": 92.0,
+      "core": 60.0,
       "optional": 9.0,
-      "buffer": 30.5
+      "buffer": 32.0
     },
     {
       "key": "pa",
       "name": "フェーズA",
       "weeks": [
-        7,
-        10
+        9,
+        13
       ],
       "title": "学習トラッカーを白紙から自作する",
-      "deadline": "2026-11-22",
+      "deadline": "2026-12-13",
       "aim": "要件定義から自分でやったアプリを1本、公開した状態にする",
-      "note": "★一番重要。第1期は写経がベース、ここは白紙から。配布版は10週目まで開かない",
-      "start": "2026-10-26",
-      "end": "2026-11-22",
-      "target": 60.0,
+      "note": "★一番重要。第1期は写経がベース、ここは白紙から。配布版は13週目まで開かない",
+      "start": "2026-11-09",
+      "end": "2026-12-13",
+      "target": 57.5,
       "core": 42.5,
       "optional": 5.0,
-      "buffer": 17.5
+      "buffer": 15.0
     },
     {
       "key": "pb",
       "name": "フェーズB",
       "weeks": [
-        11,
-        14
-      ],
-      "title": "テストとレビュー運用",
-      "deadline": "2026-12-20",
-      "aim": "テストが通り、CIが緑で、PRで進める状態を作る",
-      "note": "次の案件が何であっても腐らない部分。実装担当から一段上がる要素",
-      "start": "2026-11-23",
-      "end": "2026-12-20",
-      "target": 60.0,
-      "core": 41.5,
-      "optional": 3.5,
-      "buffer": 18.5
-    },
-    {
-      "key": "pc",
-      "name": "フェーズC",
-      "weeks": [
-        15,
+        14,
         18
       ],
-      "title": "棚卸しと、案件が見えたらそこへ寄せる",
+      "title": "テストとレビュー運用",
       "deadline": "2027-01-17",
-      "aim": "作ったものを説明できる状態にし、JSの穴を自分で把握する",
-      "note": "16週目（12/28〜1/3）は年末年始。目標0hの休む週として組んである",
-      "start": "2026-12-21",
+      "aim": "テストが通り、CIが緑で、PRで進める状態を作る",
+      "note": "★4週目（仕上げ）は外した。16週目（12/28〜1/3）は年末年始。ここまで来られたら十分。届かなければ次の3ヶ月に回す",
+      "start": "2026-12-14",
       "end": "2027-01-17",
-      "target": 47.0,
-      "core": 32.0,
-      "optional": 0,
-      "buffer": 15.0
+      "target": 47.5,
+      "core": 33.0,
+      "optional": 3.5,
+      "buffer": 14.5
     }
   ],
   "weeks": [
@@ -103,9 +85,9 @@ export const PLAN = {
       "no": 1,
       "start": "2026-09-14",
       "end": "2026-09-20",
-      "js": "【完了 9/14〜9/20】配列メソッド総当たり",
+      "js": "【完了 9/14〜9/20】配列メソッド総当たり・商品データ20件",
       "cc": "―",
-      "other": "TypeScriptに着手（6.0h）。基本の型・型注釈・型推論まで",
+      "other": "TypeScriptに着手。基本の型・型注釈・型推論（課題TS-1）",
       "phase": "p1",
       "phaseName": "第1期"
     },
@@ -113,9 +95,9 @@ export const PLAN = {
       "no": 2,
       "start": "2026-09-21",
       "end": "2026-09-27",
-      "js": "【積み残し】分割代入(Ch11)・スプレッド演算子(Ch12)",
+      "js": "【完了 9/21〜9/27】分割代入・スプレッド（課題JS-1）",
       "cc": "―",
-      "other": "★動画スタート（9/23〜）。柴山コースの§4→§5→§7を見てから手を動かす。union・リテラル・オプショナル ／ interface と type ／ ジェネリクス ／ 予測テストのやり直し",
+      "other": "★動画§4「型の基本」／§5「Interfaceと型エイリアス」（課題TS-2）",
       "phase": "p1",
       "phaseName": "第1期"
     },
@@ -123,9 +105,9 @@ export const PLAN = {
       "no": 3,
       "start": "2026-09-28",
       "end": "2026-10-04",
-      "js": "Ch13の要点 ＋ fetch課題 ★これでJS基礎は終わり",
-      "cc": "CLAUDE.mdを書く（余力枠）",
-      "other": "動画§8を見て絞り込み ／ data.tsのTS化 ／ React入門（★写経）",
+      "js": "―",
+      "cc": "―",
+      "other": "動画§7「ジェネリクス入門」／★予測テストのやり直し／§4の型ガードで絞り込み",
       "phase": "p1",
       "phaseName": "第1期"
     },
@@ -133,9 +115,9 @@ export const PLAN = {
       "no": 4,
       "start": "2026-10-05",
       "end": "2026-10-11",
-      "js": "―",
-      "cc": "―",
-      "other": "props・state・リスト描画・フォーム・絞り込み・useState ／ Reactでよく使う型",
+      "js": "Ch13(非同期処理) ＋ fetch課題 ★これでJS基礎は終わり",
+      "cc": "CLAUDE.mdを書く（余力枠）",
+      "other": "data.tsのTS化（TS-3）／React入門（★写経）／props と state（R-1）",
       "phase": "p1",
       "phaseName": "第1期"
     },
@@ -144,8 +126,8 @@ export const PLAN = {
       "start": "2026-10-12",
       "end": "2026-10-18",
       "js": "―",
-      "cc": "Cursorの使い分け（余力枠）",
-      "other": "useEffect ★依存配列のバグ ／ 小アプリ完成 ／ Next.js入門（★写経）／ コンポーネント分割",
+      "cc": "―",
+      "other": "型付きprops ／ リスト描画とkey ／ フォーム ／ 絞り込みUI ／ Reactでよく使う型(TS-4)",
       "phase": "p1",
       "phaseName": "第1期"
     },
@@ -155,7 +137,7 @@ export const PLAN = {
       "end": "2026-10-25",
       "js": "―",
       "cc": "―",
-      "other": "★Next.jsへコンバート → Vercel公開 → 説明の準備（第1期の締め 10/25）",
+      "other": "useState を掘る ／ useEffect ★依存配列のバグ(R-2) ／ リフトアップ(R-3) ／ 分割(R-4)",
       "phase": "p1",
       "phaseName": "第1期"
     },
@@ -164,28 +146,28 @@ export const PLAN = {
       "start": "2026-10-26",
       "end": "2026-11-01",
       "js": "―",
-      "cc": "―",
-      "other": "【A①】要件定義 → 型を先に決める → create-next-app → Gitリポジトリ → 一覧表示",
-      "phase": "pa",
-      "phaseName": "フェーズA"
+      "cc": "Cursorの使い分け（余力枠）",
+      "other": "localStorageで小アプリ完成(CONV-1) ／ Next.js入門（★写経）／ ルーティング(N-1) ／ コンバート計画",
+      "phase": "p1",
+      "phaseName": "第1期"
     },
     {
       "no": 8,
       "start": "2026-11-02",
       "end": "2026-11-08",
-      "js": "★Ch10を回収：Date と 正規表現",
+      "js": "―",
       "cc": "―",
-      "other": "【A②】絞り込み・検索・日付での並べ替え・URLクエリ ／ 一度Vercelに公開する",
-      "phase": "pa",
-      "phaseName": "フェーズA"
+      "other": "★Next.jsへコンバート(CONV-2/N-2/N-3) → Vercel公開 → 説明の準備（第1期の締め 11/8）",
+      "phase": "p1",
+      "phaseName": "第1期"
     },
     {
       "no": 9,
       "start": "2026-11-09",
       "end": "2026-11-15",
-      "js": "★Ch15を回収：preventDefault とイベント伝播",
+      "js": "―",
       "cc": "―",
-      "other": "【A③】フォーム追加・モーダル・Escキー・localStorage・境界",
+      "other": "【A①】★配布版は開かない。要件定義 → 型を先に決める → create-next-app → 構成を決める",
       "phase": "pa",
       "phaseName": "フェーズA"
     },
@@ -195,7 +177,7 @@ export const PLAN = {
       "end": "2026-11-22",
       "js": "―",
       "cc": "―",
-      "other": "【A④】集計と可視化 ／ ★配布版を初めて開いて読み比べる（10週目まで開かない）",
+      "other": "【A②】Gitリポジトリ ／ 一覧表示 ／ 絞り込みUI ／ ★キーワード検索(A-2)",
       "phase": "pa",
       "phaseName": "フェーズA"
     },
@@ -203,31 +185,31 @@ export const PLAN = {
       "no": 11,
       "start": "2026-11-23",
       "end": "2026-11-29",
-      "js": "―",
+      "js": "★Ch10を回収：Date と 正規表現",
       "cc": "―",
-      "other": "【B①】Vitest導入・ロジックの切り出し・赤から始める・npm scripts",
-      "phase": "pb",
-      "phaseName": "フェーズB"
+      "other": "【A③】日付での絞り込みと並べ替え(A-3) ／ URLクエリ ／ 一度Vercelに公開する",
+      "phase": "pa",
+      "phaseName": "フェーズA"
     },
     {
       "no": 12,
       "start": "2026-11-30",
       "end": "2026-12-06",
-      "js": "―",
+      "js": "★Ch15を回収：preventDefault とイベント伝播",
       "cc": "―",
-      "other": "【B②】Testing Library・操作のテスト・非同期・テストしづらい箇所を直す",
-      "phase": "pb",
-      "phaseName": "フェーズB"
+      "other": "【A④】フォーム追加(A-4) ／ モーダル(A-5) ／ Escキー ／ localStorage ／ 境界の引き直し",
+      "phase": "pa",
+      "phaseName": "フェーズA"
     },
     {
       "no": 13,
       "start": "2026-12-07",
       "end": "2026-12-13",
       "js": "―",
-      "cc": "Lint/Formatter（余力枠）",
-      "other": "【B③】GitHub ActionsでCI・PR運用・★自分のPRを自分でレビューする",
-      "phase": "pb",
-      "phaseName": "フェーズB"
+      "cc": "―",
+      "other": "【A⑤】集計と可視化 ／ ★配布版を初めて開いて読み比べる(A-6)（締め 12/13）",
+      "phase": "pa",
+      "phaseName": "フェーズA"
     },
     {
       "no": 14,
@@ -235,7 +217,7 @@ export const PLAN = {
       "end": "2026-12-20",
       "js": "―",
       "cc": "―",
-      "other": "【B④】緑を保ったままリファクタ・any潰し・テスト方針を1枚に",
+      "other": "【B①】Vitest導入 ／ ロジックの切り出し ／ ★赤から始める(B-1)",
       "phase": "pb",
       "phaseName": "フェーズB"
     },
@@ -243,11 +225,11 @@ export const PLAN = {
       "no": 15,
       "start": "2026-12-21",
       "end": "2026-12-27",
-      "js": "★JSの棚卸し。目次に「説明できる/できない」を付け、できない節だけ読む（上限2h）",
+      "js": "―",
       "cc": "―",
-      "other": "Ch9をTS視点で読む ／ 弱点リストと想定Q&Aの作り直し",
-      "phase": "pc",
-      "phaseName": "フェーズC"
+      "other": "【B②】テストの粒度と npm scripts ／ Testing Library ／ 操作のテスト(B-2)",
+      "phase": "pb",
+      "phaseName": "フェーズB"
     },
     {
       "no": 16,
@@ -256,28 +238,28 @@ export const PLAN = {
       "js": "―",
       "cc": "―",
       "other": "★年末年始。12/28に1件だけ。あとは休む（12/29〜1/3は目標0h）",
-      "phase": "pc",
-      "phaseName": "フェーズC"
+      "phase": "pb",
+      "phaseName": "フェーズB"
     },
     {
       "no": 17,
       "start": "2027-01-04",
       "end": "2027-01-10",
-      "js": "―",
+      "js": "★Ch17を回収：npm の節だけ",
       "cc": "―",
-      "other": "【C②】作った2本の説明資料・技術選定の理由・スキルシート更新",
-      "phase": "pc",
-      "phaseName": "フェーズC"
+      "other": "【B③】非同期のテスト ／ テストしづらい箇所を直す ／ GitHub ActionsでCI(B-3)",
+      "phase": "pb",
+      "phaseName": "フェーズB"
     },
     {
       "no": 18,
       "start": "2027-01-11",
       "end": "2027-01-17",
       "js": "―",
-      "cc": "―",
-      "other": "【C③】案件が決まればそこへ全振り。未定なら3本目を要件から",
-      "phase": "pc",
-      "phaseName": "フェーズC"
+      "cc": "Lint/Formatter（余力枠）",
+      "other": "【B④】PR運用 ／ ★自分のPRを自分でレビューする(B-4) ／ AIの指摘を採否判断",
+      "phase": "pb",
+      "phaseName": "フェーズB"
     }
   ],
   "steps": [
@@ -379,13 +361,14 @@ export const PLAN = {
       "week": 2,
       "cat": "TS/React/Next",
       "no": 1,
-      "todo": "【積み残し】★動画§4を見る(41分)→ そのままユニオン型・リテラル型・オプショナルを書く",
+      "todo": "【積み残し】★動画§4「型の基本」を見る(41分)→ ユニオン型・リテラル型・オプショナルを書く",
       "out": "絞り込みが書ける",
       "h": 1.5,
       "tier": "コア",
       "track": "TypeScript",
       "refs": [
-        "vid_basic"
+        "vid_basic",
+        "vid_setup"
       ],
       "seq": 5.0,
       "check": {
@@ -399,9 +382,9 @@ export const PLAN = {
       "week": 2,
       "cat": "TS/React/Next",
       "no": 2,
-      "todo": "【積み残し】★動画§5を見る(24分)→ interface と type を書き分ける(課題TS-2)",
+      "todo": "【積み残し】★動画§5「Interfaceと型エイリアス」を見る(32分)→ 書き分ける(課題TS-2)",
       "out": "使い分けの基準を書ける",
-      "h": 1.5,
+      "h": 2.0,
       "tier": "コア",
       "track": "TypeScript",
       "refs": [
@@ -430,12 +413,12 @@ export const PLAN = {
     },
     {
       "id": "v5s9",
-      "week": 2,
+      "week": 3,
       "cat": "TS/React/Next",
-      "no": 3,
-      "todo": "★動画§7を見る(23分)→ ジェネリクスを使う。型を引数として渡す感覚を掴む",
-      "out": "汎用関数が書ける",
-      "h": 2.0,
+      "no": 1,
+      "todo": "★動画§7「ジェネリクス入門」を見る(21分)→ 型を引数として渡す感覚を掴む",
+      "out": "汎用関数が書ける（課題TS-2のジェネリクス部分もここ）",
+      "h": 2.5,
       "tier": "コア",
       "track": "TypeScript",
       "refs": [
@@ -452,8 +435,8 @@ export const PLAN = {
       "id": "v5s10",
       "week": 3,
       "cat": "TS/React/Next",
-      "no": 1,
-      "todo": "★動画§8を見る(21分)→ 型の絞り込み(typeof / in / タグ付きユニオン)を書く",
+      "no": 2,
+      "todo": "★§4の「型ガード」(2分46秒)を見直す→ 絞り込み(typeof / in / タグ付きユニオン)を書く",
       "out": "絞り込みで型が確定する",
       "h": 1.5,
       "tier": "コア",
@@ -470,7 +453,7 @@ export const PLAN = {
     },
     {
       "id": "v5s11",
-      "week": 3,
+      "week": 4,
       "cat": "JS基礎",
       "no": 1,
       "todo": "Ch13(非同期処理)を読む。イベントループの図をメモに描く",
@@ -488,7 +471,7 @@ export const PLAN = {
     },
     {
       "id": "v5s12",
-      "week": 3,
+      "week": 4,
       "cat": "JS基礎",
       "no": 2,
       "todo": "課題「fetchで一覧取得」。通信中/成功/失敗の3状態を作る ★これでJS基礎は終わり",
@@ -506,9 +489,9 @@ export const PLAN = {
     },
     {
       "id": "v5s13",
-      "week": 3,
+      "week": 4,
       "cat": "TS/React/Next",
-      "no": 2,
+      "no": 1,
       "todo": "TS: 1週目のdata.jsに型を付けてTS化する(課題TS-3)",
       "out": "型付きのdata.ts",
       "h": 2.0,
@@ -524,9 +507,9 @@ export const PLAN = {
     },
     {
       "id": "v5s14",
-      "week": 3,
+      "week": 4,
       "cat": "TS/React/Next",
-      "no": 3,
+      "no": 2,
       "todo": "React環境を作る。★まずクイックスタートを写経する（自作しない）",
       "out": "画面が出る",
       "h": 2.0,
@@ -542,7 +525,7 @@ export const PLAN = {
     },
     {
       "id": "v5s15",
-      "week": 3,
+      "week": 4,
       "cat": "Claude Code",
       "no": 1,
       "todo": "CLAUDE.mdを書く(課題CC-1)",
@@ -570,9 +553,9 @@ export const PLAN = {
     },
     {
       "id": "v5s17",
-      "week": 3,
+      "week": 4,
       "cat": "TS/React/Next",
-      "no": 4,
+      "no": 3,
       "todo": "props と state を理解する(課題R-1)",
       "out": "親子でデータが渡せる",
       "h": 2.0,
@@ -588,7 +571,7 @@ export const PLAN = {
     },
     {
       "id": "v5s18",
-      "week": 4,
+      "week": 5,
       "cat": "TS/React/Next",
       "no": 1,
       "todo": "props に TypeScript の型を付ける",
@@ -606,7 +589,7 @@ export const PLAN = {
     },
     {
       "id": "v5s19",
-      "week": 4,
+      "week": 5,
       "cat": "TS/React/Next",
       "no": 2,
       "todo": "リスト描画と key、条件分岐を書く(1週目のデータを使う)",
@@ -624,7 +607,7 @@ export const PLAN = {
     },
     {
       "id": "v5s20",
-      "week": 4,
+      "week": 5,
       "cat": "TS/React/Next",
       "no": 3,
       "todo": "フォームとイベント処理を書く",
@@ -644,7 +627,7 @@ export const PLAN = {
     },
     {
       "id": "v5s21",
-      "week": 4,
+      "week": 5,
       "cat": "TS/React/Next",
       "no": 4,
       "todo": "絞り込みUIを作る(配列メソッドがそのまま使えることを確認)",
@@ -662,7 +645,7 @@ export const PLAN = {
     },
     {
       "id": "v5s22",
-      "week": 4,
+      "week": 5,
       "cat": "TS/React/Next",
       "no": 5,
       "todo": "Reactでよく使う型を覚える(ReactNode/イベント型/ComponentProps)(課題TS-4)",
@@ -680,9 +663,9 @@ export const PLAN = {
     },
     {
       "id": "v5s23",
-      "week": 4,
+      "week": 6,
       "cat": "TS/React/Next",
-      "no": 6,
+      "no": 1,
       "todo": "useState を掘る。再レンダリングがいつ起きるか確認する",
       "out": "説明できる",
       "h": 1.5,
@@ -698,7 +681,7 @@ export const PLAN = {
     },
     {
       "id": "v5s24",
-      "week": 4,
+      "week": 5,
       "cat": "振り返り",
       "no": 1,
       "todo": "ReactとJSの対応関係を整理する(どこがJSの知識で説明できるか)",
@@ -712,7 +695,7 @@ export const PLAN = {
     },
     {
       "id": "v5s25",
-      "week": 4,
+      "week": 5,
       "cat": "振り返り",
       "no": 2,
       "todo": "週の振り返りと日次ログ",
@@ -726,9 +709,9 @@ export const PLAN = {
     },
     {
       "id": "v5s26",
-      "week": 4,
+      "week": 6,
       "cat": "TS/React/Next",
-      "no": 7,
+      "no": 2,
       "todo": "useEffect の基本と実行タイミングを確認する",
       "out": "いつ動くか説明できる",
       "h": 1.5,
@@ -744,9 +727,9 @@ export const PLAN = {
     },
     {
       "id": "v5s27",
-      "week": 5,
+      "week": 6,
       "cat": "TS/React/Next",
-      "no": 1,
+      "no": 3,
       "todo": "★依存配列を空にして古い値を掴むバグを再現し、直す(課題R-2)",
       "out": "バグの再現と修正",
       "h": 1.5,
@@ -762,9 +745,9 @@ export const PLAN = {
     },
     {
       "id": "v5s28",
-      "week": 5,
+      "week": 6,
       "cat": "TS/React/Next",
-      "no": 2,
+      "no": 4,
       "todo": "useEffect + fetch でデータ取得を書く(Ch13と比べる)",
       "out": "3状態が動く",
       "h": 1.5,
@@ -780,9 +763,9 @@ export const PLAN = {
     },
     {
       "id": "v5s29",
-      "week": 5,
+      "week": 6,
       "cat": "TS/React/Next",
-      "no": 3,
+      "no": 5,
       "todo": "状態をどこに置くか(リフトアップ)を設計する(課題R-3)",
       "out": "置き場を説明できる",
       "h": 1.5,
@@ -798,9 +781,9 @@ export const PLAN = {
     },
     {
       "id": "v5s30",
-      "week": 5,
+      "week": 6,
       "cat": "TS/React/Next",
-      "no": 4,
+      "no": 6,
       "todo": "コンポーネントを責務で分割し、理由を書く(課題R-4)",
       "out": "分割の理由を書ける",
       "h": 1.0,
@@ -816,9 +799,9 @@ export const PLAN = {
     },
     {
       "id": "v5s31",
-      "week": 5,
+      "week": 7,
       "cat": "TS/React/Next",
-      "no": 5,
+      "no": 1,
       "todo": "localStorage保存を足して小アプリを完成させる(課題CONV-1)",
       "out": "リロードしても残る",
       "h": 2.0,
@@ -834,9 +817,9 @@ export const PLAN = {
     },
     {
       "id": "v5s32",
-      "week": 5,
+      "week": 7,
       "cat": "TS/React/Next",
-      "no": 6,
+      "no": 2,
       "todo": "Next.js公式Learnで環境構築。★ここも写経から入る",
       "out": "アプリが起動する",
       "h": 1.5,
@@ -852,9 +835,9 @@ export const PLAN = {
     },
     {
       "id": "v5s33",
-      "week": 5,
+      "week": 7,
       "cat": "TS/React/Next",
-      "no": 7,
+      "no": 3,
       "todo": "ルーティング、layout と page を書く(課題N-1)",
       "out": "複数ページを行き来できる",
       "h": 1.5,
@@ -870,7 +853,7 @@ export const PLAN = {
     },
     {
       "id": "v5s34",
-      "week": 5,
+      "week": 7,
       "cat": "Claude Code",
       "no": 1,
       "todo": "Cursorをインストールし、Claude Codeとの使い分けを決める(課題CC-6)",
@@ -884,7 +867,7 @@ export const PLAN = {
     },
     {
       "id": "v5s35",
-      "week": 5,
+      "week": 7,
       "cat": "振り返り",
       "no": 1,
       "todo": "週の振り返りと日次ログ",
@@ -898,9 +881,9 @@ export const PLAN = {
     },
     {
       "id": "v5s36",
-      "week": 5,
+      "week": 7,
       "cat": "TS/React/Next",
-      "no": 8,
+      "no": 4,
       "todo": "Server ComponentでuseStateを使いエラーを出す。違いを体感する",
       "out": "エラーを再現・理解",
       "h": 1.0,
@@ -916,9 +899,9 @@ export const PLAN = {
     },
     {
       "id": "v5s37",
-      "week": 6,
+      "week": 7,
       "cat": "TS/React/Next",
-      "no": 1,
+      "no": 5,
       "todo": "★5週目のReactアプリをNext.jsへコンバートする計画を書く",
       "out": "移行計画メモ",
       "h": 1.0,
@@ -934,9 +917,9 @@ export const PLAN = {
     },
     {
       "id": "v5s38",
-      "week": 6,
+      "week": 7,
       "cat": "TS/React/Next",
-      "no": 2,
+      "no": 6,
       "todo": "コンポーネントを App Router の構成へ移す(課題CONV-2)",
       "out": "同じ画面が出る",
       "h": 2.0,
@@ -952,9 +935,9 @@ export const PLAN = {
     },
     {
       "id": "v5s39",
-      "week": 6,
+      "week": 8,
       "cat": "TS/React/Next",
-      "no": 3,
+      "no": 1,
       "todo": "'use client' の境界を決めて分ける(課題N-2)",
       "out": "境界の理由を書ける",
       "h": 2.0,
@@ -970,9 +953,9 @@ export const PLAN = {
     },
     {
       "id": "v5s40",
-      "week": 6,
+      "week": 8,
       "cat": "TS/React/Next",
-      "no": 4,
+      "no": 2,
       "todo": "サーバー側でのデータ取得に置き換える(課題N-3)",
       "out": "サーバーで取得できる",
       "h": 1.0,
@@ -988,9 +971,9 @@ export const PLAN = {
     },
     {
       "id": "v5s41",
-      "week": 6,
+      "week": 8,
       "cat": "TS/React/Next",
-      "no": 5,
+      "no": 3,
       "todo": "★コンバートで詰まった点と判断理由を convert-log.md に記録する",
       "out": "コンバート記録",
       "h": 1.0,
@@ -1006,9 +989,9 @@ export const PLAN = {
     },
     {
       "id": "v5s42",
-      "week": 6,
+      "week": 8,
       "cat": "TS/React/Next",
-      "no": 6,
+      "no": 4,
       "todo": "Vercelにデプロイして公開URLを用意する(課題CONV-3)",
       "out": "公開URL",
       "h": 1.0,
@@ -1024,9 +1007,9 @@ export const PLAN = {
     },
     {
       "id": "v5s43",
-      "week": 6,
+      "week": 8,
       "cat": "TS/React/Next",
-      "no": 7,
+      "no": 5,
       "todo": "READMEを書く(何を作ったか/技術選定/学んだこと)",
       "out": "README",
       "h": 1.0,
@@ -1042,9 +1025,9 @@ export const PLAN = {
     },
     {
       "id": "v5s44",
-      "week": 6,
+      "week": 8,
       "cat": "TS/React/Next",
-      "no": 8,
+      "no": 6,
       "todo": "React版とNext.js版の違いを言語化する",
       "out": "説明メモ",
       "h": 1.5,
@@ -1060,9 +1043,9 @@ export const PLAN = {
     },
     {
       "id": "v5s45",
-      "week": 6,
+      "week": 8,
       "cat": "TS/React/Next",
-      "no": 9,
+      "no": 7,
       "todo": "想定質問への回答を準備する(Server/Client、型設計、AI活用)",
       "out": "想定Q&A",
       "h": 1.5,
@@ -1078,7 +1061,7 @@ export const PLAN = {
     },
     {
       "id": "v5s46",
-      "week": 6,
+      "week": 8,
       "cat": "振り返り",
       "no": 1,
       "todo": "Server/Clientの判断基準を自分の言葉で書く",
@@ -1092,7 +1075,7 @@ export const PLAN = {
     },
     {
       "id": "v5s47",
-      "week": 6,
+      "week": 8,
       "cat": "振り返り",
       "no": 2,
       "todo": "5週間を1枚に総括し、スキルシートに書ける形にする",
@@ -1106,7 +1089,7 @@ export const PLAN = {
     },
     {
       "id": "v5s48",
-      "week": 6,
+      "week": 8,
       "cat": "振り返り",
       "no": 3,
       "todo": "最終の日次ログ記入と達成率の確認",
@@ -1120,7 +1103,7 @@ export const PLAN = {
     },
     {
       "id": "v5s49",
-      "week": 7,
+      "week": 9,
       "cat": "TS/React/Next",
       "no": 1,
       "todo": "★配布版は開かない。作りたいものを箇条書きで書き出す(課題A-1)",
@@ -1138,7 +1121,7 @@ export const PLAN = {
     },
     {
       "id": "v5s50",
-      "week": 7,
+      "week": 9,
       "cat": "TS/React/Next",
       "no": 2,
       "todo": "画面とデータを設計する。★型を先に決めて types.ts に書く",
@@ -1156,7 +1139,7 @@ export const PLAN = {
     },
     {
       "id": "v5s51",
-      "week": 7,
+      "week": 9,
       "cat": "TS/React/Next",
       "no": 3,
       "todo": "create-next-app でプロジェクトを作る(TypeScript / App Router)",
@@ -1174,7 +1157,7 @@ export const PLAN = {
     },
     {
       "id": "v5s52",
-      "week": 7,
+      "week": 9,
       "cat": "TS/React/Next",
       "no": 4,
       "todo": "ディレクトリ構成を自分で決めて、理由を design-log.md に書く",
@@ -1192,9 +1175,9 @@ export const PLAN = {
     },
     {
       "id": "v5s53",
-      "week": 7,
+      "week": 10,
       "cat": "TS/React/Next",
-      "no": 5,
+      "no": 1,
       "todo": "GitHubにリポジトリを作り、最初のコミットとpushをする",
       "out": "リポジトリ",
       "h": 1.0,
@@ -1210,9 +1193,9 @@ export const PLAN = {
     },
     {
       "id": "v5s54",
-      "week": 7,
+      "week": 10,
       "cat": "TS/React/Next",
-      "no": 6,
+      "no": 2,
       "todo": "一覧表示を作る。ダミーデータを型付きで描画する",
       "out": "一覧が出る",
       "h": 2.5,
@@ -1228,7 +1211,7 @@ export const PLAN = {
     },
     {
       "id": "v5s55",
-      "week": 7,
+      "week": 9,
       "cat": "振り返り",
       "no": 1,
       "todo": "第1期(9/14〜10/18)の総括と、フェーズAの週の進め方を決める",
@@ -1242,9 +1225,9 @@ export const PLAN = {
     },
     {
       "id": "v5s56",
-      "week": 8,
+      "week": 10,
       "cat": "TS/React/Next",
-      "no": 1,
+      "no": 3,
       "todo": "絞り込みUIを作る。状態をどこに持つかは自分で決める",
       "out": "絞り込みが効く",
       "h": 2.5,
@@ -1260,9 +1243,9 @@ export const PLAN = {
     },
     {
       "id": "v5s57",
-      "week": 8,
+      "week": 10,
       "cat": "TS/React/Next",
-      "no": 2,
+      "no": 4,
       "todo": "★キーワード検索。部分一致・大文字小文字を無視する(課題A-2)",
       "out": "検索が効く",
       "h": 2.5,
@@ -1280,9 +1263,9 @@ export const PLAN = {
     },
     {
       "id": "v5s58",
-      "week": 8,
+      "week": 11,
       "cat": "TS/React/Next",
-      "no": 3,
+      "no": 1,
       "todo": "★日付での絞り込みと並べ替えを作る(課題A-3)",
       "out": "期間で絞れる",
       "h": 2.5,
@@ -1300,9 +1283,9 @@ export const PLAN = {
     },
     {
       "id": "v5s59",
-      "week": 8,
+      "week": 11,
       "cat": "TS/React/Next",
-      "no": 4,
+      "no": 2,
       "todo": "絞り込み条件をURLのクエリに持たせる(リロードしても残る)",
       "out": "URLで共有できる",
       "h": 2.0,
@@ -1318,9 +1301,9 @@ export const PLAN = {
     },
     {
       "id": "v5s60",
-      "week": 8,
+      "week": 11,
       "cat": "TS/React/Next",
-      "no": 5,
+      "no": 3,
       "todo": "ここまでをVercelにデプロイして一度公開する",
       "out": "公開URL",
       "h": 1.5,
@@ -1336,7 +1319,7 @@ export const PLAN = {
     },
     {
       "id": "v5s61",
-      "week": 8,
+      "week": 10,
       "cat": "振り返り",
       "no": 1,
       "todo": "週の振り返り。詰まった箇所を weak-points.md に1件だけ書く",
@@ -1350,9 +1333,9 @@ export const PLAN = {
     },
     {
       "id": "v5s62",
-      "week": 9,
+      "week": 11,
       "cat": "TS/React/Next",
-      "no": 1,
+      "no": 4,
       "todo": "★フォームで記録を追加する。送信でページが再読み込みされる問題を直す(課題A-4)",
       "out": "追加できる",
       "h": 2.5,
@@ -1370,9 +1353,9 @@ export const PLAN = {
     },
     {
       "id": "v5s63",
-      "week": 9,
+      "week": 12,
       "cat": "TS/React/Next",
-      "no": 2,
+      "no": 1,
       "todo": "★モーダルを作る。外側をクリックしたら閉じるようにする(課題A-5)",
       "out": "モーダルが動く",
       "h": 2.5,
@@ -1390,9 +1373,9 @@ export const PLAN = {
     },
     {
       "id": "v5s64",
-      "week": 9,
+      "week": 12,
       "cat": "TS/React/Next",
-      "no": 3,
+      "no": 2,
       "todo": "Escキーでも閉じられるようにする。後片付け(クリーンアップ)まで書く",
       "out": "キーでも閉じる",
       "h": 1.5,
@@ -1410,9 +1393,9 @@ export const PLAN = {
     },
     {
       "id": "v5s65",
-      "week": 9,
+      "week": 12,
       "cat": "TS/React/Next",
-      "no": 4,
+      "no": 3,
       "todo": "localStorageに保存して復元する。壊れたデータが入っていても落ちないようにする",
       "out": "リロードしても残る",
       "h": 2.0,
@@ -1428,9 +1411,9 @@ export const PLAN = {
     },
     {
       "id": "v5s66",
-      "week": 9,
+      "week": 12,
       "cat": "TS/React/Next",
-      "no": 5,
+      "no": 4,
       "todo": "Server / Client の境界を引き直す。'use client' が必要な場所を減らす",
       "out": "境界の理由を書ける",
       "h": 2.0,
@@ -1446,7 +1429,7 @@ export const PLAN = {
     },
     {
       "id": "v5s67",
-      "week": 9,
+      "week": 12,
       "cat": "振り返り",
       "no": 1,
       "todo": "キーボード操作とフォーカスの扱いを見直す(余力)",
@@ -1460,7 +1443,7 @@ export const PLAN = {
     },
     {
       "id": "v5s68",
-      "week": 10,
+      "week": 13,
       "cat": "TS/React/Next",
       "no": 1,
       "todo": "集計を作る。週別の合計と達成率を出す",
@@ -1478,7 +1461,7 @@ export const PLAN = {
     },
     {
       "id": "v5s69",
-      "week": 10,
+      "week": 13,
       "cat": "TS/React/Next",
       "no": 2,
       "todo": "進捗バーかグラフで見えるようにする",
@@ -1496,7 +1479,7 @@ export const PLAN = {
     },
     {
       "id": "v5s70",
-      "week": 10,
+      "week": 13,
       "cat": "TS/React/Next",
       "no": 3,
       "todo": "READMEと設計判断メモを書く(何を作ったか / なぜそう作ったか)",
@@ -1514,7 +1497,7 @@ export const PLAN = {
     },
     {
       "id": "v5s71",
-      "week": 10,
+      "week": 13,
       "cat": "TS/React/Next",
       "no": 4,
       "todo": "★配布版のトラッカーを初めて開き、自分の設計と読み比べる(課題A-6)",
@@ -1532,7 +1515,7 @@ export const PLAN = {
     },
     {
       "id": "v5s72",
-      "week": 10,
+      "week": 13,
       "cat": "TS/React/Next",
       "no": 5,
       "todo": "差分を言語化して design-log.md に書く。どちらが良いかも自分で判断する",
@@ -1550,7 +1533,7 @@ export const PLAN = {
     },
     {
       "id": "v5s73",
-      "week": 10,
+      "week": 13,
       "cat": "振り返り",
       "no": 1,
       "todo": "フェーズAの総括。スキルシートに書ける形にする",
@@ -1564,7 +1547,7 @@ export const PLAN = {
     },
     {
       "id": "v5s74",
-      "week": 11,
+      "week": 14,
       "cat": "TS/React/Next",
       "no": 1,
       "todo": "Vitest を入れて、最初の1本を書く(課題B-1)",
@@ -1582,7 +1565,7 @@ export const PLAN = {
     },
     {
       "id": "v5s75",
-      "week": 11,
+      "week": 14,
       "cat": "TS/React/Next",
       "no": 2,
       "todo": "絞り込みと集計のロジックを関数に切り出し、テストを書く",
@@ -1600,7 +1583,7 @@ export const PLAN = {
     },
     {
       "id": "v5s76",
-      "week": 11,
+      "week": 14,
       "cat": "TS/React/Next",
       "no": 3,
       "todo": "★落ちるテストを先に書いてから直す(レッドから始める)",
@@ -1618,9 +1601,9 @@ export const PLAN = {
     },
     {
       "id": "v5s77",
-      "week": 11,
+      "week": 15,
       "cat": "TS/React/Next",
-      "no": 4,
+      "no": 1,
       "todo": "テストの名前の付け方と粒度を決めて、test-policy.md に書く",
       "out": "テスト方針",
       "h": 1.5,
@@ -1636,9 +1619,9 @@ export const PLAN = {
     },
     {
       "id": "v5s78",
-      "week": 11,
+      "week": 15,
       "cat": "TS/React/Next",
-      "no": 5,
+      "no": 2,
       "todo": "npm scripts を整える(test / test:watch / build)",
       "out": "コマンドが揃う",
       "h": 1.5,
@@ -1656,7 +1639,7 @@ export const PLAN = {
     },
     {
       "id": "v5s79",
-      "week": 11,
+      "week": 14,
       "cat": "振り返り",
       "no": 1,
       "todo": "カバレッジを出して眺める。数字を目標にはしない(余力)",
@@ -1670,9 +1653,9 @@ export const PLAN = {
     },
     {
       "id": "v5s80",
-      "week": 12,
+      "week": 15,
       "cat": "TS/React/Next",
-      "no": 1,
+      "no": 3,
       "todo": "React Testing Library を入れて、描画のテストを書く",
       "out": "描画テスト",
       "h": 2.5,
@@ -1688,9 +1671,9 @@ export const PLAN = {
     },
     {
       "id": "v5s81",
-      "week": 12,
+      "week": 15,
       "cat": "TS/React/Next",
-      "no": 2,
+      "no": 4,
       "todo": "ユーザー操作(入力・クリック)のテストを書く(課題B-2)",
       "out": "操作テスト",
       "h": 2.5,
@@ -1706,9 +1689,9 @@ export const PLAN = {
     },
     {
       "id": "v5s82",
-      "week": 12,
+      "week": 17,
       "cat": "TS/React/Next",
-      "no": 3,
+      "no": 1,
       "todo": "データ取得など非同期のテストを書く",
       "out": "非同期テスト",
       "h": 2.5,
@@ -1724,9 +1707,9 @@ export const PLAN = {
     },
     {
       "id": "v5s83",
-      "week": 12,
+      "week": 17,
       "cat": "TS/React/Next",
-      "no": 4,
+      "no": 2,
       "todo": "★テストが書きにくい箇所を見つけて、設計の方を直す",
       "out": "直した理由のメモ",
       "h": 2.0,
@@ -1742,9 +1725,9 @@ export const PLAN = {
     },
     {
       "id": "v5s84",
-      "week": 12,
+      "week": 17,
       "cat": "TS/React/Next",
-      "no": 5,
+      "no": 3,
       "todo": "何をテストしないかを決めて、理由を test-policy.md に書く",
       "out": "書かない理由",
       "h": 1.5,
@@ -1760,7 +1743,7 @@ export const PLAN = {
     },
     {
       "id": "v5s85",
-      "week": 12,
+      "week": 15,
       "cat": "振り返り",
       "no": 1,
       "todo": "週の振り返り。テストで気づいたバグを weak-points.md に書く",
@@ -1774,9 +1757,9 @@ export const PLAN = {
     },
     {
       "id": "v5s86",
-      "week": 13,
+      "week": 17,
       "cat": "TS/React/Next",
-      "no": 1,
+      "no": 4,
       "todo": "GitHub Actions でテストを自動実行する(課題B-3)",
       "out": "CIが緑になる",
       "h": 2.5,
@@ -1792,9 +1775,9 @@ export const PLAN = {
     },
     {
       "id": "v5s87",
-      "week": 13,
+      "week": 18,
       "cat": "TS/React/Next",
-      "no": 2,
+      "no": 1,
       "todo": "ブランチを切ってPRを出す運用にする。mainに直接コミットしない",
       "out": "PRが出せる",
       "h": 2.0,
@@ -1810,9 +1793,9 @@ export const PLAN = {
     },
     {
       "id": "v5s88",
-      "week": 13,
+      "week": 18,
       "cat": "TS/React/Next",
-      "no": 3,
+      "no": 2,
       "todo": "PRの説明文のテンプレートを作る(何を・なぜ・どう確認したか)",
       "out": "PRテンプレート",
       "h": 1.5,
@@ -1828,9 +1811,9 @@ export const PLAN = {
     },
     {
       "id": "v5s89",
-      "week": 13,
+      "week": 18,
       "cat": "TS/React/Next",
-      "no": 4,
+      "no": 3,
       "todo": "★自分のPRを自分でレビューする。指摘を5件書き出す(課題B-4)",
       "out": "自己レビューメモ",
       "h": 2.5,
@@ -1846,9 +1829,9 @@ export const PLAN = {
     },
     {
       "id": "v5s90",
-      "week": 13,
+      "week": 18,
       "cat": "TS/React/Next",
-      "no": 5,
+      "no": 4,
       "todo": "AIにもレビューさせ、採用/不採用を1件ずつ理由付きで決める(ルール8)",
       "out": "判断の記録",
       "h": 2.0,
@@ -1864,7 +1847,7 @@ export const PLAN = {
     },
     {
       "id": "v5s91",
-      "week": 13,
+      "week": 18,
       "cat": "Claude Code",
       "no": 1,
       "todo": "Lint と Formatter を入れて、CIで走らせる(余力)",
@@ -1877,289 +1860,17 @@ export const PLAN = {
       "check": null
     },
     {
-      "id": "v5s92",
-      "week": 14,
-      "cat": "TS/React/Next",
-      "no": 1,
-      "todo": "テストが通る状態のままリファクタする。緑を保ったまま直す",
-      "out": "緑のままの変更",
-      "h": 2.5,
-      "tier": "コア",
-      "track": "テスト",
-      "refs": [],
-      "seq": 91.0,
-      "check": {
-        "type": "予測",
-        "q": "リファクタ中に何回テストが落ちるか予測してから始める。",
-        "judge": "落ちた回数を数えられた（0回でなくてよい）"
-      }
-    },
-    {
-      "id": "v5s93",
-      "week": 14,
-      "cat": "TS/React/Next",
-      "no": 2,
-      "todo": "型を締める。any を潰して、なぜ必要だったかを1行書く",
-      "out": "any の削減",
-      "h": 2.0,
-      "tier": "コア",
-      "track": "TypeScript",
-      "refs": [],
-      "seq": 92.0,
-      "check": {
-        "type": "説明",
-        "q": "残した any を1つ選び、なぜ残したかを1行。",
-        "judge": "「消し方が分からない」ではなく、残す理由があった"
-      }
-    },
-    {
-      "id": "v5s94",
-      "week": 14,
-      "cat": "TS/React/Next",
-      "no": 3,
-      "todo": "エラー処理とローディング表示を見直す。失敗したときに何が出るか確認する",
-      "out": "失敗時の画面",
-      "h": 2.0,
-      "tier": "コア",
-      "track": "React",
-      "refs": [],
-      "seq": 93.0,
-      "check": {
-        "type": "予測",
-        "q": "通信を切ってリロードしたら画面に何が出るか、予測してから切る。",
-        "judge": "予測が当たった（真っ白になったなら直した）"
-      }
-    },
-    {
-      "id": "v5s95",
-      "week": 14,
-      "cat": "TS/React/Next",
-      "no": 4,
-      "todo": "テスト方針を1枚にまとめ直す(人に説明できる形に)",
-      "out": "test-policy.md",
-      "h": 1.5,
-      "tier": "コア",
-      "track": "テスト",
-      "refs": [],
-      "seq": 94.0,
-      "check": {
-        "type": "再現",
-        "q": "方針の文書を閉じて、人に説明するつもりで30秒話す。",
-        "judge": "詰まらずに話せた"
-      }
-    },
-    {
-      "id": "v5s96",
-      "week": 14,
-      "cat": "振り返り",
-      "no": 1,
-      "todo": "フェーズBの総括とスキルシートの更新",
-      "out": "スキルシート",
-      "h": 2.0,
-      "tier": "コア",
-      "track": "振り返り",
-      "refs": [],
-      "seq": 95.0,
-      "check": {
-        "type": "説明",
-        "q": "11/16の自分と今の自分で、できるようになったことを1つ。",
-        "judge": "具体的な作業で言えた（「テストが分かった」のような言い方は×）"
-      }
-    },
-    {
-      "id": "v5s97",
-      "week": 15,
-      "cat": "JS基礎",
-      "no": 1,
-      "todo": "★JSの棚卸し。飛ばした章の目次に「説明できる/できない」を付ける(課題C-1)",
-      "out": "自己チェック表",
-      "h": 2.0,
-      "tier": "コア",
-      "track": "JS基礎",
-      "refs": [],
-      "seq": 96.0,
-      "check": {
-        "type": "説明",
-        "q": "「なんとなく」を付けた節を1つ選び、なぜ○でないのかを1行。",
-        "judge": "説明できない点を具体的に挙げられた"
-      }
-    },
-    {
-      "id": "v5s98",
-      "week": 15,
-      "cat": "JS基礎",
-      "no": 2,
-      "todo": "説明できなかった節だけを読む。★上限2時間。全部読もうとしない",
-      "out": "穴を埋めた記録",
-      "h": 2.0,
-      "tier": "コア",
-      "track": "JS基礎",
-      "refs": [],
-      "seq": 97.0,
-      "check": {
-        "type": "予測",
-        "q": "読む前に「たぶんこうだろう」を1行書いてから読む。",
-        "judge": "読んだあと、自分の予測との差分を書けた"
-      }
-    },
-    {
-      "id": "v5s99",
-      "week": 15,
-      "cat": "JS基礎",
-      "no": 3,
-      "todo": "Ch9(クラス)をTypeScript視点で読む。class / extends / implements",
-      "out": "読了メモ",
-      "h": 2.0,
-      "tier": "コア",
-      "track": "JS基礎",
-      "refs": [
-        "class"
-      ],
-      "seq": 98.0,
-      "check": {
-        "type": "穴埋め",
-        "q": "class は ____ の設計図。extends は ____ を引き継ぐ。TypeScriptの implements は ____ を約束する。",
-        "judge": "見ないで3つ埋められた"
-      }
-    },
-    {
-      "id": "v5s100",
-      "week": 15,
-      "cat": "振り返り",
-      "no": 1,
-      "todo": "weak-points.md を整理する。二度出たものだけ詳しい形に書き直す",
-      "out": "弱点リスト",
-      "h": 1.5,
-      "tier": "コア",
-      "track": "振り返り",
-      "refs": [],
-      "seq": 99.0,
-      "check": {
-        "type": "説明",
-        "q": "二度出た項目を1つ選び、一度目と二度目で何が違ったかを1行。",
-        "judge": "違いを言えた（同じなら、まだ直っていないサイン）"
-      }
-    },
-    {
-      "id": "v5s101",
-      "week": 15,
-      "cat": "振り返り",
-      "no": 2,
-      "todo": "想定質問への回答を作り直す(第1期のQ&Aを今の実力で書き直す)",
-      "out": "想定Q&A",
-      "h": 2.0,
-      "tier": "コア",
-      "track": "振り返り",
-      "refs": [],
-      "seq": 100.0,
-      "check": {
-        "type": "再現",
-        "q": "1問を見ないで、声に出して答える。",
-        "judge": "第1期のときより具体例が増えていた"
-      }
-    },
-    {
-      "id": "v5s102",
-      "week": 17,
-      "cat": "TS/React/Next",
-      "no": 1,
-      "todo": "作った2本(コンバート版・自作版)を説明する資料を作る",
-      "out": "説明資料",
-      "h": 2.5,
-      "tier": "コア",
-      "track": "コンバート",
-      "refs": [],
-      "seq": 101.0,
-      "check": {
-        "type": "再現",
-        "q": "資料を閉じて、2本の違いを60秒で話す。",
-        "judge": "詰まらずに話せた"
-      }
-    },
-    {
-      "id": "v5s103",
-      "week": 17,
-      "cat": "TS/React/Next",
-      "no": 2,
-      "todo": "技術選定の理由を書く。なぜNext.jsか、なぜその構成か",
-      "out": "選定理由",
-      "h": 2.0,
-      "tier": "コア",
-      "track": "コンバート",
-      "refs": [],
-      "seq": 102.0,
-      "check": {
-        "type": "説明",
-        "q": "Next.jsを選ばなかった場合に何が困ったかを1行。",
-        "judge": "具体的に言えた"
-      }
-    },
-    {
-      "id": "v5s104",
-      "week": 17,
-      "cat": "TS/React/Next",
-      "no": 3,
-      "todo": "自分のコードを読み返し、今なら直す箇所を直す",
-      "out": "直した記録",
-      "h": 2.0,
-      "tier": "コア",
-      "track": "テスト",
-      "refs": [],
-      "seq": 103.0,
-      "check": {
-        "type": "説明",
-        "q": "直した箇所を1つ選び、当時なぜそう書いたのかを1行。",
-        "judge": "当時の判断を思い出せた"
-      }
-    },
-    {
-      "id": "v5s105",
-      "week": 17,
-      "cat": "振り返り",
-      "no": 1,
-      "todo": "スキルシートを更新する(キャリア/スキル/スキルセット)",
-      "out": "スキルシート",
-      "h": 2.0,
-      "tier": "コア",
-      "track": "振り返り",
-      "refs": [],
-      "seq": 104.0,
-      "check": {
-        "type": "再現",
-        "q": "書いた項目を1つ選び「それは何をしたことですか」と聞かれた前提で答える。",
-        "judge": "30秒で答えられた"
-      }
-    },
-    {
-      "id": "v5s106",
-      "week": 17,
-      "cat": "振り返り",
-      "no": 2,
-      "todo": "年内の総括を1枚に書く",
-      "out": "総括メモ",
-      "h": 1.5,
-      "tier": "コア",
-      "track": "振り返り",
-      "refs": [],
-      "seq": 105.0,
-      "check": {
-        "type": "説明",
-        "q": "9/14の自分にひと言アドバイスするなら何か、1行。",
-        "judge": "具体的な行動で書けた（「頑張れ」は×）"
-      }
-    },
-    {
       "id": "v5s107",
       "week": 16,
       "cat": "振り返り",
       "no": 1,
-      "todo": "12/28に1件だけ。今年やったことを1枚にまとめる。★あとは休む",
+      "todo": "12/28に1件だけ。今年やったことを1枚にまとめる。★あとは休む(12/29〜1/3)",
       "out": "1年の記録",
-      "h": 2.0,
+      "h": 1.5,
       "tier": "コア",
       "track": "振り返り",
       "refs": [],
-      "seq": 106.0,
+      "seq": 80.5,
       "check": {
         "type": "説明",
         "q": "今年一番時間をかけたことと、一番効いたことは一致しているか。",
@@ -2167,113 +1878,23 @@ export const PLAN = {
       }
     },
     {
-      "id": "v5s108",
-      "week": 18,
-      "cat": "TS/React/Next",
-      "no": 1,
-      "todo": "★案件が決まっていれば、その技術の公式チュートリアルを写経する(ルール13)",
-      "out": "写経が動く",
-      "h": 2.5,
-      "tier": "コア",
-      "track": "コンバート",
-      "refs": [],
-      "seq": 107.0,
-      "check": {
-        "type": "再現",
-        "q": "写経を閉じて、同じものを見ないで書き始める。どこで止まるか記録する。",
-        "judge": "止まった箇所を記録できた"
-      }
-    },
-    {
-      "id": "v5s109",
-      "week": 18,
-      "cat": "TS/React/Next",
-      "no": 2,
-      "todo": "★案件の技術で小さく1つ作る。未定ならこの枠も下の3本目に回す",
-      "out": "小さい成果物",
-      "h": 2.5,
-      "tier": "コア",
-      "track": "コンバート",
-      "refs": [],
-      "seq": 108.0,
-      "check": {
-        "type": "説明",
-        "q": "作ったものについて、公式のどのページを見たか言えるか。",
-        "judge": "言えた（AIに聞いただけなら×）"
-      }
-    },
-    {
-      "id": "v5s110",
-      "week": 18,
+      "id": "v5s113",
+      "week": 3,
       "cat": "TS/React/Next",
       "no": 3,
-      "todo": "未定なら：小さいアプリをもう1本、要件定義から作り始める",
-      "out": "3本目の着手",
-      "h": 2.5,
-      "tier": "コア",
-      "track": "React",
-      "refs": [],
-      "seq": 109.0,
-      "check": {
-        "type": "説明",
-        "q": "要件を書く前に「作らないもの」を先に3つ挙げられたか。",
-        "judge": "3つ挙げられた"
-      }
-    },
-    {
-      "id": "v5s111",
-      "week": 18,
-      "cat": "振り返り",
-      "no": 1,
-      "todo": "参画初日・初週の準備リストを見直す",
-      "out": "準備リスト",
-      "h": 1.5,
-      "tier": "コア",
-      "track": "振り返り",
-      "refs": [],
-      "seq": 110.0,
-      "check": {
-        "type": "説明",
-        "q": "初日に一番不安なことを1つ、その対策を1行。",
-        "judge": "対策が具体的だった"
-      }
-    },
-    {
-      "id": "v5s112",
-      "week": 18,
-      "cat": "振り返り",
-      "no": 2,
-      "todo": "次の3ヶ月の学習の仕組みを組み直す",
-      "out": "次の計画",
-      "h": 1.5,
-      "tier": "コア",
-      "track": "振り返り",
-      "refs": [],
-      "seq": 111.0,
-      "check": {
-        "type": "説明",
-        "q": "この3ヶ月で一番効いた仕組みを1つ。次も残すか。",
-        "judge": "残す／やめるを理由付きで決められた"
-      }
-    },
-    {
-      "id": "v5s113",
-      "week": 2,
-      "cat": "TS/React/Next",
-      "no": 4,
-      "todo": "★動画§1〜§3を見る(41分)→ yosoku.ts を白紙からやり直す。b3とe3は必ず理由まで言う",
+      "todo": "★§4を見た直後に、yosoku.ts を白紙からやり直す。b3とe3は理由まで言う",
       "out": "×が2個以下（1回目は13個だった）",
-      "h": 1.5,
+      "h": 1.0,
       "tier": "コア",
       "track": "TypeScript",
       "refs": [
-        "vid_intro"
+        "vid_basic"
       ],
-      "seq": 1.5,
+      "seq": 5.5,
       "check": {
         "type": "予測",
         "q": "yosoku.ts を白紙からもう一度。★前の回答は見ないで、予測を先に書く。特に b3（const b3 = [1, \"a\"]）と e3（find の戻り）は、型だけでなく「なぜそうなるか」を1行で書く。",
-        "judge": "×が2個以下で、かつ b3 と e3 の理由が書けた（3個以上なら動画の§1〜§3をもう一度）"
+        "judge": "×が2個以下で、かつ b3 と e3 の理由が書けた（3個以上なら §4 の「型推論の仕組み」「Literal型」「配列型」をもう一度）"
       }
     }
   ],
@@ -2300,6 +1921,49 @@ export const PLAN = {
       "tier": "対象外",
       "status": "ReactとJSXは既定でエスケープするため優先度を下げた",
       "refs": []
+    },
+    {
+      "id": "t43",
+      "track": "JS基礎",
+      "code": "C-1",
+      "name": "★JSの棚卸し（読み直しではない）",
+      "goal": "自分の穴の場所が分かる。読んでいない章があること自体は問題ではなく、どこが分かっていないか把握できていないことが問題。",
+      "files": [
+        {
+          "path": "notes/js-checklist.md",
+          "note": "この課題限りの一時ファイル。終わったら weak-points.md に反映して消してよい（ルール10）"
+        }
+      ],
+      "steps": [
+        "★本文は読まない。目次だけを開く",
+        "飛ばした章（Ch9・Ch10・Ch14・Ch16・Ch17）の節を、目次から書き写す",
+        "1節ずつ「説明できる／なんとなく／できない」を付ける",
+        "「できない」が付いた節だけを数える",
+        "★そのうち、実務で出そうなものを上から5つだけ選ぶ",
+        "選んだ5つだけ読む。上限2時間。読み終わったら止める",
+        "Ch9（クラス）はTypeScript視点で読む。class / extends / implements"
+      ],
+      "reqs": [
+        "飛ばした章の節がすべてチェック表に並んでいる",
+        "3段階の判定が全節に付いている",
+        "読むと決めた5つと、読まないと決めた理由が書いてある",
+        "読んだ時間が2時間以内に収まっている"
+      ],
+      "feats": "自己評価, 学習の棚卸し",
+      "judge": "「独習JavaScriptのどこが分かっていないか」を聞かれて、具体的に答えられる",
+      "hints": [
+        "★これは読み直しの課題ではない。穴の場所を知るための課題",
+        "「なんとなく」が一番危ない。実務で止まるのはここ",
+        "全部読もうとすると、また9月と同じことになる（ルール3）"
+      ],
+      "review": "JSの自己チェック表です。フロントエンドの実務で優先度が高い節を見落としていないか教えてください",
+      "h": 2.0,
+      "week": -1,
+      "tier": "対象外",
+      "status": "★9/30にフェーズCを外したため。余裕ができたら戻す",
+      "refs": [
+        "class"
+      ]
     },
     {
       "id": "t25",
@@ -2888,7 +2552,7 @@ export const PLAN = {
       ],
       "review": "この3状態の管理が、Reactではどう変わるか概要だけ教えて",
       "h": 3.0,
-      "week": 3,
+      "week": 4,
       "tier": "コア",
       "status": "ここでJS基礎は終わり",
       "refs": []
@@ -2936,90 +2600,9 @@ export const PLAN = {
       ],
       "review": "既存JSをTS化するときの進め方（どこから手を付けるか）を教えて",
       "h": 1.0,
-      "week": 3,
-      "tier": "コア",
-      "status": "1週目のdata.jsに型を付ける",
-      "refs": []
-    },
-    {
-      "id": "t5",
-      "track": "Claude Code",
-      "code": "CC-1",
-      "name": "CLAUDE.mdを書く",
-      "goal": "AIに毎回同じ説明をしなくて済むようになる。案件の必須スキル「AI駆動での開発経験」の土台。",
-      "files": [
-        {
-          "path": "CLAUDE.md",
-          "note": "学習用リポジトリのルートに置く。20〜40行程度で十分"
-        }
-      ],
-      "steps": [
-        "リポジトリのルートで touch CLAUDE.md して開く",
-        "見出しを4つ立てる（このリポジトリについて／守ってほしいこと／レビューの観点／回答の好み）",
-        "書き終えたら Claude Code を起動し、わざと「この課題のコードを書いて」と頼んでみる",
-        "断られてレビューを提案されたら成功。書き始めたら指示を書き直す"
-      ],
-      "reqs": [
-        "「このリポジトリは何か」を3行で書く（独習JavaScriptとTS/Reactの学習用、など）",
-        "★「コードを書かせない。自分で書いたものへのレビューだけ頼む」を明記する",
-        "レビューしてほしい観点を3つ書く（例: 命名／責務の分け方／エラー処理の抜け）",
-        "「修正版を丸ごと出さず、何が問題かと直す方向だけ示す」ことを書く",
-        "回答は日本語で、専門用語には一言説明を付けてほしいことを書く",
-        "実際に起動して、コードを書かせようとしても方針が守られることを確認する"
-      ],
-      "feats": "CLAUDE.md, プロジェクト設定",
-      "judge": "コードを書かせようとしてもレビュー方針が守られる",
-      "hints": [
-        "抽象的に書くと効かない。「丁寧にレビューして」ではなく「命名の一貫性を見て」のように具体で書く",
-        "効かない指示があったら、その場で1行足して試す。育てていくもの"
-      ],
-      "review": "このCLAUDE.mdで意図が伝わるか、曖昧で解釈が割れそうな指示があれば指摘して",
-      "h": 1.5,
-      "week": 3,
-      "tier": "余力",
-      "status": "",
-      "refs": []
-    },
-    {
-      "id": "t18",
-      "track": "TypeScript",
-      "code": "TS-4",
-      "name": "Reactでよく使う型を覚える",
-      "goal": "Reactを書くときに毎回出てくる型を先に押さえる。ここを知らないと型エラーのたびに手が止まる。実務で一番効く。",
-      "files": [
-        {
-          "path": "react_基礎/src/types-lab.tsx",
-          "note": "型の実験だけを集めた場所。画面に出なくてよい"
-        },
-        {
-          "path": "notes/learning-log.md",
-          "note": "詰まった型と解決した書き方のメモ"
-        }
-      ],
-      "steps": [
-        "R-1 でReactプロジェクトを作ったあと、その中に types-lab.tsx を作る",
-        "1つずつ書いて、エディタのホバーで型を確認しながら進める",
-        "any を書きたくなったら、そこを notes にメモしてから正しい型を調べる"
-      ],
-      "reqs": [
-        "children を受け取る props に ReactNode を使う（type Props = { children: ReactNode }）",
-        "★input の onChange に型を付ける。e.target.value が string と推論されることを確認する（React.ChangeEvent<HTMLInputElement>）",
-        "button の onClick に型を付ける（React.MouseEvent<HTMLButtonElement>）",
-        "ComponentProps<'button'> を使って、標準のbutton属性をそのまま受け取れるpropsを書く",
-        "useState<Product | null>(null) のように、初期値がnullの状態に型を渡す",
-        "型が分からないときの調べ方を1つ決めて notes に書く（ホバー／定義へジャンプ／公式のCheatsheet）"
-      ],
-      "feats": "ReactNode, イベント型, ComponentProps, useState<T>",
-      "judge": "イベントハンドラの型をanyなしで書ける／型定義を自力で調べる手段が決まっている",
-      "hints": [
-        "イベント型が思い出せないときは、いったんハンドラをJSXに直接書いてホバーすると正解の型が出る。それをコピーして関数に切り出すのが実務的な近道",
-        "React TypeScript Cheatsheet に頻出パターンが全部載っている。ブックマークしておく"
-      ],
-      "review": "Reactの型で初心者がanyに逃げがちな箇所と、その正しい書き方を教えて",
-      "h": 1.0,
       "week": 4,
       "tier": "コア",
-      "status": "",
+      "status": "1週目のdata.jsに型を付ける",
       "refs": []
     },
     {
@@ -3085,6 +2668,87 @@ export const PLAN = {
       "refs": []
     },
     {
+      "id": "t5",
+      "track": "Claude Code",
+      "code": "CC-1",
+      "name": "CLAUDE.mdを書く",
+      "goal": "AIに毎回同じ説明をしなくて済むようになる。案件の必須スキル「AI駆動での開発経験」の土台。",
+      "files": [
+        {
+          "path": "CLAUDE.md",
+          "note": "学習用リポジトリのルートに置く。20〜40行程度で十分"
+        }
+      ],
+      "steps": [
+        "リポジトリのルートで touch CLAUDE.md して開く",
+        "見出しを4つ立てる（このリポジトリについて／守ってほしいこと／レビューの観点／回答の好み）",
+        "書き終えたら Claude Code を起動し、わざと「この課題のコードを書いて」と頼んでみる",
+        "断られてレビューを提案されたら成功。書き始めたら指示を書き直す"
+      ],
+      "reqs": [
+        "「このリポジトリは何か」を3行で書く（独習JavaScriptとTS/Reactの学習用、など）",
+        "★「コードを書かせない。自分で書いたものへのレビューだけ頼む」を明記する",
+        "レビューしてほしい観点を3つ書く（例: 命名／責務の分け方／エラー処理の抜け）",
+        "「修正版を丸ごと出さず、何が問題かと直す方向だけ示す」ことを書く",
+        "回答は日本語で、専門用語には一言説明を付けてほしいことを書く",
+        "実際に起動して、コードを書かせようとしても方針が守られることを確認する"
+      ],
+      "feats": "CLAUDE.md, プロジェクト設定",
+      "judge": "コードを書かせようとしてもレビュー方針が守られる",
+      "hints": [
+        "抽象的に書くと効かない。「丁寧にレビューして」ではなく「命名の一貫性を見て」のように具体で書く",
+        "効かない指示があったら、その場で1行足して試す。育てていくもの"
+      ],
+      "review": "このCLAUDE.mdで意図が伝わるか、曖昧で解釈が割れそうな指示があれば指摘して",
+      "h": 1.5,
+      "week": 4,
+      "tier": "余力",
+      "status": "",
+      "refs": []
+    },
+    {
+      "id": "t18",
+      "track": "TypeScript",
+      "code": "TS-4",
+      "name": "Reactでよく使う型を覚える",
+      "goal": "Reactを書くときに毎回出てくる型を先に押さえる。ここを知らないと型エラーのたびに手が止まる。実務で一番効く。",
+      "files": [
+        {
+          "path": "react_基礎/src/types-lab.tsx",
+          "note": "型の実験だけを集めた場所。画面に出なくてよい"
+        },
+        {
+          "path": "notes/learning-log.md",
+          "note": "詰まった型と解決した書き方のメモ"
+        }
+      ],
+      "steps": [
+        "R-1 でReactプロジェクトを作ったあと、その中に types-lab.tsx を作る",
+        "1つずつ書いて、エディタのホバーで型を確認しながら進める",
+        "any を書きたくなったら、そこを notes にメモしてから正しい型を調べる"
+      ],
+      "reqs": [
+        "children を受け取る props に ReactNode を使う（type Props = { children: ReactNode }）",
+        "★input の onChange に型を付ける。e.target.value が string と推論されることを確認する（React.ChangeEvent<HTMLInputElement>）",
+        "button の onClick に型を付ける（React.MouseEvent<HTMLButtonElement>）",
+        "ComponentProps<'button'> を使って、標準のbutton属性をそのまま受け取れるpropsを書く",
+        "useState<Product | null>(null) のように、初期値がnullの状態に型を渡す",
+        "型が分からないときの調べ方を1つ決めて notes に書く（ホバー／定義へジャンプ／公式のCheatsheet）"
+      ],
+      "feats": "ReactNode, イベント型, ComponentProps, useState<T>",
+      "judge": "イベントハンドラの型をanyなしで書ける／型定義を自力で調べる手段が決まっている",
+      "hints": [
+        "イベント型が思い出せないときは、いったんハンドラをJSXに直接書いてホバーすると正解の型が出る。それをコピーして関数に切り出すのが実務的な近道",
+        "React TypeScript Cheatsheet に頻出パターンが全部載っている。ブックマークしておく"
+      ],
+      "review": "Reactの型で初心者がanyに逃げがちな箇所と、その正しい書き方を教えて",
+      "h": 1.0,
+      "week": 5,
+      "tier": "コア",
+      "status": "",
+      "refs": []
+    },
+    {
       "id": "t21",
       "track": "React",
       "code": "R-2",
@@ -3132,7 +2796,7 @@ export const PLAN = {
       ],
       "review": "依存配列の書き忘れで起きる問題のパターンを整理して教えて",
       "h": 2.5,
-      "week": 5,
+      "week": 6,
       "tier": "コア",
       "status": "",
       "refs": []
@@ -3176,7 +2840,7 @@ export const PLAN = {
       ],
       "review": "私の状態設計をレビューして。持ちすぎ・上げすぎがあれば指摘だけお願いします",
       "h": 2.0,
-      "week": 5,
+      "week": 6,
       "tier": "コア",
       "status": "",
       "refs": []
@@ -3218,7 +2882,7 @@ export const PLAN = {
       ],
       "review": "この分割粒度は実務として妥当か、過不足を指摘して",
       "h": 1.0,
-      "week": 5,
+      "week": 6,
       "tier": "コア",
       "status": "",
       "refs": []
@@ -3273,7 +2937,7 @@ export const PLAN = {
       ],
       "review": "App RouterのファイルベースルーティングとReact Routerの違いを整理して",
       "h": 2.0,
-      "week": 5,
+      "week": 7,
       "tier": "コア",
       "status": "★写経から入る（ルール5b）",
       "refs": []
@@ -3321,9 +2985,56 @@ export const PLAN = {
       ],
       "review": "このアプリはNext.jsへ移しやすい構造になっているか、事前に指摘して",
       "h": 6.5,
-      "week": 5,
+      "week": 7,
       "tier": "コア",
       "status": "ここまでに動くReactアプリを完成させる",
+      "refs": []
+    },
+    {
+      "id": "t29",
+      "track": "コンバート",
+      "code": "CONV-2",
+      "name": "Next.jsへコンバートする ★本命",
+      "goal": "案件の推奨スキル「アーキテクチャコンバートの経験」を実際に作る。参画後に最初に任される作業がこれと同じ形になる。",
+      "files": [
+        {
+          "path": "app_nextjs版/",
+          "note": "★コンバート先。app_react版 は消さずに残す（読み比べるため）"
+        },
+        {
+          "path": "notes/convert-log.md",
+          "note": "★移行計画・詰まった点・判断理由。この課題の最重要成果物"
+        }
+      ],
+      "steps": [
+        "★先に notes/convert-log.md へ移行計画を書く。手を動かす前に書く",
+        "create-next-app で app_nextjs版 を作る",
+        "まず全部を Client Component として移し、とにかく動く状態にする",
+        "★動いてから、'use client' を1つずつ剥がしていく。剥がせない理由が出たらその場で記録する",
+        "データ取得を Server Component へ移せる部分を移す",
+        "最後に convert-log.md を読み返し、判断理由が書けているか確認する"
+      ],
+      "reqs": [
+        "★移行計画を先に書く（何を・どの順で移すか。想定される詰まりどころも）",
+        "create-next-app で App Router 構成のプロジェクトを作る",
+        "コンポーネントをそのまま移し、まず動く状態にする（この段階では全部Clientでよい）",
+        "★'use client' をどこに置くか決め、境界をなるべく葉に近づける。剥がせなかったコンポーネントは、なぜ剥がせないかを1行ずつ書く",
+        "データ取得を Server Component へ移せる部分は移す",
+        "★localStorage を使う部分は Client Component に閉じ込める（サーバー側には localStorage が無いため）",
+        "★詰まった点と「なぜそう判断したか」を convert-log.md に記録する。参画後に「コンバート経験は？」と聞かれたときに読み返す材料になる"
+      ],
+      "feats": "App Router, Server/Client境界, 'use client', 段階的移行",
+      "judge": "React版と同じ機能がNext.jsで動く／境界の判断理由を全コンポーネントについて説明できる",
+      "hints": [
+        "いきなり理想形を目指さない。「全部Clientで動かす」→「1つずつ剥がす」が安全な手順",
+        "サーバー側に window や localStorage は無い。参照するとビルド時にエラーになる",
+        "動かすことより記録を優先する。完璧に動かなくても、判断の記録があれば課題としては成立する"
+      ],
+      "review": "私のコンバート手順をレビューして。移行の順番として妥当か指摘だけお願いします",
+      "h": 7.0,
+      "week": 7,
+      "tier": "コア",
+      "status": "求人でよく求められる「コンバート経験」の実体",
       "refs": []
     },
     {
@@ -3361,7 +3072,7 @@ export const PLAN = {
       ],
       "review": "AI駆動開発の経験について、面談で話す内容としてこれで足りるか意見が欲しい",
       "h": 3.0,
-      "week": 5,
+      "week": 7,
       "tier": "余力",
       "status": "",
       "refs": []
@@ -3410,7 +3121,7 @@ export const PLAN = {
       ],
       "review": "Server/Clientの境界の引き方について、私の判断基準が実務と合っているか見て",
       "h": 2.5,
-      "week": 6,
+      "week": 8,
       "tier": "コア",
       "status": "",
       "refs": []
@@ -3454,56 +3165,9 @@ export const PLAN = {
       ],
       "review": "Server ActionsとAPI Routesの使い分けを、実務の判断基準で教えて",
       "h": 1.0,
-      "week": 6,
+      "week": 8,
       "tier": "コア",
       "status": "",
-      "refs": []
-    },
-    {
-      "id": "t29",
-      "track": "コンバート",
-      "code": "CONV-2",
-      "name": "Next.jsへコンバートする ★本命",
-      "goal": "案件の推奨スキル「アーキテクチャコンバートの経験」を実際に作る。参画後に最初に任される作業がこれと同じ形になる。",
-      "files": [
-        {
-          "path": "app_nextjs版/",
-          "note": "★コンバート先。app_react版 は消さずに残す（読み比べるため）"
-        },
-        {
-          "path": "notes/convert-log.md",
-          "note": "★移行計画・詰まった点・判断理由。この課題の最重要成果物"
-        }
-      ],
-      "steps": [
-        "★先に notes/convert-log.md へ移行計画を書く。手を動かす前に書く",
-        "create-next-app で app_nextjs版 を作る",
-        "まず全部を Client Component として移し、とにかく動く状態にする",
-        "★動いてから、'use client' を1つずつ剥がしていく。剥がせない理由が出たらその場で記録する",
-        "データ取得を Server Component へ移せる部分を移す",
-        "最後に convert-log.md を読み返し、判断理由が書けているか確認する"
-      ],
-      "reqs": [
-        "★移行計画を先に書く（何を・どの順で移すか。想定される詰まりどころも）",
-        "create-next-app で App Router 構成のプロジェクトを作る",
-        "コンポーネントをそのまま移し、まず動く状態にする（この段階では全部Clientでよい）",
-        "★'use client' をどこに置くか決め、境界をなるべく葉に近づける。剥がせなかったコンポーネントは、なぜ剥がせないかを1行ずつ書く",
-        "データ取得を Server Component へ移せる部分は移す",
-        "★localStorage を使う部分は Client Component に閉じ込める（サーバー側には localStorage が無いため）",
-        "★詰まった点と「なぜそう判断したか」を convert-log.md に記録する。参画後に「コンバート経験は？」と聞かれたときに読み返す材料になる"
-      ],
-      "feats": "App Router, Server/Client境界, 'use client', 段階的移行",
-      "judge": "React版と同じ機能がNext.jsで動く／境界の判断理由を全コンポーネントについて説明できる",
-      "hints": [
-        "いきなり理想形を目指さない。「全部Clientで動かす」→「1つずつ剥がす」が安全な手順",
-        "サーバー側に window や localStorage は無い。参照するとビルド時にエラーになる",
-        "動かすことより記録を優先する。完璧に動かなくても、判断の記録があれば課題としては成立する"
-      ],
-      "review": "私のコンバート手順をレビューして。移行の順番として妥当か指摘だけお願いします",
-      "h": 7.0,
-      "week": 6,
-      "tier": "コア",
-      "status": "求人でよく求められる「コンバート経験」の実体",
       "refs": []
     },
     {
@@ -3550,7 +3214,7 @@ export const PLAN = {
       ],
       "review": "「コンバート経験を教えて」と聞かれた想定で私の説明を聞き、改善点を指摘して",
       "h": 6.0,
-      "week": 6,
+      "week": 8,
       "tier": "コア",
       "status": "",
       "refs": []
@@ -3592,7 +3256,7 @@ export const PLAN = {
       ],
       "review": "私が書いた型定義です。後で困りそうな設計を指摘してください。直したコードは書かず、何が問題かだけ教えてください",
       "h": 2.5,
-      "week": 7,
+      "week": 9,
       "tier": "コア",
       "status": "型を先に決めてから作る",
       "refs": []
@@ -3636,7 +3300,7 @@ export const PLAN = {
       ],
       "review": "私が書いた要件定義です。スコープが広すぎる箇所と、「作らない」の判断が甘い箇所を指摘してください。要件は書き直さないでください",
       "h": 2.0,
-      "week": 7,
+      "week": 9,
       "tier": "コア",
       "status": "★配布版は開かない。要件定義から自分でやる",
       "refs": []
@@ -3680,7 +3344,7 @@ export const PLAN = {
       ],
       "review": "私が書いた検索処理です。正規表現を使う/使わないの判断が妥当か、見落としている入力パターンがないか指摘してください",
       "h": 2.5,
-      "week": 8,
+      "week": 10,
       "tier": "コア",
       "status": "★Ch10の正規表現を、詰まってから読む",
       "refs": [
@@ -3726,7 +3390,7 @@ export const PLAN = {
       ],
       "review": "私が書いた日付処理です。タイムゾーンと境界値で問題が起きそうな箇所を指摘してください。直し方の方向だけで結構です",
       "h": 2.5,
-      "week": 8,
+      "week": 11,
       "tier": "コア",
       "status": "★Ch10のDateを、詰まってから読む",
       "refs": [
@@ -3772,7 +3436,7 @@ export const PLAN = {
       ],
       "review": "私が書いたフォームです。バリデーションの漏れと、state の持ち方で後で困りそうな箇所を指摘してください",
       "h": 2.5,
-      "week": 9,
+      "week": 11,
       "tier": "コア",
       "status": "★Ch15のpreventDefault。まず一度壊す",
       "refs": [
@@ -3820,7 +3484,7 @@ export const PLAN = {
       ],
       "review": "私が書いたモーダルです。イベントの扱いとクリーンアップで問題がある箇所を指摘してください。コードは書き直さないでください",
       "h": 2.5,
-      "week": 9,
+      "week": 12,
       "tier": "コア",
       "status": "★Ch15のイベント伝播。今回のJS回収の本丸",
       "refs": [
@@ -3863,7 +3527,7 @@ export const PLAN = {
       ],
       "review": "自作版と配布版の差分をこう整理しました。見落としている観点があれば教えてください。どちらが正しいかの判定は求めていません",
       "h": 2.5,
-      "week": 10,
+      "week": 13,
       "tier": "コア",
       "status": "★ここで初めて配布版を開く",
       "refs": []
@@ -3915,7 +3579,7 @@ export const PLAN = {
       ],
       "review": "私が書いたテストです。テストになっていない（常に通ってしまう）ものと、抜けている観点を指摘してください",
       "h": 2.5,
-      "week": 11,
+      "week": 14,
       "tier": "コア",
       "status": "A-2/A-3で切り出した関数がここで効く",
       "refs": [
@@ -3961,7 +3625,7 @@ export const PLAN = {
       ],
       "review": "私が書いた画面テストです。壊れやすい書き方になっている箇所と、確かめられていない挙動を指摘してください",
       "h": 2.5,
-      "week": 12,
+      "week": 15,
       "tier": "コア",
       "status": "",
       "refs": []
@@ -4001,7 +3665,7 @@ export const PLAN = {
       ],
       "review": "私が書いたCIの設定です。抜けている検査と、セキュリティ上まずい書き方があれば指摘してください",
       "h": 2.5,
-      "week": 13,
+      "week": 17,
       "tier": "コア",
       "status": "★赤くなることを先に確認する",
       "refs": []
@@ -4046,53 +3710,10 @@ export const PLAN = {
       ],
       "review": "自己レビューとAIレビューの判断記録です。私の判断が甘い箇所を指摘してください。コードの修正案ではなく、判断の観点について教えてください",
       "h": 2.5,
-      "week": 13,
+      "week": 18,
       "tier": "コア",
       "status": "★AIの指摘を丸呑みしない（ルール8）",
       "refs": []
-    },
-    {
-      "id": "t43",
-      "track": "JS基礎",
-      "code": "C-1",
-      "name": "★JSの棚卸し（読み直しではない）",
-      "goal": "自分の穴の場所が分かる。読んでいない章があること自体は問題ではなく、どこが分かっていないか把握できていないことが問題。",
-      "files": [
-        {
-          "path": "notes/js-checklist.md",
-          "note": "この課題限りの一時ファイル。終わったら weak-points.md に反映して消してよい（ルール10）"
-        }
-      ],
-      "steps": [
-        "★本文は読まない。目次だけを開く",
-        "飛ばした章（Ch9・Ch10・Ch14・Ch16・Ch17）の節を、目次から書き写す",
-        "1節ずつ「説明できる／なんとなく／できない」を付ける",
-        "「できない」が付いた節だけを数える",
-        "★そのうち、実務で出そうなものを上から5つだけ選ぶ",
-        "選んだ5つだけ読む。上限2時間。読み終わったら止める",
-        "Ch9（クラス）はTypeScript視点で読む。class / extends / implements"
-      ],
-      "reqs": [
-        "飛ばした章の節がすべてチェック表に並んでいる",
-        "3段階の判定が全節に付いている",
-        "読むと決めた5つと、読まないと決めた理由が書いてある",
-        "読んだ時間が2時間以内に収まっている"
-      ],
-      "feats": "自己評価, 学習の棚卸し",
-      "judge": "「独習JavaScriptのどこが分かっていないか」を聞かれて、具体的に答えられる",
-      "hints": [
-        "★これは読み直しの課題ではない。穴の場所を知るための課題",
-        "「なんとなく」が一番危ない。実務で止まるのはここ",
-        "全部読もうとすると、また9月と同じことになる（ルール3）"
-      ],
-      "review": "JSの自己チェック表です。フロントエンドの実務で優先度が高い節を見落としていないか教えてください",
-      "h": 2.0,
-      "week": 15,
-      "tier": "コア",
-      "status": "★読み直しではなく、穴の場所を知る課題",
-      "refs": [
-        "class"
-      ]
     }
   ],
   "days": [
@@ -4140,7 +3761,32 @@ export const PLAN = {
       "date": "2026-09-14",
       "wd": "月",
       "week": 1,
-      "target": 2.0,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": [
+        {
+          "id": "v5s1",
+          "cat": "JS基礎",
+          "todo": "【積み残し】課題「配列メソッド総当たり」。商品データ20件をdata.jsとして保存する",
+          "h": 2.5,
+          "tier": "コア",
+          "track": "JS基礎",
+          "refs": [],
+          "check": {
+            "type": "予測",
+            "q": "filter / map / reduce を1つずつ選び、実行する前に出力を紙かメモに書く。それから node で動かして見比べる。",
+            "judge": "3つとも、予測が実際の出力と一致した"
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-09-15",
+      "wd": "火",
+      "week": 1,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": false,
@@ -4162,20 +3808,10 @@ export const PLAN = {
       ]
     },
     {
-      "date": "2026-09-15",
-      "wd": "火",
-      "week": 1,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": []
-    },
-    {
       "date": "2026-09-16",
       "wd": "水",
       "week": 1,
-      "target": 2.0,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": false,
@@ -4200,52 +3836,7 @@ export const PLAN = {
       "date": "2026-09-17",
       "wd": "木",
       "week": 1,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": []
-    },
-    {
-      "date": "2026-09-18",
-      "wd": "金",
-      "week": 1,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": []
-    },
-    {
-      "date": "2026-09-19",
-      "wd": "土",
-      "week": 1,
-      "target": 2.5,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": [
-        {
-          "id": "v5s1",
-          "cat": "JS基礎",
-          "todo": "【積み残し】課題「配列メソッド総当たり」。商品データ20件をdata.jsとして保存する",
-          "h": 2.5,
-          "tier": "コア",
-          "track": "JS基礎",
-          "refs": [],
-          "check": {
-            "type": "予測",
-            "q": "filter / map / reduce を1つずつ選び、実行する前に出力を紙かメモに書く。それから node で動かして見比べる。",
-            "judge": "3つとも、予測が実際の出力と一致した"
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-09-20",
-      "wd": "日",
-      "week": 1,
-      "target": 2.5,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": false,
@@ -4267,10 +3858,40 @@ export const PLAN = {
       ]
     },
     {
+      "date": "2026-09-18",
+      "wd": "金",
+      "week": 1,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": []
+    },
+    {
+      "date": "2026-09-19",
+      "wd": "土",
+      "week": 1,
+      "target": 2.0,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": []
+    },
+    {
+      "date": "2026-09-20",
+      "wd": "日",
+      "week": 1,
+      "target": 2.0,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": []
+    },
+    {
       "date": "2026-09-21",
       "wd": "月",
       "week": 2,
-      "target": 2.0,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": true,
@@ -4280,7 +3901,7 @@ export const PLAN = {
       "date": "2026-09-22",
       "wd": "火",
       "week": 2,
-      "target": 2.0,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": true,
@@ -4290,71 +3911,7 @@ export const PLAN = {
       "date": "2026-09-23",
       "wd": "水",
       "week": 2,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": [
-        {
-          "id": "v5s113",
-          "cat": "TS/React/Next",
-          "todo": "★動画§1〜§3を見る(41分)→ yosoku.ts を白紙からやり直す。b3とe3は必ず理由まで言う",
-          "h": 1.5,
-          "tier": "コア",
-          "track": "TypeScript",
-          "refs": [
-            "vid_intro"
-          ],
-          "check": {
-            "type": "予測",
-            "q": "yosoku.ts を白紙からもう一度。★前の回答は見ないで、予測を先に書く。特に b3（const b3 = [1, \"a\"]）と e3（find の戻り）は、型だけでなく「なぜそうなるか」を1行で書く。",
-            "judge": "×が2個以下で、かつ b3 と e3 の理由が書けた（3個以上なら動画の§1〜§3をもう一度）"
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-09-24",
-      "wd": "木",
-      "week": 2,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": true,
-      "plan": []
-    },
-    {
-      "date": "2026-09-25",
-      "wd": "金",
-      "week": 2,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": [
-        {
-          "id": "v5s6",
-          "cat": "TS/React/Next",
-          "todo": "【積み残し】★動画§4を見る(41分)→ そのままユニオン型・リテラル型・オプショナルを書く",
-          "h": 1.5,
-          "tier": "コア",
-          "track": "TypeScript",
-          "refs": [
-            "vid_basic"
-          ],
-          "check": {
-            "type": "再現",
-            "q": "見ないで書く。状態を 'loading' | 'success' | 'error' で表す型と、それを受け取って3つに分岐する関数。",
-            "judge": "各分岐の中で、その状態にしか無いプロパティへ安全に触れた"
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-09-26",
-      "wd": "土",
-      "week": 2,
-      "target": 2.5,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": false,
@@ -4375,12 +3932,61 @@ export const PLAN = {
             "q": "教材を閉じて、見ないで3つ書く。①オブジェクトから2つのプロパティを取り出す ②配列の先頭と残りを分ける ③既存オブジェクトの1つのキーだけ変えた新しいオブジェクトを作る",
             "judge": "3つとも見ずに書けて、エラーなく動いた"
           }
-        },
+        }
+      ]
+    },
+    {
+      "date": "2026-09-24",
+      "wd": "木",
+      "week": 2,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": true,
+      "plan": []
+    },
+    {
+      "date": "2026-09-25",
+      "wd": "金",
+      "week": 2,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": [
+        {
+          "id": "v5s6",
+          "cat": "TS/React/Next",
+          "todo": "【積み残し】★動画§4「型の基本」を見る(41分)→ ユニオン型・リテラル型・オプショナルを書く",
+          "h": 1.5,
+          "tier": "コア",
+          "track": "TypeScript",
+          "refs": [
+            "vid_basic",
+            "vid_setup"
+          ],
+          "check": {
+            "type": "再現",
+            "q": "見ないで書く。状態を 'loading' | 'success' | 'error' で表す型と、それを受け取って3つに分岐する関数。",
+            "judge": "各分岐の中で、その状態にしか無いプロパティへ安全に触れた"
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-09-26",
+      "wd": "土",
+      "week": 2,
+      "target": 2.0,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": [
         {
           "id": "v5s7",
           "cat": "TS/React/Next",
-          "todo": "【積み残し】★動画§5を見る(24分)→ interface と type を書き分ける(課題TS-2)",
-          "h": 1.5,
+          "todo": "【積み残し】★動画§5「Interfaceと型エイリアス」を見る(32分)→ 書き分ける(課題TS-2)",
+          "h": 2.0,
           "tier": "コア",
           "track": "TypeScript",
           "refs": [
@@ -4398,7 +4004,74 @@ export const PLAN = {
       "date": "2026-09-27",
       "wd": "日",
       "week": 2,
-      "target": 2.5,
+      "target": 2.0,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": []
+    },
+    {
+      "date": "2026-09-28",
+      "wd": "月",
+      "week": 3,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": true,
+      "plan": []
+    },
+    {
+      "date": "2026-09-29",
+      "wd": "火",
+      "week": 3,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": true,
+      "plan": []
+    },
+    {
+      "date": "2026-09-30",
+      "wd": "水",
+      "week": 3,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": [
+        {
+          "id": "v5s113",
+          "cat": "TS/React/Next",
+          "todo": "★§4を見た直後に、yosoku.ts を白紙からやり直す。b3とe3は理由まで言う",
+          "h": 1.0,
+          "tier": "コア",
+          "track": "TypeScript",
+          "refs": [
+            "vid_basic"
+          ],
+          "check": {
+            "type": "予測",
+            "q": "yosoku.ts を白紙からもう一度。★前の回答は見ないで、予測を先に書く。特に b3（const b3 = [1, \"a\"]）と e3（find の戻り）は、型だけでなく「なぜそうなるか」を1行で書く。",
+            "judge": "×が2個以下で、かつ b3 と e3 の理由が書けた（3個以上なら §4 の「型推論の仕組み」「Literal型」「配列型」をもう一度）"
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-10-01",
+      "wd": "木",
+      "week": 3,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": true,
+      "plan": []
+    },
+    {
+      "date": "2026-10-02",
+      "wd": "金",
+      "week": 3,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": false,
@@ -4406,8 +4079,8 @@ export const PLAN = {
         {
           "id": "v5s9",
           "cat": "TS/React/Next",
-          "todo": "★動画§7を見る(23分)→ ジェネリクスを使う。型を引数として渡す感覚を掴む",
-          "h": 2.0,
+          "todo": "★動画§7「ジェネリクス入門」を見る(21分)→ 型を引数として渡す感覚を掴む",
+          "h": 2.5,
           "tier": "コア",
           "track": "TypeScript",
           "refs": [
@@ -4422,8 +4095,8 @@ export const PLAN = {
       ]
     },
     {
-      "date": "2026-09-28",
-      "wd": "月",
+      "date": "2026-10-03",
+      "wd": "土",
       "week": 3,
       "target": 2.0,
       "done": false,
@@ -4433,7 +4106,7 @@ export const PLAN = {
         {
           "id": "v5s10",
           "cat": "TS/React/Next",
-          "todo": "★動画§8を見る(21分)→ 型の絞り込み(typeof / in / タグ付きユニオン)を書く",
+          "todo": "★§4の「型ガード」(2分46秒)を見直す→ 絞り込み(typeof / in / タグ付きユニオン)を書く",
           "h": 1.5,
           "tier": "コア",
           "track": "TypeScript",
@@ -4449,10 +4122,20 @@ export const PLAN = {
       ]
     },
     {
-      "date": "2026-09-29",
-      "wd": "火",
+      "date": "2026-10-04",
+      "wd": "日",
       "week": 3,
       "target": 2.0,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": []
+    },
+    {
+      "date": "2026-10-05",
+      "wd": "月",
+      "week": 4,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": false,
@@ -4474,70 +4157,10 @@ export const PLAN = {
       ]
     },
     {
-      "date": "2026-09-30",
-      "wd": "水",
-      "week": 3,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": [
-        {
-          "id": "v5s13",
-          "cat": "TS/React/Next",
-          "todo": "TS: 1週目のdata.jsに型を付けてTS化する(課題TS-3)",
-          "h": 2.0,
-          "tier": "コア",
-          "track": "TypeScript",
-          "refs": [],
-          "check": {
-            "type": "説明",
-            "q": "型を付けて最初に出たエラーを1つ選び、「データ自体が間違っている」のか「型の書き方が間違っている」のかを判定して1行。",
-            "judge": "判定どおりに直したら、意図した形になった"
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-10-01",
-      "wd": "木",
-      "week": 3,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": true,
-      "plan": []
-    },
-    {
-      "date": "2026-10-02",
-      "wd": "金",
-      "week": 3,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": [
-        {
-          "id": "v5s14",
-          "cat": "TS/React/Next",
-          "todo": "React環境を作る。★まずクイックスタートを写経する（自作しない）",
-          "h": 2.0,
-          "tier": "コア",
-          "track": "React",
-          "refs": [],
-          "check": {
-            "type": "再現",
-            "q": "写経したファイルを閉じて、useState を使うカウンターを見ないで書く。",
-            "judge": "見ずに、動くところまで書けた"
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-10-03",
-      "wd": "土",
-      "week": 3,
-      "target": 2.5,
+      "date": "2026-10-06",
+      "wd": "火",
+      "week": 4,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": false,
@@ -4559,10 +4182,70 @@ export const PLAN = {
       ]
     },
     {
-      "date": "2026-10-04",
-      "wd": "日",
-      "week": 3,
-      "target": 2.5,
+      "date": "2026-10-07",
+      "wd": "水",
+      "week": 4,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": [
+        {
+          "id": "v5s13",
+          "cat": "TS/React/Next",
+          "todo": "TS: 1週目のdata.jsに型を付けてTS化する(課題TS-3)",
+          "h": 2.0,
+          "tier": "コア",
+          "track": "TypeScript",
+          "refs": [],
+          "check": {
+            "type": "説明",
+            "q": "型を付けて最初に出たエラーを1つ選び、「データ自体が間違っている」のか「型の書き方が間違っている」のかを判定して1行。",
+            "judge": "判定どおりに直したら、意図した形になった"
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-10-08",
+      "wd": "木",
+      "week": 4,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": true,
+      "plan": []
+    },
+    {
+      "date": "2026-10-09",
+      "wd": "金",
+      "week": 4,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": [
+        {
+          "id": "v5s14",
+          "cat": "TS/React/Next",
+          "todo": "React環境を作る。★まずクイックスタートを写経する（自作しない）",
+          "h": 2.0,
+          "tier": "コア",
+          "track": "React",
+          "refs": [],
+          "check": {
+            "type": "再現",
+            "q": "写経したファイルを閉じて、useState を使うカウンターを見ないで書く。",
+            "judge": "見ずに、動くところまで書けた"
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-10-10",
+      "wd": "土",
+      "week": 4,
+      "target": 2.0,
       "done": false,
       "rest": false,
       "spare": false,
@@ -4584,10 +4267,20 @@ export const PLAN = {
       ]
     },
     {
-      "date": "2026-10-05",
-      "wd": "月",
+      "date": "2026-10-11",
+      "wd": "日",
       "week": 4,
       "target": 2.0,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": []
+    },
+    {
+      "date": "2026-10-12",
+      "wd": "月",
+      "week": 5,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": false,
@@ -4609,10 +4302,10 @@ export const PLAN = {
       ]
     },
     {
-      "date": "2026-10-06",
+      "date": "2026-10-13",
       "wd": "火",
-      "week": 4,
-      "target": 2.0,
+      "week": 5,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": false,
@@ -4634,10 +4327,10 @@ export const PLAN = {
       ]
     },
     {
-      "date": "2026-10-07",
+      "date": "2026-10-14",
       "wd": "水",
-      "week": 4,
-      "target": 2.0,
+      "week": 5,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": false,
@@ -4661,20 +4354,20 @@ export const PLAN = {
       ]
     },
     {
-      "date": "2026-10-08",
+      "date": "2026-10-15",
       "wd": "木",
-      "week": 4,
-      "target": 2.0,
+      "week": 5,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": true,
       "plan": []
     },
     {
-      "date": "2026-10-09",
+      "date": "2026-10-16",
       "wd": "金",
-      "week": 4,
-      "target": 2.0,
+      "week": 5,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": false,
@@ -4696,10 +4389,10 @@ export const PLAN = {
       ]
     },
     {
-      "date": "2026-10-10",
+      "date": "2026-10-17",
       "wd": "土",
-      "week": 4,
-      "target": 2.5,
+      "week": 5,
+      "target": 2.0,
       "done": false,
       "rest": false,
       "spare": false,
@@ -4717,7 +4410,28 @@ export const PLAN = {
             "q": "子要素を受け取る props の型は ____。ボタンのクリックイベントの型は ____。既存要素と同じ props を受け取りたいときは ____ を使う。",
             "judge": "見ないで3つ書けて、実際にコンパイルが通った"
           }
-        },
+        }
+      ]
+    },
+    {
+      "date": "2026-10-18",
+      "wd": "日",
+      "week": 5,
+      "target": 2.0,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": []
+    },
+    {
+      "date": "2026-10-19",
+      "wd": "月",
+      "week": 6,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": [
         {
           "id": "v5s23",
           "cat": "TS/React/Next",
@@ -4735,10 +4449,10 @@ export const PLAN = {
       ]
     },
     {
-      "date": "2026-10-11",
-      "wd": "日",
-      "week": 4,
-      "target": 2.5,
+      "date": "2026-10-20",
+      "wd": "火",
+      "week": 6,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": false,
@@ -4760,10 +4474,10 @@ export const PLAN = {
       ]
     },
     {
-      "date": "2026-10-12",
-      "wd": "月",
-      "week": 5,
-      "target": 2.0,
+      "date": "2026-10-21",
+      "wd": "水",
+      "week": 6,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": false,
@@ -4785,10 +4499,20 @@ export const PLAN = {
       ]
     },
     {
-      "date": "2026-10-13",
-      "wd": "火",
-      "week": 5,
-      "target": 2.0,
+      "date": "2026-10-22",
+      "wd": "木",
+      "week": 6,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": true,
+      "plan": []
+    },
+    {
+      "date": "2026-10-23",
+      "wd": "金",
+      "week": 6,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": false,
@@ -4810,9 +4534,9 @@ export const PLAN = {
       ]
     },
     {
-      "date": "2026-10-14",
-      "wd": "水",
-      "week": 5,
+      "date": "2026-10-24",
+      "wd": "土",
+      "week": 6,
       "target": 2.0,
       "done": false,
       "rest": false,
@@ -4835,20 +4559,35 @@ export const PLAN = {
       ]
     },
     {
-      "date": "2026-10-15",
-      "wd": "木",
-      "week": 5,
+      "date": "2026-10-25",
+      "wd": "日",
+      "week": 6,
       "target": 2.0,
       "done": false,
       "rest": false,
-      "spare": true,
-      "plan": []
+      "spare": false,
+      "plan": [
+        {
+          "id": "v5s30",
+          "cat": "TS/React/Next",
+          "todo": "コンポーネントを責務で分割し、理由を書く(課題R-4)",
+          "h": 1.0,
+          "tier": "コア",
+          "track": "React",
+          "refs": [],
+          "check": {
+            "type": "説明",
+            "q": "分けたコンポーネントを1つ選び「何を知らなくてよくなったか」を1行。",
+            "judge": "props の数が減ったか、他の画面でも使える形になった"
+          }
+        }
+      ]
     },
     {
-      "date": "2026-10-16",
-      "wd": "金",
-      "week": 5,
-      "target": 2.0,
+      "date": "2026-10-26",
+      "wd": "月",
+      "week": 7,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": false,
@@ -4870,28 +4609,14 @@ export const PLAN = {
       ]
     },
     {
-      "date": "2026-10-17",
-      "wd": "土",
-      "week": 5,
-      "target": 2.5,
+      "date": "2026-10-27",
+      "wd": "火",
+      "week": 7,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": false,
       "plan": [
-        {
-          "id": "v5s30",
-          "cat": "TS/React/Next",
-          "todo": "コンポーネントを責務で分割し、理由を書く(課題R-4)",
-          "h": 1.0,
-          "tier": "コア",
-          "track": "React",
-          "refs": [],
-          "check": {
-            "type": "説明",
-            "q": "分けたコンポーネントを1つ選び「何を知らなくてよくなったか」を1行。",
-            "judge": "props の数が減ったか、他の画面でも使える形になった"
-          }
-        },
         {
           "id": "v5s32",
           "cat": "TS/React/Next",
@@ -4909,10 +4634,10 @@ export const PLAN = {
       ]
     },
     {
-      "date": "2026-10-18",
-      "wd": "日",
-      "week": 5,
-      "target": 2.5,
+      "date": "2026-10-28",
+      "wd": "水",
+      "week": 7,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": false,
@@ -4930,7 +4655,28 @@ export const PLAN = {
             "q": "____ という名前のファイルがページになる。____ は全ページ共通の枠になる。フォルダ名を ____ にすると動的ルートになる。",
             "judge": "3つとも見ないで埋められ、実際にその通りに動いた"
           }
-        },
+        }
+      ]
+    },
+    {
+      "date": "2026-10-29",
+      "wd": "木",
+      "week": 7,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": true,
+      "plan": []
+    },
+    {
+      "date": "2026-10-30",
+      "wd": "金",
+      "week": 7,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": [
         {
           "id": "v5s36",
           "cat": "TS/React/Next",
@@ -4944,38 +4690,27 @@ export const PLAN = {
             "q": "出たエラーメッセージを閉じて、なぜ動かないのかを1行で書く。",
             "judge": "「サーバー側で実行されるから」に相当することが言えた"
           }
-        }
-      ]
-    },
-    {
-      "date": "2026-10-19",
-      "wd": "月",
-      "week": 6,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": [
+        },
         {
-          "id": "v5s44",
+          "id": "v5s37",
           "cat": "TS/React/Next",
-          "todo": "React版とNext.js版の違いを言語化する",
-          "h": 1.5,
+          "todo": "★5週目のReactアプリをNext.jsへコンバートする計画を書く",
+          "h": 1.0,
           "tier": "コア",
           "track": "コンバート",
           "refs": [],
           "check": {
-            "type": "穴埋め",
-            "q": "Reactだけのときは ____ で動いていたものが、Next.jsでは ____ でも動くようになる。そのぶん ____ が使えない場所ができる。",
-            "judge": "見ないで3つ埋められた"
+            "type": "説明",
+            "q": "移す順番を決めた理由を1行。なぜその順番か。",
+            "judge": "「依存が少ない方から」など、順番そのものに理由があった"
           }
         }
       ]
     },
     {
-      "date": "2026-10-20",
-      "wd": "火",
-      "week": 6,
+      "date": "2026-10-31",
+      "wd": "土",
+      "week": 7,
       "target": 2.0,
       "done": false,
       "rest": false,
@@ -4998,10 +4733,20 @@ export const PLAN = {
       ]
     },
     {
-      "date": "2026-10-21",
-      "wd": "水",
-      "week": 6,
+      "date": "2026-11-01",
+      "wd": "日",
+      "week": 7,
       "target": 2.0,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": []
+    },
+    {
+      "date": "2026-11-02",
+      "wd": "月",
+      "week": 8,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": false,
@@ -5023,20 +4768,10 @@ export const PLAN = {
       ]
     },
     {
-      "date": "2026-10-22",
-      "wd": "木",
-      "week": 6,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": true,
-      "plan": []
-    },
-    {
-      "date": "2026-10-23",
-      "wd": "金",
-      "week": 6,
-      "target": 2.0,
+      "date": "2026-11-03",
+      "wd": "火",
+      "week": 8,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": false,
@@ -5072,10 +4807,10 @@ export const PLAN = {
       ]
     },
     {
-      "date": "2026-10-24",
-      "wd": "土",
-      "week": 6,
-      "target": 2.5,
+      "date": "2026-11-04",
+      "wd": "水",
+      "week": 8,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": false,
@@ -5111,28 +4846,49 @@ export const PLAN = {
       ]
     },
     {
-      "date": "2026-10-25",
-      "wd": "日",
-      "week": 6,
-      "target": 2.5,
+      "date": "2026-11-05",
+      "wd": "木",
+      "week": 8,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": true,
+      "plan": []
+    },
+    {
+      "date": "2026-11-06",
+      "wd": "金",
+      "week": 8,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": false,
       "plan": [
         {
-          "id": "v5s37",
+          "id": "v5s44",
           "cat": "TS/React/Next",
-          "todo": "★5週目のReactアプリをNext.jsへコンバートする計画を書く",
-          "h": 1.0,
+          "todo": "React版とNext.js版の違いを言語化する",
+          "h": 1.5,
           "tier": "コア",
           "track": "コンバート",
           "refs": [],
           "check": {
-            "type": "説明",
-            "q": "移す順番を決めた理由を1行。なぜその順番か。",
-            "judge": "「依存が少ない方から」など、順番そのものに理由があった"
+            "type": "穴埋め",
+            "q": "Reactだけのときは ____ で動いていたものが、Next.jsでは ____ でも動くようになる。そのぶん ____ が使えない場所ができる。",
+            "judge": "見ないで3つ埋められた"
           }
-        },
+        }
+      ]
+    },
+    {
+      "date": "2026-11-07",
+      "wd": "土",
+      "week": 8,
+      "target": 2.0,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": [
         {
           "id": "v5s45",
           "cat": "TS/React/Next",
@@ -5150,10 +4906,20 @@ export const PLAN = {
       ]
     },
     {
-      "date": "2026-10-26",
-      "wd": "月",
-      "week": 7,
+      "date": "2026-11-08",
+      "wd": "日",
+      "week": 8,
       "target": 2.0,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": []
+    },
+    {
+      "date": "2026-11-09",
+      "wd": "月",
+      "week": 9,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": false,
@@ -5175,95 +4941,10 @@ export const PLAN = {
       ]
     },
     {
-      "date": "2026-10-27",
+      "date": "2026-11-10",
       "wd": "火",
-      "week": 7,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": [
-        {
-          "id": "v5s53",
-          "cat": "TS/React/Next",
-          "todo": "GitHubにリポジトリを作り、最初のコミットとpushをする",
-          "h": 1.0,
-          "tier": "コア",
-          "track": "コンバート",
-          "refs": [],
-          "check": {
-            "type": "再現",
-            "q": ".gitignore に何が入っているか、見ないで3つ挙げてから開いて確認する。",
-            "judge": "3つとも入っていた"
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-10-28",
-      "wd": "水",
-      "week": 7,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": [
-        {
-          "id": "v5s51",
-          "cat": "TS/React/Next",
-          "todo": "create-next-app でプロジェクトを作る(TypeScript / App Router)",
-          "h": 1.5,
-          "tier": "コア",
-          "track": "Next.js",
-          "refs": [],
-          "check": {
-            "type": "穴埋め",
-            "q": "生成されたファイルのうち ____ がページ、____ が全ページ共通、____ が設定ファイル。",
-            "judge": "見ないで3つ言えて、実際のファイルで確認が取れた"
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-10-29",
-      "wd": "木",
-      "week": 7,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": true,
-      "plan": []
-    },
-    {
-      "date": "2026-10-30",
-      "wd": "金",
-      "week": 7,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": [
-        {
-          "id": "v5s52",
-          "cat": "TS/React/Next",
-          "todo": "ディレクトリ構成を自分で決めて、理由を design-log.md に書く",
-          "h": 1.5,
-          "tier": "コア",
-          "track": "Next.js",
-          "refs": [],
-          "check": {
-            "type": "説明",
-            "q": "新しい機能を1つ足すとしたら、どのフォルダに何を置くか。迷わず言えるか試す。",
-            "judge": "迷わず言えた（迷ったら、それは構成の方を直すサイン）"
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-10-31",
-      "wd": "土",
-      "week": 7,
-      "target": 2.5,
+      "week": 9,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": false,
@@ -5285,10 +4966,115 @@ export const PLAN = {
       ]
     },
     {
-      "date": "2026-11-01",
+      "date": "2026-11-11",
+      "wd": "水",
+      "week": 9,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": [
+        {
+          "id": "v5s51",
+          "cat": "TS/React/Next",
+          "todo": "create-next-app でプロジェクトを作る(TypeScript / App Router)",
+          "h": 1.5,
+          "tier": "コア",
+          "track": "Next.js",
+          "refs": [],
+          "check": {
+            "type": "穴埋め",
+            "q": "生成されたファイルのうち ____ がページ、____ が全ページ共通、____ が設定ファイル。",
+            "judge": "見ないで3つ言えて、実際のファイルで確認が取れた"
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-11-12",
+      "wd": "木",
+      "week": 9,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": true,
+      "plan": []
+    },
+    {
+      "date": "2026-11-13",
+      "wd": "金",
+      "week": 9,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": [
+        {
+          "id": "v5s52",
+          "cat": "TS/React/Next",
+          "todo": "ディレクトリ構成を自分で決めて、理由を design-log.md に書く",
+          "h": 1.5,
+          "tier": "コア",
+          "track": "Next.js",
+          "refs": [],
+          "check": {
+            "type": "説明",
+            "q": "新しい機能を1つ足すとしたら、どのフォルダに何を置くか。迷わず言えるか試す。",
+            "judge": "迷わず言えた（迷ったら、それは構成の方を直すサイン）"
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "wd": "土",
+      "week": 9,
+      "target": 2.0,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": []
+    },
+    {
+      "date": "2026-11-15",
       "wd": "日",
-      "week": 7,
-      "target": 2.5,
+      "week": 9,
+      "target": 2.0,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": []
+    },
+    {
+      "date": "2026-11-16",
+      "wd": "月",
+      "week": 10,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": [
+        {
+          "id": "v5s53",
+          "cat": "TS/React/Next",
+          "todo": "GitHubにリポジトリを作り、最初のコミットとpushをする",
+          "h": 1.0,
+          "tier": "コア",
+          "track": "コンバート",
+          "refs": [],
+          "check": {
+            "type": "再現",
+            "q": ".gitignore に何が入っているか、見ないで3つ挙げてから開いて確認する。",
+            "judge": "3つとも入っていた"
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-11-17",
+      "wd": "火",
+      "week": 10,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": false,
@@ -5310,107 +5096,10 @@ export const PLAN = {
       ]
     },
     {
-      "date": "2026-11-02",
-      "wd": "月",
-      "week": 8,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": [
-        {
-          "id": "v5s59",
-          "cat": "TS/React/Next",
-          "todo": "絞り込み条件をURLのクエリに持たせる(リロードしても残る)",
-          "h": 2.0,
-          "tier": "コア",
-          "track": "Next.js",
-          "refs": [],
-          "check": {
-            "type": "予測",
-            "q": "絞り込んだ状態でリロードしたら、何が残って何が消えるか予測してからやる。",
-            "judge": "予測どおりになるまで直せた"
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-11-03",
-      "wd": "火",
-      "week": 8,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": []
-    },
-    {
-      "date": "2026-11-04",
+      "date": "2026-11-18",
       "wd": "水",
-      "week": 8,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": [
-        {
-          "id": "v5s60",
-          "cat": "TS/React/Next",
-          "todo": "ここまでをVercelにデプロイして一度公開する",
-          "h": 1.5,
-          "tier": "コア",
-          "track": "コンバート",
-          "refs": [],
-          "check": {
-            "type": "再現",
-            "q": "手元では動くのに公開後に壊れる箇所を1つ探す。",
-            "judge": "見つけて直したか、無いことを確認できた"
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-11-05",
-      "wd": "木",
-      "week": 8,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": true,
-      "plan": []
-    },
-    {
-      "date": "2026-11-06",
-      "wd": "金",
-      "week": 8,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": [
-        {
-          "id": "v5s58",
-          "cat": "TS/React/Next",
-          "todo": "★日付での絞り込みと並べ替えを作る(課題A-3)",
-          "h": 2.5,
-          "tier": "コア",
-          "track": "React",
-          "refs": [
-            "date"
-          ],
-          "check": {
-            "type": "予測",
-            "q": "new Date('2026-10-19') と new Date('2026/10/19') は同じ時刻になるか。予測してから両方 console.log する。",
-            "judge": "予測が当たった。違ったなら、なぜ違うのかを言えた"
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-11-07",
-      "wd": "土",
-      "week": 8,
-      "target": 2.5,
+      "week": 10,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": false,
@@ -5432,10 +5121,20 @@ export const PLAN = {
       ]
     },
     {
-      "date": "2026-11-08",
-      "wd": "日",
-      "week": 8,
-      "target": 2.5,
+      "date": "2026-11-19",
+      "wd": "木",
+      "week": 10,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": true,
+      "plan": []
+    },
+    {
+      "date": "2026-11-20",
+      "wd": "金",
+      "week": 10,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": false,
@@ -5459,34 +5158,9 @@ export const PLAN = {
       ]
     },
     {
-      "date": "2026-11-09",
-      "wd": "月",
-      "week": 9,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": [
-        {
-          "id": "v5s65",
-          "cat": "TS/React/Next",
-          "todo": "localStorageに保存して復元する。壊れたデータが入っていても落ちないようにする",
-          "h": 2.0,
-          "tier": "コア",
-          "track": "React",
-          "refs": [],
-          "check": {
-            "type": "予測",
-            "q": "保存データを手で壊してリロードしたらどうなるか予測してからやる。",
-            "judge": "予測が当たり、落ちないように直せた"
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-11-10",
-      "wd": "火",
-      "week": 9,
+      "date": "2026-11-21",
+      "wd": "土",
+      "week": 10,
       "target": 2.0,
       "done": false,
       "rest": false,
@@ -5494,72 +5168,107 @@ export const PLAN = {
       "plan": []
     },
     {
-      "date": "2026-11-11",
-      "wd": "水",
-      "week": 9,
+      "date": "2026-11-22",
+      "wd": "日",
+      "week": 10,
       "target": 2.0,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": []
+    },
+    {
+      "date": "2026-11-23",
+      "wd": "月",
+      "week": 11,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": false,
       "plan": [
         {
-          "id": "v5s66",
+          "id": "v5s58",
           "cat": "TS/React/Next",
-          "todo": "Server / Client の境界を引き直す。'use client' が必要な場所を減らす",
-          "h": 2.0,
+          "todo": "★日付での絞り込みと並べ替えを作る(課題A-3)",
+          "h": 2.5,
           "tier": "コア",
-          "track": "Next.js",
-          "refs": [],
+          "track": "React",
+          "refs": [
+            "date"
+          ],
           "check": {
-            "type": "説明",
-            "q": "'use client' を減らせた箇所を1つ挙げ、なぜ不要だったかを1行。",
-            "judge": "「状態もイベントも使っていなかった」に相当することが言えた"
+            "type": "予測",
+            "q": "new Date('2026-10-19') と new Date('2026/10/19') は同じ時刻になるか。予測してから両方 console.log する。",
+            "judge": "予測が当たった。違ったなら、なぜ違うのかを言えた"
           }
         }
       ]
     },
     {
-      "date": "2026-11-12",
+      "date": "2026-11-24",
+      "wd": "火",
+      "week": 11,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": [
+        {
+          "id": "v5s59",
+          "cat": "TS/React/Next",
+          "todo": "絞り込み条件をURLのクエリに持たせる(リロードしても残る)",
+          "h": 2.0,
+          "tier": "コア",
+          "track": "Next.js",
+          "refs": [],
+          "check": {
+            "type": "予測",
+            "q": "絞り込んだ状態でリロードしたら、何が残って何が消えるか予測してからやる。",
+            "judge": "予測どおりになるまで直せた"
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-11-25",
+      "wd": "水",
+      "week": 11,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": [
+        {
+          "id": "v5s60",
+          "cat": "TS/React/Next",
+          "todo": "ここまでをVercelにデプロイして一度公開する",
+          "h": 1.5,
+          "tier": "コア",
+          "track": "コンバート",
+          "refs": [],
+          "check": {
+            "type": "再現",
+            "q": "手元では動くのに公開後に壊れる箇所を1つ探す。",
+            "judge": "見つけて直したか、無いことを確認できた"
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-11-26",
       "wd": "木",
-      "week": 9,
-      "target": 2.0,
+      "week": 11,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": true,
       "plan": []
     },
     {
-      "date": "2026-11-13",
+      "date": "2026-11-27",
       "wd": "金",
-      "week": 9,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": [
-        {
-          "id": "v5s64",
-          "cat": "TS/React/Next",
-          "todo": "Escキーでも閉じられるようにする。後片付け(クリーンアップ)まで書く",
-          "h": 1.5,
-          "tier": "コア",
-          "track": "React",
-          "refs": [
-            "keyboard"
-          ],
-          "check": {
-            "type": "予測",
-            "q": "後片付けを書かずに5回開け閉めしたら、リスナーは何個になるか。予測してから数える。",
-            "judge": "予測が当たり、直したあと1個になった"
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "wd": "土",
-      "week": 9,
-      "target": 2.5,
+      "week": 11,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": false,
@@ -5583,10 +5292,30 @@ export const PLAN = {
       ]
     },
     {
-      "date": "2026-11-15",
+      "date": "2026-11-28",
+      "wd": "土",
+      "week": 11,
+      "target": 2.0,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": []
+    },
+    {
+      "date": "2026-11-29",
       "wd": "日",
-      "week": 9,
-      "target": 2.5,
+      "week": 11,
+      "target": 2.0,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": []
+    },
+    {
+      "date": "2026-11-30",
+      "wd": "月",
+      "week": 12,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": false,
@@ -5610,9 +5339,226 @@ export const PLAN = {
       ]
     },
     {
-      "date": "2026-11-16",
+      "date": "2026-12-01",
+      "wd": "火",
+      "week": 12,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": [
+        {
+          "id": "v5s64",
+          "cat": "TS/React/Next",
+          "todo": "Escキーでも閉じられるようにする。後片付け(クリーンアップ)まで書く",
+          "h": 1.5,
+          "tier": "コア",
+          "track": "React",
+          "refs": [
+            "keyboard"
+          ],
+          "check": {
+            "type": "予測",
+            "q": "後片付けを書かずに5回開け閉めしたら、リスナーは何個になるか。予測してから数える。",
+            "judge": "予測が当たり、直したあと1個になった"
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-12-02",
+      "wd": "水",
+      "week": 12,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": [
+        {
+          "id": "v5s65",
+          "cat": "TS/React/Next",
+          "todo": "localStorageに保存して復元する。壊れたデータが入っていても落ちないようにする",
+          "h": 2.0,
+          "tier": "コア",
+          "track": "React",
+          "refs": [],
+          "check": {
+            "type": "予測",
+            "q": "保存データを手で壊してリロードしたらどうなるか予測してからやる。",
+            "judge": "予測が当たり、落ちないように直せた"
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-12-03",
+      "wd": "木",
+      "week": 12,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": true,
+      "plan": []
+    },
+    {
+      "date": "2026-12-04",
+      "wd": "金",
+      "week": 12,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": [
+        {
+          "id": "v5s66",
+          "cat": "TS/React/Next",
+          "todo": "Server / Client の境界を引き直す。'use client' が必要な場所を減らす",
+          "h": 2.0,
+          "tier": "コア",
+          "track": "Next.js",
+          "refs": [],
+          "check": {
+            "type": "説明",
+            "q": "'use client' を減らせた箇所を1つ挙げ、なぜ不要だったかを1行。",
+            "judge": "「状態もイベントも使っていなかった」に相当することが言えた"
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-12-05",
+      "wd": "土",
+      "week": 12,
+      "target": 2.0,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": []
+    },
+    {
+      "date": "2026-12-06",
+      "wd": "日",
+      "week": 12,
+      "target": 2.0,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": []
+    },
+    {
+      "date": "2026-12-07",
       "wd": "月",
-      "week": 10,
+      "week": 13,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": [
+        {
+          "id": "v5s68",
+          "cat": "TS/React/Next",
+          "todo": "集計を作る。週別の合計と達成率を出す",
+          "h": 2.5,
+          "tier": "コア",
+          "track": "React",
+          "refs": [],
+          "check": {
+            "type": "予測",
+            "q": "データが0件のとき達成率の表示はどうなるか、予測してから0件にする。",
+            "judge": "予測が当たった（NaN や Infinity が出たなら直した）"
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-12-08",
+      "wd": "火",
+      "week": 13,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": [
+        {
+          "id": "v5s69",
+          "cat": "TS/React/Next",
+          "todo": "進捗バーかグラフで見えるようにする",
+          "h": 2.0,
+          "tier": "コア",
+          "track": "React",
+          "refs": [],
+          "check": {
+            "type": "説明",
+            "q": "100%を超えたときどう表示されるか。実際に超えさせて確認し、1行で書く。",
+            "judge": "実際に超えさせて目で見た"
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-12-09",
+      "wd": "水",
+      "week": 13,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": [
+        {
+          "id": "v5s70",
+          "cat": "TS/React/Next",
+          "todo": "READMEと設計判断メモを書く(何を作ったか / なぜそう作ったか)",
+          "h": 1.5,
+          "tier": "コア",
+          "track": "コンバート",
+          "refs": [],
+          "check": {
+            "type": "予測",
+            "q": "初めて見る人が最初に詰まるのはどこか予測して、そこに1行足す。",
+            "judge": "足した箇所を挙げられた"
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-12-10",
+      "wd": "木",
+      "week": 13,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": true,
+      "plan": []
+    },
+    {
+      "date": "2026-12-11",
+      "wd": "金",
+      "week": 13,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": [
+        {
+          "id": "v5s71",
+          "cat": "TS/React/Next",
+          "todo": "★配布版のトラッカーを初めて開き、自分の設計と読み比べる(課題A-6)",
+          "h": 2.5,
+          "tier": "コア",
+          "track": "コンバート",
+          "refs": [],
+          "check": {
+            "type": "予測",
+            "q": "★配布版を開く前に「相手はここが自分と違うはず」を1つ書いてから開く。",
+            "judge": "開く前に予測を書けた（当たり外れは問わない）"
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-12-12",
+      "wd": "土",
+      "week": 13,
       "target": 2.0,
       "done": false,
       "rest": false,
@@ -5635,9 +5581,9 @@ export const PLAN = {
       ]
     },
     {
-      "date": "2026-11-17",
-      "wd": "火",
-      "week": 10,
+      "date": "2026-12-13",
+      "wd": "日",
+      "week": 13,
       "target": 2.0,
       "done": false,
       "rest": false,
@@ -5645,120 +5591,125 @@ export const PLAN = {
       "plan": []
     },
     {
-      "date": "2026-11-18",
-      "wd": "水",
-      "week": 10,
-      "target": 2.0,
+      "date": "2026-12-14",
+      "wd": "月",
+      "week": 14,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": false,
       "plan": [
         {
-          "id": "v5s69",
+          "id": "v5s74",
           "cat": "TS/React/Next",
-          "todo": "進捗バーかグラフで見えるようにする",
-          "h": 2.0,
+          "todo": "Vitest を入れて、最初の1本を書く(課題B-1)",
+          "h": 2.5,
           "tier": "コア",
-          "track": "React",
+          "track": "テスト",
           "refs": [],
           "check": {
-            "type": "説明",
-            "q": "100%を超えたときどう表示されるか。実際に超えさせて確認し、1行で書く。",
-            "judge": "実際に超えさせて目で見た"
+            "type": "予測",
+            "q": "実装をわざと1箇所壊す。何本のテストが落ちるか予測してから実行する。",
+            "judge": "予測が当たった"
           }
         }
       ]
     },
     {
-      "date": "2026-11-19",
+      "date": "2026-12-15",
+      "wd": "火",
+      "week": 14,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": [
+        {
+          "id": "v5s75",
+          "cat": "TS/React/Next",
+          "todo": "絞り込みと集計のロジックを関数に切り出し、テストを書く",
+          "h": 2.5,
+          "tier": "コア",
+          "track": "テスト",
+          "refs": [],
+          "check": {
+            "type": "説明",
+            "q": "切り出す前と後で、テストが書きやすくなった理由を1行。",
+            "judge": "「画面を描かなくてよくなった」に相当することが言えた"
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-12-16",
+      "wd": "水",
+      "week": 14,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": [
+        {
+          "id": "v5s76",
+          "cat": "TS/React/Next",
+          "todo": "★落ちるテストを先に書いてから直す(レッドから始める)",
+          "h": 2.0,
+          "tier": "コア",
+          "track": "テスト",
+          "refs": [],
+          "check": {
+            "type": "再現",
+            "q": "新しい関数を1つ、テストを先に書いてから実装する。",
+            "judge": "赤 → 緑 の順で進められた（先に実装していない）"
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-12-17",
       "wd": "木",
-      "week": 10,
-      "target": 2.0,
+      "week": 14,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": true,
       "plan": []
     },
     {
-      "date": "2026-11-20",
+      "date": "2026-12-18",
       "wd": "金",
-      "week": 10,
-      "target": 2.0,
+      "week": 14,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": false,
-      "plan": [
-        {
-          "id": "v5s70",
-          "cat": "TS/React/Next",
-          "todo": "READMEと設計判断メモを書く(何を作ったか / なぜそう作ったか)",
-          "h": 1.5,
-          "tier": "コア",
-          "track": "コンバート",
-          "refs": [],
-          "check": {
-            "type": "予測",
-            "q": "初めて見る人が最初に詰まるのはどこか予測して、そこに1行足す。",
-            "judge": "足した箇所を挙げられた"
-          }
-        }
-      ]
+      "plan": []
     },
     {
-      "date": "2026-11-21",
+      "date": "2026-12-19",
       "wd": "土",
-      "week": 10,
-      "target": 2.5,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": [
-        {
-          "id": "v5s71",
-          "cat": "TS/React/Next",
-          "todo": "★配布版のトラッカーを初めて開き、自分の設計と読み比べる(課題A-6)",
-          "h": 2.5,
-          "tier": "コア",
-          "track": "コンバート",
-          "refs": [],
-          "check": {
-            "type": "予測",
-            "q": "★配布版を開く前に「相手はここが自分と違うはず」を1つ書いてから開く。",
-            "judge": "開く前に予測を書けた（当たり外れは問わない）"
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-11-22",
-      "wd": "日",
-      "week": 10,
-      "target": 2.5,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": [
-        {
-          "id": "v5s68",
-          "cat": "TS/React/Next",
-          "todo": "集計を作る。週別の合計と達成率を出す",
-          "h": 2.5,
-          "tier": "コア",
-          "track": "React",
-          "refs": [],
-          "check": {
-            "type": "予測",
-            "q": "データが0件のとき達成率の表示はどうなるか、予測してから0件にする。",
-            "judge": "予測が当たった（NaN や Infinity が出たなら直した）"
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-11-23",
-      "wd": "月",
-      "week": 11,
+      "week": 14,
       "target": 2.0,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": []
+    },
+    {
+      "date": "2026-12-20",
+      "wd": "日",
+      "week": 14,
+      "target": 2.0,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": []
+    },
+    {
+      "date": "2026-12-21",
+      "wd": "月",
+      "week": 15,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": false,
@@ -5780,20 +5731,10 @@ export const PLAN = {
       ]
     },
     {
-      "date": "2026-11-24",
+      "date": "2026-12-22",
       "wd": "火",
-      "week": 11,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": []
-    },
-    {
-      "date": "2026-11-25",
-      "wd": "水",
-      "week": 11,
-      "target": 2.0,
+      "week": 15,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": false,
@@ -5817,190 +5758,10 @@ export const PLAN = {
       ]
     },
     {
-      "date": "2026-11-26",
-      "wd": "木",
-      "week": 11,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": true,
-      "plan": []
-    },
-    {
-      "date": "2026-11-27",
-      "wd": "金",
-      "week": 11,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": [
-        {
-          "id": "v5s76",
-          "cat": "TS/React/Next",
-          "todo": "★落ちるテストを先に書いてから直す(レッドから始める)",
-          "h": 2.0,
-          "tier": "コア",
-          "track": "テスト",
-          "refs": [],
-          "check": {
-            "type": "再現",
-            "q": "新しい関数を1つ、テストを先に書いてから実装する。",
-            "judge": "赤 → 緑 の順で進められた（先に実装していない）"
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-11-28",
-      "wd": "土",
-      "week": 11,
-      "target": 2.5,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": [
-        {
-          "id": "v5s74",
-          "cat": "TS/React/Next",
-          "todo": "Vitest を入れて、最初の1本を書く(課題B-1)",
-          "h": 2.5,
-          "tier": "コア",
-          "track": "テスト",
-          "refs": [],
-          "check": {
-            "type": "予測",
-            "q": "実装をわざと1箇所壊す。何本のテストが落ちるか予測してから実行する。",
-            "judge": "予測が当たった"
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-11-29",
-      "wd": "日",
-      "week": 11,
-      "target": 2.5,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": [
-        {
-          "id": "v5s75",
-          "cat": "TS/React/Next",
-          "todo": "絞り込みと集計のロジックを関数に切り出し、テストを書く",
-          "h": 2.5,
-          "tier": "コア",
-          "track": "テスト",
-          "refs": [],
-          "check": {
-            "type": "説明",
-            "q": "切り出す前と後で、テストが書きやすくなった理由を1行。",
-            "judge": "「画面を描かなくてよくなった」に相当することが言えた"
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-11-30",
-      "wd": "月",
-      "week": 12,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": [
-        {
-          "id": "v5s83",
-          "cat": "TS/React/Next",
-          "todo": "★テストが書きにくい箇所を見つけて、設計の方を直す",
-          "h": 2.0,
-          "tier": "コア",
-          "track": "テスト",
-          "refs": [],
-          "check": {
-            "type": "説明",
-            "q": "テストが書きにくかった箇所を1つ、何が原因だったかを1行。",
-            "judge": "実装側を直して、テストが書けるようになった"
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-12-01",
-      "wd": "火",
-      "week": 12,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": []
-    },
-    {
-      "date": "2026-12-02",
+      "date": "2026-12-23",
       "wd": "水",
-      "week": 12,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": [
-        {
-          "id": "v5s84",
-          "cat": "TS/React/Next",
-          "todo": "何をテストしないかを決めて、理由を test-policy.md に書く",
-          "h": 1.5,
-          "tier": "コア",
-          "track": "テスト",
-          "refs": [],
-          "check": {
-            "type": "説明",
-            "q": "テストしないと決めたものを1つ、その理由を1行。",
-            "judge": "「面倒だから」以外の理由になった"
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-12-03",
-      "wd": "木",
-      "week": 12,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": true,
-      "plan": []
-    },
-    {
-      "date": "2026-12-04",
-      "wd": "金",
-      "week": 12,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": [
-        {
-          "id": "v5s82",
-          "cat": "TS/React/Next",
-          "todo": "データ取得など非同期のテストを書く",
-          "h": 2.5,
-          "tier": "コア",
-          "track": "テスト",
-          "refs": [],
-          "check": {
-            "type": "説明",
-            "q": "getBy だと失敗して findBy なら通る理由を1行。",
-            "judge": "「その時点ではまだ描画されていない」に相当することが言えた"
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-12-05",
-      "wd": "土",
-      "week": 12,
-      "target": 2.5,
+      "week": 15,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": false,
@@ -6022,10 +5783,20 @@ export const PLAN = {
       ]
     },
     {
-      "date": "2026-12-06",
-      "wd": "日",
-      "week": 12,
-      "target": 2.5,
+      "date": "2026-12-24",
+      "wd": "木",
+      "week": 15,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": true,
+      "plan": []
+    },
+    {
+      "date": "2026-12-25",
+      "wd": "金",
+      "week": 15,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": false,
@@ -6047,447 +5818,30 @@ export const PLAN = {
       ]
     },
     {
-      "date": "2026-12-07",
-      "wd": "月",
-      "week": 13,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": [
-        {
-          "id": "v5s90",
-          "cat": "TS/React/Next",
-          "todo": "AIにもレビューさせ、採用/不採用を1件ずつ理由付きで決める(ルール8)",
-          "h": 2.0,
-          "tier": "コア",
-          "track": "テスト",
-          "refs": [],
-          "check": {
-            "type": "説明",
-            "q": "不採用にしたAIの指摘を1つ選び、なぜ不採用かを1行。",
-            "judge": "★不採用が1件以上あり、理由が自分のコードの文脈に基づいていた"
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-12-08",
-      "wd": "火",
-      "week": 13,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": []
-    },
-    {
-      "date": "2026-12-09",
-      "wd": "水",
-      "week": 13,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": [
-        {
-          "id": "v5s87",
-          "cat": "TS/React/Next",
-          "todo": "ブランチを切ってPRを出す運用にする。mainに直接コミットしない",
-          "h": 2.0,
-          "tier": "コア",
-          "track": "テスト",
-          "refs": [],
-          "check": {
-            "type": "再現",
-            "q": "ブランチを切る → push → PRを出す、を見ないで1周する。",
-            "judge": "詰まらずにできた"
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-12-10",
-      "wd": "木",
-      "week": 13,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": true,
-      "plan": []
-    },
-    {
-      "date": "2026-12-11",
-      "wd": "金",
-      "week": 13,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": [
-        {
-          "id": "v5s88",
-          "cat": "TS/React/Next",
-          "todo": "PRの説明文のテンプレートを作る(何を・なぜ・どう確認したか)",
-          "h": 1.5,
-          "tier": "コア",
-          "track": "テスト",
-          "refs": [],
-          "check": {
-            "type": "予測",
-            "q": "自分のPRを読み返し、レビュアーが最初に聞くことを1つ予測して先に書いておく。",
-            "judge": "予測した質問を1つ、説明文に先回りして書き足せた"
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-12-12",
-      "wd": "土",
-      "week": 13,
-      "target": 2.5,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": [
-        {
-          "id": "v5s89",
-          "cat": "TS/React/Next",
-          "todo": "★自分のPRを自分でレビューする。指摘を5件書き出す(課題B-4)",
-          "h": 2.5,
-          "tier": "コア",
-          "track": "テスト",
-          "refs": [],
-          "check": {
-            "type": "説明",
-            "q": "自分の指摘5件のうち、直さないと決めたものの理由を1行。",
-            "judge": "理由が具体的だった（「時間が無い」以外）"
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-12-13",
-      "wd": "日",
-      "week": 13,
-      "target": 2.5,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": [
-        {
-          "id": "v5s86",
-          "cat": "TS/React/Next",
-          "todo": "GitHub Actions でテストを自動実行する(課題B-3)",
-          "h": 2.5,
-          "tier": "コア",
-          "track": "テスト",
-          "refs": [],
-          "check": {
-            "type": "予測",
-            "q": "手元で通るのにCIで落ちる原因を1つ予測して、わざとその状態を起こす。",
-            "judge": "実際に赤いCIを1回出せた"
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-12-14",
-      "wd": "月",
-      "week": 14,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": [
-        {
-          "id": "v5s95",
-          "cat": "TS/React/Next",
-          "todo": "テスト方針を1枚にまとめ直す(人に説明できる形に)",
-          "h": 1.5,
-          "tier": "コア",
-          "track": "テスト",
-          "refs": [],
-          "check": {
-            "type": "再現",
-            "q": "方針の文書を閉じて、人に説明するつもりで30秒話す。",
-            "judge": "詰まらずに話せた"
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-12-15",
-      "wd": "火",
-      "week": 14,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": []
-    },
-    {
-      "date": "2026-12-16",
-      "wd": "水",
-      "week": 14,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": [
-        {
-          "id": "v5s93",
-          "cat": "TS/React/Next",
-          "todo": "型を締める。any を潰して、なぜ必要だったかを1行書く",
-          "h": 2.0,
-          "tier": "コア",
-          "track": "TypeScript",
-          "refs": [],
-          "check": {
-            "type": "説明",
-            "q": "残した any を1つ選び、なぜ残したかを1行。",
-            "judge": "「消し方が分からない」ではなく、残す理由があった"
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-12-17",
-      "wd": "木",
-      "week": 14,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": true,
-      "plan": []
-    },
-    {
-      "date": "2026-12-18",
-      "wd": "金",
-      "week": 14,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": [
-        {
-          "id": "v5s94",
-          "cat": "TS/React/Next",
-          "todo": "エラー処理とローディング表示を見直す。失敗したときに何が出るか確認する",
-          "h": 2.0,
-          "tier": "コア",
-          "track": "React",
-          "refs": [],
-          "check": {
-            "type": "予測",
-            "q": "通信を切ってリロードしたら画面に何が出るか、予測してから切る。",
-            "judge": "予測が当たった（真っ白になったなら直した）"
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-12-19",
-      "wd": "土",
-      "week": 14,
-      "target": 2.5,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": [
-        {
-          "id": "v5s92",
-          "cat": "TS/React/Next",
-          "todo": "テストが通る状態のままリファクタする。緑を保ったまま直す",
-          "h": 2.5,
-          "tier": "コア",
-          "track": "テスト",
-          "refs": [],
-          "check": {
-            "type": "予測",
-            "q": "リファクタ中に何回テストが落ちるか予測してから始める。",
-            "judge": "落ちた回数を数えられた（0回でなくてよい）"
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-12-20",
-      "wd": "日",
-      "week": 14,
-      "target": 2.5,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": [
-        {
-          "id": "v5s96",
-          "cat": "振り返り",
-          "todo": "フェーズBの総括とスキルシートの更新",
-          "h": 2.0,
-          "tier": "コア",
-          "track": "振り返り",
-          "refs": [],
-          "check": {
-            "type": "説明",
-            "q": "11/16の自分と今の自分で、できるようになったことを1つ。",
-            "judge": "具体的な作業で言えた（「テストが分かった」のような言い方は×）"
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-12-21",
-      "wd": "月",
-      "week": 15,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": [
-        {
-          "id": "v5s97",
-          "cat": "JS基礎",
-          "todo": "★JSの棚卸し。飛ばした章の目次に「説明できる/できない」を付ける(課題C-1)",
-          "h": 2.0,
-          "tier": "コア",
-          "track": "JS基礎",
-          "refs": [],
-          "check": {
-            "type": "説明",
-            "q": "「なんとなく」を付けた節を1つ選び、なぜ○でないのかを1行。",
-            "judge": "説明できない点を具体的に挙げられた"
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-12-22",
-      "wd": "火",
-      "week": 15,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": []
-    },
-    {
-      "date": "2026-12-23",
-      "wd": "水",
-      "week": 15,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": [
-        {
-          "id": "v5s98",
-          "cat": "JS基礎",
-          "todo": "説明できなかった節だけを読む。★上限2時間。全部読もうとしない",
-          "h": 2.0,
-          "tier": "コア",
-          "track": "JS基礎",
-          "refs": [],
-          "check": {
-            "type": "予測",
-            "q": "読む前に「たぶんこうだろう」を1行書いてから読む。",
-            "judge": "読んだあと、自分の予測との差分を書けた"
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-12-24",
-      "wd": "木",
-      "week": 15,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": true,
-      "plan": []
-    },
-    {
-      "date": "2026-12-25",
-      "wd": "金",
-      "week": 15,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": [
-        {
-          "id": "v5s99",
-          "cat": "JS基礎",
-          "todo": "Ch9(クラス)をTypeScript視点で読む。class / extends / implements",
-          "h": 2.0,
-          "tier": "コア",
-          "track": "JS基礎",
-          "refs": [
-            "class"
-          ],
-          "check": {
-            "type": "穴埋め",
-            "q": "class は ____ の設計図。extends は ____ を引き継ぐ。TypeScriptの implements は ____ を約束する。",
-            "judge": "見ないで3つ埋められた"
-          }
-        }
-      ]
-    },
-    {
       "date": "2026-12-26",
       "wd": "土",
       "week": 15,
-      "target": 2.5,
+      "target": 2.0,
       "done": false,
       "rest": false,
       "spare": false,
-      "plan": [
-        {
-          "id": "v5s100",
-          "cat": "振り返り",
-          "todo": "weak-points.md を整理する。二度出たものだけ詳しい形に書き直す",
-          "h": 1.5,
-          "tier": "コア",
-          "track": "振り返り",
-          "refs": [],
-          "check": {
-            "type": "説明",
-            "q": "二度出た項目を1つ選び、一度目と二度目で何が違ったかを1行。",
-            "judge": "違いを言えた（同じなら、まだ直っていないサイン）"
-          }
-        }
-      ]
+      "plan": []
     },
     {
       "date": "2026-12-27",
       "wd": "日",
       "week": 15,
-      "target": 2.5,
+      "target": 2.0,
       "done": false,
       "rest": false,
       "spare": false,
-      "plan": [
-        {
-          "id": "v5s101",
-          "cat": "振り返り",
-          "todo": "想定質問への回答を作り直す(第1期のQ&Aを今の実力で書き直す)",
-          "h": 2.0,
-          "tier": "コア",
-          "track": "振り返り",
-          "refs": [],
-          "check": {
-            "type": "再現",
-            "q": "1問を見ないで、声に出して答える。",
-            "judge": "第1期のときより具体例が増えていた"
-          }
-        }
-      ]
+      "plan": []
     },
     {
       "date": "2026-12-28",
       "wd": "月",
       "week": 16,
-      "target": 2.0,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": false,
@@ -6495,8 +5849,8 @@ export const PLAN = {
         {
           "id": "v5s107",
           "cat": "振り返り",
-          "todo": "12/28に1件だけ。今年やったことを1枚にまとめる。★あとは休む",
-          "h": 2.0,
+          "todo": "12/28に1件だけ。今年やったことを1枚にまとめる。★あとは休む(12/29〜1/3)",
+          "h": 1.5,
           "tier": "コア",
           "track": "振り返り",
           "refs": [],
@@ -6572,23 +5926,23 @@ export const PLAN = {
       "date": "2027-01-04",
       "wd": "月",
       "week": 17,
-      "target": 2.0,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": false,
       "plan": [
         {
-          "id": "v5s105",
-          "cat": "振り返り",
-          "todo": "スキルシートを更新する(キャリア/スキル/スキルセット)",
-          "h": 2.0,
+          "id": "v5s82",
+          "cat": "TS/React/Next",
+          "todo": "データ取得など非同期のテストを書く",
+          "h": 2.5,
           "tier": "コア",
-          "track": "振り返り",
+          "track": "テスト",
           "refs": [],
           "check": {
-            "type": "再現",
-            "q": "書いた項目を1つ選び「それは何をしたことですか」と聞かれた前提で答える。",
-            "judge": "30秒で答えられた"
+            "type": "説明",
+            "q": "getBy だと失敗して findBy なら通る理由を1行。",
+            "judge": "「その時点ではまだ描画されていない」に相当することが言えた"
           }
         }
       ]
@@ -6597,33 +5951,48 @@ export const PLAN = {
       "date": "2027-01-05",
       "wd": "火",
       "week": 17,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": []
-    },
-    {
-      "date": "2027-01-06",
-      "wd": "水",
-      "week": 17,
-      "target": 2.0,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": false,
       "plan": [
         {
-          "id": "v5s103",
+          "id": "v5s83",
           "cat": "TS/React/Next",
-          "todo": "技術選定の理由を書く。なぜNext.jsか、なぜその構成か",
+          "todo": "★テストが書きにくい箇所を見つけて、設計の方を直す",
           "h": 2.0,
           "tier": "コア",
-          "track": "コンバート",
+          "track": "テスト",
           "refs": [],
           "check": {
             "type": "説明",
-            "q": "Next.jsを選ばなかった場合に何が困ったかを1行。",
-            "judge": "具体的に言えた"
+            "q": "テストが書きにくかった箇所を1つ、何が原因だったかを1行。",
+            "judge": "実装側を直して、テストが書けるようになった"
+          }
+        }
+      ]
+    },
+    {
+      "date": "2027-01-06",
+      "wd": "水",
+      "week": 17,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": [
+        {
+          "id": "v5s84",
+          "cat": "TS/React/Next",
+          "todo": "何をテストしないかを決めて、理由を test-policy.md に書く",
+          "h": 1.5,
+          "tier": "コア",
+          "track": "テスト",
+          "refs": [],
+          "check": {
+            "type": "説明",
+            "q": "テストしないと決めたものを1つ、その理由を1行。",
+            "judge": "「面倒だから」以外の理由になった"
           }
         }
       ]
@@ -6632,7 +6001,7 @@ export const PLAN = {
       "date": "2027-01-07",
       "wd": "木",
       "week": 17,
-      "target": 2.0,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": true,
@@ -6642,23 +6011,23 @@ export const PLAN = {
       "date": "2027-01-08",
       "wd": "金",
       "week": 17,
-      "target": 2.0,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": false,
       "plan": [
         {
-          "id": "v5s104",
+          "id": "v5s86",
           "cat": "TS/React/Next",
-          "todo": "自分のコードを読み返し、今なら直す箇所を直す",
-          "h": 2.0,
+          "todo": "GitHub Actions でテストを自動実行する(課題B-3)",
+          "h": 2.5,
           "tier": "コア",
           "track": "テスト",
           "refs": [],
           "check": {
-            "type": "説明",
-            "q": "直した箇所を1つ選び、当時なぜそう書いたのかを1行。",
-            "judge": "当時の判断を思い出せた"
+            "type": "予測",
+            "q": "手元で通るのにCIで落ちる原因を1つ予測して、わざとその状態を起こす。",
+            "judge": "実際に赤いCIを1回出せた"
           }
         }
       ]
@@ -6667,73 +6036,43 @@ export const PLAN = {
       "date": "2027-01-09",
       "wd": "土",
       "week": 17,
-      "target": 2.5,
+      "target": 2.0,
       "done": false,
       "rest": false,
       "spare": false,
-      "plan": [
-        {
-          "id": "v5s102",
-          "cat": "TS/React/Next",
-          "todo": "作った2本(コンバート版・自作版)を説明する資料を作る",
-          "h": 2.5,
-          "tier": "コア",
-          "track": "コンバート",
-          "refs": [],
-          "check": {
-            "type": "再現",
-            "q": "資料を閉じて、2本の違いを60秒で話す。",
-            "judge": "詰まらずに話せた"
-          }
-        }
-      ]
+      "plan": []
     },
     {
       "date": "2027-01-10",
       "wd": "日",
       "week": 17,
-      "target": 2.5,
+      "target": 2.0,
       "done": false,
       "rest": false,
       "spare": false,
-      "plan": [
-        {
-          "id": "v5s106",
-          "cat": "振り返り",
-          "todo": "年内の総括を1枚に書く",
-          "h": 1.5,
-          "tier": "コア",
-          "track": "振り返り",
-          "refs": [],
-          "check": {
-            "type": "説明",
-            "q": "9/14の自分にひと言アドバイスするなら何か、1行。",
-            "judge": "具体的な行動で書けた（「頑張れ」は×）"
-          }
-        }
-      ]
+      "plan": []
     },
     {
       "date": "2027-01-11",
       "wd": "月",
       "week": 18,
-      "target": 2.0,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": false,
       "plan": [
         {
-          "id": "v5s111",
-          "cat": "振り返り",
-          "todo": "参画初日・初週の準備リストを見直す",
-          "h": 1.5,
+          "id": "v5s87",
+          "cat": "TS/React/Next",
+          "todo": "ブランチを切ってPRを出す運用にする。mainに直接コミットしない",
+          "h": 2.0,
           "tier": "コア",
-          "track": "振り返り",
+          "track": "テスト",
           "refs": [],
           "check": {
-            "type": "説明",
-            "q": "初日に一番不安なことを1つ、その対策を1行。",
-            "judge": "対策が具体的だった"
+            "type": "再現",
+            "q": "ブランチを切る → push → PRを出す、を見ないで1周する。",
+            "judge": "詰まらずにできた"
           }
         }
       ]
@@ -6742,33 +6081,48 @@ export const PLAN = {
       "date": "2027-01-12",
       "wd": "火",
       "week": 18,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": []
-    },
-    {
-      "date": "2027-01-13",
-      "wd": "水",
-      "week": 18,
-      "target": 2.0,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": false,
       "plan": [
         {
-          "id": "v5s112",
-          "cat": "振り返り",
-          "todo": "次の3ヶ月の学習の仕組みを組み直す",
+          "id": "v5s88",
+          "cat": "TS/React/Next",
+          "todo": "PRの説明文のテンプレートを作る(何を・なぜ・どう確認したか)",
           "h": 1.5,
           "tier": "コア",
-          "track": "振り返り",
+          "track": "テスト",
+          "refs": [],
+          "check": {
+            "type": "予測",
+            "q": "自分のPRを読み返し、レビュアーが最初に聞くことを1つ予測して先に書いておく。",
+            "judge": "予測した質問を1つ、説明文に先回りして書き足せた"
+          }
+        }
+      ]
+    },
+    {
+      "date": "2027-01-13",
+      "wd": "水",
+      "week": 18,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": [
+        {
+          "id": "v5s89",
+          "cat": "TS/React/Next",
+          "todo": "★自分のPRを自分でレビューする。指摘を5件書き出す(課題B-4)",
+          "h": 2.5,
+          "tier": "コア",
+          "track": "テスト",
           "refs": [],
           "check": {
             "type": "説明",
-            "q": "この3ヶ月で一番効いた仕組みを1つ。次も残すか。",
-            "judge": "残す／やめるを理由付きで決められた"
+            "q": "自分の指摘5件のうち、直さないと決めたものの理由を1行。",
+            "judge": "理由が具体的だった（「時間が無い」以外）"
           }
         }
       ]
@@ -6777,7 +6131,7 @@ export const PLAN = {
       "date": "2027-01-14",
       "wd": "木",
       "week": 18,
-      "target": 2.0,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": true,
@@ -6787,23 +6141,23 @@ export const PLAN = {
       "date": "2027-01-15",
       "wd": "金",
       "week": 18,
-      "target": 2.0,
+      "target": 1.5,
       "done": false,
       "rest": false,
       "spare": false,
       "plan": [
         {
-          "id": "v5s110",
+          "id": "v5s90",
           "cat": "TS/React/Next",
-          "todo": "未定なら：小さいアプリをもう1本、要件定義から作り始める",
-          "h": 2.5,
+          "todo": "AIにもレビューさせ、採用/不採用を1件ずつ理由付きで決める(ルール8)",
+          "h": 2.0,
           "tier": "コア",
-          "track": "React",
+          "track": "テスト",
           "refs": [],
           "check": {
             "type": "説明",
-            "q": "要件を書く前に「作らないもの」を先に3つ挙げられたか。",
-            "judge": "3つ挙げられた"
+            "q": "不採用にしたAIの指摘を1つ選び、なぜ不採用かを1行。",
+            "judge": "★不採用が1件以上あり、理由が自分のコードの文脈に基づいていた"
           }
         }
       ]
@@ -6812,51 +6166,21 @@ export const PLAN = {
       "date": "2027-01-16",
       "wd": "土",
       "week": 18,
-      "target": 2.5,
+      "target": 2.0,
       "done": false,
       "rest": false,
       "spare": false,
-      "plan": [
-        {
-          "id": "v5s108",
-          "cat": "TS/React/Next",
-          "todo": "★案件が決まっていれば、その技術の公式チュートリアルを写経する(ルール13)",
-          "h": 2.5,
-          "tier": "コア",
-          "track": "コンバート",
-          "refs": [],
-          "check": {
-            "type": "再現",
-            "q": "写経を閉じて、同じものを見ないで書き始める。どこで止まるか記録する。",
-            "judge": "止まった箇所を記録できた"
-          }
-        }
-      ]
+      "plan": []
     },
     {
       "date": "2027-01-17",
       "wd": "日",
       "week": 18,
-      "target": 2.5,
+      "target": 2.0,
       "done": false,
       "rest": false,
       "spare": false,
-      "plan": [
-        {
-          "id": "v5s109",
-          "cat": "TS/React/Next",
-          "todo": "★案件の技術で小さく1つ作る。未定ならこの枠も下の3本目に回す",
-          "h": 2.5,
-          "tier": "コア",
-          "track": "コンバート",
-          "refs": [],
-          "check": {
-            "type": "説明",
-            "q": "作ったものについて、公式のどのページを見たか言えるか。",
-            "judge": "言えた（AIに聞いただけなら×）"
-          }
-        }
-      ]
+      "plan": []
     }
   ],
   "rules": [
@@ -6869,6 +6193,16 @@ export const PLAN = {
       "no": "2",
       "title": "★バッファは最初から入っている",
       "body": "目標に対してコアの割り当ては7割強。差がバッファ。1日の目標も平日2.0hに置いてあるので、2.5h取れた日は貯金になる。1日できなかったくらいで組み直さなくてよい。"
+    },
+    {
+      "no": "2a",
+      "title": "★1日の目標は平日1.5h・土日2.0h（9/30に0.5h下げた）",
+      "body": "9/14〜9/30の17日で18.2h、1日あたり1.07hだった。平日2.0hは届いていない。支度や中断で0.5h潰れるという申告どおりの数字。届かない目標は毎日「未達」を生むだけで、やがて計画そのものを見なくなる。★下げたのは目標だけで、やることは減らしていない（減らしたのはルール12b）。"
+    },
+    {
+      "no": "2d",
+      "title": "★1つの手順が目標を超えていたら、2日に分けてよい",
+      "body": "1日1.5hに対して2.0h・2.5hの手順がある。分けて構わない。実際に9/28〜9/30は「§5を見る→書き分ける」1件に3日かけている。それが正しい進み方。アプリが「★2日かかる想定」と出す日は、最初からそのつもりで組んである。★焦って1日で終わらせようとして雑にやる方が損。"
     },
     {
       "no": "2b",
@@ -6932,8 +6266,13 @@ export const PLAN = {
     },
     {
       "no": "12",
-      "title": "★締め切りは4週ごとに置く。ここから先は動かさない",
-      "body": "第1期 10/25 → フェーズA 11/22 → フェーズB 12/20 → フェーズC 1/17。9/22に全体を1週間倒した。理由は2つ。①TypeScriptに動画で入り直す時間を作るため（読むだけでは勘違いに気づけなかった）。②毎週1日の予備日を入れるため。★倒すのはこれで最後。次に遅れたら締め切りではなく中身を削る。全部終わらなくてよい。各期のコアが終わっていれば成功。"
+      "title": "★締め切りは3つだけ。日付はもう動かさない",
+      "body": "第1期 11/8 → フェーズA 12/13 → フェーズB 1/17。9/30に、締め切りを倒すのをやめて★中身を削る方に切り替えた。3週間の実績が週7.5h（目標15hの半分）で、日付をいくら倒しても入らないため。全部終わらなくてよい。各期のコアが終わっていれば成功。"
+    },
+    {
+      "no": "12b",
+      "title": "★9/30に40.0h分を計画から外した。戻すのは1つずつ",
+      "body": "外したのは後ろの4週分。①フェーズB4週目（仕上げ・リファクタ・any潰し）10.0h ②フェーズC①JSの棚卸し 9.5h ③フェーズC②説明資料 10.0h ④フェーズC③案件対応 10.5h。★手順IDは残してあるので、余裕ができたら1つずつ戻せる。戻す優先順位は ③説明資料 →①仕上げ →①棚卸し →④案件対応。③を先に戻すのは、作ったものを説明できないと他の130時間が人に伝わらないため。"
     },
     {
       "no": "13",
@@ -6981,8 +6320,62 @@ export const PLAN = {
       "cost": "要購入",
       "url": "https://www.udemy.com/course/introduction-typescript-basic/",
       "week": "2〜3週目",
-      "scope": "★§1〜§5・§7・§8だけ見る（合計2時間30分）。§6のクラスは飛ばす",
-      "note": "★主教材。全2時間43分。セール時1,500〜2,000円ほど。見るだけで終わらせない。1セクション見たら、その場で自分のコードに書く"
+      "scope": "★§1〜§5・§7を見る（2時間14分）。§6クラス(27分)と§8おわりに(2分)は飛ばす",
+      "note": "★主教材。全8セクション・72本・2時間43分。1本1〜3分。見るだけで終わらせない。1セクション見たら、その場で自分のコードに書く"
+    },
+    {
+      "track": "TypeScript",
+      "name": "　└ §1 はじめに ／ §2 開発環境の準備と基本操作",
+      "cost": "要購入",
+      "url": "https://www.udemy.com/course/introduction-typescript-basic/",
+      "week": "2週目",
+      "scope": "6分＋19分。Playgroundしか使っていないならここでローカル環境を作る",
+      "note": "すでにVS Codeで .ts が動くなら §2 は飛ばしてよい。「コンパイル設定の詳細」と「エラーメッセージの価値」だけは見る"
+    },
+    {
+      "track": "TypeScript",
+      "name": "　└ §3 なぜTypeScriptなのか？",
+      "cost": "要購入",
+      "url": "https://www.udemy.com/course/introduction-typescript-basic/",
+      "week": "2週目",
+      "scope": "15分・6本",
+      "note": "1週目に本で読んだ範囲と重なる。ざっと流してよい"
+    },
+    {
+      "track": "TypeScript",
+      "name": "　└ ★§4 型の基本",
+      "cost": "要購入",
+      "url": "https://www.udemy.com/course/introduction-typescript-basic/",
+      "week": "2週目",
+      "scope": "★41分・20本。このコースの本体",
+      "note": "★予測テストで外した20問はほぼ全部ここ。型推論／配列型／オブジェクト型／any／型ガード／unknown／void／オプション引数／Union／Literal／as／Tuple／Enum。「型推論の仕組み」と「Literal型」は必ず止めて自分でも打つ"
+    },
+    {
+      "track": "TypeScript",
+      "name": "　└ §5 Interfaceと型エイリアス",
+      "cost": "要購入",
+      "url": "https://www.udemy.com/course/introduction-typescript-basic/",
+      "week": "2週目",
+      "scope": "32分・13本。課題TS-2そのもの",
+      "note": "「それぞれができることとできないこと」「使い分け」というそのままの題が2本ある。クラスを飛ばしていても問題ない範囲"
+    },
+    {
+      "track": "TypeScript",
+      "name": "　└ §6 TypeScriptでのクラス",
+      "cost": "要購入",
+      "url": "https://www.udemy.com/course/introduction-typescript-basic/",
+      "week": "―",
+      "scope": "★飛ばす（27分・14本）",
+      "note": "アクセス修飾子・implements・抽象クラス。今のReact中心の進め方では要らない"
+    },
+    {
+      "track": "TypeScript",
+      "name": "　└ §7 ジェネリクス入門",
+      "cost": "要購入",
+      "url": "https://www.udemy.com/course/introduction-typescript-basic/",
+      "week": "2週目",
+      "scope": "21分・9本。最後の2本（ジェネリッククラス）は飛ばしてよい",
+      "note": "useState<Task[]>([]) が読めるようになれば十分。自分で定義する側は当分いらない"
     },
     {
       "track": "TypeScript",
@@ -7317,6 +6710,26 @@ export const PLAN = {
       "track": "Claude Code",
       "item": "Skills入門 / ハーネス設計 / セキュリティ入門 / レビュー役(CC-5)",
       "why": "第1期からは外したまま。案件が決まってから必要なものだけ"
+    },
+    {
+      "track": "テスト",
+      "item": "★【外した 10.0h】フェーズB4週目：緑のままリファクタ / any潰し / エラー処理とローディング / テスト方針の再整理 / 総括",
+      "why": "★戻す優先順位2番目。テストとCIが動いていれば、仕上げは後からでも安全にできる"
+    },
+    {
+      "track": "JS基礎",
+      "item": "★【外した 9.5h】フェーズC①：JSの棚卸し / 説明できない節だけ読む / Ch9をTS視点で読む / 弱点リスト整理 / 想定Q&Aの作り直し",
+      "why": "★戻す優先順位3番目。飛ばした章はフェーズAの機能で回収する仕組みが別にある（ルール14）"
+    },
+    {
+      "track": "コンバート",
+      "item": "★【外した 10.0h】フェーズC②：作った2本の説明資料 / 技術選定の理由 / コード読み返し / スキルシート更新 / 年内総括",
+      "why": "★戻す優先順位1番目。ここが無いと、積んだ130時間が人に伝わらない。余裕ができたら最初にこれを戻す"
+    },
+    {
+      "track": "React",
+      "item": "★【外した 10.5h】フェーズC③：案件の技術を写経 / 小さく1つ作る / 3本目を要件から / 参画準備リスト / 次の3ヶ月の設計",
+      "why": "★戻す優先順位4番目。案件が決まってから、その時点の残り時間で組み直す方が正確"
     }
   ],
   "jsReview": [
@@ -7410,36 +6823,36 @@ export const PLAN = {
   ],
   "featureRefs": [
     {
-      "key": "vid_intro",
+      "key": "vid_setup",
       "kind": "動画",
-      "feature": "型ってそもそも何か／環境を作る／基本の型",
+      "feature": "環境を作る／なぜTypeScriptなのか",
       "ch": "§1〜§3",
-      "chTitle": "柴山コース 導入〜基本の型",
-      "sec": "41分",
-      "why": "予測テストで外したのはほぼ全部ここ。リテラル型（const x = \"hello\" が string ではなく \"hello\" になる）と、配列の推論（[1,\"a\"] が (string|number)[] になる）はこの範囲",
-      "watch": "手を止めて自分でも打つ。見るだけにしない。見終わったら yosoku.ts を白紙からやり直す",
+      "chTitle": "はじめに ／ 開発環境の準備と基本操作 ／ なぜTypeScriptなのか？",
+      "sec": "40分（6分＋19分＋15分）",
+      "why": "★まだ TypeScript Playground だけで書いているなら、先にここ。自分のPCで tsc を通せるようにする。すでにVS Codeで .ts が動いているなら §2 は飛ばしてよい。§3（なぜTypeScriptなのか・15分）は1週目に本で読んだ範囲と重なる",
+      "watch": "§2 の「コンパイル設定の詳細」と「TypeScriptエラーメッセージの価値」だけは見る。エラーの読み方が分かると、以降の詰まり方が変わる",
       "week": 2
     },
     {
       "key": "vid_basic",
       "kind": "動画",
-      "feature": "ユニオン型・リテラル型・オプショナル",
+      "feature": "型の基本（型注釈・型推論・配列・オブジェクト・Union・Literal・型ガード）",
       "ch": "§4",
-      "chTitle": "柴山コース 型を組み合わせる",
-      "sec": "41分",
-      "why": "status: \"todo\" | \"done\" のような書き方は、これから作るアプリで一番使う。オプショナル（?）と undefined の関係もここ",
-      "watch": "動画を見たら、必ず自分の data.ts に当てはめて書き直す。★見ただけで次に行かない。見る→書く で1セット",
+      "chTitle": "型の基本",
+      "sec": "41分（20本）",
+      "why": "★このコースの本体。予測テストで外した20問は、ほぼ全部この41分の中にある。型推論／配列型／オブジェクト型／any／型ガード／unknown／void／デフォルト引数／オプション引数／Union型／Literal型／as／Tuple／Enum。1本1〜3分なので、詰まった型だけ後から引き直せる",
+      "watch": "★「型推論（Type Inference）の仕組み」と「Literal型」は必ず止めて自分でも打つ。const と let で推論が変わるのがここ。予測テストのAとBはこの2本で解ける",
       "week": 2
     },
     {
       "key": "vid_object",
       "kind": "動画",
-      "feature": "interface と type の使い分け",
+      "feature": "interface と 型エイリアスの使い分け",
       "ch": "§5",
-      "chTitle": "柴山コース オブジェクトの型",
-      "sec": "24分",
-      "why": "課題TS-2そのもの。クラスを飛ばしていても問題ない範囲",
-      "watch": "「どちらでもいい」場面が大半だと分かればそれで正解。違いが出るのは宣言のマージと、ユニオンを名前で持てるかどうかの2点だけ",
+      "chTitle": "Interfaceと型エイリアス",
+      "sec": "32分（13本）",
+      "why": "課題TS-2そのもの。★クラスを飛ばしていても問題ない範囲。「それぞれができることとできないこと」「使い分け」というそのままの題のレクチャーが2本ある",
+      "watch": "「どちらでもいい」場面が大半だと分かればそれで正解。extends と Intersection（&）は最後の2本。ここだけ先に見てもよい",
       "week": 2
     },
     {
@@ -7447,21 +6860,21 @@ export const PLAN = {
       "kind": "動画",
       "feature": "ジェネリクス（型を引数として渡す）",
       "ch": "§7",
-      "chTitle": "柴山コース ジェネリクス",
-      "sec": "23分",
-      "why": "useState<Task[]>([]) が読めるようになる。自分で定義する側は当分いらない。読める・使えるで十分",
+      "chTitle": "ジェネリクス入門",
+      "sec": "21分（9本）",
+      "why": "useState<Task[]>([]) が読めるようになる。自分で定義する側は当分いらない。読める・使えるで十分。★最後の2本（ジェネリッククラス）はクラスの話なので飛ばしてよい",
       "watch": "T が何に決まるかを、呼び出し側を見て言えるかどうか",
       "week": 2
     },
     {
       "key": "vid_narrow",
       "kind": "動画",
-      "feature": "型の絞り込み（typeof / in / タグ付きユニオン）",
-      "ch": "§8",
-      "chTitle": "柴山コース 型の絞り込み",
-      "sec": "21分",
-      "why": "find() の戻りが T | undefined になるのを扱うのがこれ。予測テストの e3 で外した所",
-      "watch": "if で囲った中では型が変わっている、というのが分かれば通過",
+      "feature": "型の絞り込み（型ガード）",
+      "ch": "§4の1本",
+      "chTitle": "型の基本 ＞「型ガード（Type Guard）による安全な型チェック」",
+      "sec": "2分46秒",
+      "why": "★独立したセクションではない。§4の中の1本だけ。find() の戻りが T | undefined になるのを扱うのがこれで、予測テストの e3 で外した所。★タグ付きユニオンはこのコースに無いので、そこだけ本で引く（サバイバルTypeScript「ユニオン型の絞り込み」）",
+      "watch": "if で囲った中では型が変わっている、というのが分かれば通過。§4を通しで見ていれば、ここは見返すだけでよい",
       "week": 3
     },
     {

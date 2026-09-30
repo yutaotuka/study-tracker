@@ -1,6 +1,6 @@
 // 画面描画（DOM組み立てのみ。イベント登録は main.js 側）
-import { PLAN } from "./data.js?v=12";
-import * as store from "./storage.js?v=12";
+import { PLAN } from "./data.js?v=14";
+import * as store from "./storage.js?v=14";
 import {
   CATS,
   CAT_CLASS,
@@ -16,7 +16,7 @@ import {
   TRACK_LIST,
   TRACK_CLASS,
   wdOf,
-} from "./utils.js?v=12";
+} from "./utils.js?v=14";
 
 // ---------- 集計 ----------
 export function weekStats(weekNo) {
@@ -208,7 +208,13 @@ export function renderToday(root) {
               class: "meta",
               text: `${fmtDate(day.date)}（${day.wd}） ${day.week}週目 ・ 目標${
                 day.target
-              }h ・ 割当${assigned}h${slack > 0 ? `（余裕${slack}h）` : ""} ・ 実施${done}h`,
+              }h ・ 割当${assigned}h${
+                slack > 0
+                  ? `（余裕${slack}h）`
+                  : slack < 0
+                    ? "（★2日かかる想定。分けて構いません）"
+                    : ""
+              } ・ 実施${done}h`,
             }),
           ],
         }),

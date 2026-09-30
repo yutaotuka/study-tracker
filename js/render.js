@@ -1,6 +1,6 @@
 // 画面描画（DOM組み立てのみ。イベント登録は main.js 側）
-import { PLAN } from "./data.js?v=14";
-import * as store from "./storage.js?v=14";
+import { PLAN } from "./data.js?v=16";
+import * as store from "./storage.js?v=16";
 import {
   CATS,
   CAT_CLASS,
@@ -16,7 +16,7 @@ import {
   TRACK_LIST,
   TRACK_CLASS,
   wdOf,
-} from "./utils.js?v=14";
+} from "./utils.js?v=16";
 
 // ---------- 集計 ----------
 export function weekStats(weekNo) {
@@ -492,7 +492,13 @@ export function renderSummary(root) {
         class: "notice revision",
         children: [
           el("p", {
-            text: `${PLAN.meta.revisedOn} 再設計版（${PLAN.meta.period}）。日に配っているのはコア ${PLAN.meta.coreHours}h だけで、目標 ${PLAN.meta.targetHours}h との差 ${PLAN.meta.bufferHours}h がバッファです。余力 ${PLAN.meta.optionalHours}h は日付を持ちません。`,
+            text: `${PLAN.meta.revisedOn} 再設計版（${PLAN.meta.period}）。目標 ${
+              PLAN.meta.targetHours
+            }h のうち毎週木曜の予備日 ${PLAN.meta.spareHours}h は割り当て無し。残り ${round1(
+              PLAN.meta.targetHours - PLAN.meta.spareHours
+            )}h が手順を置ける器で、そこにコア ${PLAN.meta.coreHours}h を入れています（${Math.round(
+              (PLAN.meta.coreHours / (PLAN.meta.targetHours - PLAN.meta.spareHours)) * 100
+            )}%）。余力 ${PLAN.meta.optionalHours}h は日付を持ちません。`,
           }),
           el("p", {
             class: "muted",
@@ -533,13 +539,21 @@ export function renderSummary(root) {
             `${answered} / ${c.total} 問に回答`
           );
         })(),
-        statCard(
-          "バッファ",
-          `${PLAN.meta ? PLAN.meta.bufferHours : 0} h`,
-          `目標 ${PLAN.meta ? PLAN.meta.targetHours : 0} h − コア ${
-            PLAN.meta ? PLAN.meta.coreHours : 0
-          } h`
-        ),
+        (() => {
+          // ★バッファは「予備日ぶん」と「それ以外」に分けて出す。
+          //   混ぜて数えると、緩い計画に見えて判断を誤る（ルール12c）
+          const m = PLAN.meta || {};
+          const spare = m.spareHours || 0;
+          const real = round1((m.bufferHours || 0) - spare);
+          const cap = round1((m.targetHours || 0) - spare);
+          const pct2 = cap ? Math.round(((m.coreHours || 0) / cap) * 100) : 0;
+          return statCard(
+            "バッファ（予備日を除く）",
+            `${real} h`,
+            `器 ${cap}h（目標 ${m.targetHours || 0}h − 予備日 ${spare}h）に対し` +
+              `コア ${m.coreHours || 0}h＝${pct2}%`
+          );
+        })(),
       ],
     })
   );
@@ -1565,15 +1579,22 @@ export function renderRules(root) {
         PLAN.days.length
       }日`,
     ],
-    ["ペース", "週15時間（平日2.0h／土日2.5h）。年末年始（12/29〜1/3）は目標0h"],
-    ["時間の内訳", `目標 ${totalTarget}h ＝ コア ${core}h ＋ バッファ ${round1(totalTarget - core)}h。余力 ${
-      PLAN.meta ? PLAN.meta.optionalHours : 0
-    }h は日付を持たない`],
+    ["ペース", "週11.5時間（平日1.5h／土日2.0h）。毎週木曜は予備日（割り当て無し）。" +
+               "年末年始（12/29〜1/3）は目標0h"],
+    ["時間の内訳", `目標 ${totalTarget}h ＝ 予備日 ${
+      PLAN.meta ? PLAN.meta.spareHours : 0
+    }h ＋ 器 ${round1(totalTarget - (PLAN.meta ? PLAN.meta.spareHours : 0))}h。` +
+      `器のうちコアが ${core}h で、実質のバッファは ${round1(
+        totalTarget - (PLAN.meta ? PLAN.meta.spareHours : 0) - core
+      )}h。余力 ${PLAN.meta ? PLAN.meta.optionalHours : 0}h は日付を持たない`],
     [
       "ゴール",
-      "①型付きのReact/Next.jsアプリをコンバートして公開する（10/18）" +
-        "②要件定義から自分で作ったアプリを公開する（11/15）" +
-        "③テストが通りCIが緑の状態にする（12/13）",
+      (PLAN.phases || [])
+        .map((p) => {
+          const [, m, d] = p.deadline.split("-");
+          return `${p.name}：${p.aim}（${Number(m)}/${Number(d)}）`;
+        })
+        .join(" ／ "),
     ],
     [
       "教材",

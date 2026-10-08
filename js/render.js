@@ -1,6 +1,6 @@
 // 画面描画（DOM組み立てのみ。イベント登録は main.js 側）
-import { PLAN } from "./data.js?v=16";
-import * as store from "./storage.js?v=16";
+import { PLAN } from "./data.js?v=18";
+import * as store from "./storage.js?v=18";
 import {
   CATS,
   CAT_CLASS,
@@ -16,7 +16,7 @@ import {
   TRACK_LIST,
   TRACK_CLASS,
   wdOf,
-} from "./utils.js?v=16";
+} from "./utils.js?v=18";
 
 // ---------- 集計 ----------
 export function weekStats(weekNo) {
@@ -113,13 +113,20 @@ export function refChips(refs, opts = {}) {
     .map((r) => {
       // kind が "動画" なら動画のセクション、無ければ書籍の章
       const video = r.kind === "動画";
+      const decide = r.kind === "決める";
       const label = opts.short
         ? r.ch
         : video
           ? `動画 ${r.ch} ${r.sec}`
-          : `参照 ${r.ch} ${r.sec}`;
+          : decide
+            ? `★${r.ch}（${r.sec}）`
+            : `参照 ${r.ch} ${r.sec}`;
       return el("span", {
-        class: video ? "chip ref-chip ref-video" : "chip ref-chip",
+        class: decide
+          ? "chip ref-chip ref-decide"
+          : video
+            ? "chip ref-chip ref-video"
+            : "chip ref-chip",
         text: label,
         attrs: { title: `${r.ch} ${r.chTitle} ／ ${r.sec}\n\n${r.why}` },
       });
@@ -140,7 +147,11 @@ export function refDetail(refs) {
             class: "ref-detail-head",
             children: [
               el("span", {
-                class: r.kind === "動画" ? "chip ref-chip ref-video" : "chip ref-chip",
+                class: r.kind === "動画"
+                  ? "chip ref-chip ref-video"
+                  : r.kind === "決める"
+                    ? "chip ref-chip ref-decide"
+                    : "chip ref-chip",
                 text: `${r.ch} ${r.chTitle}`,
               }),
               el("span", {
@@ -160,9 +171,11 @@ export function refDetail(refs) {
   return [
     el("h4", {
       class: "ref-head",
-      text: refs.some((k) => (refOf(k) || {}).kind === "動画")
-        ? "先に見る動画 ／ 詰まったら開く章"
-        : "詰まったら開く章（先回りして読まない）",
+      text: refs.some((k) => (refOf(k) || {}).kind === "決める")
+        ? "★ここで決めること"
+        : refs.some((k) => (refOf(k) || {}).kind === "動画")
+          ? "先に見る動画 ／ 詰まったら開く章"
+          : "詰まったら開く章（先回りして読まない）",
     }),
     el("ul", { class: "task-sub ref-list-in-task", children: items }),
   ];

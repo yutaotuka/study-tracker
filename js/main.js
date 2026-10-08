@@ -1,9 +1,9 @@
 // 初期化・ルーティング・イベント登録
-import * as store from "./storage.js?v=16";
-import * as view from "./render.js?v=16";
-import * as sync from "./sync.js?v=16";
-import { debounce, todayIso, weekOf, periodLabel } from "./utils.js?v=16";
-import { PLAN } from "./data.js?v=16";
+import * as store from "./storage.js?v=18";
+import * as view from "./render.js?v=18";
+import * as sync from "./sync.js?v=18";
+import { debounce, todayIso, weekOf, periodLabel } from "./utils.js?v=18";
+import { PLAN } from "./data.js?v=18";
 
 const main = document.querySelector("#main");
 const nav = document.querySelector("#nav");

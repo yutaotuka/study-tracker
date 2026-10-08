@@ -1506,3 +1506,10 @@ ul.weak-list > li {
   border-color: #86efac;
   color: #166534;
 }
+
+/* ===== v6.9: 「ここで決めること」バッジ ===== */
+.chip.ref-chip.ref-decide {
+  background: #fdf4ff;
+  color: #86198f;
+  border-color: #e9d5ff;
+}

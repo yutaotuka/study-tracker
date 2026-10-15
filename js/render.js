@@ -1,6 +1,6 @@
 // 画面描画（DOM組み立てのみ。イベント登録は main.js 側）
-import { PLAN } from "./data.js?v=18";
-import * as store from "./storage.js?v=18";
+import { PLAN } from "./data.js?v=20";
+import * as store from "./storage.js?v=20";
 import {
   CATS,
   CAT_CLASS,
@@ -16,7 +16,7 @@ import {
   TRACK_LIST,
   TRACK_CLASS,
   wdOf,
-} from "./utils.js?v=18";
+} from "./utils.js?v=20";
 
 // ---------- 集計 ----------
 export function weekStats(weekNo) {
@@ -255,7 +255,7 @@ export function renderToday(root) {
           ? el("p", {
               class: "spare-day",
               text:
-                (day.spare ? "★毎週木曜は予備日です。" : "予備日です。") +
+                (day.spare ? "★毎週木曜・日曜は予備日です。" : "予備日です。") +
                 "割り当てはありません。月火水で遅れた分をここで取り返し、" +
                 "遅れていなければ休んでください。前倒しで使わないこと。",
             })
@@ -507,7 +507,7 @@ export function renderSummary(root) {
           el("p", {
             text: `${PLAN.meta.revisedOn} 再設計版（${PLAN.meta.period}）。目標 ${
               PLAN.meta.targetHours
-            }h のうち毎週木曜の予備日 ${PLAN.meta.spareHours}h は割り当て無し。残り ${round1(
+            }h のうち毎週木曜・日曜の予備日 ${PLAN.meta.spareHours}h は割り当て無し。残り ${round1(
               PLAN.meta.targetHours - PLAN.meta.spareHours
             )}h が手順を置ける器で、そこにコア ${PLAN.meta.coreHours}h を入れています（${Math.round(
               (PLAN.meta.coreHours / (PLAN.meta.targetHours - PLAN.meta.spareHours)) * 100
@@ -1592,7 +1592,7 @@ export function renderRules(root) {
         PLAN.days.length
       }日`,
     ],
-    ["ペース", "週11.5時間（平日1.5h／土日2.0h）。毎週木曜は予備日（割り当て無し）。" +
+    ["ペース", "週11.5時間（平日1.5h／土日2.0h）。毎週木曜・日曜は予備日（割り当て無し）。" +
                "年末年始（12/29〜1/3）は目標0h"],
     ["時間の内訳", `目標 ${totalTarget}h ＝ 予備日 ${
       PLAN.meta ? PLAN.meta.spareHours : 0

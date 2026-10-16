@@ -1,21 +1,52 @@
 // 初期化・ルーティング・イベント登録
-import * as store from "./storage.js?v=20";
-import * as view from "./render.js?v=20";
-import * as sync from "./sync.js?v=20";
-import { debounce, todayIso, weekOf, periodLabel } from "./utils.js?v=20";
-import { PLAN } from "./data.js?v=20";
+import * as store from "./storage.js?v=21";
+import * as view from "./render.js?v=21";
+import * as sync from "./sync.js?v=21";
+import { debounce, todayIso, weekOf, periodLabel, el } from "./utils.js?v=21";
+import { PLAN } from "./data.js?v=21";
 
 const main = document.querySelector("#main");
 const nav = document.querySelector("#nav");
 
-const VIEWS = ["summary", "steps", "tasks", "logs", "refs", "rules"];
+const VIEWS = ["summary", "steps", "tasks", "logs", "refs", "dokushu", "rules"];
 
 const filters = {
   steps: { week: "all", cat: "all", q: "", hideDone: false, coreOnly: false },
   tasks: { track: "all", week: "all", scope: "active" },
   logs: { week: "all" },
   refs: { track: "all" },
+  dokushu: { round: "r2", ch: "all", show: "all" },
 };
+
+// 独習JSタブ。問題データが大きいので、タブを開いたときに1度だけ読み込む
+let dokushu = null;
+async function loadDokushu() {
+  if (!dokushu) {
+    const [data, dview] = await Promise.all([
+      import("./dokushu.js?v=21"),
+      import("./dokushu-view.js?v=21"),
+    ]);
+    dokushu = { data: data.DOKUSHU, view: dview };
+  }
+  return dokushu;
+}
+
+async function renderDokushu() {
+  main.replaceChildren(el("p", { class: "muted", text: "問題を読み込み中…" }));
+  try {
+    const d = await loadDokushu();
+    if (currentView() !== "dokushu") return;
+    d.view.renderDokushu(main, filters.dokushu, d.data);
+  } catch (err) {
+    console.error(err);
+    main.replaceChildren(
+      el("p", {
+        class: "empty",
+        text: "独習JSの問題（js/dokushu.js）が読み込めませんでした。ファイルがあるか確認し、Cmd+Shift+R で再読み込みしてください。",
+      })
+    );
+  }
+}
 
 function currentView() {
   const hash = location.hash.replace("#", "");
@@ -32,6 +63,7 @@ function render() {
   else if (v === "tasks") view.renderTasks(main, filters.tasks);
   else if (v === "logs") view.renderLogs(main, filters.logs);
   else if (v === "refs") view.renderRefs(main, filters.refs);
+  else if (v === "dokushu") renderDokushu();
   else view.renderRules(main);
 }
 
@@ -68,6 +100,15 @@ main.addEventListener("click", (e) => {
       const h = Math.round(rows.reduce((a, t) => a + t.h, 0) * 10) / 10;
       counter.textContent = `${rows.length} 件（完了 ${d}） ／ 目安 ${h} h`;
     }
+    return;
+  }
+
+  // 独習JSの○△×（理解度チェックとは別に保存する）
+  const dkBtn = e.target.closest("button[data-dk]");
+  if (dkBtn && dokushu) {
+    const { dk, dkRound, result } = dkBtn.dataset;
+    store.setDokushu(dk, dkRound, result);
+    dokushu.view.refreshItem(main, dokushu.data, dk, dkRound);
     return;
   }
 
@@ -247,6 +288,11 @@ main.addEventListener("change", (e) => {
       filters.logs.week = e.target.value;
       view.renderLogs(main, filters.logs);
     }
+  }
+  if (e.target.matches("select.dk-round, select.dk-ch, select.dk-show")) {
+    const key = { "dk-round": "round", "dk-ch": "ch", "dk-show": "show" }[e.target.className];
+    filters.dokushu[key] = e.target.value;
+    renderDokushu();
   }
   if (e.target.matches("select.ref-filter")) {
     filters.refs.track = e.target.value;

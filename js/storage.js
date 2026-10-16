@@ -11,6 +11,8 @@ const EMPTY = {
   // ★理解度チェック。手順IDごとに { r: "o"|"d"|"x", note: "×のときだけ書く答え" }
   // 「終わった(steps)」と「分かった(checks)」を分けて持つ。ここが今回の肝
   checks: {},
+  // 独習JS 2周目・3周目（計画とは別枠）。項IDごとに { r2: "o"|"d"|"x", r3: ... }
+  dokushu: {},
   updatedAt: null,
 };
 
@@ -89,6 +91,22 @@ export function setCheckNote(id, note) {
   if (!cur) return;
   if (!note.trim()) delete cur.note;
   else cur.note = note;
+  persist();
+}
+
+/** 独習JSの項の判定。未回答なら null（round は "r2" か "r3"） */
+export function getDokushu(id, round) {
+  return state.dokushu?.[id]?.[round] || null;
+}
+
+/** 独習JSの項に○△×を付ける。同じ判定をもう一度押すと未回答に戻る */
+export function setDokushu(id, round, result) {
+  if (!state.dokushu) state.dokushu = {};
+  const cur = state.dokushu[id] || {};
+  if (cur[round] === result) delete cur[round];
+  else cur[round] = result;
+  if (Object.keys(cur).length) state.dokushu[id] = cur;
+  else delete state.dokushu[id];
   persist();
 }
 

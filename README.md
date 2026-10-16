@@ -38,6 +38,7 @@ TypeScript / React / Next.js の学習計画v6（2026/9/14〜2027/1/10・全17�
 | 日次ログ | 123日分。その日の目安つき。実施時間とメモを入力（自動保存） |
 | 教材 | 何を・どこを・いつ読むか（38件）。**JSの復習方針**と**機能⇄章の対応**もここ |
 | ルール | 守るルール15項目、期と締め切り、前提条件 |
+| 独習JS | 独習JavaScriptの2周目・3周目（246項）。項ごとに問題・答え（折りたたみ）・○△×。**計画とは別枠**で、達成率・日次ログには数えない |
 
 ### 課題の内訳
 
@@ -250,11 +251,17 @@ tracker/
 │   ├── sync.js         GitHub Gist との同期（トークン管理・競合検出）
 │   ├── utils.js        汎用関数（debounce, 集計, DOM生成ヘルパ）
 │   ├── render.js       画面描画（DOM組み立てのみ）
+│   ├── dokushu.js      独習JSの問題（build_dokushu.py で生成・約650KB。独習JSタブを開いたときだけ読み込む）
+│   ├── dokushu-view.js 独習JSタブの描画
 │   └── main.js         初期化・ルーティング・イベント登録
 └── README.md
 ```
 
 依存の向きは `main → render / sync → utils / storage → data` の一方向です。
+
+独習JSの問題は `../dokushu-js/` のMarkdownが元です。問題を直したら `v6/` で
+`PYTHONDONTWRITEBYTECODE=1 python3 -B build_dokushu.py` を実行して `js/dokushu.js` を作り直します。
+○△×は保存データの `dokushu`（項IDごとに `{ r2, r3 }`）に入り、Gistの同期にもそのまま乗ります。
 
 ## 計画を変更したいとき
 

@@ -1,9 +1,9 @@
 // 初期化・ルーティング・イベント登録
-import * as store from "./storage.js?v=21";
-import * as view from "./render.js?v=21";
-import * as sync from "./sync.js?v=21";
-import { debounce, todayIso, weekOf, periodLabel, el } from "./utils.js?v=21";
-import { PLAN } from "./data.js?v=21";
+import * as store from "./storage.js?v=22";
+import * as view from "./render.js?v=22";
+import * as sync from "./sync.js?v=22";
+import { debounce, todayIso, weekOf, periodLabel, el } from "./utils.js?v=22";
+import { PLAN } from "./data.js?v=22";
 
 const main = document.querySelector("#main");
 const nav = document.querySelector("#nav");
@@ -23,8 +23,8 @@ let dokushu = null;
 async function loadDokushu() {
   if (!dokushu) {
     const [data, dview] = await Promise.all([
-      import("./dokushu.js?v=21"),
-      import("./dokushu-view.js?v=21"),
+      import("./dokushu.js?v=22"),
+      import("./dokushu-view.js?v=22"),
     ]);
     dokushu = { data: data.DOKUSHU, view: dview };
   }
@@ -554,7 +554,7 @@ window.addEventListener("beforeunload", (e) => {
 
 // ヘッダーに期間を表示（日付をずらしても自動で追従する）
 document.querySelector("#period").textContent =
-  `TypeScript / React / Next.js ／ ${periodLabel(PLAN.days, "dot")}`;
+  `TypeScript / React ／ ${periodLabel(PLAN.days, "dot")}`;
 
 window.addEventListener("hashchange", render);
 render();

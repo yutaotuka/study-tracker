@@ -21,7 +21,7 @@ const TRACK_LABEL = {
   TypeScript: "TS",
   React: "React",
   "Next.js": "Next",
-  コンバート: "コンバート",
+  "設計・公開": "設計",
   テスト: "テスト",
   "Claude Code": "CC",
   振り返り: "振",

@@ -1,13 +1,13 @@
 // 学習計画v6（2026/9/10〜2027/3/28・全29週）の静的データ
-// 目標 312.0h ／ コア 176.0h ／ 余力 17.5h ／ バッファ 136.0h
+// 目標 312.0h ／ コア 176.0h ／ 余力 16.5h ／ バッファ 136.0h
 export const PLAN = {
   "meta": {
     "version": "v6",
     "revisedOn": "2026-10-15",
     "period": "9/10〜3/28",
     "coreHours": 176.0,
-    "optionalHours": 17.5,
-    "totalHours": 193.5,
+    "optionalHours": 16.5,
+    "totalHours": 192.5,
     "targetHours": 312.0,
     "bufferHours": 136.0,
     "spareHours": 94.0,
@@ -22,15 +22,15 @@ export const PLAN = {
         1,
         11
       ],
-      "title": "TypeScript → React → Next.js → コンバートして公開",
+      "title": "TypeScript → React を深めて公開",
       "deadline": "2026-11-29",
-      "aim": "型付きのReact/Next.jsアプリを1本、公開した状態にする",
-      "note": "★10/15に11週に延ばした。コアは週6〜7h＝実績（週6.5h）に合わせた。内容は1つも削っていない",
+      "aim": "型付きのReactアプリを1本、公開した状態にする",
+      "note": "★10/15に11週に延ばした。コアは週6〜7h＝実績（週6.5h）に合わせた。★10/21にNext.jsとコンバートを外し、同じ時間をTS・Reactの深掘りに回した",
       "start": "2026-09-14",
       "end": "2026-11-29",
       "target": 126.5,
       "core": 60.5,
-      "optional": 9.0,
+      "optional": 8.0,
       "buffer": 66.0
     },
     {
@@ -185,7 +185,7 @@ export const PLAN = {
       "end": "2026-11-15",
       "js": "―",
       "cc": "―",
-      "other": "分割(R-4) ／ localStorageで小アプリ完成(CONV-1) ／ Next.js入門（★写経）／ ルーティング(N-1)",
+      "other": "分割(R-4) ／ localStorageで小アプリ完成(APP-1) ／ ★ユーティリティ型(TS-5) ／ tsconfig の strict",
       "phase": "p1",
       "phaseName": "第1期"
     },
@@ -195,7 +195,7 @@ export const PLAN = {
       "end": "2026-11-22",
       "js": "―",
       "cc": "Cursorの使い分け（余力枠）",
-      "other": "Server/Clientの違い ／ コンバート計画 ／ ★コンバート(CONV-2) ／ 'use client'の境界(N-2) ／ サーバー側データ取得(N-3)",
+      "other": "★ジェネリクスを定義する側 ／ タグ付きユニオンと網羅チェック ／ ★useReducer(R-5) ／ カスタムフック",
       "phase": "p1",
       "phaseName": "第1期"
     },
@@ -205,7 +205,7 @@ export const PLAN = {
       "end": "2026-11-29",
       "js": "―",
       "cc": "―",
-      "other": "convert-log ／ Vercel公開(CONV-3) ／ README ／ 違いの言語化 ／ 想定質問 ／ ★11/28 TSへ時間を移すか判定（第1期の締め）",
+      "other": "再レンダーの観察 ／ ジェネリックなコンポーネント ／ Vercel公開(APP-2) ／ README ／ 想定質問 ／ ★11/28 TSへ時間を移すか判定（第1期の締め）",
       "phase": "p1",
       "phaseName": "第1期"
     },
@@ -215,7 +215,7 @@ export const PLAN = {
       "end": "2026-12-06",
       "js": "―",
       "cc": "―",
-      "other": "【A①】★配布版は開かない。題材を決める(A-1) → 型を先に決める(A-7) → create-next-app",
+      "other": "【A①】★配布版は開かない。題材を決める(A-1) → 型を先に決める(A-7) → Vite（React＋TS）",
       "phase": "pa",
       "phaseName": "フェーズA"
     },
@@ -265,7 +265,7 @@ export const PLAN = {
       "end": "2027-01-10",
       "js": "―",
       "cc": "―",
-      "other": "【A④】Escキーとクリーンアップ ／ localStorage ／ 境界の引き直し ／ 集計",
+      "other": "【A④】Escキーとクリーンアップ ／ localStorage ／ ★型の見直し ／ 集計",
       "phase": "pa",
       "phaseName": "フェーズA"
     },
@@ -920,53 +920,17 @@ export const PLAN = {
       "week": 9,
       "cat": "TS/React/Next",
       "no": 2,
-      "todo": "localStorage保存を足して小アプリを完成させる(課題CONV-1)",
+      "todo": "localStorage保存を足して小アプリを完成させる(課題APP-1)",
       "out": "リロードしても残る",
       "h": 2.0,
       "tier": "コア",
-      "track": "コンバート",
+      "track": "React",
       "refs": [],
       "seq": 30.0,
       "check": {
         "type": "予測",
         "q": "保存された JSON を手で壊してからリロードすると何が起きるか、予測してからやる。",
         "judge": "予測が当たり、落ちないように直せた"
-      }
-    },
-    {
-      "id": "v5s32",
-      "week": 9,
-      "cat": "TS/React/Next",
-      "no": 3,
-      "todo": "Next.js公式Learnで環境構築。★ここも写経から入る",
-      "out": "アプリが起動する",
-      "h": 1.5,
-      "tier": "コア",
-      "track": "Next.js",
-      "refs": [],
-      "seq": 31.0,
-      "check": {
-        "type": "再現",
-        "q": "写経を閉じて、新しいページを1つ見ないで追加する。",
-        "judge": "URLを打って開けた"
-      }
-    },
-    {
-      "id": "v5s33",
-      "week": 9,
-      "cat": "TS/React/Next",
-      "no": 4,
-      "todo": "ルーティング、layout と page を書く(課題N-1)",
-      "out": "複数ページを行き来できる",
-      "h": 1.5,
-      "tier": "コア",
-      "track": "Next.js",
-      "refs": [],
-      "seq": 32.0,
-      "check": {
-        "type": "穴埋め",
-        "q": "____ という名前のファイルがページになる。____ は全ページ共通の枠になる。フォルダ名を ____ にすると動的ルートになる。",
-        "judge": "3つとも見ないで埋められ、実際にその通りに動いた"
       }
     },
     {
@@ -998,123 +962,15 @@ export const PLAN = {
       "check": null
     },
     {
-      "id": "v5s36",
-      "week": 10,
-      "cat": "TS/React/Next",
-      "no": 1,
-      "todo": "Server ComponentでuseStateを使いエラーを出す。違いを体感する",
-      "out": "エラーを再現・理解",
-      "h": 1.0,
-      "tier": "コア",
-      "track": "Next.js",
-      "refs": [],
-      "seq": 35.0,
-      "check": {
-        "type": "説明",
-        "q": "出たエラーメッセージを閉じて、なぜ動かないのかを1行で書く。",
-        "judge": "「サーバー側で実行されるから」に相当することが言えた"
-      }
-    },
-    {
-      "id": "v5s37",
-      "week": 10,
-      "cat": "TS/React/Next",
-      "no": 2,
-      "todo": "★5週目のReactアプリをNext.jsへコンバートする計画を書く",
-      "out": "移行計画メモ",
-      "h": 1.0,
-      "tier": "コア",
-      "track": "コンバート",
-      "refs": [],
-      "seq": 36.0,
-      "check": {
-        "type": "説明",
-        "q": "移す順番を決めた理由を1行。なぜその順番か。",
-        "judge": "「依存が少ない方から」など、順番そのものに理由があった"
-      }
-    },
-    {
-      "id": "v5s38",
-      "week": 10,
-      "cat": "TS/React/Next",
-      "no": 3,
-      "todo": "コンポーネントを App Router の構成へ移す(課題CONV-2)",
-      "out": "同じ画面が出る",
-      "h": 2.0,
-      "tier": "コア",
-      "track": "コンバート",
-      "refs": [],
-      "seq": 37.0,
-      "check": {
-        "type": "予測",
-        "q": "移したとき最初に壊れるのはどこか、予測してから動かす。",
-        "judge": "予測した箇所が実際に壊れた。外れたなら、外れた理由が分かった"
-      }
-    },
-    {
-      "id": "v5s39",
-      "week": 10,
-      "cat": "TS/React/Next",
-      "no": 4,
-      "todo": "'use client' の境界を決めて分ける(課題N-2)",
-      "out": "境界の理由を書ける",
-      "h": 2.0,
-      "tier": "コア",
-      "track": "Next.js",
-      "refs": [],
-      "seq": 38.0,
-      "check": {
-        "type": "予測",
-        "q": "'use client' を1つ消したらどうなるか予測してから消す。",
-        "judge": "予測が当たり、なぜかを1行で言えた"
-      }
-    },
-    {
-      "id": "v5s40",
-      "week": 10,
-      "cat": "TS/React/Next",
-      "no": 5,
-      "todo": "サーバー側でのデータ取得に置き換える(課題N-3)",
-      "out": "サーバーで取得できる",
-      "h": 1.0,
-      "tier": "コア",
-      "track": "Next.js",
-      "refs": [],
-      "seq": 39.0,
-      "check": {
-        "type": "予測",
-        "q": "この fetch はブラウザのNetworkタブに出るか。予測してから開いて確認する。",
-        "judge": "予測が当たり、理由を言えた"
-      }
-    },
-    {
-      "id": "v5s41",
-      "week": 11,
-      "cat": "TS/React/Next",
-      "no": 1,
-      "todo": "★コンバートで詰まった点と判断理由を convert-log.md に記録する",
-      "out": "コンバート記録",
-      "h": 1.0,
-      "tier": "コア",
-      "track": "コンバート",
-      "refs": [],
-      "seq": 40.0,
-      "check": {
-        "type": "説明",
-        "q": "記録した判断を1つ選び「別の選択肢は何で、なぜ選ばなかったか」を書き足す。",
-        "judge": "選ばなかった案を1つ以上書けた"
-      }
-    },
-    {
       "id": "v5s42",
       "week": 11,
       "cat": "TS/React/Next",
       "no": 2,
-      "todo": "Vercelにデプロイして公開URLを用意する(課題CONV-3)",
+      "todo": "Vercelにデプロイして公開URLを用意する(課題APP-2)",
       "out": "公開URL",
       "h": 1.0,
       "tier": "コア",
-      "track": "コンバート",
+      "track": "設計・公開",
       "refs": [],
       "seq": 41.0,
       "check": {
@@ -1132,7 +988,7 @@ export const PLAN = {
       "out": "README",
       "h": 1.0,
       "tier": "コア",
-      "track": "コンバート",
+      "track": "設計・公開",
       "refs": [],
       "seq": 42.0,
       "check": {
@@ -1142,33 +998,15 @@ export const PLAN = {
       }
     },
     {
-      "id": "v5s44",
-      "week": 11,
-      "cat": "TS/React/Next",
-      "no": 4,
-      "todo": "React版とNext.js版の違いを言語化する",
-      "out": "説明メモ",
-      "h": 1.5,
-      "tier": "コア",
-      "track": "コンバート",
-      "refs": [],
-      "seq": 43.0,
-      "check": {
-        "type": "穴埋め",
-        "q": "Reactだけのときは ____ で動いていたものが、Next.jsでは ____ でも動くようになる。そのぶん ____ が使えない場所ができる。",
-        "judge": "見ないで3つ埋められた"
-      }
-    },
-    {
       "id": "v5s45",
       "week": 11,
       "cat": "TS/React/Next",
       "no": 5,
-      "todo": "想定質問への回答を準備する(Server/Client、型設計、AI活用)",
+      "todo": "想定質問への回答を準備する(型設計、状態の置き場、AI活用)",
       "out": "想定Q&A",
       "h": 1.5,
       "tier": "コア",
-      "track": "コンバート",
+      "track": "設計・公開",
       "refs": [],
       "seq": 44.0,
       "check": {
@@ -1176,20 +1014,6 @@ export const PLAN = {
         "q": "Q&Aを閉じて、1問を声に出して答える。",
         "judge": "詰まらずに30秒話せた"
       }
-    },
-    {
-      "id": "v5s46",
-      "week": 11,
-      "cat": "振り返り",
-      "no": 1,
-      "todo": "Server/Clientの判断基準を自分の言葉で書く",
-      "out": "判断基準メモ",
-      "h": 1.0,
-      "tier": "余力",
-      "track": "振り返り",
-      "refs": [],
-      "seq": 45.0,
-      "check": null
     },
     {
       "id": "v5s47",
@@ -1228,7 +1052,7 @@ export const PLAN = {
       "out": "requirements.md（題材は自由。下の8機能が入っているかだけ確認する）",
       "h": 2.0,
       "tier": "コア",
-      "track": "コンバート",
+      "track": "設計・公開",
       "refs": [
         "subject"
       ],
@@ -1262,16 +1086,16 @@ export const PLAN = {
       "week": 12,
       "cat": "TS/React/Next",
       "no": 3,
-      "todo": "create-next-app でプロジェクトを作る(TypeScript / App Router)",
+      "todo": "Vite でプロジェクトを作る(React + TypeScript)",
       "out": "起動する",
       "h": 1.5,
       "tier": "コア",
-      "track": "Next.js",
+      "track": "React",
       "refs": [],
       "seq": 50.0,
       "check": {
         "type": "穴埋め",
-        "q": "生成されたファイルのうち ____ がページ、____ が全ページ共通、____ が設定ファイル。",
+        "q": "生成されたファイルのうち ____ が最初に読まれるHTML、____ がReactを画面に描き始める所、____ が型チェックの設定ファイル。",
         "judge": "見ないで3つ言えて、実際のファイルで確認が取れた"
       }
     },
@@ -1284,7 +1108,7 @@ export const PLAN = {
       "out": "構成と理由",
       "h": 1.5,
       "tier": "コア",
-      "track": "Next.js",
+      "track": "React",
       "refs": [],
       "seq": 51.0,
       "check": {
@@ -1302,7 +1126,7 @@ export const PLAN = {
       "out": "リポジトリ",
       "h": 1.0,
       "tier": "コア",
-      "track": "コンバート",
+      "track": "設計・公開",
       "refs": [],
       "seq": 52.0,
       "check": {
@@ -1406,11 +1230,11 @@ export const PLAN = {
       "week": 14,
       "cat": "TS/React/Next",
       "no": 3,
-      "todo": "絞り込み条件をURLのクエリに持たせる(リロードしても残る)",
+      "todo": "絞り込み条件をURLのクエリに持たせる(URLSearchParams。リロードしても残る)",
       "out": "URLで共有できる",
       "h": 2.0,
       "tier": "コア",
-      "track": "Next.js",
+      "track": "React",
       "refs": [],
       "seq": 58.0,
       "check": {
@@ -1428,7 +1252,7 @@ export const PLAN = {
       "out": "公開URL",
       "h": 1.5,
       "tier": "コア",
-      "track": "コンバート",
+      "track": "設計・公開",
       "refs": [],
       "seq": 59.0,
       "check": {
@@ -1530,24 +1354,6 @@ export const PLAN = {
       }
     },
     {
-      "id": "v5s66",
-      "week": 17,
-      "cat": "TS/React/Next",
-      "no": 3,
-      "todo": "Server / Client の境界を引き直す。'use client' が必要な場所を減らす",
-      "out": "境界の理由を書ける",
-      "h": 2.0,
-      "tier": "コア",
-      "track": "Next.js",
-      "refs": [],
-      "seq": 65.0,
-      "check": {
-        "type": "説明",
-        "q": "'use client' を減らせた箇所を1つ挙げ、なぜ不要だったかを1行。",
-        "judge": "「状態もイベントも使っていなかった」に相当することが言えた"
-      }
-    },
-    {
       "id": "v5s67",
       "week": 17,
       "cat": "振り返り",
@@ -1608,7 +1414,7 @@ export const PLAN = {
       "out": "README",
       "h": 1.5,
       "tier": "コア",
-      "track": "コンバート",
+      "track": "設計・公開",
       "refs": [],
       "seq": 69.0,
       "check": {
@@ -1626,7 +1432,7 @@ export const PLAN = {
       "out": "読み比べメモ",
       "h": 2.5,
       "tier": "コア",
-      "track": "コンバート",
+      "track": "設計・公開",
       "refs": [
         "subject"
       ],
@@ -1646,7 +1452,7 @@ export const PLAN = {
       "out": "差分メモ",
       "h": 1.5,
       "tier": "コア",
-      "track": "コンバート",
+      "track": "設計・公開",
       "refs": [],
       "seq": 71.0,
       "check": {
@@ -2170,11 +1976,11 @@ export const PLAN = {
       "week": 26,
       "cat": "TS/React/Next",
       "no": 1,
-      "todo": "作った2本(コンバート版・自作版)を説明する資料を作る",
+      "todo": "作った2本(第1期のReactアプリ・自作版)を説明する資料を作る",
       "out": "説明資料",
       "h": 2.5,
       "tier": "コア",
-      "track": "コンバート",
+      "track": "設計・公開",
       "refs": [],
       "seq": 101.0,
       "check": {
@@ -2188,16 +1994,16 @@ export const PLAN = {
       "week": 26,
       "cat": "TS/React/Next",
       "no": 2,
-      "todo": "技術選定の理由を書く。なぜNext.jsか、なぜその構成か",
+      "todo": "技術選定の理由を書く。なぜReact＋Viteか、なぜその構成か",
       "out": "選定理由",
       "h": 2.0,
       "tier": "コア",
-      "track": "コンバート",
+      "track": "設計・公開",
       "refs": [],
       "seq": 102.0,
       "check": {
         "type": "説明",
-        "q": "Next.jsを選ばなかった場合に何が困ったかを1行。",
+        "q": "Next.jsを使わずReact＋Viteで作って、困らなかったこと・困ったことを1行ずつ。",
         "judge": "具体的に言えた"
       }
     },
@@ -2282,7 +2088,7 @@ export const PLAN = {
       "out": "写経が動く",
       "h": 2.5,
       "tier": "コア",
-      "track": "コンバート",
+      "track": "設計・公開",
       "refs": [],
       "seq": 107.0,
       "check": {
@@ -2300,7 +2106,7 @@ export const PLAN = {
       "out": "小さい成果物",
       "h": 2.5,
       "tier": "コア",
-      "track": "コンバート",
+      "track": "設計・公開",
       "refs": [],
       "seq": 108.0,
       "check": {
@@ -2400,6 +2206,168 @@ export const PLAN = {
         "q": "手順タブで分野＝TypeScriptに絞り、回答済みの理解度チェックの○・△・×を数える。○が半分未満なら「移す」、半分以上なら「移さない」。結果と数字を1行で書き、移す場合はClaudeに伝えて計画を組み替えてもらう。",
         "judge": "○△×の数と判定が1行で書けた（例：○6／△3／×1 → 移さない）"
       }
+    },
+    {
+      "id": "v5s115",
+      "week": 9,
+      "cat": "TS/React/Next",
+      "no": 5,
+      "todo": "★ユーティリティ型を使う。小アプリの型から Partial / Pick / Omit / Record で派生の型を作る(課題TS-5)",
+      "out": "派生の型が書ける",
+      "h": 1.5,
+      "tier": "コア",
+      "track": "TypeScript",
+      "refs": [],
+      "seq": 30.3,
+      "check": {
+        "type": "予測",
+        "q": "Partial<Product> と Pick<Product, \"id\" | \"name\"> にどのプロパティが入り、どれが省略可能になるか、エディタでホバーする前に書き出す。",
+        "judge": "ホバーした結果と一致した"
+      }
+    },
+    {
+      "id": "v5s116",
+      "week": 9,
+      "cat": "TS/React/Next",
+      "no": 6,
+      "todo": "tsconfig の strict 系を確かめる。noUncheckedIndexedAccess を足して、出たエラーを直す",
+      "out": "直したエラーの記録",
+      "h": 1.5,
+      "tier": "コア",
+      "track": "TypeScript",
+      "refs": [],
+      "seq": 30.6,
+      "check": {
+        "type": "予測",
+        "q": "noUncheckedIndexedAccess を有効にする前に、products[0].name の型がどう変わるか予測する。",
+        "judge": "「undefined の可能性が付く」と予測でき、直し方も言えた"
+      }
+    },
+    {
+      "id": "v5s117",
+      "week": 10,
+      "cat": "TS/React/Next",
+      "no": 6,
+      "todo": "★ジェネリクスを定義する側に回る。localStorage の読み書きを load<T>() / save<T>() にする",
+      "out": "型引数付きの関数",
+      "h": 2.0,
+      "tier": "コア",
+      "track": "TypeScript",
+      "refs": [],
+      "seq": 36.1,
+      "check": {
+        "type": "再現",
+        "q": "見ないで load<T>(key: string, fallback: T): T を書く。呼び出し側で T が何に決まるかを言う。",
+        "judge": "書けて、T の決まり方を説明できた"
+      }
+    },
+    {
+      "id": "v5s118",
+      "week": 10,
+      "cat": "TS/React/Next",
+      "no": 7,
+      "todo": "タグ付きユニオンで読み込みの3状態を型にする。switch と never で書き漏れを型エラーにする",
+      "out": "網羅チェックが効く",
+      "h": 1.5,
+      "tier": "コア",
+      "track": "TypeScript",
+      "refs": [],
+      "seq": 36.2,
+      "check": {
+        "type": "予測",
+        "q": "状態を1つ足して（例: \"empty\"）、switch のどこで型エラーが出るか予測してから足す。",
+        "judge": "予測した場所にエラーが出た"
+      }
+    },
+    {
+      "id": "v5s119",
+      "week": 10,
+      "cat": "TS/React/Next",
+      "no": 8,
+      "todo": "★useReducer に書き換える。お気に入りと絞り込みの更新を reducer 1か所に集める(課題R-5)",
+      "out": "reducer と Action の型",
+      "h": 2.0,
+      "tier": "コア",
+      "track": "React",
+      "refs": [],
+      "seq": 36.3,
+      "check": {
+        "type": "説明",
+        "q": "useState のままのときと useReducer にした後で、何が楽になり何が面倒になったかを1行ずつ。",
+        "judge": "両方を具体的に言えた"
+      }
+    },
+    {
+      "id": "v5s120",
+      "week": 10,
+      "cat": "TS/React/Next",
+      "no": 9,
+      "todo": "カスタムフックに切り出す(useLocalStorage など)。戻り値に型を付ける",
+      "out": "型付きのカスタムフック",
+      "h": 1.5,
+      "tier": "コア",
+      "track": "React",
+      "refs": [],
+      "seq": 36.4,
+      "check": {
+        "type": "再現",
+        "q": "見ないで useLocalStorage を書き直す。戻り値の型も書く。",
+        "judge": "動き、戻り値に型が付いた"
+      }
+    },
+    {
+      "id": "v5s121",
+      "week": 11,
+      "cat": "TS/React/Next",
+      "no": 6,
+      "todo": "再レンダーを観察する。React DevTools で、どの操作でどこが描き直されるか確かめる",
+      "out": "観察メモ（memo が要る所／要らない所）",
+      "h": 1.5,
+      "tier": "コア",
+      "track": "React",
+      "refs": [],
+      "seq": 40.3,
+      "check": {
+        "type": "予測",
+        "q": "親の state を変えたとき、どの子が描き直されるか予測してから DevTools で確かめる。",
+        "judge": "予測が当たったか、外れた理由を言えた"
+      }
+    },
+    {
+      "id": "v5s122",
+      "week": 11,
+      "cat": "TS/React/Next",
+      "no": 7,
+      "todo": "ジェネリックなコンポーネントを書く。List<T> で商品以外の配列も描けるようにする",
+      "out": "List<T> が動く",
+      "h": 1.0,
+      "tier": "コア",
+      "track": "TypeScript",
+      "refs": [],
+      "seq": 40.6,
+      "check": {
+        "type": "再現",
+        "q": "List<T> を見ないで書き、商品以外の配列（例: カテゴリ名の配列）でも使う。",
+        "judge": "型エラーなしで2種類の配列を描けた"
+      }
+    },
+    {
+      "id": "v5s123",
+      "week": 17,
+      "cat": "TS/React/Next",
+      "no": 5,
+      "todo": "★自作アプリの型を見直す。ユーティリティ型とタグ付きユニオンで書き直せる所を直す",
+      "out": "直した箇所と理由",
+      "h": 2.0,
+      "tier": "コア",
+      "track": "TypeScript",
+      "refs": [],
+      "seq": 65.5,
+      "check": {
+        "type": "説明",
+        "q": "直した型を1つ選び、前の書き方のままだと何が起きえたかを1行。",
+        "judge": "起きえたバグを具体的に言えた"
+      }
     }
   ],
   "tasks": [
@@ -2424,6 +2392,201 @@ export const PLAN = {
       "week": -1,
       "tier": "対象外",
       "status": "ReactとJSXは既定でエスケープするため優先度を下げた",
+      "refs": []
+    },
+    {
+      "id": "t26",
+      "track": "Next.js",
+      "code": "N-1",
+      "name": "App Routerのルーティング",
+      "goal": "Next.jsのファイル構成のルールが分かる。案件のコンバート先がこれ。",
+      "files": [
+        {
+          "path": "nextjs_approuter/",
+          "note": "npx create-next-app@latest で作る練習用。App Router / TypeScript を選ぶ"
+        },
+        {
+          "path": "nextjs_approuter/app/layout.tsx",
+          "note": "共通ヘッダー"
+        },
+        {
+          "path": "nextjs_approuter/app/products/[id]/page.tsx",
+          "note": "動的ルート"
+        },
+        {
+          "path": "notes/learning-log.md",
+          "note": "ファイル名と役割の対応表"
+        }
+      ],
+      "steps": [
+        "npx create-next-app@latest でプロジェクトを作る（App Router / TypeScript / Tailwindなしでよい）",
+        "app/ の中を見て、page.tsx と layout.tsx の関係を確認する",
+        "ページを2つ足してリンクで行き来する",
+        "動的ルートを作り、URLのidが取れることを確認する",
+        "loading.tsx と error.tsx を置いて、わざと遅くしたり失敗させたりする"
+      ],
+      "reqs": [
+        "app/page.tsx（トップ）、app/products/page.tsx（一覧）、app/about/page.tsx（説明）の3ページを作る",
+        "next/link の Link で3ページを行き来できるようにする（a タグではなく Link を使う）",
+        "app/layout.tsx に共通のヘッダーを置き、全ページに出ることを確認する",
+        "★app/products/[id]/page.tsx を作り、params から id を受け取って画面に出す。/products/7 にアクセスして 7 が表示されることを確認する",
+        "loading.tsx を置き、await new Promise(r => setTimeout(r, 2000)) でわざと遅くして出ることを確認する",
+        "error.tsx を置き、わざと throw して出ることを確認する",
+        "ファイル名と役割の対応表を notes に書く（page / layout / loading / error）"
+      ],
+      "feats": "App Router, layout/page, 動的ルート, Link, loading/error",
+      "judge": "3ページ以上を行き来でき、/products/7 で id が取れる",
+      "hints": [
+        "★Next.js Learn の手順どおりに写経してから、自分のページを足す。いきなり構成を考えない（ルール3b）",
+        "app/ の中では、フォルダ名がそのままURLになる。[id] のような角括弧が動的部分",
+        "error.tsx は 'use client' が必須。理由は N-2 で分かる",
+        "Next.js Learn の第1〜4章がこの課題の教材"
+      ],
+      "review": "App RouterのファイルベースルーティングとReact Routerの違いを整理して",
+      "h": 2.0,
+      "week": -1,
+      "tier": "対象外",
+      "status": "★10/21に外した。案件で要るならルール13で戻す",
+      "refs": []
+    },
+    {
+      "id": "t27",
+      "track": "Next.js",
+      "code": "N-2",
+      "name": "Server ComponentsとClient Components ★",
+      "goal": "Next.jsで一番の分岐点。どちらで書くかを判断できると、コンバート作業の質が変わる。案件で「なぜそこに 'use client' を置いたか」を聞かれる場面が必ず来る。",
+      "files": [
+        {
+          "path": "nextjs_approuter/app/lab/page.tsx",
+          "note": "実験1〜3。Server Component のまま書く"
+        },
+        {
+          "path": "nextjs_approuter/app/lab/Counter.tsx",
+          "note": "'use client' を付けた側"
+        },
+        {
+          "path": "notes/convert-log.md",
+          "note": "★判断基準3行。5週目の成果物のうち最重要"
+        }
+      ],
+      "steps": [
+        "app/lab/page.tsx に console.log('server') と書き、ブラウザではなくターミナルに出ることを確認する",
+        "★そこに useState を足してエラーを出す。エラーメッセージを notes に貼る",
+        "Counter.tsx を作って 'use client' を付け、そちらへ state を移す",
+        "page.tsx から Counter を呼び、動くことを確認する",
+        "最後に「どちらで書くか」の判断基準を3行で書く"
+      ],
+      "reqs": [
+        "app/lab/page.tsx に console.log を書き、出力がブラウザではなくサーバー側（ターミナル）に出ることを確認する",
+        "★その page.tsx に useState を書き、エラーが出ることを再現する。エラーメッセージをそのまま notes に貼る",
+        "Counter.tsx を作り、先頭に 'use client' を書いて state をそちらへ移す。page.tsx から <Counter /> を呼んで動くことを確認する",
+        "★Client Component の境界をなるべく葉（末端）に近づける。ページ全体に 'use client' を付けた場合と比べ、何が変わるかを notes に書く",
+        "Server Component から Client Component へ props を渡す。文字列や数値は渡せるが、関数を渡すとエラーになることを確認する",
+        "★判断基準を自分の言葉で3行にまとめる（例: state・イベント・ブラウザAPIが要るならClient、それ以外はServer）"
+      ],
+      "feats": "Server/Client Components, 'use client', 境界設計, シリアライズ",
+      "judge": "エラーを再現・理解できる／どちらで書くかを理由付きで判断できる",
+      "hints": [
+        "既定は Server Component。'use client' を書いたファイルとその配下がClientになる",
+        "関数が渡せないのは、サーバーからブラウザへ送るときにJSONに変換されるため。関数はJSONにできない",
+        "「境界を葉に近づける」とは、ページ全体をClientにせず、ボタンなど必要な部品だけをClientにすること"
+      ],
+      "review": "Server/Clientの境界の引き方について、私の判断基準が実務と合っているか見て",
+      "h": 2.5,
+      "week": -1,
+      "tier": "対象外",
+      "status": "★10/21に外した",
+      "refs": []
+    },
+    {
+      "id": "t28",
+      "track": "Next.js",
+      "code": "N-3",
+      "name": "データ取得とServer Actions",
+      "goal": "サーバー側でデータを取る書き方が分かる。2週目のCh13で書いたfetchとの違いを体感する。",
+      "files": [
+        {
+          "path": "nextjs_approuter/app/products/page.tsx",
+          "note": "Server Component の中で直接 fetch する"
+        },
+        {
+          "path": "notes/learning-log.md",
+          "note": "Ch13のクライアント取得と比べて何が減ったか"
+        }
+      ],
+      "steps": [
+        "Ch13 のコードを横に開いた状態で始める",
+        "Server Component を async 関数にして、その中で直接 await fetch を書く",
+        "useState も useEffect も要らないことを確認する",
+        "Ch13 と見比べて、消えた行を数える",
+        "キャッシュの挙動を確認してから Server Actions を試す"
+      ],
+      "reqs": [
+        "★Server Component を async にして、中で直接 await fetch する。useState / useEffect / ローディング状態が不要になることを確認する",
+        "Ch13でクライアント側に書いた取得処理と並べ、何行減ったかを notes に書く",
+        "同じページを再読み込みし、毎回取りに行くのかキャッシュされるのかを確認する（fetch の cache オプションを変えて挙動の違いを見る）",
+        "Server Actions でフォーム送信を処理する（'use server' を付けた関数を form の action に渡す）",
+        "取得に失敗したときの表示を用意する"
+      ],
+      "feats": "Server Componentでのfetch, キャッシュ, Server Actions, revalidate",
+      "judge": "サーバー側取得で一覧が出る／フォーム送信が動く／Ch13との差を説明できる",
+      "hints": [
+        "Server Component は async にできる。Client Component はできない",
+        "キャッシュの既定はNext.jsのバージョンで変わってきた歴史がある。自分が使っているバージョンの公式ドキュメントで確認する",
+        "Server Actions は 'use server' を付けた関数。フォームから直接呼べる"
+      ],
+      "review": "Server ActionsとAPI Routesの使い分けを、実務の判断基準で教えて",
+      "h": 1.0,
+      "week": -1,
+      "tier": "対象外",
+      "status": "★10/21に外した",
+      "refs": []
+    },
+    {
+      "id": "t29",
+      "track": "設計・公開",
+      "code": "CONV-2",
+      "name": "Next.jsへコンバートする ★10/21に外した",
+      "goal": "案件の推奨スキル「アーキテクチャコンバートの経験」を実際に作る。参画後に最初に任される作業がこれと同じ形になる。",
+      "files": [
+        {
+          "path": "app_nextjs版/",
+          "note": "★コンバート先。app_react版 は消さずに残す（読み比べるため）"
+        },
+        {
+          "path": "notes/convert-log.md",
+          "note": "★移行計画・詰まった点・判断理由。この課題の最重要成果物"
+        }
+      ],
+      "steps": [
+        "★先に notes/convert-log.md へ移行計画を書く。手を動かす前に書く",
+        "create-next-app で app_nextjs版 を作る",
+        "まず全部を Client Component として移し、とにかく動く状態にする",
+        "★動いてから、'use client' を1つずつ剥がしていく。剥がせない理由が出たらその場で記録する",
+        "データ取得を Server Component へ移せる部分を移す",
+        "最後に convert-log.md を読み返し、判断理由が書けているか確認する"
+      ],
+      "reqs": [
+        "★移行計画を先に書く（何を・どの順で移すか。想定される詰まりどころも）",
+        "create-next-app で App Router 構成のプロジェクトを作る",
+        "コンポーネントをそのまま移し、まず動く状態にする（この段階では全部Clientでよい）",
+        "★'use client' をどこに置くか決め、境界をなるべく葉に近づける。剥がせなかったコンポーネントは、なぜ剥がせないかを1行ずつ書く",
+        "データ取得を Server Component へ移せる部分は移す",
+        "★localStorage を使う部分は Client Component に閉じ込める（サーバー側には localStorage が無いため）",
+        "★詰まった点と「なぜそう判断したか」を convert-log.md に記録する。参画後に「コンバート経験は？」と聞かれたときに読み返す材料になる"
+      ],
+      "feats": "App Router, Server/Client境界, 'use client', 段階的移行",
+      "judge": "React版と同じ機能がNext.jsで動く／境界の判断理由を全コンポーネントについて説明できる",
+      "hints": [
+        "いきなり理想形を目指さない。「全部Clientで動かす」→「1つずつ剥がす」が安全な手順",
+        "サーバー側に window や localStorage は無い。参照するとビルド時にエラーになる",
+        "動かすことより記録を優先する。完璧に動かなくても、判断の記録があれば課題としては成立する"
+      ],
+      "review": "私のコンバート手順をレビューして。移行の順番として妥当か指摘だけお願いします",
+      "h": 7.0,
+      "week": -1,
+      "tier": "対象外",
+      "status": "★10/21に外した。コンバート案件が無くなったため",
       "refs": []
     },
     {
@@ -3023,7 +3186,7 @@ export const PLAN = {
       "track": "TypeScript",
       "code": "TS-3",
       "name": "既存のJSコードに型を付ける",
-      "goal": "型のない既存コードをTS化する感覚が掴める。案件のコンバート作業に直結する。",
+      "goal": "型のない既存コードをTS化する感覚が掴める。既存のJSに型を足す作業は実務でよく出る。",
       "files": [
         {
           "path": "ts_typescript/data.ts",
@@ -3307,6 +3470,54 @@ export const PLAN = {
       "refs": []
     },
     {
+      "id": "t44",
+      "track": "TypeScript",
+      "code": "TS-5",
+      "name": "ユーティリティ型とジェネリクスを定義する側 ★",
+      "goal": "型を「書く」から「作る」へ一段上がる。既存の型から派生の型を作れると、同じ形の型を何度も書かずに済み、変更にも強くなる。",
+      "files": [
+        {
+          "path": "app_react版/src/types.ts",
+          "note": "★Product から派生の型を作る（更新用・一覧用・カテゴリ別）"
+        },
+        {
+          "path": "app_react版/src/storage.ts",
+          "note": "load<T>() / save<T>() を置く"
+        },
+        {
+          "path": "app_react版/tsconfig.json",
+          "note": "noUncheckedIndexedAccess を足す"
+        }
+      ],
+      "steps": [
+        "★先に、今の型の中で同じ形を2回書いている所を探す",
+        "Partial / Pick / Omit / Record を1つずつ使って、派生の型に置き換える",
+        "tsconfig の strict が true か確かめ、noUncheckedIndexedAccess を足して出たエラーを直す",
+        "localStorage の読み書きを load<T>() / save<T>() に切り出す",
+        "読み込みの3状態をタグ付きユニオンにし、switch と never で書き漏れを型エラーにする"
+      ],
+      "reqs": [
+        "Partial・Pick・Omit・Record をそれぞれ1回以上、意味のある場所で使っている",
+        "noUncheckedIndexedAccess を有効にしても型エラーが残っていない",
+        "load<T>() の呼び出し側で、T を書かなくても推論で決まる場面が1つある",
+        "★状態を1つ足すと、switch の所で型エラーになる（網羅チェックが効いている）",
+        "any と as が増えていない"
+      ],
+      "feats": "ユーティリティ型, tsconfig strict, ジェネリクス(定義側), タグ付きユニオン, never",
+      "judge": "派生の型を使った理由と、網羅チェックが効く仕組みを1行ずつ説明できる",
+      "hints": [
+        "ユーティリティ型はサバイバルTypeScriptで引く。全部覚えなくていい。4つで足りる",
+        "ジェネリクスは「呼ぶ側」は§7でやった。定義する側は、引数の型から T が決まる形から入る",
+        "never の網羅チェックは「ここに来たらバグ」を型で書く方法。default で const _: never = state と書く"
+      ],
+      "review": "派生の型の作り方として、無理をしている所がないか指摘して。直したコードは書かないで",
+      "h": 6.5,
+      "week": 9,
+      "tier": "コア",
+      "status": "★10/21追加。Next.jsの代わりにTSを深める",
+      "refs": []
+    },
+    {
       "id": "t23",
       "track": "React",
       "code": "R-4",
@@ -3349,70 +3560,15 @@ export const PLAN = {
       "refs": []
     },
     {
-      "id": "t26",
-      "track": "Next.js",
-      "code": "N-1",
-      "name": "App Routerのルーティング",
-      "goal": "Next.jsのファイル構成のルールが分かる。案件のコンバート先がこれ。",
-      "files": [
-        {
-          "path": "nextjs_approuter/",
-          "note": "npx create-next-app@latest で作る練習用。App Router / TypeScript を選ぶ"
-        },
-        {
-          "path": "nextjs_approuter/app/layout.tsx",
-          "note": "共通ヘッダー"
-        },
-        {
-          "path": "nextjs_approuter/app/products/[id]/page.tsx",
-          "note": "動的ルート"
-        },
-        {
-          "path": "notes/learning-log.md",
-          "note": "ファイル名と役割の対応表"
-        }
-      ],
-      "steps": [
-        "npx create-next-app@latest でプロジェクトを作る（App Router / TypeScript / Tailwindなしでよい）",
-        "app/ の中を見て、page.tsx と layout.tsx の関係を確認する",
-        "ページを2つ足してリンクで行き来する",
-        "動的ルートを作り、URLのidが取れることを確認する",
-        "loading.tsx と error.tsx を置いて、わざと遅くしたり失敗させたりする"
-      ],
-      "reqs": [
-        "app/page.tsx（トップ）、app/products/page.tsx（一覧）、app/about/page.tsx（説明）の3ページを作る",
-        "next/link の Link で3ページを行き来できるようにする（a タグではなく Link を使う）",
-        "app/layout.tsx に共通のヘッダーを置き、全ページに出ることを確認する",
-        "★app/products/[id]/page.tsx を作り、params から id を受け取って画面に出す。/products/7 にアクセスして 7 が表示されることを確認する",
-        "loading.tsx を置き、await new Promise(r => setTimeout(r, 2000)) でわざと遅くして出ることを確認する",
-        "error.tsx を置き、わざと throw して出ることを確認する",
-        "ファイル名と役割の対応表を notes に書く（page / layout / loading / error）"
-      ],
-      "feats": "App Router, layout/page, 動的ルート, Link, loading/error",
-      "judge": "3ページ以上を行き来でき、/products/7 で id が取れる",
-      "hints": [
-        "★Next.js Learn の手順どおりに写経してから、自分のページを足す。いきなり構成を考えない（ルール3b）",
-        "app/ の中では、フォルダ名がそのままURLになる。[id] のような角括弧が動的部分",
-        "error.tsx は 'use client' が必須。理由は N-2 で分かる",
-        "Next.js Learn の第1〜4章がこの課題の教材"
-      ],
-      "review": "App RouterのファイルベースルーティングとReact Routerの違いを整理して",
-      "h": 2.0,
-      "week": 9,
-      "tier": "コア",
-      "status": "★写経から入る（ルール5b）",
-      "refs": []
-    },
-    {
       "id": "t24",
-      "track": "コンバート",
-      "code": "CONV-1",
+      "track": "React",
+      "code": "APP-1",
       "name": "小さなReactアプリを完成させる",
-      "goal": "ここまでの知識を1つのアプリに統合できるようになる。次週コンバートするための土台。規模は小さくてよい。動くものを完成させることが目的。",
+      "goal": "ここまでの知識を1つのアプリに統合できるようになる。次の2週でTSとReactを深める題材になる。規模は小さくてよい。動くものを完成させることが目的。",
       "files": [
         {
           "path": "app_react版/",
-          "note": "★これが5週目にコンバートする対象。ここまでの成果をまとめる"
+          "note": "★これが9〜11週目にTS・Reactを深める題材。ここまでの成果をまとめる"
         },
         {
           "path": "app_react版/src/data.ts",
@@ -3436,159 +3592,68 @@ export const PLAN = {
         "props と state の型が TypeScript で定義されている（any がない）",
         "useEffect + fetch でデータを外部から取得する形にする（public/products.json を置いて fetch('/products.json') でよい）",
         "お気に入りのオン/オフを localStorage に保存し、リロードしても残る",
-        "★動く状態で一度止める。作り込みすぎない（次週まるごと移すため）"
+        "★動く状態で一度止める。作り込みすぎない（次の2週で型とstateを作り直すため）"
       ],
       "feats": "React, TypeScript, useState/useEffect, localStorage",
       "judge": "絞り込みと検索が効き、リロードしてもお気に入りが残る",
       "hints": [
-        "localStorage の読み書きは Client 側でしか動かない。5週目の 'use client' の話に直結する",
-        "完成度を上げたくなるが、ここでの目的は「移せる状態を作ること」。機能追加は我慢する"
+        "localStorage の読み書きは、次の週に load<T>() / useLocalStorage へ切り出す。今はベタ書きでよい",
+        "完成度を上げたくなるが、ここでの目的は「深める題材を作ること」。機能追加は我慢する"
       ],
-      "review": "このアプリはNext.jsへ移しやすい構造になっているか、事前に指摘して",
+      "review": "このアプリで、型やstateの持ち方が苦しくなりそうな所を指摘して。直し方は書かないで",
       "h": 6.5,
       "week": 9,
       "tier": "コア",
-      "status": "ここまでに動くReactアプリを完成させる",
+      "status": "ここまでに動くReactアプリを完成させる。TS-5・R-5の題材になる",
       "refs": []
     },
     {
-      "id": "t27",
-      "track": "Next.js",
-      "code": "N-2",
-      "name": "Server ComponentsとClient Components ★",
-      "goal": "Next.jsで一番の分岐点。どちらで書くかを判断できると、コンバート作業の質が変わる。案件で「なぜそこに 'use client' を置いたか」を聞かれる場面が必ず来る。",
+      "id": "t45",
+      "track": "React",
+      "code": "R-5",
+      "name": "useReducer とカスタムフック ★",
+      "goal": "stateが増えたときに、更新の書き方を1か所に集められるようになる。実務のReactで「useStateが多すぎる」画面を整理するときにそのまま使う。",
       "files": [
         {
-          "path": "nextjs_approuter/app/lab/page.tsx",
-          "note": "実験1〜3。Server Component のまま書く"
+          "path": "app_react版/src/reducer.ts",
+          "note": "★State と Action の型、reducer 関数"
         },
         {
-          "path": "nextjs_approuter/app/lab/Counter.tsx",
-          "note": "'use client' を付けた側"
-        },
-        {
-          "path": "notes/convert-log.md",
-          "note": "★判断基準3行。5週目の成果物のうち最重要"
-        }
-      ],
-      "steps": [
-        "app/lab/page.tsx に console.log('server') と書き、ブラウザではなくターミナルに出ることを確認する",
-        "★そこに useState を足してエラーを出す。エラーメッセージを notes に貼る",
-        "Counter.tsx を作って 'use client' を付け、そちらへ state を移す",
-        "page.tsx から Counter を呼び、動くことを確認する",
-        "最後に「どちらで書くか」の判断基準を3行で書く"
-      ],
-      "reqs": [
-        "app/lab/page.tsx に console.log を書き、出力がブラウザではなくサーバー側（ターミナル）に出ることを確認する",
-        "★その page.tsx に useState を書き、エラーが出ることを再現する。エラーメッセージをそのまま notes に貼る",
-        "Counter.tsx を作り、先頭に 'use client' を書いて state をそちらへ移す。page.tsx から <Counter /> を呼んで動くことを確認する",
-        "★Client Component の境界をなるべく葉（末端）に近づける。ページ全体に 'use client' を付けた場合と比べ、何が変わるかを notes に書く",
-        "Server Component から Client Component へ props を渡す。文字列や数値は渡せるが、関数を渡すとエラーになることを確認する",
-        "★判断基準を自分の言葉で3行にまとめる（例: state・イベント・ブラウザAPIが要るならClient、それ以外はServer）"
-      ],
-      "feats": "Server/Client Components, 'use client', 境界設計, シリアライズ",
-      "judge": "エラーを再現・理解できる／どちらで書くかを理由付きで判断できる",
-      "hints": [
-        "既定は Server Component。'use client' を書いたファイルとその配下がClientになる",
-        "関数が渡せないのは、サーバーからブラウザへ送るときにJSONに変換されるため。関数はJSONにできない",
-        "「境界を葉に近づける」とは、ページ全体をClientにせず、ボタンなど必要な部品だけをClientにすること"
-      ],
-      "review": "Server/Clientの境界の引き方について、私の判断基準が実務と合っているか見て",
-      "h": 2.5,
-      "week": 10,
-      "tier": "コア",
-      "status": "",
-      "refs": []
-    },
-    {
-      "id": "t28",
-      "track": "Next.js",
-      "code": "N-3",
-      "name": "データ取得とServer Actions",
-      "goal": "サーバー側でデータを取る書き方が分かる。2週目のCh13で書いたfetchとの違いを体感する。",
-      "files": [
-        {
-          "path": "nextjs_approuter/app/products/page.tsx",
-          "note": "Server Component の中で直接 fetch する"
+          "path": "app_react版/src/hooks/useLocalStorage.ts",
+          "note": "型付きのカスタムフック"
         },
         {
           "path": "notes/learning-log.md",
-          "note": "Ch13のクライアント取得と比べて何が減ったか"
+          "note": "再レンダーの観察メモ（memo が要る所／要らない所）"
         }
       ],
       "steps": [
-        "Ch13 のコードを横に開いた状態で始める",
-        "Server Component を async 関数にして、その中で直接 await fetch を書く",
-        "useState も useEffect も要らないことを確認する",
-        "Ch13 と見比べて、消えた行を数える",
-        "キャッシュの挙動を確認してから Server Actions を試す"
+        "★先に、useState がいくつあるか数え、一緒に変わるものに線を引く",
+        "一緒に変わるものを State にまとめ、Action をタグ付きユニオンで書く",
+        "useReducer に置き換え、動きが変わっていないことを確かめる",
+        "localStorage の処理を useLocalStorage に切り出し、戻り値に型を付ける",
+        "React DevTools で再レンダーを観察し、memo が要る所と要らない所を1つずつ書く",
+        "List<T> のようなジェネリックなコンポーネントを1つ書く"
       ],
       "reqs": [
-        "★Server Component を async にして、中で直接 await fetch する。useState / useEffect / ローディング状態が不要になることを確認する",
-        "Ch13でクライアント側に書いた取得処理と並べ、何行減ったかを notes に書く",
-        "同じページを再読み込みし、毎回取りに行くのかキャッシュされるのかを確認する（fetch の cache オプションを変えて挙動の違いを見る）",
-        "Server Actions でフォーム送信を処理する（'use server' を付けた関数を form の action に渡す）",
-        "取得に失敗したときの表示を用意する"
+        "お気に入りと絞り込みの更新が reducer 1か所に集まっている",
+        "Action の type を打ち間違えると型エラーになる",
+        "useLocalStorage を2か所以上から使っている",
+        "★再レンダーの観察メモがある（どの操作で、どのコンポーネントが描き直されたか）",
+        "List<T> を商品以外の配列でも使っている"
       ],
-      "feats": "Server Componentでのfetch, キャッシュ, Server Actions, revalidate",
-      "judge": "サーバー側取得で一覧が出る／フォーム送信が動く／Ch13との差を説明できる",
+      "feats": "useReducer, Action の型, カスタムフック, 再レンダー, ジェネリックなコンポーネント",
+      "judge": "useState のままと比べて、何が楽になり何が面倒になったかを説明できる",
       "hints": [
-        "Server Component は async にできる。Client Component はできない",
-        "キャッシュの既定はNext.jsのバージョンで変わってきた歴史がある。自分が使っているバージョンの公式ドキュメントで確認する",
-        "Server Actions は 'use server' を付けた関数。フォームから直接呼べる"
+        "全部を reducer に入れなくていい。一緒に変わらない state は useState のままでよい",
+        "カスタムフックは「use で始まる普通の関数」。中で他のフックを呼べる、というだけ",
+        "memo は最初から付けない。観察して、困ってから付ける"
       ],
-      "review": "Server ActionsとAPI Routesの使い分けを、実務の判断基準で教えて",
-      "h": 1.0,
+      "review": "useReducer に移した範囲が妥当か、指摘だけお願いします。直したコードは書かないで",
+      "h": 6.0,
       "week": 10,
       "tier": "コア",
-      "status": "",
-      "refs": []
-    },
-    {
-      "id": "t29",
-      "track": "コンバート",
-      "code": "CONV-2",
-      "name": "Next.jsへコンバートする ★本命",
-      "goal": "案件の推奨スキル「アーキテクチャコンバートの経験」を実際に作る。参画後に最初に任される作業がこれと同じ形になる。",
-      "files": [
-        {
-          "path": "app_nextjs版/",
-          "note": "★コンバート先。app_react版 は消さずに残す（読み比べるため）"
-        },
-        {
-          "path": "notes/convert-log.md",
-          "note": "★移行計画・詰まった点・判断理由。この課題の最重要成果物"
-        }
-      ],
-      "steps": [
-        "★先に notes/convert-log.md へ移行計画を書く。手を動かす前に書く",
-        "create-next-app で app_nextjs版 を作る",
-        "まず全部を Client Component として移し、とにかく動く状態にする",
-        "★動いてから、'use client' を1つずつ剥がしていく。剥がせない理由が出たらその場で記録する",
-        "データ取得を Server Component へ移せる部分を移す",
-        "最後に convert-log.md を読み返し、判断理由が書けているか確認する"
-      ],
-      "reqs": [
-        "★移行計画を先に書く（何を・どの順で移すか。想定される詰まりどころも）",
-        "create-next-app で App Router 構成のプロジェクトを作る",
-        "コンポーネントをそのまま移し、まず動く状態にする（この段階では全部Clientでよい）",
-        "★'use client' をどこに置くか決め、境界をなるべく葉に近づける。剥がせなかったコンポーネントは、なぜ剥がせないかを1行ずつ書く",
-        "データ取得を Server Component へ移せる部分は移す",
-        "★localStorage を使う部分は Client Component に閉じ込める（サーバー側には localStorage が無いため）",
-        "★詰まった点と「なぜそう判断したか」を convert-log.md に記録する。参画後に「コンバート経験は？」と聞かれたときに読み返す材料になる"
-      ],
-      "feats": "App Router, Server/Client境界, 'use client', 段階的移行",
-      "judge": "React版と同じ機能がNext.jsで動く／境界の判断理由を全コンポーネントについて説明できる",
-      "hints": [
-        "いきなり理想形を目指さない。「全部Clientで動かす」→「1つずつ剥がす」が安全な手順",
-        "サーバー側に window や localStorage は無い。参照するとビルド時にエラーになる",
-        "動かすことより記録を優先する。完璧に動かなくても、判断の記録があれば課題としては成立する"
-      ],
-      "review": "私のコンバート手順をレビューして。移行の順番として妥当か指摘だけお願いします",
-      "h": 7.0,
-      "week": 10,
-      "tier": "コア",
-      "status": "求人でよく求められる「コンバート経験」の実体",
+      "status": "★10/21追加。Next.jsの代わりにReactを深める",
       "refs": []
     },
     {
@@ -3633,13 +3698,13 @@ export const PLAN = {
     },
     {
       "id": "t31",
-      "track": "コンバート",
-      "code": "CONV-3",
+      "track": "設計・公開",
+      "code": "APP-2",
       "name": "仕上げ・公開・説明の準備",
       "goal": "人に見せられる状態に整え、参画後に語れる形にする。スキルシートと初回の打ち合わせで使う材料になる。",
       "files": [
         {
-          "path": "app_nextjs版/README.md",
+          "path": "app_react版/README.md",
           "note": "何を作ったか／技術選定／学んだこと"
         },
         {
@@ -3661,23 +3726,22 @@ export const PLAN = {
       "reqs": [
         "any を潰し、共通の型を切り出す",
         "命名を見直し、重複した処理をまとめる",
-        "README を書く（何を作ったか／なぜNext.jsにしたか／学んだこと。各3行程度）",
-        "★Vercelにデプロイして公開URLを用意する",
-        "React版とNext.js版の違いを、人に説明できる形で言語化する（データ取得がどう変わったか／ファイル構成／何が楽になり何が面倒になったか）",
-        "★想定質問への回答を用意する。最低この3つ:「'use client' はどう決めましたか」「型はどう設計しましたか」「AIはどこまで使いましたか」"
+        "README を書く（何を作ったか／型とstateをどう設計したか／学んだこと。各3行程度）",
+        "★Vercelにデプロイして公開URLを用意する（Viteのアプリもそのまま載る）",
+        "★想定質問への回答を用意する。最低この3つ:「型はどう設計しましたか」「stateはどこに置き、なぜ useReducer にしましたか」「AIはどこまで使いましたか」"
       ],
       "feats": "リファクタ, 型整理, Vercel, 説明力",
       "judge": "公開URLで動く／想定質問3つに口頭で答えられる",
       "hints": [
         "Vercel は GitHub リポジトリを繋ぐだけでデプロイできる。ビルドエラーが出たらローカルで npm run build を先に通す",
-        "想定Q&Aは暗記しなくてよい。convert-log.md を見ながら話せる状態にしておく",
+        "想定Q&Aは暗記しなくてよい。learning-log.md を見ながら話せる状態にしておく",
         "「分からなかったこと」も正直に言えるように準備しておく方が信用される"
       ],
-      "review": "「コンバート経験を教えて」と聞かれた想定で私の説明を聞き、改善点を指摘して",
+      "review": "「このアプリの型とstateの設計を教えて」と聞かれた想定で私の説明を聞き、改善点を指摘して",
       "h": 6.0,
       "week": 11,
       "tier": "コア",
-      "status": "",
+      "status": "公開・README・想定質問",
       "refs": []
     },
     {
@@ -3724,7 +3788,7 @@ export const PLAN = {
     },
     {
       "id": "t32",
-      "track": "コンバート",
+      "track": "設計・公開",
       "code": "A-1",
       "name": "★題材と要件を自分で決める（要件定義）★フェーズAの起点",
       "goal": "要件定義の経験ができる。実務で「実装だけ」から一段出るのはここ。何を作らないかを決められるようになる。",
@@ -3962,7 +4026,7 @@ export const PLAN = {
     },
     {
       "id": "t38",
-      "track": "コンバート",
+      "track": "設計・公開",
       "code": "A-6",
       "name": "★配布版と読み比べる（18週目まで開かない）",
       "goal": "自分の設計を他人の設計と比べて、違いを言葉にできるようになる。面接で「設計の話ができる人」かどうかは、ここで決まる。",
@@ -5256,10 +5320,10 @@ export const PLAN = {
         {
           "id": "v5s31",
           "cat": "TS/React/Next",
-          "todo": "localStorage保存を足して小アプリを完成させる(課題CONV-1)",
+          "todo": "localStorage保存を足して小アプリを完成させる(課題APP-1)",
           "h": 2.0,
           "tier": "コア",
-          "track": "コンバート",
+          "track": "React",
           "refs": [],
           "check": {
             "type": "予測",
@@ -5279,17 +5343,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s32",
+          "id": "v5s115",
           "cat": "TS/React/Next",
-          "todo": "Next.js公式Learnで環境構築。★ここも写経から入る",
+          "todo": "★ユーティリティ型を使う。小アプリの型から Partial / Pick / Omit / Record で派生の型を作る(課題TS-5)",
           "h": 1.5,
           "tier": "コア",
-          "track": "Next.js",
+          "track": "TypeScript",
           "refs": [],
           "check": {
-            "type": "再現",
-            "q": "写経を閉じて、新しいページを1つ見ないで追加する。",
-            "judge": "URLを打って開けた"
+            "type": "予測",
+            "q": "Partial<Product> と Pick<Product, \"id\" | \"name\"> にどのプロパティが入り、どれが省略可能になるか、エディタでホバーする前に書き出す。",
+            "judge": "ホバーした結果と一致した"
           }
         }
       ]
@@ -5314,17 +5378,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s33",
+          "id": "v5s116",
           "cat": "TS/React/Next",
-          "todo": "ルーティング、layout と page を書く(課題N-1)",
+          "todo": "tsconfig の strict 系を確かめる。noUncheckedIndexedAccess を足して、出たエラーを直す",
           "h": 1.5,
           "tier": "コア",
-          "track": "Next.js",
+          "track": "TypeScript",
           "refs": [],
           "check": {
-            "type": "穴埋め",
-            "q": "____ という名前のファイルがページになる。____ は全ページ共通の枠になる。フォルダ名を ____ にすると動的ルートになる。",
-            "judge": "3つとも見ないで埋められ、実際にその通りに動いた"
+            "type": "予測",
+            "q": "noUncheckedIndexedAccess を有効にする前に、products[0].name の型がどう変わるか予測する。",
+            "judge": "「undefined の可能性が付く」と予測でき、直し方も言えた"
           }
         }
       ]
@@ -5359,31 +5423,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s36",
+          "id": "v5s117",
           "cat": "TS/React/Next",
-          "todo": "Server ComponentでuseStateを使いエラーを出す。違いを体感する",
-          "h": 1.0,
+          "todo": "★ジェネリクスを定義する側に回る。localStorage の読み書きを load<T>() / save<T>() にする",
+          "h": 2.0,
           "tier": "コア",
-          "track": "Next.js",
+          "track": "TypeScript",
           "refs": [],
           "check": {
-            "type": "説明",
-            "q": "出たエラーメッセージを閉じて、なぜ動かないのかを1行で書く。",
-            "judge": "「サーバー側で実行されるから」に相当することが言えた"
-          }
-        },
-        {
-          "id": "v5s37",
-          "cat": "TS/React/Next",
-          "todo": "★5週目のReactアプリをNext.jsへコンバートする計画を書く",
-          "h": 1.0,
-          "tier": "コア",
-          "track": "コンバート",
-          "refs": [],
-          "check": {
-            "type": "説明",
-            "q": "移す順番を決めた理由を1行。なぜその順番か。",
-            "judge": "「依存が少ない方から」など、順番そのものに理由があった"
+            "type": "再現",
+            "q": "見ないで load<T>(key: string, fallback: T): T を書く。呼び出し側で T が何に決まるかを言う。",
+            "judge": "書けて、T の決まり方を説明できた"
           }
         }
       ]
@@ -5398,17 +5448,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s38",
+          "id": "v5s118",
           "cat": "TS/React/Next",
-          "todo": "コンポーネントを App Router の構成へ移す(課題CONV-2)",
-          "h": 2.0,
+          "todo": "タグ付きユニオンで読み込みの3状態を型にする。switch と never で書き漏れを型エラーにする",
+          "h": 1.5,
           "tier": "コア",
-          "track": "コンバート",
+          "track": "TypeScript",
           "refs": [],
           "check": {
             "type": "予測",
-            "q": "移したとき最初に壊れるのはどこか、予測してから動かす。",
-            "judge": "予測した箇所が実際に壊れた。外れたなら、外れた理由が分かった"
+            "q": "状態を1つ足して（例: \"empty\"）、switch のどこで型エラーが出るか予測してから足す。",
+            "judge": "予測した場所にエラーが出た"
           }
         }
       ]
@@ -5423,17 +5473,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s39",
+          "id": "v5s119",
           "cat": "TS/React/Next",
-          "todo": "'use client' の境界を決めて分ける(課題N-2)",
+          "todo": "★useReducer に書き換える。お気に入りと絞り込みの更新を reducer 1か所に集める(課題R-5)",
           "h": 2.0,
           "tier": "コア",
-          "track": "Next.js",
+          "track": "React",
           "refs": [],
           "check": {
-            "type": "予測",
-            "q": "'use client' を1つ消したらどうなるか予測してから消す。",
-            "judge": "予測が当たり、なぜかを1行で言えた"
+            "type": "説明",
+            "q": "useState のままのときと useReducer にした後で、何が楽になり何が面倒になったかを1行ずつ。",
+            "judge": "両方を具体的に言えた"
           }
         }
       ]
@@ -5458,17 +5508,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s40",
+          "id": "v5s120",
           "cat": "TS/React/Next",
-          "todo": "サーバー側でのデータ取得に置き換える(課題N-3)",
-          "h": 1.0,
+          "todo": "カスタムフックに切り出す(useLocalStorage など)。戻り値に型を付ける",
+          "h": 1.5,
           "tier": "コア",
-          "track": "Next.js",
+          "track": "React",
           "refs": [],
           "check": {
-            "type": "予測",
-            "q": "この fetch はブラウザのNetworkタブに出るか。予測してから開いて確認する。",
-            "judge": "予測が当たり、理由を言えた"
+            "type": "再現",
+            "q": "見ないで useLocalStorage を書き直す。戻り値の型も書く。",
+            "judge": "動き、戻り値に型が付いた"
           }
         }
       ]
@@ -5503,31 +5553,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s41",
+          "id": "v5s121",
           "cat": "TS/React/Next",
-          "todo": "★コンバートで詰まった点と判断理由を convert-log.md に記録する",
-          "h": 1.0,
+          "todo": "再レンダーを観察する。React DevTools で、どの操作でどこが描き直されるか確かめる",
+          "h": 1.5,
           "tier": "コア",
-          "track": "コンバート",
+          "track": "React",
           "refs": [],
           "check": {
-            "type": "説明",
-            "q": "記録した判断を1つ選び「別の選択肢は何で、なぜ選ばなかったか」を書き足す。",
-            "judge": "選ばなかった案を1つ以上書けた"
-          }
-        },
-        {
-          "id": "v5s42",
-          "cat": "TS/React/Next",
-          "todo": "Vercelにデプロイして公開URLを用意する(課題CONV-3)",
-          "h": 1.0,
-          "tier": "コア",
-          "track": "コンバート",
-          "refs": [],
-          "check": {
-            "type": "再現",
-            "q": "手順を見ないで、デプロイを最初からもう一度やる。",
-            "judge": "詰まらずに公開できた"
+            "type": "予測",
+            "q": "親の state を変えたとき、どの子が描き直されるか予測してから DevTools で確かめる。",
+            "judge": "予測が当たったか、外れた理由を言えた"
           }
         }
       ]
@@ -5542,17 +5578,31 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s43",
+          "id": "v5s122",
           "cat": "TS/React/Next",
-          "todo": "READMEを書く(何を作ったか/技術選定/学んだこと)",
+          "todo": "ジェネリックなコンポーネントを書く。List<T> で商品以外の配列も描けるようにする",
           "h": 1.0,
           "tier": "コア",
-          "track": "コンバート",
+          "track": "TypeScript",
           "refs": [],
           "check": {
-            "type": "説明",
-            "q": "READMEを、何も知らない人になったつもりで読み返す。説明なしでは伝わらない箇所を1つ見つけて直す。",
-            "judge": "直した箇所を挙げられた"
+            "type": "再現",
+            "q": "List<T> を見ないで書き、商品以外の配列（例: カテゴリ名の配列）でも使う。",
+            "judge": "型エラーなしで2種類の配列を描けた"
+          }
+        },
+        {
+          "id": "v5s42",
+          "cat": "TS/React/Next",
+          "todo": "Vercelにデプロイして公開URLを用意する(課題APP-2)",
+          "h": 1.0,
+          "tier": "コア",
+          "track": "設計・公開",
+          "refs": [],
+          "check": {
+            "type": "再現",
+            "q": "手順を見ないで、デプロイを最初からもう一度やる。",
+            "judge": "詰まらずに公開できた"
           }
         }
       ]
@@ -5567,17 +5617,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s44",
+          "id": "v5s43",
           "cat": "TS/React/Next",
-          "todo": "React版とNext.js版の違いを言語化する",
-          "h": 1.5,
+          "todo": "READMEを書く(何を作ったか/技術選定/学んだこと)",
+          "h": 1.0,
           "tier": "コア",
-          "track": "コンバート",
+          "track": "設計・公開",
           "refs": [],
           "check": {
-            "type": "穴埋め",
-            "q": "Reactだけのときは ____ で動いていたものが、Next.jsでは ____ でも動くようになる。そのぶん ____ が使えない場所ができる。",
-            "judge": "見ないで3つ埋められた"
+            "type": "説明",
+            "q": "READMEを、何も知らない人になったつもりで読み返す。説明なしでは伝わらない箇所を1つ見つけて直す。",
+            "judge": "直した箇所を挙げられた"
           }
         }
       ]
@@ -5604,10 +5654,10 @@ export const PLAN = {
         {
           "id": "v5s45",
           "cat": "TS/React/Next",
-          "todo": "想定質問への回答を準備する(Server/Client、型設計、AI活用)",
+          "todo": "想定質問への回答を準備する(型設計、状態の置き場、AI活用)",
           "h": 1.5,
           "tier": "コア",
-          "track": "コンバート",
+          "track": "設計・公開",
           "refs": [],
           "check": {
             "type": "再現",
@@ -5667,7 +5717,7 @@ export const PLAN = {
           "todo": "★ここで題材を決める。配布版は開かない。作りたいものを箇条書きで書き出す(課題A-1)",
           "h": 2.0,
           "tier": "コア",
-          "track": "コンバート",
+          "track": "設計・公開",
           "refs": [
             "subject"
           ],
@@ -5716,14 +5766,14 @@ export const PLAN = {
         {
           "id": "v5s51",
           "cat": "TS/React/Next",
-          "todo": "create-next-app でプロジェクトを作る(TypeScript / App Router)",
+          "todo": "Vite でプロジェクトを作る(React + TypeScript)",
           "h": 1.5,
           "tier": "コア",
-          "track": "Next.js",
+          "track": "React",
           "refs": [],
           "check": {
             "type": "穴埋め",
-            "q": "生成されたファイルのうち ____ がページ、____ が全ページ共通、____ が設定ファイル。",
+            "q": "生成されたファイルのうち ____ が最初に読まれるHTML、____ がReactを画面に描き始める所、____ が型チェックの設定ファイル。",
             "judge": "見ないで3つ言えて、実際のファイルで確認が取れた"
           }
         }
@@ -5784,7 +5834,7 @@ export const PLAN = {
           "todo": "ディレクトリ構成を自分で決めて、理由を design-log.md に書く",
           "h": 1.5,
           "tier": "コア",
-          "track": "Next.js",
+          "track": "React",
           "refs": [],
           "check": {
             "type": "説明",
@@ -5809,7 +5859,7 @@ export const PLAN = {
           "todo": "GitHubにリポジトリを作り、最初のコミットとpushをする",
           "h": 1.0,
           "tier": "コア",
-          "track": "コンバート",
+          "track": "設計・公開",
           "refs": [],
           "check": {
             "type": "再現",
@@ -5965,10 +6015,10 @@ export const PLAN = {
         {
           "id": "v5s59",
           "cat": "TS/React/Next",
-          "todo": "絞り込み条件をURLのクエリに持たせる(リロードしても残る)",
+          "todo": "絞り込み条件をURLのクエリに持たせる(URLSearchParams。リロードしても残る)",
           "h": 2.0,
           "tier": "コア",
-          "track": "Next.js",
+          "track": "React",
           "refs": [],
           "check": {
             "type": "予測",
@@ -6033,7 +6083,7 @@ export const PLAN = {
           "todo": "ここまでをVercelにデプロイして一度公開する",
           "h": 1.5,
           "tier": "コア",
-          "track": "コンバート",
+          "track": "設計・公開",
           "refs": [],
           "check": {
             "type": "再現",
@@ -6284,17 +6334,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s66",
+          "id": "v5s123",
           "cat": "TS/React/Next",
-          "todo": "Server / Client の境界を引き直す。'use client' が必要な場所を減らす",
+          "todo": "★自作アプリの型を見直す。ユーティリティ型とタグ付きユニオンで書き直せる所を直す",
           "h": 2.0,
           "tier": "コア",
-          "track": "Next.js",
+          "track": "TypeScript",
           "refs": [],
           "check": {
             "type": "説明",
-            "q": "'use client' を減らせた箇所を1つ挙げ、なぜ不要だったかを1行。",
-            "judge": "「状態もイベントも使っていなかった」に相当することが言えた"
+            "q": "直した型を1つ選び、前の書き方のままだと何が起きえたかを1行。",
+            "judge": "起きえたバグを具体的に言えた"
           }
         }
       ]
@@ -6396,7 +6446,7 @@ export const PLAN = {
           "todo": "READMEと設計判断メモを書く(何を作ったか / なぜそう作ったか)",
           "h": 1.5,
           "tier": "コア",
-          "track": "コンバート",
+          "track": "設計・公開",
           "refs": [],
           "check": {
             "type": "予測",
@@ -6421,7 +6471,7 @@ export const PLAN = {
           "todo": "★人が書いた同じ規模のコードと自分の設計を読み比べる(課題A-6)。トラッカーを作ったなら配布版を初めて開く。別の題材なら公開リポジトリを1つ選ぶ",
           "h": 2.5,
           "tier": "コア",
-          "track": "コンバート",
+          "track": "設計・公開",
           "refs": [
             "subject"
           ],
@@ -6458,7 +6508,7 @@ export const PLAN = {
           "todo": "差分を言語化して design-log.md に書く。どちらが良いかも自分で判断する",
           "h": 1.5,
           "tier": "コア",
-          "track": "コンバート",
+          "track": "設計・公開",
           "refs": [],
           "check": {
             "type": "説明",
@@ -7379,10 +7429,10 @@ export const PLAN = {
         {
           "id": "v5s102",
           "cat": "TS/React/Next",
-          "todo": "作った2本(コンバート版・自作版)を説明する資料を作る",
+          "todo": "作った2本(第1期のReactアプリ・自作版)を説明する資料を作る",
           "h": 2.5,
           "tier": "コア",
-          "track": "コンバート",
+          "track": "設計・公開",
           "refs": [],
           "check": {
             "type": "再現",
@@ -7404,14 +7454,14 @@ export const PLAN = {
         {
           "id": "v5s103",
           "cat": "TS/React/Next",
-          "todo": "技術選定の理由を書く。なぜNext.jsか、なぜその構成か",
+          "todo": "技術選定の理由を書く。なぜReact＋Viteか、なぜその構成か",
           "h": 2.0,
           "tier": "コア",
-          "track": "コンバート",
+          "track": "設計・公開",
           "refs": [],
           "check": {
             "type": "説明",
-            "q": "Next.jsを選ばなかった場合に何が困ったかを1行。",
+            "q": "Next.jsを使わずReact＋Viteで作って、困らなかったこと・困ったことを1行ずつ。",
             "judge": "具体的に言えた"
           }
         }
@@ -7557,7 +7607,7 @@ export const PLAN = {
           "todo": "★案件が決まっていれば、その技術の公式チュートリアルを写経する(ルール13)",
           "h": 2.5,
           "tier": "コア",
-          "track": "コンバート",
+          "track": "設計・公開",
           "refs": [],
           "check": {
             "type": "再現",
@@ -7602,7 +7652,7 @@ export const PLAN = {
           "todo": "★案件の技術で小さく1つ作る。未定ならこの枠も下の3本目に回す",
           "h": 2.5,
           "tier": "コア",
-          "track": "コンバート",
+          "track": "設計・公開",
           "refs": [],
           "check": {
             "type": "説明",
@@ -7771,8 +7821,8 @@ export const PLAN = {
     },
     {
       "no": "5b",
-      "title": "★React・Next.jsは「写経 → 改造 → 自作」の3段で進める",
-      "body": "JS基礎は本を読めばゼロから書けるが、ReactとNext.jsは書き方の型を知らないと1行も書けない。①写経: 公式チュートリアルを見ながらそのまま書く（AIは見ない）。②改造: 写経したものを1箇所だけ変える。壊して直す。ここで理解が入る。③自作: 何も見ずに書く。ルール5が効くのはここから。第1期が①②、フェーズA（12〜18週目）が③にあたる。"
+      "title": "★Reactは「写経 → 改造 → 自作」の3段で進める",
+      "body": "JS基礎は本を読めばゼロから書けるが、Reactは書き方の型を知らないと1行も書けない。①写経: 公式チュートリアルを見ながらそのまま書く（AIは見ない）。②改造: 写経したものを1箇所だけ変える。壊して直す。ここで理解が入る。③自作: 何も見ずに書く。ルール5が効くのはここから。第1期が①②、フェーズA（12〜18週目）が③にあたる。"
     },
     {
       "no": "6",
@@ -7781,8 +7831,8 @@ export const PLAN = {
     },
     {
       "no": "7",
-      "title": "★コンバートは「判断を説明する練習」。11/28にTSへ時間を移すか判定する",
-      "body": "当初は「React→Next.jsのコンバート案件」に入る前提で組んだ。その案件は無くなった。★それでも残すのは、価値が案件の予行演習ではなく「なぜそう判断したかを説明できること」にあるから。根拠を失ったのは残り160hのうち9hだけ（計画・移植・ログ・公開・README・言語化・想定質問）。Next.jsは2026年のReact案件の標準環境なので、1本出荷しておく価値は案件と関係なく残る。何をどう移したかより、なぜそう判断したかを convert-log.md に書き残す。★11/28（第1期の締めの土曜。10/15に11/8から移した）に判定する（手順 v5s114）。手順タブで分野＝TypeScriptに絞り、回答済みの理解度チェックの○を数える。○が半分未満 → テストの「方針・運用の整備」6.0h（v5s77 名前と粒度／v5s78 npm scripts／v5s84 何をテストしないか／v5s95 方針まとめ）を外し、TSの深い部分（ユーティリティ型 Partial/Pick/Omit/Record・ジェネリクスを定義する側・tsconfig の strict 系）に回す。○が半分以上 → 配分は正しい。何も変えず、フェーズAで作る方に全部使う。★テストの「書く」14.5h・「設計に戻す」6.5h・「CI/PR/レビュー」10.5h は、どちらの判定でも削らない。特に v5s89（自分のPRを自分でレビュー）と v5s90（AIのレビューを採否判断）は、AIの出力を確かめる力そのものなので最後まで残す。"
+      "title": "★Next.jsとコンバートは外した。TSとReactを深める。11/28にTSへさらに時間を移すか判定する",
+      "body": "当初は「React→Next.jsのコンバート案件」に入る前提で組んだ。その案件は10/8に無くなった。★10/21に本人の判断で、コンバート（5.5h）とNext.js（9.0h）を外した。TypeScriptが一番薄く、1月以降の案件も未定なので、まとまった時間をTSとReactへ回す方を選んだ。空いた14.5hは同じ週のまま、第1期の小アプリを題材にした深掘りに置き換えた（ユーティリティ型・tsconfig の strict・ジェネリクスを定義する側・タグ付きユニオン・useReducer・カスタムフック・再レンダーの観察・ジェネリックなコンポーネント・自作アプリの型の見直し）。フェーズAはReact＋TS（Vite）で作る。★Next.jsは、案件で要ると分かった時点でルール13のとおり寄せる。★11/28（第1期の締めの土曜）に判定する（手順 v5s114）。手順タブで分野＝TypeScriptに絞り、回答済みの理解度チェックの○を数える。○が半分未満 → テストの「方針・運用の整備」6.0h（v5s77 名前と粒度／v5s78 npm scripts／v5s84 何をテストしないか／v5s95 方針まとめ）を外し、TSで×・△が付いた手順のやり直しに回す（同じ題材で、見ないで書き直す）。○が半分以上 → 配分は正しい。何も変えず、フェーズAで作る方に全部使う。★テストの「書く」14.5h・「設計に戻す」6.5h・「CI/PR/レビュー」10.5h は、どちらの判定でも削らない。特に v5s89（自分のPRを自分でレビュー）と v5s90（AIのレビューを採否判断）は、AIの出力を確かめる力そのものなので最後まで残す。"
     },
     {
       "no": "8",
@@ -7792,12 +7842,12 @@ export const PLAN = {
     {
       "no": "9",
       "title": "商品データ20件は最後まで使い回す",
-      "body": "Ch11(作る)→TS-3(型を付ける)→R-1(Reactで描画)→CONV-2(Next.jsへ移す) と一貫して使う。作り直さない。"
+      "body": "Ch11(作る)→TS-3(型を付ける)→R-1(Reactで描画)→APP-1(小アプリ完成)→TS-5・R-5(型とstateを深める) と一貫して使う。作り直さない。"
     },
     {
       "no": "10",
       "title": "メモはアプリに書く。Obsidianは週末だけ",
-      "body": "平日はサマリーの「今日の記録」に1〜3行だけ書く（詰まった／分かった／明日）。週末に「この範囲をMarkdownでコピー」を押して notes/learning-log.md に貼り、そこで整える。常設のノートは learning-log.md / weak-points.md / setup.md / convert-log.md / qa.md の5つだけ。"
+      "body": "平日はサマリーの「今日の記録」に1〜3行だけ書く（詰まった／分かった／明日）。週末に「この範囲をMarkdownでコピー」を押して notes/learning-log.md に貼り、そこで整える。常設のノートは learning-log.md / weak-points.md / setup.md / qa.md の4つだけ（convert-log.md は10/21にコンバートを外したので使わない）。"
     },
     {
       "no": "11",
@@ -7941,9 +7991,18 @@ export const PLAN = {
       "name": "サバイバルTypeScript",
       "cost": "無料",
       "url": "https://typescriptbook.jp/reference/tsconfig",
-      "week": "随時",
-      "scope": "tsconfig.json の strict 系オプション",
-      "note": "全部覚えなくていい。strict が何を見ているかだけ"
+      "week": "9週目",
+      "scope": "tsconfig.json の strict 系オプション ／ noUncheckedIndexedAccess",
+      "note": "全部覚えなくていい。strict が何を見ているかだけ。★10/21から9週目の手順で使う"
+    },
+    {
+      "track": "TypeScript",
+      "name": "サバイバルTypeScript",
+      "cost": "無料",
+      "url": "https://typescriptbook.jp/reference/type-reuse/utility-types",
+      "week": "9週目",
+      "scope": "ユーティリティ型：Partial / Pick / Omit / Record の4つだけ",
+      "note": "★課題TS-5の教材。引く用。4つ以外は必要になってから"
     },
     {
       "track": "TypeScript",
@@ -8004,9 +8063,18 @@ export const PLAN = {
       "name": "React 公式ドキュメント（日本語）",
       "cost": "無料",
       "url": "https://ja.react.dev/learn/escape-hatches",
-      "week": "4週目",
+      "week": "4週目・10週目",
       "scope": "「避難ハッチ」：useEffect／依存配列／カスタムフック",
       "note": "★R-2の教材。一番ハマる箇所。Ch7のクロージャの知識が効く"
+    },
+    {
+      "track": "React",
+      "name": "React 公式ドキュメント（日本語）",
+      "cost": "無料",
+      "url": "https://ja.react.dev/learn/extracting-state-logic-into-a-reducer",
+      "week": "10週目",
+      "scope": "「state ロジックをリデューサに抽出する」",
+      "note": "★10/21追加。課題R-5の教材。useState と useReducer の比べ方が載っている"
     },
     {
       "track": "React",
@@ -8031,45 +8099,45 @@ export const PLAN = {
       "name": "Next.js Learn（公式チュートリアル）",
       "cost": "無料",
       "url": "https://nextjs.org/learn",
-      "week": "5週目",
+      "week": "外した（10/21）",
       "scope": "App Router のコース。環境構築〜ルーティング〜データ取得",
-      "note": "★7週目の主教材。英語だが手を動かす形式なので進めやすい"
+      "note": "★10/21に計画から外した。案件でNext.jsが要ると分かったとき（ルール13）に使う。英語だが手を動かす形式なので進めやすい"
     },
     {
       "track": "Next.js",
       "name": "Next.js 公式ドキュメント",
       "cost": "無料",
       "url": "https://nextjs.org/docs/app/building-your-application/routing",
-      "week": "5〜6週目",
+      "week": "外した（10/21）",
       "scope": "Routing：layout / page / 動的ルート",
-      "note": "★N-1の教材。ファイル構成の決まりを確認する"
+      "note": "★10/21に計画から外した。案件でNext.jsが要ると分かったとき（ルール13）に使う。"
     },
     {
       "track": "Next.js",
       "name": "Next.js 公式ドキュメント",
       "cost": "無料",
       "url": "https://nextjs.org/docs/app/building-your-application/rendering/server-components",
-      "week": "6週目",
+      "week": "外した（10/21）",
       "scope": "Server Components と Client Components",
-      "note": "★N-2の教材。ここが案件で一番効く。境界の判断基準を作る"
+      "note": "★10/21に計画から外した。案件でNext.jsが要ると分かったとき（ルール13）に使う。"
     },
     {
       "track": "Next.js",
       "name": "Next.js 公式ドキュメント",
       "cost": "無料",
       "url": "https://nextjs.org/docs/app/building-your-application/data-fetching",
-      "week": "6週目",
+      "week": "外した（10/21）",
       "scope": "Data Fetching とキャッシュ",
-      "note": "★N-3の教材。Ch13のfetchと何が変わるかを比べる"
+      "note": "★10/21に計画から外した。案件でNext.jsが要ると分かったとき（ルール13）に使う。"
     },
     {
       "track": "Next.js",
       "name": "Next.js 日本語訳（コミュニティ）",
       "cost": "無料",
       "url": "https://ja.next-community-docs.dev/docs/app-router/",
-      "week": "5〜6週目",
+      "week": "外した（10/21）",
       "scope": "英語で詰まったときの補助",
-      "note": "公式ではないため、最終的な確認は本家で行う"
+      "note": "★10/21に計画から外した。案件でNext.jsが要ると分かったとき（ルール13）に使う。公式ではないため、最終的な確認は本家で行う"
     },
     {
       "track": "AI駆動開発",
@@ -8216,13 +8284,13 @@ export const PLAN = {
       "note": "★課題B-3の主教材。Nodeのバージョンを固定する書き方まで見る"
     },
     {
-      "track": "テスト",
-      "name": "Next.js 公式: Testing",
+      "track": "React",
+      "name": "Vite 公式ガイド（日本語）",
       "cost": "無料",
-      "url": "https://nextjs.org/docs/app/guides/testing",
-      "week": "10週目",
-      "scope": "Vitest のセットアップの項だけ",
-      "note": "Next.js と組み合わせるときの設定。ここだけ見れば足りる"
+      "url": "https://ja.vite.dev/guide/",
+      "week": "12週目",
+      "scope": "「最初の Vite プロジェクトを生成する」の項だけ（react-ts テンプレート）",
+      "note": "★フェーズAの土台。Vitest は Vite の設定をそのまま使うので、フェーズBの導入も軽い"
     }
   ],
   "dropped": [
@@ -8237,22 +8305,17 @@ export const PLAN = {
       "why": "ReactとJSXは既定でエスケープする。import/exportは書けば身につく"
     },
     {
-      "track": "TypeScript",
-      "item": "tsconfig の strict 系 / Partial・Pick・Omit・Record",
-      "why": "業務で必要になってからで間に合う"
-    },
-    {
-      "track": "React",
-      "item": "カスタムフック / 不要な再レンダリングの改善",
-      "why": "小アプリの規模では効果が薄い"
-    },
-    {
       "track": "Next.js",
-      "item": "データ取得のキャッシュ挙動の確認",
-      "why": "バージョン差が大きく、深入りすると時間を取られる"
+      "item": "★Next.js 全部（App Router・Server/Client・データ取得・'use client' の境界）",
+      "why": "★10/21に本人の判断で外した（第1期7.0h・フェーズA2.0h）。TypeScriptとReactを深める方へ回す。フェーズAはReact＋TS（Vite）で作る。案件でNext.jsが要ると分かったら、ルール13で寄せる"
     },
     {
-      "track": "コンバート",
+      "track": "設計・公開",
+      "item": "★React→Next.jsのコンバート（移行計画・移植・convert-log・違いの言語化）",
+      "why": "★10/21に外した（5.5h）。コンバート案件が無くなり、根拠が残っていなかったため（ルール7）"
+    },
+    {
+      "track": "設計・公開",
       "item": "型整理(any潰し) / リファクタと命名の見直し",
       "why": "★v6の14週目に戻した。テストが通る状態でなら安全にできるため"
     },

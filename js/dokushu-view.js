@@ -1,7 +1,7 @@
 // 独習JSタブ（2周目・3周目の問題）。計画とは別枠なので、達成率・日次ログには数えない。
 // 問題データ（dokushu.js・約650KB）は、このタブを開いたときだけ読み込む。
-import * as store from "./storage.js?v=21";
-import { el } from "./utils.js?v=21";
+import * as store from "./storage.js?v=22";
+import { el } from "./utils.js?v=22";
 
 export const ROUNDS = [
   { key: "r2", label: "2周目（予想する）" },

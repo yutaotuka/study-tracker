@@ -1,6 +1,6 @@
 // 画面描画（DOM組み立てのみ。イベント登録は main.js 側）
-import { PLAN } from "./data.js?v=21";
-import * as store from "./storage.js?v=21";
+import { PLAN } from "./data.js?v=22";
+import * as store from "./storage.js?v=22";
 import {
   CATS,
   CAT_CLASS,
@@ -16,7 +16,7 @@ import {
   TRACK_LIST,
   TRACK_CLASS,
   wdOf,
-} from "./utils.js?v=21";
+} from "./utils.js?v=22";
 
 // ---------- 集計 ----------
 export function weekStats(weekNo) {
@@ -915,7 +915,7 @@ function trackSelect(value) {
 }
 
 // ---------- 課題 ----------
-export const TRACKS = ["JS基礎", "TypeScript", "React", "Next.js", "コンバート", "テスト", "Claude Code"];
+export const TRACKS = ["JS基礎", "TypeScript", "React", "Next.js", "設計・公開", "テスト", "Claude Code"];
 
 // 中身がある項目だけ「見出し＋リスト」を返す（空なら何も出さない）
 function section(title, items, make, cls = "") {
@@ -1440,7 +1440,7 @@ export function jsReviewSection() {
       class: "muted",
       text:
         "★全部は埋めません。埋めるのは Ch15 と Ch10 の一部だけです。" +
-        "本を最後まで読み切ることは目的ではありません。目的は、型付きのReact/Next.jsアプリを設計して作れることです。",
+        "本を最後まで読み切ることは目的ではありません。目的は、型付きのReactアプリを設計して作れることです。",
     })
   );
   wrap.appendChild(
@@ -1611,7 +1611,7 @@ export function renderRules(root) {
     ],
     [
       "教材",
-      "独習JavaScript 新版 ／ サバイバルTypeScript ／ React・Next.js 公式 ／ Vitest・Testing Library",
+      "独習JavaScript 新版 ／ サバイバルTypeScript ／ React・Vite 公式 ／ Vitest・Testing Library",
     ],
     [
       "飛ばしたJSの章",

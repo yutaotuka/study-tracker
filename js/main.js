@@ -1,9 +1,9 @@
 // 初期化・ルーティング・イベント登録
-import * as store from "./storage.js?v=22";
-import * as view from "./render.js?v=22";
-import * as sync from "./sync.js?v=22";
-import { debounce, todayIso, weekOf, periodLabel, el } from "./utils.js?v=22";
-import { PLAN } from "./data.js?v=22";
+import * as store from "./storage.js?v=23";
+import * as view from "./render.js?v=23";
+import * as sync from "./sync.js?v=23";
+import { debounce, todayIso, weekOf, periodLabel, el } from "./utils.js?v=23";
+import { PLAN } from "./data.js?v=23";
 
 const main = document.querySelector("#main");
 const nav = document.querySelector("#nav");
@@ -23,8 +23,8 @@ let dokushu = null;
 async function loadDokushu() {
   if (!dokushu) {
     const [data, dview] = await Promise.all([
-      import("./dokushu.js?v=22"),
-      import("./dokushu-view.js?v=22"),
+      import("./dokushu.js?v=23"),
+      import("./dokushu-view.js?v=23"),
     ]);
     dokushu = { data: data.DOKUSHU, view: dview };
   }

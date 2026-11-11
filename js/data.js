@@ -1,18 +1,18 @@
-// 学習計画v6（2026/9/10〜2027/5/9・全35週）の静的データ
-// 目標 381.0h ／ コア 201.5h ／ 余力 13.0h ／ バッファ 179.5h
+// 学習計画v6（2026/9/10〜2027/5/23・全37週）の静的データ
+// 目標 404.0h ／ コア 201.5h ／ 余力 13.0h ／ バッファ 202.5h
 export const PLAN = {
   "meta": {
     "version": "v6",
-    "revisedOn": "2026-10-25",
-    "period": "9/10〜5/9",
+    "revisedOn": "2026-11-11",
+    "period": "9/10〜5/23",
     "coreHours": 201.5,
     "optionalHours": 13.0,
     "totalHours": 214.5,
-    "targetHours": 381.0,
-    "bufferHours": 179.5,
-    "spareHours": 123.0,
+    "targetHours": 404.0,
+    "bufferHours": 202.5,
+    "spareHours": 149.0,
     "assignedHours": 201.5,
-    "note": "★10/25更新（v6.15）。本人の判断で、本2冊を3周する形に組み替えた。TS本（プロを目指す人のためのTypeScript入門）1周目 11/29 → React本（挫折しないReactの教科書）1周目 1/10 → 白紙から自作 2/28 → 2周目（予想問題）・3周目（白紙お題）5/2。5/3〜5/9はGWの予備。第1期の残り（React公式の手順）・11/28の判定・テスト（フェーズB）・棚卸し（フェーズC）は外した。1日の目標は平日1.5h／土日2.0h、予備日は木・日のまま。コアは週6〜7.5h。独習JSの2・3周目は別枠のまま（計画の時間に入れない）"
+    "note": "★11/11更新（v6.16）。10/27〜11/10は学習が滞ったので、TS本2.1〜2.4（v5s125）を11/11に置き、後ろを2週ずらした。締切は TS本1周目12/13 ／ React本1周目1/24 ／ 自作3/14 ／ 2・3周目5/16（予備週5/17〜5/23）。年末年始の週は空けた。★10/25（v6.15）。本人の判断で、本2冊を3周する形に組み替えた。TS本（プロを目指す人のためのTypeScript入門）1周目 11/29 → React本（挫折しないReactの教科書）1周目 1/10 → 白紙から自作 2/28 → 2周目（予想問題）・3周目（白紙お題）5/2。5/3〜5/9はGWの予備。第1期の残り（React公式の手順）・11/28の判定・テスト（フェーズB）・棚卸し（フェーズC）は外した。1日の目標は平日1.5h／土日2.0h、予備日は木・日のまま。コアは週6〜7.5h。独習JSの2・3周目は別枠のまま（計画の時間に入れない）"
   },
   "phases": [
     {
@@ -20,32 +20,32 @@ export const PLAN = {
       "name": "第1期",
       "weeks": [
         1,
-        11
+        13
       ],
       "title": "TypeScript本を1周する",
-      "deadline": "2026-11-29",
+      "deadline": "2026-12-13",
       "aim": "TS本（プロを目指す人のためのTypeScript入門）の全章を読み、力試しを先に自分で解いた状態にする",
-      "note": "★10/25に組み替えた。1〜6週目は動画（柴山コース）とTS-3・React環境まで終えた実績。7週目からTS本を1章から読む。今の案件で少しTSを使うので、TSを先に置いた",
+      "note": "★10/25に組み替えた。1〜6週目は動画（柴山コース）とTS-3・React環境まで終えた実績。7週目からTS本を1章から読む。今の案件で少しTSを使うので、TSを先に置いた。★11/11に後ろ倒し（10/27〜11/10は学習が滞った）。締切は11/29→12/13",
       "start": "2026-09-14",
-      "end": "2026-11-29",
-      "target": 126.5,
+      "end": "2026-12-13",
+      "target": 149.5,
       "core": 59.0,
       "optional": 7.0,
-      "buffer": 67.5
+      "buffer": 90.5
     },
     {
       "key": "p2",
       "name": "第2期",
       "weeks": [
-        12,
-        17
+        14,
+        19
       ],
       "title": "React本を1周する",
-      "deadline": "2027-01-10",
+      "deadline": "2027-01-24",
       "aim": "React本（挫折しないReactの教科書）の全章を読み、ToDoアプリをTSで書き直した状態にする",
-      "note": "React公式は答え合わせ用に回す。4章のToDoアプリは写経のあと本を閉じてTSで書き直す。16週目（12/28〜1/3）は年末年始で、12/28に1件だけ",
-      "start": "2026-11-30",
-      "end": "2027-01-10",
+      "note": "React公式は答え合わせ用に回す。4章のToDoアプリは写経のあと本を閉じてTSで書き直す。16週目（12/28〜1/3）は年末年始で、割り当てなし（11/11の後ろ倒しで空けた）",
+      "start": "2026-12-14",
+      "end": "2027-01-24",
       "target": 59.0,
       "core": 35.0,
       "optional": 1.0,
@@ -55,15 +55,15 @@ export const PLAN = {
       "key": "pa",
       "name": "フェーズA",
       "weeks": [
-        18,
-        24
+        20,
+        26
       ],
       "title": "白紙から自作する",
-      "deadline": "2027-02-28",
+      "deadline": "2027-03-14",
       "aim": "要件定義から自分でやったアプリを1本、公開した状態にする",
-      "note": "★一番重要。本は写経がベース、ここは白紙から。配布版は24週目の読み比べ（A-6）まで開かない。本に無い useReducer・カスタムフック・依存配列のバグ・List<T> もここでやる",
-      "start": "2027-01-11",
-      "end": "2027-02-28",
+      "note": "★一番重要。本は写経がベース、ここは白紙から。配布版は26週目の読み比べ（A-6）まで開かない。本に無い useReducer・カスタムフック・依存配列のバグ・List<T> もここでやる",
+      "start": "2027-01-25",
+      "end": "2027-03-14",
       "target": 80.5,
       "core": 48.5,
       "optional": 5.0,
@@ -73,15 +73,15 @@ export const PLAN = {
       "key": "pr",
       "name": "2・3周目",
       "weeks": [
-        25,
-        34
+        27,
+        36
       ],
       "title": "本を2周目（予想問題）・3周目（白紙お題）で回す",
-      "deadline": "2027-05-02",
+      "deadline": "2027-05-16",
       "aim": "2冊の内容を、見ないで書ける状態にする",
-      "note": "読み直しではない。2周目はコードの結果を先に書いてから実行、3周目はお題を見て本を閉じて書く（独習JSと同じ形）。34週目（5/3〜5/9）はGWの予備週で、割り当てなし",
-      "start": "2027-03-01",
-      "end": "2027-05-09",
+      "note": "読み直しではない。2周目はコードの結果を先に書いてから実行、3周目はお題を見て本を閉じて書く（独習JSと同じ形）。36週目（5/17〜5/23）は予備週で、割り当てなし。★11/11の後ろ倒しで、GW（5/3〜5/9）は通常の週になった",
+      "start": "2027-03-15",
+      "end": "2027-05-23",
       "target": 115.0,
       "core": 59.0,
       "optional": 0,
@@ -165,7 +165,7 @@ export const PLAN = {
       "end": "2026-11-01",
       "js": "―",
       "cc": "―",
-      "other": "TS本 1章・2章（基本の文法と型・FizzBuzz）・3.1〜3.2（オブジェクトの型）",
+      "other": "TS本 1章（10/26）。★10/27〜10/31は学習が滞った（11/11に後ろ倒し）",
       "phase": "p1",
       "phaseName": "第1期"
     },
@@ -175,7 +175,7 @@ export const PLAN = {
       "end": "2026-11-08",
       "js": "―",
       "cc": "―",
-      "other": "TS本 3.3〜3.8（部分型・配列・★分割代入・力試し）・4.1〜4.2（関数の型・★アロー関数）",
+      "other": "★学習が滞った週（11/11に後ろ倒し）",
       "phase": "p1",
       "phaseName": "第1期"
     },
@@ -185,7 +185,7 @@ export const PLAN = {
       "end": "2026-11-15",
       "js": "―",
       "cc": "―",
-      "other": "TS本 4.3〜4.6（ジェネリクス・力試し）・5章（クラス）",
+      "other": "★11/11（水）から再開。TS本 2章（基本の文法と型・FizzBuzz）・3.1〜3.2（オブジェクトの型）",
       "phase": "p1",
       "phaseName": "第1期"
     },
@@ -194,8 +194,8 @@ export const PLAN = {
       "start": "2026-11-16",
       "end": "2026-11-22",
       "js": "―",
-      "cc": "Cursorの使い分け（余力枠）",
-      "other": "TS本 6章（ユニオン・絞り込み・keyof・unknown・高度な型・タグ付きユニオン）",
+      "cc": "―",
+      "other": "TS本 3.3〜3.8（部分型・配列・★分割代入・力試し）・4.1〜4.2（関数の型・★アロー関数）",
       "phase": "p1",
       "phaseName": "第1期"
     },
@@ -205,7 +205,7 @@ export const PLAN = {
       "end": "2026-11-29",
       "js": "―",
       "cc": "―",
-      "other": "TS本 7章（モジュール）・8章（非同期）・9章（tsconfig）／ ★力試しを白紙で解き直す（締め 11/29）",
+      "other": "TS本 4.3〜4.6（ジェネリクス・力試し）・5章（クラス）",
       "phase": "p1",
       "phaseName": "第1期"
     },
@@ -214,10 +214,10 @@ export const PLAN = {
       "start": "2026-11-30",
       "end": "2026-12-06",
       "js": "―",
-      "cc": "―",
-      "other": "React本 1章・2章（JSの基礎）・3.1〜3.3（環境・JSX）",
-      "phase": "p2",
-      "phaseName": "第2期"
+      "cc": "Cursorの使い分け（余力枠）",
+      "other": "TS本 6章（ユニオン・絞り込み・keyof・unknown・高度な型・タグ付きユニオン）",
+      "phase": "p1",
+      "phaseName": "第1期"
     },
     {
       "no": 13,
@@ -225,9 +225,9 @@ export const PLAN = {
       "end": "2026-12-13",
       "js": "―",
       "cc": "―",
-      "other": "React本 3.4〜3.9（props・state・イベント・レンダリング・key）",
-      "phase": "p2",
-      "phaseName": "第2期"
+      "other": "TS本 7章（モジュール）・8章（非同期）・9章（tsconfig）／ ★力試しを白紙で解き直す（締め 12/13）",
+      "phase": "p1",
+      "phaseName": "第1期"
     },
     {
       "no": 14,
@@ -235,7 +235,7 @@ export const PLAN = {
       "end": "2026-12-20",
       "js": "―",
       "cc": "―",
-      "other": "React本 4章（ToDoアプリ）→ ★本を閉じてTSで書き直す ／ 5章（Context）",
+      "other": "React本 1章・2章（JSの基礎）・3.1〜3.3（環境・JSX）",
       "phase": "p2",
       "phaseName": "第2期"
     },
@@ -245,7 +245,7 @@ export const PLAN = {
       "end": "2026-12-27",
       "js": "―",
       "cc": "―",
-      "other": "React本 6.1〜6.5（メモアプリ：ルーティング・一覧・追加）",
+      "other": "React本 3.4〜3.9（props・state・イベント・レンダリング・key）",
       "phase": "p2",
       "phaseName": "第2期"
     },
@@ -255,7 +255,7 @@ export const PLAN = {
       "end": "2027-01-03",
       "js": "―",
       "cc": "―",
-      "other": "★年末年始。12/28に React本6.6 の1件だけ。あとは休む（12/29〜1/3は目標0h）",
+      "other": "★年末年始。割り当てなし（12/29〜1/3は目標0h、12/28も予備日）",
       "phase": "p2",
       "phaseName": "第2期"
     },
@@ -265,7 +265,7 @@ export const PLAN = {
       "end": "2027-01-10",
       "js": "―",
       "cc": "―",
-      "other": "React本 6.7〜6.10（編集・削除・ページネーション・検索）・7章（DevTools・最適化・TS）（締め 1/10）",
+      "other": "React本 4章（ToDoアプリ）→ ★本を閉じてTSで書き直す ／ 5章（Context）",
       "phase": "p2",
       "phaseName": "第2期"
     },
@@ -275,9 +275,9 @@ export const PLAN = {
       "end": "2027-01-17",
       "js": "―",
       "cc": "―",
-      "other": "【A①】★配布版は開かない。題材を決める(A-1) → 型を先に決める(A-7) → Vite（React＋TS）",
-      "phase": "pa",
-      "phaseName": "フェーズA"
+      "other": "React本 6.1〜6.6（メモアプリ：ルーティング・一覧・追加・通知）",
+      "phase": "p2",
+      "phaseName": "第2期"
     },
     {
       "no": 19,
@@ -285,17 +285,17 @@ export const PLAN = {
       "end": "2027-01-24",
       "js": "―",
       "cc": "―",
-      "other": "【A①】構成とGit ／【A②】一覧表示 ／ 絞り込みUI",
-      "phase": "pa",
-      "phaseName": "フェーズA"
+      "other": "React本 6.7〜6.10（編集・削除・ページネーション・検索）・7章（DevTools・最適化・TS）（締め 1/24）",
+      "phase": "p2",
+      "phaseName": "第2期"
     },
     {
       "no": 20,
       "start": "2027-01-25",
       "end": "2027-01-31",
-      "js": "★Ch10を回収：正規表現 ／ Date",
+      "js": "―",
       "cc": "―",
-      "other": "【A②】★キーワード検索(A-2) ／【A③】日付での絞り込みと並べ替え(A-3) ／ 一度公開する",
+      "other": "【A①】★配布版は開かない。題材を決める(A-1) → 型を先に決める(A-7) → Vite（React＋TS）",
       "phase": "pa",
       "phaseName": "フェーズA"
     },
@@ -303,9 +303,9 @@ export const PLAN = {
       "no": 21,
       "start": "2027-02-01",
       "end": "2027-02-07",
-      "js": "★Ch15を回収：preventDefault とイベント伝播",
+      "js": "―",
       "cc": "―",
-      "other": "【A③】URLクエリ ／ フォーム追加(A-4) ／【A④】モーダル(A-5)",
+      "other": "【A①】構成とGit ／【A②】一覧表示 ／ 絞り込みUI",
       "phase": "pa",
       "phaseName": "フェーズA"
     },
@@ -313,9 +313,9 @@ export const PLAN = {
       "no": 22,
       "start": "2027-02-08",
       "end": "2027-02-14",
-      "js": "―",
+      "js": "★Ch10を回収：正規表現 ／ Date",
       "cc": "―",
-      "other": "【A④】Escキーとクリーンアップ ／ localStorage ／ ★依存配列のバグ(R-2) ／ 集計",
+      "other": "【A②】★キーワード検索(A-2) ／【A③】日付での絞り込みと並べ替え(A-3) ／ 一度公開する",
       "phase": "pa",
       "phaseName": "フェーズA"
     },
@@ -323,9 +323,9 @@ export const PLAN = {
       "no": 23,
       "start": "2027-02-15",
       "end": "2027-02-21",
-      "js": "―",
+      "js": "★Ch15を回収：preventDefault とイベント伝播",
       "cc": "―",
-      "other": "【A⑤】★useReducer(R-5) ／ カスタムフック ／ List<T> ／ 可視化",
+      "other": "【A③】URLクエリ ／ フォーム追加(A-4) ／【A④】モーダル(A-5)",
       "phase": "pa",
       "phaseName": "フェーズA"
     },
@@ -335,7 +335,7 @@ export const PLAN = {
       "end": "2027-02-28",
       "js": "―",
       "cc": "―",
-      "other": "【A⑤】★型の見直し ／ README ／ ★配布版を初めて開いて読み比べる(A-6) ／ 差分の言語化（締め 2/28）",
+      "other": "【A④】Escキーとクリーンアップ ／ localStorage ／ ★依存配列のバグ(R-2) ／ 集計",
       "phase": "pa",
       "phaseName": "フェーズA"
     },
@@ -345,9 +345,9 @@ export const PLAN = {
       "end": "2027-03-07",
       "js": "―",
       "cc": "―",
-      "other": "TS本2周目（予想問題）1〜4章",
-      "phase": "pr",
-      "phaseName": "2・3周目"
+      "other": "【A⑤】★useReducer(R-5) ／ カスタムフック ／ List<T> ／ 可視化",
+      "phase": "pa",
+      "phaseName": "フェーズA"
     },
     {
       "no": 26,
@@ -355,9 +355,9 @@ export const PLAN = {
       "end": "2027-03-14",
       "js": "―",
       "cc": "―",
-      "other": "TS本2周目 5〜6章",
-      "phase": "pr",
-      "phaseName": "2・3周目"
+      "other": "【A⑤】★型の見直し ／ README ／ ★配布版を初めて開いて読み比べる(A-6) ／ 差分の言語化（締め 3/14）",
+      "phase": "pa",
+      "phaseName": "フェーズA"
     },
     {
       "no": 27,
@@ -365,7 +365,7 @@ export const PLAN = {
       "end": "2027-03-21",
       "js": "―",
       "cc": "―",
-      "other": "TS本2周目 7〜9章 ／ React本2周目 1〜3.5",
+      "other": "TS本2周目（予想問題）1〜4章",
       "phase": "pr",
       "phaseName": "2・3周目"
     },
@@ -375,7 +375,7 @@ export const PLAN = {
       "end": "2027-03-28",
       "js": "―",
       "cc": "―",
-      "other": "React本2周目 3.6〜5章",
+      "other": "TS本2周目 5〜6章",
       "phase": "pr",
       "phaseName": "2・3周目"
     },
@@ -385,7 +385,7 @@ export const PLAN = {
       "end": "2027-04-04",
       "js": "―",
       "cc": "―",
-      "other": "React本2周目 6〜7章",
+      "other": "TS本2周目 7〜9章 ／ React本2周目 1〜3.5",
       "phase": "pr",
       "phaseName": "2・3周目"
     },
@@ -395,7 +395,7 @@ export const PLAN = {
       "end": "2027-04-11",
       "js": "―",
       "cc": "―",
-      "other": "TS本3周目（白紙お題）2〜5章",
+      "other": "React本2周目 3.6〜5章",
       "phase": "pr",
       "phaseName": "2・3周目"
     },
@@ -405,7 +405,7 @@ export const PLAN = {
       "end": "2027-04-18",
       "js": "―",
       "cc": "―",
-      "other": "TS本3周目 6〜9章 ／ 力試しを全部白紙で",
+      "other": "React本2周目 6〜7章",
       "phase": "pr",
       "phaseName": "2・3周目"
     },
@@ -415,7 +415,7 @@ export const PLAN = {
       "end": "2027-04-25",
       "js": "―",
       "cc": "―",
-      "other": "React本3周目 2〜5章 ／ ★ToDoアプリを白紙からTSで",
+      "other": "TS本3周目（白紙お題）2〜5章",
       "phase": "pr",
       "phaseName": "2・3周目"
     },
@@ -425,7 +425,7 @@ export const PLAN = {
       "end": "2027-05-02",
       "js": "―",
       "cc": "―",
-      "other": "React本3周目 6〜7章 ／ ★全体の締め・次の計画（5/2）",
+      "other": "TS本3周目 6〜9章 ／ 力試しを全部白紙で",
       "phase": "pr",
       "phaseName": "2・3周目"
     },
@@ -435,7 +435,27 @@ export const PLAN = {
       "end": "2027-05-09",
       "js": "―",
       "cc": "―",
-      "other": "★GWの予備週（5/3〜5/9）。割り当てなし。遅れていなければ休む",
+      "other": "React本3周目 2〜5章 ／ ★ToDoアプリを白紙からTSで（GWの週）",
+      "phase": "pr",
+      "phaseName": "2・3周目"
+    },
+    {
+      "no": 35,
+      "start": "2027-05-10",
+      "end": "2027-05-16",
+      "js": "―",
+      "cc": "―",
+      "other": "React本3周目 6〜7章 ／ ★全体の締め・次の計画（5/16）",
+      "phase": "pr",
+      "phaseName": "2・3周目"
+    },
+    {
+      "no": 36,
+      "start": "2027-05-17",
+      "end": "2027-05-23",
+      "js": "―",
+      "cc": "―",
+      "other": "★予備週（5/17〜5/23）。割り当てなし。遅れていなければ休む",
       "phase": "pr",
       "phaseName": "2・3周目"
     }
@@ -731,7 +751,7 @@ export const PLAN = {
     },
     {
       "id": "v5s24",
-      "week": 13,
+      "week": 15,
       "cat": "振り返り",
       "no": 1,
       "todo": "ReactとJSの対応関係を整理する(どこがJSの知識で説明できるか)",
@@ -759,7 +779,7 @@ export const PLAN = {
     },
     {
       "id": "v5s27",
-      "week": 22,
+      "week": 24,
       "cat": "TS/React/Next",
       "no": 1,
       "todo": "★依存配列を空にして古い値を掴むバグを再現し、直す(課題R-2)",
@@ -777,7 +797,7 @@ export const PLAN = {
     },
     {
       "id": "v5s34",
-      "week": 10,
+      "week": 12,
       "cat": "Claude Code",
       "no": 1,
       "todo": "Cursorをインストールし、Claude Codeとの使い分けを決める(課題CC-6)",
@@ -791,7 +811,7 @@ export const PLAN = {
     },
     {
       "id": "v5s35",
-      "week": 9,
+      "week": 11,
       "cat": "振り返り",
       "no": 1,
       "todo": "週の振り返りと日次ログ",
@@ -805,9 +825,9 @@ export const PLAN = {
     },
     {
       "id": "v5s47",
-      "week": 11,
+      "week": 13,
       "cat": "振り返り",
-      "no": 2,
+      "no": 1,
       "todo": "5週間を1枚に総括し、スキルシートに書ける形にする",
       "out": "総括メモ",
       "h": 1.0,
@@ -819,9 +839,9 @@ export const PLAN = {
     },
     {
       "id": "v5s48",
-      "week": 11,
+      "week": 13,
       "cat": "振り返り",
-      "no": 3,
+      "no": 2,
       "todo": "最終の日次ログ記入と達成率の確認",
       "out": "全期間の記録",
       "h": 0.5,
@@ -833,7 +853,7 @@ export const PLAN = {
     },
     {
       "id": "v5s49",
-      "week": 18,
+      "week": 20,
       "cat": "TS/React/Next",
       "no": 1,
       "todo": "★ここで題材を決める。配布版は開かない。作りたいものを箇条書きで書き出す(課題A-1)",
@@ -853,7 +873,7 @@ export const PLAN = {
     },
     {
       "id": "v5s50",
-      "week": 18,
+      "week": 20,
       "cat": "TS/React/Next",
       "no": 2,
       "todo": "画面とデータを設計する。★型を先に決めて types.ts に書く",
@@ -871,7 +891,7 @@ export const PLAN = {
     },
     {
       "id": "v5s51",
-      "week": 18,
+      "week": 20,
       "cat": "TS/React/Next",
       "no": 3,
       "todo": "Vite でプロジェクトを作る(React + TypeScript)",
@@ -889,7 +909,7 @@ export const PLAN = {
     },
     {
       "id": "v5s52",
-      "week": 19,
+      "week": 21,
       "cat": "TS/React/Next",
       "no": 1,
       "todo": "ディレクトリ構成を自分で決めて、理由を design-log.md に書く",
@@ -907,7 +927,7 @@ export const PLAN = {
     },
     {
       "id": "v5s53",
-      "week": 19,
+      "week": 21,
       "cat": "TS/React/Next",
       "no": 2,
       "todo": "GitHubにリポジトリを作り、最初のコミットとpushをする",
@@ -925,7 +945,7 @@ export const PLAN = {
     },
     {
       "id": "v5s54",
-      "week": 19,
+      "week": 21,
       "cat": "TS/React/Next",
       "no": 3,
       "todo": "一覧表示を作る。ダミーデータを型付きで描画する",
@@ -943,7 +963,7 @@ export const PLAN = {
     },
     {
       "id": "v5s55",
-      "week": 18,
+      "week": 20,
       "cat": "振り返り",
       "no": 1,
       "todo": "第1期(9/14〜10/18)の総括と、フェーズAの週の進め方を決める",
@@ -957,7 +977,7 @@ export const PLAN = {
     },
     {
       "id": "v5s56",
-      "week": 19,
+      "week": 21,
       "cat": "TS/React/Next",
       "no": 4,
       "todo": "絞り込みUIを作る。状態をどこに持つかは自分で決める",
@@ -975,7 +995,7 @@ export const PLAN = {
     },
     {
       "id": "v5s57",
-      "week": 20,
+      "week": 22,
       "cat": "TS/React/Next",
       "no": 1,
       "todo": "★キーワード検索。部分一致・大文字小文字を無視する(課題A-2)",
@@ -995,7 +1015,7 @@ export const PLAN = {
     },
     {
       "id": "v5s58",
-      "week": 20,
+      "week": 22,
       "cat": "TS/React/Next",
       "no": 2,
       "todo": "★日付での絞り込みと並べ替えを作る(課題A-3)",
@@ -1015,7 +1035,7 @@ export const PLAN = {
     },
     {
       "id": "v5s59",
-      "week": 21,
+      "week": 23,
       "cat": "TS/React/Next",
       "no": 1,
       "todo": "絞り込み条件をURLのクエリに持たせる(URLSearchParams。リロードしても残る)",
@@ -1033,7 +1053,7 @@ export const PLAN = {
     },
     {
       "id": "v5s60",
-      "week": 20,
+      "week": 22,
       "cat": "TS/React/Next",
       "no": 3,
       "todo": "ここまでをVercelにデプロイして一度公開する",
@@ -1051,7 +1071,7 @@ export const PLAN = {
     },
     {
       "id": "v5s61",
-      "week": 20,
+      "week": 22,
       "cat": "振り返り",
       "no": 1,
       "todo": "週の振り返り。詰まった箇所を weak-points.md に1件だけ書く",
@@ -1065,7 +1085,7 @@ export const PLAN = {
     },
     {
       "id": "v5s62",
-      "week": 21,
+      "week": 23,
       "cat": "TS/React/Next",
       "no": 2,
       "todo": "★フォームで記録を追加する。送信でページが再読み込みされる問題を直す(課題A-4)",
@@ -1085,7 +1105,7 @@ export const PLAN = {
     },
     {
       "id": "v5s63",
-      "week": 21,
+      "week": 23,
       "cat": "TS/React/Next",
       "no": 3,
       "todo": "★モーダルを作る。外側をクリックしたら閉じるようにする(課題A-5)",
@@ -1105,7 +1125,7 @@ export const PLAN = {
     },
     {
       "id": "v5s64",
-      "week": 22,
+      "week": 24,
       "cat": "TS/React/Next",
       "no": 2,
       "todo": "Escキーでも閉じられるようにする。後片付け(クリーンアップ)まで書く",
@@ -1125,7 +1145,7 @@ export const PLAN = {
     },
     {
       "id": "v5s65",
-      "week": 22,
+      "week": 24,
       "cat": "TS/React/Next",
       "no": 3,
       "todo": "localStorageに保存して復元する。壊れたデータが入っていても落ちないようにする",
@@ -1143,7 +1163,7 @@ export const PLAN = {
     },
     {
       "id": "v5s67",
-      "week": 22,
+      "week": 24,
       "cat": "振り返り",
       "no": 1,
       "todo": "キーボード操作とフォーカスの扱いを見直す(余力)",
@@ -1157,7 +1177,7 @@ export const PLAN = {
     },
     {
       "id": "v5s68",
-      "week": 22,
+      "week": 24,
       "cat": "TS/React/Next",
       "no": 4,
       "todo": "集計を作る。件数・合計・割合のどれかを出す（トラッカーなら週別の合計と達成率）",
@@ -1177,7 +1197,7 @@ export const PLAN = {
     },
     {
       "id": "v5s69",
-      "week": 23,
+      "week": 25,
       "cat": "TS/React/Next",
       "no": 1,
       "todo": "進捗バーかグラフで見えるようにする",
@@ -1195,7 +1215,7 @@ export const PLAN = {
     },
     {
       "id": "v5s70",
-      "week": 24,
+      "week": 26,
       "cat": "TS/React/Next",
       "no": 1,
       "todo": "READMEと設計判断メモを書く(何を作ったか / なぜそう作ったか)",
@@ -1213,7 +1233,7 @@ export const PLAN = {
     },
     {
       "id": "v5s71",
-      "week": 24,
+      "week": 26,
       "cat": "TS/React/Next",
       "no": 2,
       "todo": "★人が書いた同じ規模のコードと自分の設計を読み比べる(課題A-6)。トラッカーを作ったなら配布版を初めて開く。別の題材なら公開リポジトリを1つ選ぶ",
@@ -1233,7 +1253,7 @@ export const PLAN = {
     },
     {
       "id": "v5s72",
-      "week": 24,
+      "week": 26,
       "cat": "TS/React/Next",
       "no": 3,
       "todo": "差分を言語化して design-log.md に書く。どちらが良いかも自分で判断する",
@@ -1251,7 +1271,7 @@ export const PLAN = {
     },
     {
       "id": "v5s73",
-      "week": 24,
+      "week": 26,
       "cat": "振り返り",
       "no": 1,
       "todo": "フェーズAの総括。スキルシートに書ける形にする",
@@ -1285,9 +1305,9 @@ export const PLAN = {
     },
     {
       "id": "v5s119",
-      "week": 23,
+      "week": 25,
       "cat": "TS/React/Next",
-      "no": 5,
+      "no": 2,
       "todo": "★useReducer に書き換える。自作アプリの追加・削除・絞り込みの更新を reducer 1か所に集める(課題R-5)",
       "out": "reducer と Action の型",
       "h": 2.0,
@@ -1303,9 +1323,9 @@ export const PLAN = {
     },
     {
       "id": "v5s120",
-      "week": 23,
+      "week": 25,
       "cat": "TS/React/Next",
-      "no": 6,
+      "no": 3,
       "todo": "カスタムフックに切り出す(useLocalStorage など)。戻り値に型を付ける",
       "out": "型付きのカスタムフック",
       "h": 1.5,
@@ -1321,9 +1341,9 @@ export const PLAN = {
     },
     {
       "id": "v5s122",
-      "week": 23,
+      "week": 25,
       "cat": "TS/React/Next",
-      "no": 7,
+      "no": 4,
       "todo": "ジェネリックなコンポーネントを書く。List<T> で自作アプリの別の一覧も描けるようにする",
       "out": "List<T> が動く",
       "h": 1.0,
@@ -1339,9 +1359,9 @@ export const PLAN = {
     },
     {
       "id": "v5s123",
-      "week": 24,
+      "week": 26,
       "cat": "TS/React/Next",
-      "no": 7,
+      "no": 6,
       "todo": "★自作アプリの型を見直す。ユーティリティ型とタグ付きユニオンで書き直せる所を直す",
       "out": "直した箇所と理由",
       "h": 2.0,
@@ -1375,9 +1395,9 @@ export const PLAN = {
     },
     {
       "id": "v5s125",
-      "week": 7,
+      "week": 9,
       "cat": "TS/React/Next",
-      "no": 6,
+      "no": 7,
       "todo": "TS本 2.1〜2.4：文と式・変数・プリミティブ型・演算子",
       "out": "例のコードを打って結果を予想",
       "h": 2.0,
@@ -1393,9 +1413,9 @@ export const PLAN = {
     },
     {
       "id": "v5s126",
-      "week": 7,
+      "week": 9,
       "cat": "TS/React/Next",
-      "no": 7,
+      "no": 8,
       "todo": "TS本 2.5〜2.6：制御構文。★力試しのFizzBuzzは解説を読む前に自分で解く",
       "out": "FizzBuzz（自分で書いたもの）",
       "h": 2.0,
@@ -1411,9 +1431,9 @@ export const PLAN = {
     },
     {
       "id": "v5s127",
-      "week": 7,
+      "week": 9,
       "cat": "TS/React/Next",
-      "no": 8,
+      "no": 9,
       "todo": "TS本 3.1〜3.2：オブジェクトとオブジェクトの型（type / interface / インデックスシグネチャ / readonly / typeof）",
       "out": "data.ts の型と見比べたメモ",
       "h": 1.5,
@@ -1429,9 +1449,9 @@ export const PLAN = {
     },
     {
       "id": "v5s128",
-      "week": 8,
+      "week": 10,
       "cat": "TS/React/Next",
-      "no": 5,
+      "no": 8,
       "todo": "TS本 3.3〜3.4：部分型関係・型引数を持つ型",
       "out": "部分型を自分の例で1つ書く",
       "h": 2.0,
@@ -1447,9 +1467,9 @@ export const PLAN = {
     },
     {
       "id": "v5s129",
-      "week": 8,
+      "week": 10,
       "cat": "TS/React/Next",
-      "no": 6,
+      "no": 9,
       "todo": "TS本 3.5〜3.7：配列・タプル・分割代入・組み込みオブジェクト ★3.1.5のスプレッドと分割代入は10/16の抜け",
       "out": "{...obj, name} が書ける",
       "h": 2.0,
@@ -1468,9 +1488,9 @@ export const PLAN = {
     },
     {
       "id": "v5s130",
-      "week": 8,
+      "week": 10,
       "cat": "TS/React/Next",
-      "no": 7,
+      "no": 10,
       "todo": "TS本 3.8：力試し「データ処理」。★解説の前に自分で解く",
       "out": "自分の解答と解説の差分メモ",
       "h": 1.0,
@@ -1486,9 +1506,9 @@ export const PLAN = {
     },
     {
       "id": "v5s131",
-      "week": 8,
+      "week": 10,
       "cat": "TS/React/Next",
-      "no": 8,
+      "no": 11,
       "todo": "TS本 4.1〜4.2：関数の作り方・関数の型 ★アロー関数の省略形と暗黙のreturn",
       "out": "{} の有無で戻り値が変わる例を書ける",
       "h": 2.0,
@@ -1504,7 +1524,7 @@ export const PLAN = {
     },
     {
       "id": "v5s132",
-      "week": 9,
+      "week": 11,
       "cat": "TS/React/Next",
       "no": 7,
       "todo": "TS本 4.3〜4.5：関数型の部分型関係・ジェネリクス・スコープ",
@@ -1522,7 +1542,7 @@ export const PLAN = {
     },
     {
       "id": "v5s133",
-      "week": 9,
+      "week": 11,
       "cat": "TS/React/Next",
       "no": 8,
       "todo": "TS本 4.6：力試し（簡単な関数・コールバック関数）。★解説の前に自分で解く",
@@ -1540,7 +1560,7 @@ export const PLAN = {
     },
     {
       "id": "v5s134",
-      "week": 9,
+      "week": 11,
       "cat": "TS/React/Next",
       "no": 9,
       "todo": "TS本 5.1〜5.3：クラスの宣言・クラスの型・継承",
@@ -1560,7 +1580,7 @@ export const PLAN = {
     },
     {
       "id": "v5s135",
-      "week": 9,
+      "week": 11,
       "cat": "TS/React/Next",
       "no": 10,
       "todo": "TS本 5.4〜5.6：this・例外処理・力試し（クラス⇄関数の書き換え）",
@@ -1578,9 +1598,9 @@ export const PLAN = {
     },
     {
       "id": "v5s136",
-      "week": 10,
+      "week": 12,
       "cat": "TS/React/Next",
-      "no": 8,
+      "no": 1,
       "todo": "TS本 6.1〜6.2：ユニオン型・インターセクション型・リテラル型・widening",
       "out": "widening を予想してホバーで確認",
       "h": 2.0,
@@ -1596,9 +1616,9 @@ export const PLAN = {
     },
     {
       "id": "v5s137",
-      "week": 10,
+      "week": 12,
       "cat": "TS/React/Next",
-      "no": 9,
+      "no": 2,
       "todo": "TS本 6.3〜6.4：型の絞り込み・keyof・lookup型 ★案件のTSで出たら書き足す",
       "out": "絞り込みと keyof の例",
       "h": 2.0,
@@ -1614,9 +1634,9 @@ export const PLAN = {
     },
     {
       "id": "v5s138",
-      "week": 10,
+      "week": 12,
       "cat": "TS/React/Next",
-      "no": 10,
+      "no": 3,
       "todo": "TS本 6.5〜6.7：as・any と unknown・さらに高度な型（never・型述語・mapped・conditional・組み込みの型）",
       "out": "Partial / Pick を自分の型で試す",
       "h": 2.0,
@@ -1632,9 +1652,9 @@ export const PLAN = {
     },
     {
       "id": "v5s139",
-      "week": 10,
+      "week": 12,
       "cat": "TS/React/Next",
-      "no": 11,
+      "no": 4,
       "todo": "TS本 6.8：力試し「タグ付きユニオン」(1)〜(3)。★解説の前に自分で解く",
       "out": "自分の解答",
       "h": 1.0,
@@ -1650,9 +1670,9 @@ export const PLAN = {
     },
     {
       "id": "v5s140",
-      "week": 11,
+      "week": 13,
       "cat": "TS/React/Next",
-      "no": 7,
+      "no": 1,
       "todo": "TS本 7章：モジュール（import / export・default・型のimport・npm・@types）★10/16の抜け（CJS/ESMの書き分け）",
       "out": "import の書き分けを説明できる",
       "h": 2.0,
@@ -1670,9 +1690,9 @@ export const PLAN = {
     },
     {
       "id": "v5s141",
-      "week": 11,
+      "week": 13,
       "cat": "TS/React/Next",
-      "no": 8,
+      "no": 2,
       "todo": "TS本 8.1〜8.3：非同期処理・コールバック・Promise",
       "out": "Promise チェーンの順番を予想",
       "h": 2.0,
@@ -1688,9 +1708,9 @@ export const PLAN = {
     },
     {
       "id": "v5s142",
-      "week": 11,
+      "week": 13,
       "cat": "TS/React/Next",
-      "no": 9,
+      "no": 3,
       "todo": "TS本 8.4〜8.5：async/await・力試し（fs/promises・タイムアウト）",
       "out": "自分の解答",
       "h": 1.5,
@@ -1706,9 +1726,9 @@ export const PLAN = {
     },
     {
       "id": "v5s143",
-      "week": 11,
+      "week": 13,
       "cat": "TS/React/Next",
-      "no": 10,
+      "no": 4,
       "todo": "TS本 9章：tsconfig（strict・strictNullChecks・noUncheckedIndexedAccess）。data.ts で有効にして出たエラーを直す",
       "out": "直したエラーの記録",
       "h": 1.5,
@@ -1724,10 +1744,10 @@ export const PLAN = {
     },
     {
       "id": "v5s144",
-      "week": 11,
+      "week": 13,
       "cat": "振り返り",
-      "no": 5,
-      "todo": "★TS本1周目の締め（11/29の区切り）：各章の力試しを1つずつ白紙でもう一度解く",
+      "no": 3,
+      "todo": "★TS本1周目の締め（12/13の区切り）：各章の力試しを1つずつ白紙でもう一度解く",
       "out": "解けた／解けなかった章の一覧",
       "h": 1.0,
       "tier": "コア",
@@ -1742,7 +1762,7 @@ export const PLAN = {
     },
     {
       "id": "v5s145",
-      "week": 12,
+      "week": 14,
       "cat": "TS/React/Next",
       "no": 1,
       "todo": "React本 1章・2.1〜2.3：Reactとは・変数と定数・条件分岐とよく使う省略記法",
@@ -1760,7 +1780,7 @@ export const PLAN = {
     },
     {
       "id": "v5s146",
-      "week": 12,
+      "week": 14,
       "cat": "TS/React/Next",
       "no": 2,
       "todo": "React本 2.4〜2.5：配列とオブジェクトの便利な記法・関数 ★スプレッド・アロー関数・filter/map",
@@ -1780,7 +1800,7 @@ export const PLAN = {
     },
     {
       "id": "v5s147",
-      "week": 12,
+      "week": 14,
       "cat": "TS/React/Next",
       "no": 3,
       "todo": "React本 2.6〜2.7：繰り返し処理・非同期処理（Promise / async / await）",
@@ -1798,7 +1818,7 @@ export const PLAN = {
     },
     {
       "id": "v5s148",
-      "week": 12,
+      "week": 14,
       "cat": "TS/React/Next",
       "no": 4,
       "todo": "React本 3.1〜3.3：開発環境・はじめてのReactアプリ・JSXの基本文法 ★クイックスタートの写経と見比べる",
@@ -1816,7 +1836,7 @@ export const PLAN = {
     },
     {
       "id": "v5s149",
-      "week": 13,
+      "week": 15,
       "cat": "TS/React/Next",
       "no": 1,
       "todo": "React本 3.4〜3.5：JSXの実践的な使い方・コンポーネントとprops ★propsにTSの型を付けてみる",
@@ -1834,7 +1854,7 @@ export const PLAN = {
     },
     {
       "id": "v5s150",
-      "week": 13,
+      "week": 15,
       "cat": "TS/React/Next",
       "no": 2,
       "todo": "React本 3.6〜3.7：state（状態管理）・イベント処理",
@@ -1854,7 +1874,7 @@ export const PLAN = {
     },
     {
       "id": "v5s151",
-      "week": 13,
+      "week": 15,
       "cat": "TS/React/Next",
       "no": 3,
       "todo": "React本 3.8〜3.9：レンダリング・リストとキー ★商品データ20件で一覧を出す",
@@ -1872,7 +1892,7 @@ export const PLAN = {
     },
     {
       "id": "v5s152",
-      "week": 14,
+      "week": 17,
       "cat": "TS/React/Next",
       "no": 1,
       "todo": "React本 4.1〜4.3：ToDoアプリ（一覧の表示・追加）",
@@ -1890,7 +1910,7 @@ export const PLAN = {
     },
     {
       "id": "v5s153",
-      "week": 14,
+      "week": 17,
       "cat": "TS/React/Next",
       "no": 2,
       "todo": "React本 4.4〜4.6：ToDoアプリ（完了・削除・状態での絞り込み）",
@@ -1908,7 +1928,7 @@ export const PLAN = {
     },
     {
       "id": "v5s154",
-      "week": 14,
+      "week": 17,
       "cat": "TS/React/Next",
       "no": 3,
       "todo": "★ToDoアプリを本を閉じてTSで書き直す（写経で終わらせない・ルール5b）",
@@ -1926,7 +1946,7 @@ export const PLAN = {
     },
     {
       "id": "v5s155",
-      "week": 14,
+      "week": 17,
       "cat": "TS/React/Next",
       "no": 4,
       "todo": "React本 5章：グローバルステートとContext API",
@@ -1944,7 +1964,7 @@ export const PLAN = {
     },
     {
       "id": "v5s156",
-      "week": 15,
+      "week": 18,
       "cat": "TS/React/Next",
       "no": 1,
       "todo": "React本 6.1〜6.3：メモアプリ（全体像・ルーティング・バックエンドのセットアップ）",
@@ -1962,7 +1982,7 @@ export const PLAN = {
     },
     {
       "id": "v5s157",
-      "week": 15,
+      "week": 18,
       "cat": "TS/React/Next",
       "no": 2,
       "todo": "React本 6.4：メモの一覧を表示する（useEffect とデータ取得）",
@@ -1980,7 +2000,7 @@ export const PLAN = {
     },
     {
       "id": "v5s158",
-      "week": 15,
+      "week": 18,
       "cat": "TS/React/Next",
       "no": 3,
       "todo": "React本 6.5：新しいメモを追加する（フォーム）",
@@ -1998,10 +2018,10 @@ export const PLAN = {
     },
     {
       "id": "v5s159",
-      "week": 16,
+      "week": 18,
       "cat": "TS/React/Next",
-      "no": 1,
-      "todo": "React本 6.6：通知メッセージ。★12/28に1件だけ。あとは休む(12/29〜1/3)",
+      "no": 4,
+      "todo": "React本 6.6：通知メッセージ（★11/11の後ろ倒しで、年末年始の12/28から外した）",
       "out": "通知が出る",
       "h": 1.5,
       "tier": "コア",
@@ -2016,9 +2036,9 @@ export const PLAN = {
     },
     {
       "id": "v5s160",
-      "week": 17,
+      "week": 19,
       "cat": "TS/React/Next",
-      "no": 1,
+      "no": 4,
       "todo": "React本 6.7〜6.8：メモの編集・削除",
       "out": "編集と削除が動く",
       "h": 2.0,
@@ -2034,9 +2054,9 @@ export const PLAN = {
     },
     {
       "id": "v5s161",
-      "week": 17,
+      "week": 19,
       "cat": "TS/React/Next",
-      "no": 2,
+      "no": 5,
       "todo": "React本 6.9〜6.10：ページネーション・検索",
       "out": "ページ送りと検索が動く",
       "h": 2.0,
@@ -2052,9 +2072,9 @@ export const PLAN = {
     },
     {
       "id": "v5s162",
-      "week": 17,
+      "week": 19,
       "cat": "TS/React/Next",
-      "no": 3,
+      "no": 6,
       "todo": "React本 7.1〜7.2：DevToolsでデバッグ・パフォーマンス最適化 ★どの操作でどこが再レンダーされるか観察する",
       "out": "観察メモ（memo が要る所／要らない所）",
       "h": 2.0,
@@ -2070,10 +2090,10 @@ export const PLAN = {
     },
     {
       "id": "v5s163",
-      "week": 17,
+      "week": 19,
       "cat": "TS/React/Next",
-      "no": 4,
-      "todo": "React本 7.3：TypeScriptでReact ＋ 1周目の締め（1/10）：メモアプリの要所を1つ選んでTSで書き直す",
+      "no": 7,
+      "todo": "React本 7.3：TypeScriptでReact ＋ 1周目の締め（1/24）：メモアプリの要所を1つ選んでTSで書き直す",
       "out": "TSで書き直したコンポーネント",
       "h": 1.5,
       "tier": "コア",
@@ -2088,9 +2108,9 @@ export const PLAN = {
     },
     {
       "id": "v5s164",
-      "week": 25,
+      "week": 27,
       "cat": "TS/React/Next",
-      "no": 1,
+      "no": 3,
       "todo": "TS本2周目 1〜2章：予想問題を解く（結果を先に書いてから実行）",
       "out": "○△×と、外れた理由",
       "h": 2.0,
@@ -2106,9 +2126,9 @@ export const PLAN = {
     },
     {
       "id": "v5s165",
-      "week": 25,
+      "week": 27,
       "cat": "TS/React/Next",
-      "no": 2,
+      "no": 4,
       "todo": "TS本2周目 3章：予想問題（オブジェクト・部分型・配列・分割代入）",
       "out": "○△×と、外れた理由",
       "h": 2.5,
@@ -2124,9 +2144,9 @@ export const PLAN = {
     },
     {
       "id": "v5s166",
-      "week": 25,
+      "week": 27,
       "cat": "TS/React/Next",
-      "no": 3,
+      "no": 5,
       "todo": "TS本2周目 4章：予想問題（関数の型・ジェネリクス）",
       "out": "○△×と、外れた理由",
       "h": 2.5,
@@ -2142,7 +2162,7 @@ export const PLAN = {
     },
     {
       "id": "v5s167",
-      "week": 26,
+      "week": 28,
       "cat": "TS/React/Next",
       "no": 3,
       "todo": "TS本2周目 5章：予想問題（クラス・this・例外）",
@@ -2160,7 +2180,7 @@ export const PLAN = {
     },
     {
       "id": "v5s168",
-      "week": 26,
+      "week": 28,
       "cat": "TS/React/Next",
       "no": 4,
       "todo": "TS本2周目 6.1〜6.4：予想問題（ユニオン・リテラル・絞り込み・keyof）",
@@ -2178,7 +2198,7 @@ export const PLAN = {
     },
     {
       "id": "v5s169",
-      "week": 26,
+      "week": 28,
       "cat": "TS/React/Next",
       "no": 5,
       "todo": "TS本2周目 6.5〜6.8：予想問題（as・unknown・高度な型・タグ付きユニオン）",
@@ -2196,9 +2216,9 @@ export const PLAN = {
     },
     {
       "id": "v5s170",
-      "week": 27,
+      "week": 29,
       "cat": "TS/React/Next",
-      "no": 3,
+      "no": 1,
       "todo": "TS本2周目 7〜8章：予想問題（モジュール・非同期の実行順）",
       "out": "○△×と、外れた理由",
       "h": 2.5,
@@ -2214,9 +2234,9 @@ export const PLAN = {
     },
     {
       "id": "v5s171",
-      "week": 27,
+      "week": 29,
       "cat": "TS/React/Next",
-      "no": 4,
+      "no": 2,
       "todo": "TS本2周目 9章 ＋ ×が付いた問題の解き直し",
       "out": "×が残った問題の一覧",
       "h": 1.0,
@@ -2232,9 +2252,9 @@ export const PLAN = {
     },
     {
       "id": "v5s172",
-      "week": 27,
+      "week": 29,
       "cat": "TS/React/Next",
-      "no": 5,
+      "no": 3,
       "todo": "React本2周目 1〜2章：予想問題（JSの基礎）",
       "out": "○△×と、外れた理由",
       "h": 2.0,
@@ -2250,9 +2270,9 @@ export const PLAN = {
     },
     {
       "id": "v5s173",
-      "week": 27,
+      "week": 29,
       "cat": "TS/React/Next",
-      "no": 6,
+      "no": 4,
       "todo": "React本2周目 3.1〜3.5：予想問題（JSX・props）",
       "out": "○△×と、外れた理由",
       "h": 2.0,
@@ -2268,9 +2288,9 @@ export const PLAN = {
     },
     {
       "id": "v5s174",
-      "week": 28,
+      "week": 30,
       "cat": "TS/React/Next",
-      "no": 3,
+      "no": 1,
       "todo": "React本2周目 3.6〜3.9：予想問題（state・イベント・レンダリング・key）",
       "out": "○△×と、外れた理由",
       "h": 2.5,
@@ -2286,9 +2306,9 @@ export const PLAN = {
     },
     {
       "id": "v5s175",
-      "week": 28,
+      "week": 30,
       "cat": "TS/React/Next",
-      "no": 4,
+      "no": 2,
       "todo": "React本2周目 4章：予想問題（ToDoアプリのコード）",
       "out": "○△×と、外れた理由",
       "h": 2.5,
@@ -2304,9 +2324,9 @@ export const PLAN = {
     },
     {
       "id": "v5s176",
-      "week": 28,
+      "week": 30,
       "cat": "TS/React/Next",
-      "no": 5,
+      "no": 3,
       "todo": "React本2周目 5章：予想問題（Context）",
       "out": "○△×と、外れた理由",
       "h": 1.5,
@@ -2322,7 +2342,7 @@ export const PLAN = {
     },
     {
       "id": "v5s177",
-      "week": 29,
+      "week": 31,
       "cat": "TS/React/Next",
       "no": 1,
       "todo": "React本2周目 6.1〜6.5：予想問題（ルーティング・一覧・追加）",
@@ -2340,7 +2360,7 @@ export const PLAN = {
     },
     {
       "id": "v5s178",
-      "week": 29,
+      "week": 31,
       "cat": "TS/React/Next",
       "no": 2,
       "todo": "React本2周目 6.6〜6.10：予想問題（通知・編集・削除・ページネーション・検索）",
@@ -2358,7 +2378,7 @@ export const PLAN = {
     },
     {
       "id": "v5s179",
-      "week": 29,
+      "week": 31,
       "cat": "TS/React/Next",
       "no": 3,
       "todo": "React本2周目 7章 ＋ ×が付いた問題の解き直し",
@@ -2376,7 +2396,7 @@ export const PLAN = {
     },
     {
       "id": "v5s180",
-      "week": 30,
+      "week": 32,
       "cat": "TS/React/Next",
       "no": 1,
       "todo": "TS本3周目 2〜3章：白紙お題（基本の型・オブジェクトの型）",
@@ -2394,7 +2414,7 @@ export const PLAN = {
     },
     {
       "id": "v5s181",
-      "week": 30,
+      "week": 32,
       "cat": "TS/React/Next",
       "no": 2,
       "todo": "TS本3周目 4章：白紙お題（関数・ジェネリクス）",
@@ -2412,7 +2432,7 @@ export const PLAN = {
     },
     {
       "id": "v5s182",
-      "week": 30,
+      "week": 32,
       "cat": "TS/React/Next",
       "no": 3,
       "todo": "TS本3周目 5章：白紙お題（クラス）",
@@ -2430,7 +2450,7 @@ export const PLAN = {
     },
     {
       "id": "v5s183",
-      "week": 31,
+      "week": 33,
       "cat": "TS/React/Next",
       "no": 1,
       "todo": "TS本3周目 6章：白紙お題（ユニオン・絞り込み・タグ付きユニオン・組み込みの型）",
@@ -2448,7 +2468,7 @@ export const PLAN = {
     },
     {
       "id": "v5s184",
-      "week": 31,
+      "week": 33,
       "cat": "TS/React/Next",
       "no": 2,
       "todo": "TS本3周目 7〜9章：白紙お題（モジュール・非同期・tsconfig）",
@@ -2466,7 +2486,7 @@ export const PLAN = {
     },
     {
       "id": "v5s185",
-      "week": 31,
+      "week": 33,
       "cat": "TS/React/Next",
       "no": 3,
       "todo": "TS本3周目の締め：全章の力試しを白紙で解き直す",
@@ -2484,7 +2504,7 @@ export const PLAN = {
     },
     {
       "id": "v5s186",
-      "week": 32,
+      "week": 34,
       "cat": "TS/React/Next",
       "no": 1,
       "todo": "React本3周目 2〜3章：白紙お題（JSの基礎・JSX・props・state・リスト）",
@@ -2502,7 +2522,7 @@ export const PLAN = {
     },
     {
       "id": "v5s187",
-      "week": 32,
+      "week": 34,
       "cat": "TS/React/Next",
       "no": 2,
       "todo": "React本3周目 4章：★ToDoアプリを白紙からTSで作る",
@@ -2520,7 +2540,7 @@ export const PLAN = {
     },
     {
       "id": "v5s188",
-      "week": 32,
+      "week": 34,
       "cat": "TS/React/Next",
       "no": 3,
       "todo": "React本3周目 5章：白紙お題（Context）",
@@ -2538,7 +2558,7 @@ export const PLAN = {
     },
     {
       "id": "v5s189",
-      "week": 33,
+      "week": 35,
       "cat": "TS/React/Next",
       "no": 1,
       "todo": "React本3周目 6章：★メモアプリの要所（一覧・追加・編集）を白紙からTSで書く",
@@ -2556,7 +2576,7 @@ export const PLAN = {
     },
     {
       "id": "v5s190",
-      "week": 33,
+      "week": 35,
       "cat": "TS/React/Next",
       "no": 2,
       "todo": "React本3周目 7章：白紙お題（最適化・TSでReact）",
@@ -2574,10 +2594,10 @@ export const PLAN = {
     },
     {
       "id": "v5s191",
-      "week": 33,
+      "week": 35,
       "cat": "振り返り",
       "no": 1,
-      "todo": "★全体の締め（5/2）：3周の○△×を振り返り、weak-points.md を整理し、次の計画を決める",
+      "todo": "★全体の締め（5/16）：3周の○△×を振り返り、weak-points.md を整理し、次の計画を決める",
       "out": "振り返り1枚と次の計画",
       "h": 2.0,
       "tier": "コア",
@@ -4126,7 +4146,7 @@ export const PLAN = {
       ],
       "review": "私が書いた型定義です。後で困りそうな設計を指摘してください。直したコードは書かず、何が問題かだけ教えてください",
       "h": 2.5,
-      "week": 18,
+      "week": 20,
       "tier": "コア",
       "status": "型を先に決めてから作る",
       "refs": []
@@ -4177,7 +4197,7 @@ export const PLAN = {
       ],
       "review": "私が書いた要件定義です。①題材が学習の狙い（8機能・Ch10とCh15の回収）を満たしているか ②スコープが広すぎる箇所 ③「作らない」の判断が甘い箇所 を指摘してください。要件は書き直さないでください",
       "h": 2.0,
-      "week": 18,
+      "week": 20,
       "tier": "コア",
       "status": "★配布版は開かない。要件定義から自分でやる",
       "refs": []
@@ -4221,7 +4241,7 @@ export const PLAN = {
       ],
       "review": "私が書いた検索処理です。正規表現を使う/使わないの判断が妥当か、見落としている入力パターンがないか指摘してください",
       "h": 2.5,
-      "week": 20,
+      "week": 22,
       "tier": "コア",
       "status": "★Ch10の正規表現を、詰まってから読む",
       "refs": [
@@ -4267,7 +4287,7 @@ export const PLAN = {
       ],
       "review": "私が書いた日付処理です。タイムゾーンと境界値で問題が起きそうな箇所を指摘してください。直し方の方向だけで結構です",
       "h": 2.5,
-      "week": 20,
+      "week": 22,
       "tier": "コア",
       "status": "★Ch10のDateを、詰まってから読む",
       "refs": [
@@ -4313,7 +4333,7 @@ export const PLAN = {
       ],
       "review": "私が書いたフォームです。バリデーションの漏れと、state の持ち方で後で困りそうな箇所を指摘してください",
       "h": 2.5,
-      "week": 21,
+      "week": 23,
       "tier": "コア",
       "status": "★Ch15のpreventDefault。まず一度壊す",
       "refs": [
@@ -4361,7 +4381,7 @@ export const PLAN = {
       ],
       "review": "私が書いたモーダルです。イベントの扱いとクリーンアップで問題がある箇所を指摘してください。コードは書き直さないでください",
       "h": 2.5,
-      "week": 21,
+      "week": 23,
       "tier": "コア",
       "status": "★Ch15のイベント伝播。今回のJS回収の本丸",
       "refs": [
@@ -4417,7 +4437,7 @@ export const PLAN = {
       ],
       "review": "依存配列の書き忘れで起きる問題のパターンを整理して教えて",
       "h": 2.5,
-      "week": 22,
+      "week": 24,
       "tier": "コア",
       "status": "★10/25に自作アプリ（フェーズA）へ移した。本に無いため",
       "refs": []
@@ -4466,7 +4486,7 @@ export const PLAN = {
       ],
       "review": "useReducer に移した範囲が妥当か、指摘だけお願いします。直したコードは書かないで",
       "h": 6.0,
-      "week": 23,
+      "week": 25,
       "tier": "コア",
       "status": "★10/25に自作アプリ（フェーズA）へ移した。本に無いため",
       "refs": []
@@ -4506,7 +4526,7 @@ export const PLAN = {
       ],
       "review": "自作版と配布版の差分をこう整理しました。見落としている観点があれば教えてください。どちらが正しいかの判定は求めていません",
       "h": 2.5,
-      "week": 24,
+      "week": 26,
       "tier": "コア",
       "status": "★ここで初めて配布版を開く",
       "refs": []
@@ -5229,6 +5249,156 @@ export const PLAN = {
       "target": 1.5,
       "done": false,
       "rest": false,
+      "spare": true,
+      "plan": []
+    },
+    {
+      "date": "2026-10-28",
+      "wd": "水",
+      "week": 7,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": true,
+      "plan": []
+    },
+    {
+      "date": "2026-10-29",
+      "wd": "木",
+      "week": 7,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": true,
+      "plan": []
+    },
+    {
+      "date": "2026-10-30",
+      "wd": "金",
+      "week": 7,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": true,
+      "plan": []
+    },
+    {
+      "date": "2026-10-31",
+      "wd": "土",
+      "week": 7,
+      "target": 2.0,
+      "done": false,
+      "rest": false,
+      "spare": true,
+      "plan": []
+    },
+    {
+      "date": "2026-11-01",
+      "wd": "日",
+      "week": 7,
+      "target": 2.0,
+      "done": false,
+      "rest": false,
+      "spare": true,
+      "plan": []
+    },
+    {
+      "date": "2026-11-02",
+      "wd": "月",
+      "week": 8,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": true,
+      "plan": []
+    },
+    {
+      "date": "2026-11-03",
+      "wd": "火",
+      "week": 8,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": true,
+      "plan": []
+    },
+    {
+      "date": "2026-11-04",
+      "wd": "水",
+      "week": 8,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": true,
+      "plan": []
+    },
+    {
+      "date": "2026-11-05",
+      "wd": "木",
+      "week": 8,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": true,
+      "plan": []
+    },
+    {
+      "date": "2026-11-06",
+      "wd": "金",
+      "week": 8,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": true,
+      "plan": []
+    },
+    {
+      "date": "2026-11-07",
+      "wd": "土",
+      "week": 8,
+      "target": 2.0,
+      "done": false,
+      "rest": false,
+      "spare": true,
+      "plan": []
+    },
+    {
+      "date": "2026-11-08",
+      "wd": "日",
+      "week": 8,
+      "target": 2.0,
+      "done": false,
+      "rest": false,
+      "spare": true,
+      "plan": []
+    },
+    {
+      "date": "2026-11-09",
+      "wd": "月",
+      "week": 9,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": true,
+      "plan": []
+    },
+    {
+      "date": "2026-11-10",
+      "wd": "火",
+      "week": 9,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": true,
+      "plan": []
+    },
+    {
+      "date": "2026-11-11",
+      "wd": "水",
+      "week": 9,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
       "spare": false,
       "plan": [
         {
@@ -5248,9 +5418,19 @@ export const PLAN = {
       ]
     },
     {
-      "date": "2026-10-28",
-      "wd": "水",
-      "week": 7,
+      "date": "2026-11-12",
+      "wd": "木",
+      "week": 9,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": true,
+      "plan": []
+    },
+    {
+      "date": "2026-11-13",
+      "wd": "金",
+      "week": 9,
       "target": 1.5,
       "done": false,
       "rest": false,
@@ -5273,20 +5453,10 @@ export const PLAN = {
       ]
     },
     {
-      "date": "2026-10-29",
-      "wd": "木",
-      "week": 7,
-      "target": 1.5,
-      "done": false,
-      "rest": false,
-      "spare": true,
-      "plan": []
-    },
-    {
-      "date": "2026-10-30",
-      "wd": "金",
-      "week": 7,
-      "target": 1.5,
+      "date": "2026-11-14",
+      "wd": "土",
+      "week": 9,
+      "target": 2.0,
       "done": false,
       "rest": false,
       "spare": false,
@@ -5308,19 +5478,9 @@ export const PLAN = {
       ]
     },
     {
-      "date": "2026-10-31",
-      "wd": "土",
-      "week": 7,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": []
-    },
-    {
-      "date": "2026-11-01",
+      "date": "2026-11-15",
       "wd": "日",
-      "week": 7,
+      "week": 9,
       "target": 2.0,
       "done": false,
       "rest": false,
@@ -5328,9 +5488,9 @@ export const PLAN = {
       "plan": []
     },
     {
-      "date": "2026-11-02",
+      "date": "2026-11-16",
       "wd": "月",
-      "week": 8,
+      "week": 10,
       "target": 1.5,
       "done": false,
       "rest": false,
@@ -5353,9 +5513,9 @@ export const PLAN = {
       ]
     },
     {
-      "date": "2026-11-03",
+      "date": "2026-11-17",
       "wd": "火",
-      "week": 8,
+      "week": 10,
       "target": 1.5,
       "done": false,
       "rest": false,
@@ -5381,9 +5541,9 @@ export const PLAN = {
       ]
     },
     {
-      "date": "2026-11-04",
+      "date": "2026-11-18",
       "wd": "水",
-      "week": 8,
+      "week": 10,
       "target": 1.5,
       "done": false,
       "rest": false,
@@ -5401,268 +5561,6 @@ export const PLAN = {
             "type": "説明",
             "q": "力試しの自分の解答と解説の違いを1つ選び、どちらが良いかを理由付きで1行。",
             "judge": "違いと理由を具体的に言えた"
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-11-05",
-      "wd": "木",
-      "week": 8,
-      "target": 1.5,
-      "done": false,
-      "rest": false,
-      "spare": true,
-      "plan": []
-    },
-    {
-      "date": "2026-11-06",
-      "wd": "金",
-      "week": 8,
-      "target": 1.5,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": [
-        {
-          "id": "v5s131",
-          "cat": "TS/React/Next",
-          "todo": "TS本 4.1〜4.2：関数の作り方・関数の型 ★アロー関数の省略形と暗黙のreturn",
-          "h": 2.0,
-          "tier": "コア",
-          "track": "TypeScript",
-          "refs": [],
-          "check": {
-            "type": "予測",
-            "q": "const f = () => { value: 1 } の f() の結果を予想してから実行する。",
-            "judge": "undefined と予想でき、理由（{} がブロックになる）を言えた"
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-11-07",
-      "wd": "土",
-      "week": 8,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": []
-    },
-    {
-      "date": "2026-11-08",
-      "wd": "日",
-      "week": 8,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": true,
-      "plan": []
-    },
-    {
-      "date": "2026-11-09",
-      "wd": "月",
-      "week": 9,
-      "target": 1.5,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": [
-        {
-          "id": "v5s132",
-          "cat": "TS/React/Next",
-          "todo": "TS本 4.3〜4.5：関数型の部分型関係・ジェネリクス・スコープ",
-          "h": 2.0,
-          "tier": "コア",
-          "track": "TypeScript",
-          "refs": [],
-          "check": {
-            "type": "再現",
-            "q": "見ないで、配列の最初の要素を返す first<T>(arr: T[]) を書き、呼び出し側で T が何になるか言う。",
-            "judge": "書けて、T の決まり方を説明できた"
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-11-10",
-      "wd": "火",
-      "week": 9,
-      "target": 1.5,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": [
-        {
-          "id": "v5s133",
-          "cat": "TS/React/Next",
-          "todo": "TS本 4.6：力試し（簡単な関数・コールバック関数）。★解説の前に自分で解く",
-          "h": 1.0,
-          "tier": "コア",
-          "track": "TypeScript",
-          "refs": [],
-          "check": {
-            "type": "説明",
-            "q": "コールバック関数の型を自分で書いた箇所を1つ選び、なぜその型にしたかを1行。",
-            "judge": "型と理由が言えた"
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-11-11",
-      "wd": "水",
-      "week": 9,
-      "target": 1.5,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": [
-        {
-          "id": "v5s134",
-          "cat": "TS/React/Next",
-          "todo": "TS本 5.1〜5.3：クラスの宣言・クラスの型・継承",
-          "h": 2.0,
-          "tier": "コア",
-          "track": "TypeScript",
-          "refs": [
-            "class"
-          ],
-          "check": {
-            "type": "再現",
-            "q": "見ないで、継承を使ったクラスを1組書く（親・子・オーバーライドするメソッド1つ）。",
-            "judge": "動き、override の意味が言えた"
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-11-12",
-      "wd": "木",
-      "week": 9,
-      "target": 1.5,
-      "done": false,
-      "rest": false,
-      "spare": true,
-      "plan": []
-    },
-    {
-      "date": "2026-11-13",
-      "wd": "金",
-      "week": 9,
-      "target": 1.5,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": [
-        {
-          "id": "v5s135",
-          "cat": "TS/React/Next",
-          "todo": "TS本 5.4〜5.6：this・例外処理・力試し（クラス⇄関数の書き換え）",
-          "h": 1.5,
-          "tier": "コア",
-          "track": "TypeScript",
-          "refs": [],
-          "check": {
-            "type": "予測",
-            "q": "メソッドを変数に取り出して呼んだときの this を予想してから実行する。アロー関数の場合とも比べる。",
-            "judge": "両方の結果を当てた"
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "wd": "土",
-      "week": 9,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": []
-    },
-    {
-      "date": "2026-11-15",
-      "wd": "日",
-      "week": 9,
-      "target": 2.0,
-      "done": false,
-      "rest": false,
-      "spare": true,
-      "plan": []
-    },
-    {
-      "date": "2026-11-16",
-      "wd": "月",
-      "week": 10,
-      "target": 1.5,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": [
-        {
-          "id": "v5s136",
-          "cat": "TS/React/Next",
-          "todo": "TS本 6.1〜6.2：ユニオン型・インターセクション型・リテラル型・widening",
-          "h": 2.0,
-          "tier": "コア",
-          "track": "TypeScript",
-          "refs": [],
-          "check": {
-            "type": "予測",
-            "q": "let と const で宣言した \"a\" の型がそれぞれ何になるか、ホバーする前に書く。",
-            "judge": "両方当たり、widening を説明できた"
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-11-17",
-      "wd": "火",
-      "week": 10,
-      "target": 1.5,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": [
-        {
-          "id": "v5s137",
-          "cat": "TS/React/Next",
-          "todo": "TS本 6.3〜6.4：型の絞り込み・keyof・lookup型 ★案件のTSで出たら書き足す",
-          "h": 2.0,
-          "tier": "コア",
-          "track": "TypeScript",
-          "refs": [],
-          "check": {
-            "type": "再現",
-            "q": "見ないで、タグ付きユニオンを switch で絞り込む関数を書く。",
-            "judge": "型エラーなしで書けた"
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-11-18",
-      "wd": "水",
-      "week": 10,
-      "target": 1.5,
-      "done": false,
-      "rest": false,
-      "spare": false,
-      "plan": [
-        {
-          "id": "v5s138",
-          "cat": "TS/React/Next",
-          "todo": "TS本 6.5〜6.7：as・any と unknown・さらに高度な型（never・型述語・mapped・conditional・組み込みの型）",
-          "h": 2.0,
-          "tier": "コア",
-          "track": "TypeScript",
-          "refs": [],
-          "check": {
-            "type": "穴埋め",
-            "q": "any と unknown の違いは「使う前に ____ が要るかどうか」。as は型を ____ だけで、値は変わらない。",
-            "judge": "2つとも自分の言葉で埋められた"
           }
         }
       ]
@@ -5687,17 +5585,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s139",
+          "id": "v5s131",
           "cat": "TS/React/Next",
-          "todo": "TS本 6.8：力試し「タグ付きユニオン」(1)〜(3)。★解説の前に自分で解く",
-          "h": 1.0,
+          "todo": "TS本 4.1〜4.2：関数の作り方・関数の型 ★アロー関数の省略形と暗黙のreturn",
+          "h": 2.0,
           "tier": "コア",
           "track": "TypeScript",
           "refs": [],
           "check": {
-            "type": "説明",
-            "q": "タグ付きユニオンの力試しで、自分の解答と解説の違いを1つ書く。",
-            "judge": "違いを具体的に言えた"
+            "type": "予測",
+            "q": "const f = () => { value: 1 } の f() の結果を予想してから実行する。",
+            "judge": "undefined と予想でき、理由（{} がブロックになる）を言えた"
           }
         }
       ]
@@ -5732,19 +5630,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s140",
+          "id": "v5s132",
           "cat": "TS/React/Next",
-          "todo": "TS本 7章：モジュール（import / export・default・型のimport・npm・@types）★10/16の抜け（CJS/ESMの書き分け）",
+          "todo": "TS本 4.3〜4.5：関数型の部分型関係・ジェネリクス・スコープ",
           "h": 2.0,
           "tier": "コア",
           "track": "TypeScript",
-          "refs": [
-            "npm"
-          ],
+          "refs": [],
           "check": {
-            "type": "説明",
-            "q": "named export と default export を、自分のコードでどちらにするか決め、理由を1行。CommonJSとの違いも1つ。",
-            "judge": "export の選び方と CommonJS との違いを両方言えた"
+            "type": "再現",
+            "q": "見ないで、配列の最初の要素を返す first<T>(arr: T[]) を書き、呼び出し側で T が何になるか言う。",
+            "judge": "書けて、T の決まり方を説明できた"
           }
         }
       ]
@@ -5759,17 +5655,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s141",
+          "id": "v5s133",
           "cat": "TS/React/Next",
-          "todo": "TS本 8.1〜8.3：非同期処理・コールバック・Promise",
-          "h": 2.0,
+          "todo": "TS本 4.6：力試し（簡単な関数・コールバック関数）。★解説の前に自分で解く",
+          "h": 1.0,
           "tier": "コア",
           "track": "TypeScript",
           "refs": [],
           "check": {
-            "type": "予測",
-            "q": "setTimeout・Promise・同期処理が混ざったコードの出力順を予想してから実行する。",
-            "judge": "順番が当たった"
+            "type": "説明",
+            "q": "コールバック関数の型を自分で書いた箇所を1つ選び、なぜその型にしたかを1行。",
+            "judge": "型と理由が言えた"
           }
         }
       ]
@@ -5784,17 +5680,19 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s142",
+          "id": "v5s134",
           "cat": "TS/React/Next",
-          "todo": "TS本 8.4〜8.5：async/await・力試し（fs/promises・タイムアウト）",
-          "h": 1.5,
+          "todo": "TS本 5.1〜5.3：クラスの宣言・クラスの型・継承",
+          "h": 2.0,
           "tier": "コア",
           "track": "TypeScript",
-          "refs": [],
+          "refs": [
+            "class"
+          ],
           "check": {
             "type": "再現",
-            "q": "見ないで、async 関数の中で await と try/catch を使う例を書く。",
-            "judge": "動き、エラー時の流れを言えた"
+            "q": "見ないで、継承を使ったクラスを1組書く（親・子・オーバーライドするメソッド1つ）。",
+            "judge": "動き、override の意味が言えた"
           }
         }
       ]
@@ -5819,17 +5717,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s143",
+          "id": "v5s135",
           "cat": "TS/React/Next",
-          "todo": "TS本 9章：tsconfig（strict・strictNullChecks・noUncheckedIndexedAccess）。data.ts で有効にして出たエラーを直す",
+          "todo": "TS本 5.4〜5.6：this・例外処理・力試し（クラス⇄関数の書き換え）",
           "h": 1.5,
           "tier": "コア",
           "track": "TypeScript",
           "refs": [],
           "check": {
             "type": "予測",
-            "q": "noUncheckedIndexedAccess を有効にする前に、products[0].name の型がどう変わるか予想する。",
-            "judge": "undefined が付くと予想でき、直し方も言えた"
+            "q": "メソッドを変数に取り出して呼んだときの this を予想してから実行する。アロー関数の場合とも比べる。",
+            "judge": "両方の結果を当てた"
           }
         }
       ]
@@ -5842,22 +5740,7 @@ export const PLAN = {
       "done": false,
       "rest": false,
       "spare": false,
-      "plan": [
-        {
-          "id": "v5s144",
-          "cat": "振り返り",
-          "todo": "★TS本1周目の締め（11/29の区切り）：各章の力試しを1つずつ白紙でもう一度解く",
-          "h": 1.0,
-          "tier": "コア",
-          "track": "振り返り",
-          "refs": [],
-          "check": {
-            "type": "説明",
-            "q": "白紙で解けなかった力試しの章を書き出し、2周目で特に注意する章を1つ決める。",
-            "judge": "章の一覧と、決めた1つが書けた"
-          }
-        }
-      ]
+      "plan": []
     },
     {
       "date": "2026-11-29",
@@ -5879,17 +5762,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s145",
+          "id": "v5s136",
           "cat": "TS/React/Next",
-          "todo": "React本 1章・2.1〜2.3：Reactとは・変数と定数・条件分岐とよく使う省略記法",
-          "h": 1.5,
+          "todo": "TS本 6.1〜6.2：ユニオン型・インターセクション型・リテラル型・widening",
+          "h": 2.0,
           "tier": "コア",
-          "track": "React",
+          "track": "TypeScript",
           "refs": [],
           "check": {
             "type": "予測",
-            "q": "本の省略記法（三項演算子・&&・??）の例から3つ選び、結果を予想してから実行する。",
-            "judge": "3つとも当たった"
+            "q": "let と const で宣言した \"a\" の型がそれぞれ何になるか、ホバーする前に書く。",
+            "judge": "両方当たり、widening を説明できた"
           }
         }
       ]
@@ -5904,19 +5787,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s146",
+          "id": "v5s137",
           "cat": "TS/React/Next",
-          "todo": "React本 2.4〜2.5：配列とオブジェクトの便利な記法・関数 ★スプレッド・アロー関数・filter/map",
+          "todo": "TS本 6.3〜6.4：型の絞り込み・keyof・lookup型 ★案件のTSで出たら書き足す",
           "h": 2.0,
           "tier": "コア",
-          "track": "React",
-          "refs": [
-            "spread"
-          ],
+          "track": "TypeScript",
+          "refs": [],
           "check": {
             "type": "再現",
-            "q": "見ないで、state の更新でよく出る3つを書く。①オブジェクトの1キーだけ変える ②配列に1件足す ③配列から1件消す（どれも元を壊さない）。",
-            "judge": "3つとも見ないで書けた"
+            "q": "見ないで、タグ付きユニオンを switch で絞り込む関数を書く。",
+            "judge": "型エラーなしで書けた"
           }
         }
       ]
@@ -5931,17 +5812,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s147",
+          "id": "v5s138",
           "cat": "TS/React/Next",
-          "todo": "React本 2.6〜2.7：繰り返し処理・非同期処理（Promise / async / await）",
-          "h": 1.5,
+          "todo": "TS本 6.5〜6.7：as・any と unknown・さらに高度な型（never・型述語・mapped・conditional・組み込みの型）",
+          "h": 2.0,
           "tier": "コア",
-          "track": "React",
+          "track": "TypeScript",
           "refs": [],
           "check": {
-            "type": "予測",
-            "q": "forEach と map の戻り値の違いを予想してから実行する。",
-            "judge": "両方当たった"
+            "type": "穴埋め",
+            "q": "any と unknown の違いは「使う前に ____ が要るかどうか」。as は型を ____ だけで、値は変わらない。",
+            "judge": "2つとも自分の言葉で埋められた"
           }
         }
       ]
@@ -5966,17 +5847,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s148",
+          "id": "v5s139",
           "cat": "TS/React/Next",
-          "todo": "React本 3.1〜3.3：開発環境・はじめてのReactアプリ・JSXの基本文法 ★クイックスタートの写経と見比べる",
-          "h": 2.0,
+          "todo": "TS本 6.8：力試し「タグ付きユニオン」(1)〜(3)。★解説の前に自分で解く",
+          "h": 1.0,
           "tier": "コア",
-          "track": "React",
+          "track": "TypeScript",
           "refs": [],
           "check": {
-            "type": "穴埋め",
-            "q": "JSXは最終的に ____ の呼び出しに変わる。JSXの中で {} の中に書けるのは ____ だけ。",
-            "judge": "2つとも自分の言葉で埋められた"
+            "type": "説明",
+            "q": "タグ付きユニオンの力試しで、自分の解答と解説の違いを1つ書く。",
+            "judge": "違いを具体的に言えた"
           }
         }
       ]
@@ -6011,17 +5892,19 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s149",
+          "id": "v5s140",
           "cat": "TS/React/Next",
-          "todo": "React本 3.4〜3.5：JSXの実践的な使い方・コンポーネントとprops ★propsにTSの型を付けてみる",
+          "todo": "TS本 7章：モジュール（import / export・default・型のimport・npm・@types）★10/16の抜け（CJS/ESMの書き分け）",
           "h": 2.0,
           "tier": "コア",
-          "track": "React",
-          "refs": [],
+          "track": "TypeScript",
+          "refs": [
+            "npm"
+          ],
           "check": {
-            "type": "再現",
-            "q": "見ないで、型付きpropsを受け取る子コンポーネントを書き、親から渡す。",
-            "judge": "型エラーなしで動いた"
+            "type": "説明",
+            "q": "named export と default export を、自分のコードでどちらにするか決め、理由を1行。CommonJSとの違いも1つ。",
+            "judge": "export の選び方と CommonJS との違いを両方言えた"
           }
         }
       ]
@@ -6036,19 +5919,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s150",
+          "id": "v5s141",
           "cat": "TS/React/Next",
-          "todo": "React本 3.6〜3.7：state（状態管理）・イベント処理",
+          "todo": "TS本 8.1〜8.3：非同期処理・コールバック・Promise",
           "h": 2.0,
           "tier": "コア",
-          "track": "React",
-          "refs": [
-            "form"
-          ],
+          "track": "TypeScript",
+          "refs": [],
           "check": {
             "type": "予測",
-            "q": "setCount(count + 1) を同じ関数の中で2回呼んだとき、1回のクリックで何増えるか予想してから試す。",
-            "judge": "1と予想でき、理由を言えた"
+            "q": "setTimeout・Promise・同期処理が混ざったコードの出力順を予想してから実行する。",
+            "judge": "順番が当たった"
           }
         }
       ]
@@ -6063,17 +5944,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s151",
+          "id": "v5s142",
           "cat": "TS/React/Next",
-          "todo": "React本 3.8〜3.9：レンダリング・リストとキー ★商品データ20件で一覧を出す",
-          "h": 2.0,
+          "todo": "TS本 8.4〜8.5：async/await・力試し（fs/promises・タイムアウト）",
+          "h": 1.5,
           "tier": "コア",
-          "track": "React",
+          "track": "TypeScript",
           "refs": [],
           "check": {
-            "type": "説明",
-            "q": "key に配列のインデックスを使うと何が起きうるか、自分の言葉で1行。",
-            "judge": "具体的な例で言えた"
+            "type": "再現",
+            "q": "見ないで、async 関数の中で await と try/catch を使う例を書く。",
+            "judge": "動き、エラー時の流れを言えた"
           }
         }
       ]
@@ -6096,7 +5977,22 @@ export const PLAN = {
       "done": false,
       "rest": false,
       "spare": false,
-      "plan": []
+      "plan": [
+        {
+          "id": "v5s143",
+          "cat": "TS/React/Next",
+          "todo": "TS本 9章：tsconfig（strict・strictNullChecks・noUncheckedIndexedAccess）。data.ts で有効にして出たエラーを直す",
+          "h": 1.5,
+          "tier": "コア",
+          "track": "TypeScript",
+          "refs": [],
+          "check": {
+            "type": "予測",
+            "q": "noUncheckedIndexedAccess を有効にする前に、products[0].name の型がどう変わるか予想する。",
+            "judge": "undefined が付くと予想でき、直し方も言えた"
+          }
+        }
+      ]
     },
     {
       "date": "2026-12-12",
@@ -6106,7 +6002,22 @@ export const PLAN = {
       "done": false,
       "rest": false,
       "spare": false,
-      "plan": []
+      "plan": [
+        {
+          "id": "v5s144",
+          "cat": "振り返り",
+          "todo": "★TS本1周目の締め（12/13の区切り）：各章の力試しを1つずつ白紙でもう一度解く",
+          "h": 1.0,
+          "tier": "コア",
+          "track": "振り返り",
+          "refs": [],
+          "check": {
+            "type": "説明",
+            "q": "白紙で解けなかった力試しの章を書き出し、2周目で特に注意する章を1つ決める。",
+            "judge": "章の一覧と、決めた1つが書けた"
+          }
+        }
+      ]
     },
     {
       "date": "2026-12-13",
@@ -6128,17 +6039,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s152",
+          "id": "v5s145",
           "cat": "TS/React/Next",
-          "todo": "React本 4.1〜4.3：ToDoアプリ（一覧の表示・追加）",
-          "h": 2.0,
+          "todo": "React本 1章・2.1〜2.3：Reactとは・変数と定数・条件分岐とよく使う省略記法",
+          "h": 1.5,
           "tier": "コア",
           "track": "React",
           "refs": [],
           "check": {
-            "type": "再現",
-            "q": "本を閉じて、ToDoの「追加」だけを書き直す。",
-            "judge": "見ないで動いた"
+            "type": "予測",
+            "q": "本の省略記法（三項演算子・&&・??）の例から3つ選び、結果を予想してから実行する。",
+            "judge": "3つとも当たった"
           }
         }
       ]
@@ -6153,17 +6064,19 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s153",
+          "id": "v5s146",
           "cat": "TS/React/Next",
-          "todo": "React本 4.4〜4.6：ToDoアプリ（完了・削除・状態での絞り込み）",
-          "h": 1.5,
+          "todo": "React本 2.4〜2.5：配列とオブジェクトの便利な記法・関数 ★スプレッド・アロー関数・filter/map",
+          "h": 2.0,
           "tier": "コア",
           "track": "React",
-          "refs": [],
+          "refs": [
+            "spread"
+          ],
           "check": {
-            "type": "説明",
-            "q": "完了の切り替えで、元の配列を壊さずに更新する理由を1行。",
-            "judge": "「Reactが変化を検知できない」ことを自分の言葉で言えた"
+            "type": "再現",
+            "q": "見ないで、state の更新でよく出る3つを書く。①オブジェクトの1キーだけ変える ②配列に1件足す ③配列から1件消す（どれも元を壊さない）。",
+            "judge": "3つとも見ないで書けた"
           }
         }
       ]
@@ -6178,17 +6091,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s154",
+          "id": "v5s147",
           "cat": "TS/React/Next",
-          "todo": "★ToDoアプリを本を閉じてTSで書き直す（写経で終わらせない・ルール5b）",
-          "h": 2.0,
+          "todo": "React本 2.6〜2.7：繰り返し処理・非同期処理（Promise / async / await）",
+          "h": 1.5,
           "tier": "コア",
           "track": "React",
           "refs": [],
           "check": {
-            "type": "説明",
-            "q": "TSで書き直して型エラーが出た所を1つ選び、何が守られたかを1行。",
-            "judge": "具体的に言えた"
+            "type": "予測",
+            "q": "forEach と map の戻り値の違いを予想してから実行する。",
+            "judge": "両方当たった"
           }
         }
       ]
@@ -6213,17 +6126,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s155",
+          "id": "v5s148",
           "cat": "TS/React/Next",
-          "todo": "React本 5章：グローバルステートとContext API",
-          "h": 1.5,
+          "todo": "React本 3.1〜3.3：開発環境・はじめてのReactアプリ・JSXの基本文法 ★クイックスタートの写経と見比べる",
+          "h": 2.0,
           "tier": "コア",
           "track": "React",
           "refs": [],
           "check": {
-            "type": "説明",
-            "q": "Context を使うべき場面と、props で十分な場面を1つずつ。",
-            "judge": "両方具体的に言えた"
+            "type": "穴埋め",
+            "q": "JSXは最終的に ____ の呼び出しに変わる。JSXの中で {} の中に書けるのは ____ だけ。",
+            "judge": "2つとも自分の言葉で埋められた"
           }
         }
       ]
@@ -6258,17 +6171,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s156",
+          "id": "v5s149",
           "cat": "TS/React/Next",
-          "todo": "React本 6.1〜6.3：メモアプリ（全体像・ルーティング・バックエンドのセットアップ）",
+          "todo": "React本 3.4〜3.5：JSXの実践的な使い方・コンポーネントとprops ★propsにTSの型を付けてみる",
           "h": 2.0,
           "tier": "コア",
           "track": "React",
           "refs": [],
           "check": {
-            "type": "穴埋め",
-            "q": "ルーティングは URL と ____ を対応させる仕組み。バックエンドを立てたのは ____ のため。",
-            "judge": "2つとも自分の言葉で埋められた"
+            "type": "再現",
+            "q": "見ないで、型付きpropsを受け取る子コンポーネントを書き、親から渡す。",
+            "judge": "型エラーなしで動いた"
           }
         }
       ]
@@ -6283,17 +6196,19 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s157",
+          "id": "v5s150",
           "cat": "TS/React/Next",
-          "todo": "React本 6.4：メモの一覧を表示する（useEffect とデータ取得）",
+          "todo": "React本 3.6〜3.7：state（状態管理）・イベント処理",
           "h": 2.0,
           "tier": "コア",
           "track": "React",
-          "refs": [],
+          "refs": [
+            "form"
+          ],
           "check": {
             "type": "予測",
-            "q": "useEffect の依存配列を空にした場合と省いた場合で、何回動くか予想してから確かめる。",
-            "judge": "両方当たった"
+            "q": "setCount(count + 1) を同じ関数の中で2回呼んだとき、1回のクリックで何増えるか予想してから試す。",
+            "judge": "1と予想でき、理由を言えた"
           }
         }
       ]
@@ -6308,17 +6223,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s158",
+          "id": "v5s151",
           "cat": "TS/React/Next",
-          "todo": "React本 6.5：新しいメモを追加する（フォーム）",
+          "todo": "React本 3.8〜3.9：レンダリング・リストとキー ★商品データ20件で一覧を出す",
           "h": 2.0,
           "tier": "コア",
           "track": "React",
           "refs": [],
           "check": {
-            "type": "再現",
-            "q": "見ないで、入力欄の値を state に持ち、送信で一覧に足すフォームを書く。",
-            "judge": "見ないで動いた"
+            "type": "説明",
+            "q": "key に配列のインデックスを使うと何が起きうるか、自分の言葉で1行。",
+            "judge": "具体的な例で言えた"
           }
         }
       ]
@@ -6370,23 +6285,8 @@ export const PLAN = {
       "target": 1.5,
       "done": false,
       "rest": false,
-      "spare": false,
-      "plan": [
-        {
-          "id": "v5s159",
-          "cat": "TS/React/Next",
-          "todo": "React本 6.6：通知メッセージ。★12/28に1件だけ。あとは休む(12/29〜1/3)",
-          "h": 1.5,
-          "tier": "コア",
-          "track": "React",
-          "refs": [],
-          "check": {
-            "type": "説明",
-            "q": "通知メッセージを出す仕組みを、どの state をどこに置いたかで1行説明する。",
-            "judge": "置き場所と理由を言えた"
-          }
-        }
-      ]
+      "spare": true,
+      "plan": []
     },
     {
       "date": "2026-12-29",
@@ -6458,17 +6358,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s160",
+          "id": "v5s152",
           "cat": "TS/React/Next",
-          "todo": "React本 6.7〜6.8：メモの編集・削除",
+          "todo": "React本 4.1〜4.3：ToDoアプリ（一覧の表示・追加）",
           "h": 2.0,
           "tier": "コア",
           "track": "React",
           "refs": [],
           "check": {
             "type": "再現",
-            "q": "見ないで、一覧から1件だけ書き換える更新（map で id が一致したものだけ変える）を書く。",
-            "judge": "見ないで書けた"
+            "q": "本を閉じて、ToDoの「追加」だけを書き直す。",
+            "judge": "見ないで動いた"
           }
         }
       ]
@@ -6483,17 +6383,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s161",
+          "id": "v5s153",
           "cat": "TS/React/Next",
-          "todo": "React本 6.9〜6.10：ページネーション・検索",
-          "h": 2.0,
+          "todo": "React本 4.4〜4.6：ToDoアプリ（完了・削除・状態での絞り込み）",
+          "h": 1.5,
           "tier": "コア",
           "track": "React",
           "refs": [],
           "check": {
             "type": "説明",
-            "q": "ページネーションの「今のページ」と「全件」は、どちらを state にしてどちらを計算で出すか。理由も。",
-            "judge": "state と計算の分け方を言えた"
+            "q": "完了の切り替えで、元の配列を壊さずに更新する理由を1行。",
+            "judge": "「Reactが変化を検知できない」ことを自分の言葉で言えた"
           }
         }
       ]
@@ -6508,17 +6408,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s162",
+          "id": "v5s154",
           "cat": "TS/React/Next",
-          "todo": "React本 7.1〜7.2：DevToolsでデバッグ・パフォーマンス最適化 ★どの操作でどこが再レンダーされるか観察する",
+          "todo": "★ToDoアプリを本を閉じてTSで書き直す（写経で終わらせない・ルール5b）",
           "h": 2.0,
           "tier": "コア",
           "track": "React",
           "refs": [],
           "check": {
-            "type": "予測",
-            "q": "親の state を変えたとき、どの子が描き直されるか予想してから DevTools で確かめる。",
-            "judge": "予想が当たったか、外れた理由を言えた"
+            "type": "説明",
+            "q": "TSで書き直して型エラーが出た所を1つ選び、何が守られたかを1行。",
+            "judge": "具体的に言えた"
           }
         }
       ]
@@ -6543,17 +6443,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s163",
+          "id": "v5s155",
           "cat": "TS/React/Next",
-          "todo": "React本 7.3：TypeScriptでReact ＋ 1周目の締め（1/10）：メモアプリの要所を1つ選んでTSで書き直す",
+          "todo": "React本 5章：グローバルステートとContext API",
           "h": 1.5,
           "tier": "コア",
           "track": "React",
           "refs": [],
           "check": {
             "type": "説明",
-            "q": "JSのまま書いたときとTSで書き直したときで、気づけたバグや迷いが減った所を1つ。",
-            "judge": "具体的に言えた"
+            "q": "Context を使うべき場面と、props で十分な場面を1つずつ。",
+            "judge": "両方具体的に言えた"
           }
         }
       ]
@@ -6588,19 +6488,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s49",
+          "id": "v5s156",
           "cat": "TS/React/Next",
-          "todo": "★ここで題材を決める。配布版は開かない。作りたいものを箇条書きで書き出す(課題A-1)",
+          "todo": "React本 6.1〜6.3：メモアプリ（全体像・ルーティング・バックエンドのセットアップ）",
           "h": 2.0,
           "tier": "コア",
-          "track": "設計・公開",
-          "refs": [
-            "subject"
-          ],
+          "track": "React",
+          "refs": [],
           "check": {
-            "type": "説明",
-            "q": "「作らない」と決めたものを1つ選び、無くても困らない理由を1行。",
-            "judge": "「使っていないから」より一段具体的な理由になった"
+            "type": "穴埋め",
+            "q": "ルーティングは URL と ____ を対応させる仕組み。バックエンドを立てたのは ____ のため。",
+            "judge": "2つとも自分の言葉で埋められた"
           }
         }
       ]
@@ -6615,17 +6513,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s50",
+          "id": "v5s157",
           "cat": "TS/React/Next",
-          "todo": "画面とデータを設計する。★型を先に決めて types.ts に書く",
-          "h": 2.5,
+          "todo": "React本 6.4：メモの一覧を表示する（useEffect とデータ取得）",
+          "h": 2.0,
           "tier": "コア",
-          "track": "TypeScript",
+          "track": "React",
           "refs": [],
           "check": {
             "type": "予測",
-            "q": "サンプルデータのプロパティ名をわざと1つ間違える。どこに赤線が出るか予測してから見る。",
-            "judge": "予測どおりの場所に出た"
+            "q": "useEffect の依存配列を空にした場合と省いた場合で、何回動くか予想してから確かめる。",
+            "judge": "両方当たった"
           }
         }
       ]
@@ -6640,17 +6538,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s51",
+          "id": "v5s158",
           "cat": "TS/React/Next",
-          "todo": "Vite でプロジェクトを作る(React + TypeScript)",
-          "h": 1.5,
+          "todo": "React本 6.5：新しいメモを追加する（フォーム）",
+          "h": 2.0,
           "tier": "コア",
           "track": "React",
           "refs": [],
           "check": {
-            "type": "穴埋め",
-            "q": "生成されたファイルのうち ____ が最初に読まれるHTML、____ がReactを画面に描き始める所、____ が型チェックの設定ファイル。",
-            "judge": "見ないで3つ言えて、実際のファイルで確認が取れた"
+            "type": "再現",
+            "q": "見ないで、入力欄の値を state に持ち、送信で一覧に足すフォームを書く。",
+            "judge": "見ないで動いた"
           }
         }
       ]
@@ -6673,7 +6571,22 @@ export const PLAN = {
       "done": false,
       "rest": false,
       "spare": false,
-      "plan": []
+      "plan": [
+        {
+          "id": "v5s159",
+          "cat": "TS/React/Next",
+          "todo": "React本 6.6：通知メッセージ（★11/11の後ろ倒しで、年末年始の12/28から外した）",
+          "h": 1.5,
+          "tier": "コア",
+          "track": "React",
+          "refs": [],
+          "check": {
+            "type": "説明",
+            "q": "通知メッセージを出す仕組みを、どの state をどこに置いたかで1行説明する。",
+            "judge": "置き場所と理由を言えた"
+          }
+        }
+      ]
     },
     {
       "date": "2027-01-16",
@@ -6705,17 +6618,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s52",
+          "id": "v5s160",
           "cat": "TS/React/Next",
-          "todo": "ディレクトリ構成を自分で決めて、理由を design-log.md に書く",
-          "h": 1.5,
+          "todo": "React本 6.7〜6.8：メモの編集・削除",
+          "h": 2.0,
           "tier": "コア",
           "track": "React",
           "refs": [],
           "check": {
-            "type": "説明",
-            "q": "新しい機能を1つ足すとしたら、どのフォルダに何を置くか。迷わず言えるか試す。",
-            "judge": "迷わず言えた（迷ったら、それは構成の方を直すサイン）"
+            "type": "再現",
+            "q": "見ないで、一覧から1件だけ書き換える更新（map で id が一致したものだけ変える）を書く。",
+            "judge": "見ないで書けた"
           }
         }
       ]
@@ -6730,17 +6643,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s53",
+          "id": "v5s161",
           "cat": "TS/React/Next",
-          "todo": "GitHubにリポジトリを作り、最初のコミットとpushをする",
-          "h": 1.0,
+          "todo": "React本 6.9〜6.10：ページネーション・検索",
+          "h": 2.0,
           "tier": "コア",
-          "track": "設計・公開",
+          "track": "React",
           "refs": [],
           "check": {
-            "type": "再現",
-            "q": ".gitignore に何が入っているか、見ないで3つ挙げてから開いて確認する。",
-            "judge": "3つとも入っていた"
+            "type": "説明",
+            "q": "ページネーションの「今のページ」と「全件」は、どちらを state にしてどちらを計算で出すか。理由も。",
+            "judge": "state と計算の分け方を言えた"
           }
         }
       ]
@@ -6755,17 +6668,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s54",
+          "id": "v5s162",
           "cat": "TS/React/Next",
-          "todo": "一覧表示を作る。ダミーデータを型付きで描画する",
-          "h": 2.5,
+          "todo": "React本 7.1〜7.2：DevToolsでデバッグ・パフォーマンス最適化 ★どの操作でどこが再レンダーされるか観察する",
+          "h": 2.0,
           "tier": "コア",
           "track": "React",
           "refs": [],
           "check": {
             "type": "予測",
-            "q": "型に無いプロパティを画面で使ったらどうなるか予測してから書く。",
-            "judge": "予測が当たった"
+            "q": "親の state を変えたとき、どの子が描き直されるか予想してから DevTools で確かめる。",
+            "judge": "予想が当たったか、外れた理由を言えた"
           }
         }
       ]
@@ -6790,17 +6703,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s56",
+          "id": "v5s163",
           "cat": "TS/React/Next",
-          "todo": "絞り込みUIを作る。状態をどこに持つかは自分で決める",
-          "h": 2.5,
+          "todo": "React本 7.3：TypeScriptでReact ＋ 1周目の締め（1/24）：メモアプリの要所を1つ選んでTSで書き直す",
+          "h": 1.5,
           "tier": "コア",
           "track": "React",
           "refs": [],
           "check": {
             "type": "説明",
-            "q": "絞り込みの状態をどこに持ったか、その理由を1行。",
-            "judge": "別の場所に置いた場合の弊害を1つ言えた"
+            "q": "JSのまま書いたときとTSで書き直したときで、気づけたバグや迷いが減った所を1つ。",
+            "judge": "具体的に言えた"
           }
         }
       ]
@@ -6835,19 +6748,19 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s57",
+          "id": "v5s49",
           "cat": "TS/React/Next",
-          "todo": "★キーワード検索。部分一致・大文字小文字を無視する(課題A-2)",
-          "h": 2.5,
+          "todo": "★ここで題材を決める。配布版は開かない。作りたいものを箇条書きで書き出す(課題A-1)",
+          "h": 2.0,
           "tier": "コア",
-          "track": "React",
+          "track": "設計・公開",
           "refs": [
-            "search"
+            "subject"
           ],
           "check": {
             "type": "説明",
-            "q": "正規表現を使ったか、使わなかったか。その判断の理由を1行。",
-            "judge": "「includes で足りた／足りなかった」の根拠が具体的だった"
+            "q": "「作らない」と決めたものを1つ選び、無くても困らない理由を1行。",
+            "judge": "「使っていないから」より一段具体的な理由になった"
           }
         }
       ]
@@ -6862,19 +6775,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s58",
+          "id": "v5s50",
           "cat": "TS/React/Next",
-          "todo": "★日付での絞り込みと並べ替えを作る(課題A-3)",
+          "todo": "画面とデータを設計する。★型を先に決めて types.ts に書く",
           "h": 2.5,
           "tier": "コア",
-          "track": "React",
-          "refs": [
-            "date"
-          ],
+          "track": "TypeScript",
+          "refs": [],
           "check": {
             "type": "予測",
-            "q": "new Date('2026-10-19') と new Date('2026/10/19') は同じ時刻になるか。予測してから両方 console.log する。",
-            "judge": "予測が当たった。違ったなら、なぜ違うのかを言えた"
+            "q": "サンプルデータのプロパティ名をわざと1つ間違える。どこに赤線が出るか予測してから見る。",
+            "judge": "予測どおりの場所に出た"
           }
         }
       ]
@@ -6889,17 +6800,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s60",
+          "id": "v5s51",
           "cat": "TS/React/Next",
-          "todo": "ここまでをVercelにデプロイして一度公開する",
+          "todo": "Vite でプロジェクトを作る(React + TypeScript)",
           "h": 1.5,
           "tier": "コア",
-          "track": "設計・公開",
+          "track": "React",
           "refs": [],
           "check": {
-            "type": "再現",
-            "q": "手元では動くのに公開後に壊れる箇所を1つ探す。",
-            "judge": "見つけて直したか、無いことを確認できた"
+            "type": "穴埋め",
+            "q": "生成されたファイルのうち ____ が最初に読まれるHTML、____ がReactを画面に描き始める所、____ が型チェックの設定ファイル。",
+            "judge": "見ないで3つ言えて、実際のファイルで確認が取れた"
           }
         }
       ]
@@ -6954,17 +6865,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s59",
+          "id": "v5s52",
           "cat": "TS/React/Next",
-          "todo": "絞り込み条件をURLのクエリに持たせる(URLSearchParams。リロードしても残る)",
-          "h": 2.0,
+          "todo": "ディレクトリ構成を自分で決めて、理由を design-log.md に書く",
+          "h": 1.5,
           "tier": "コア",
           "track": "React",
           "refs": [],
           "check": {
-            "type": "予測",
-            "q": "絞り込んだ状態でリロードしたら、何が残って何が消えるか予測してからやる。",
-            "judge": "予測どおりになるまで直せた"
+            "type": "説明",
+            "q": "新しい機能を1つ足すとしたら、どのフォルダに何を置くか。迷わず言えるか試す。",
+            "judge": "迷わず言えた（迷ったら、それは構成の方を直すサイン）"
           }
         }
       ]
@@ -6979,19 +6890,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s62",
+          "id": "v5s53",
           "cat": "TS/React/Next",
-          "todo": "★フォームで記録を追加する。送信でページが再読み込みされる問題を直す(課題A-4)",
-          "h": 2.5,
+          "todo": "GitHubにリポジトリを作り、最初のコミットとpushをする",
+          "h": 1.0,
           "tier": "コア",
-          "track": "React",
-          "refs": [
-            "form"
-          ],
+          "track": "設計・公開",
+          "refs": [],
           "check": {
-            "type": "説明",
-            "q": "preventDefault を書く前に一度送信した。そのとき何が起きたかを1行。",
-            "judge": "「ページが再読み込みされた」に相当することが書け、なぜかも言えた"
+            "type": "再現",
+            "q": ".gitignore に何が入っているか、見ないで3つ挙げてから開いて確認する。",
+            "judge": "3つとも入っていた"
           }
         }
       ]
@@ -7006,19 +6915,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s63",
+          "id": "v5s54",
           "cat": "TS/React/Next",
-          "todo": "★モーダルを作る。外側をクリックしたら閉じるようにする(課題A-5)",
+          "todo": "一覧表示を作る。ダミーデータを型付きで描画する",
           "h": 2.5,
           "tier": "コア",
           "track": "React",
-          "refs": [
-            "modal"
-          ],
+          "refs": [],
           "check": {
-            "type": "説明",
-            "q": "中身をクリックしても閉じてしまったのはなぜか。stopPropagation を書く前に、自分の言葉で1行。",
-            "judge": "クリックが親まで伝わることに触れられた"
+            "type": "予測",
+            "q": "型に無いプロパティを画面で使ったらどうなるか予測してから書く。",
+            "judge": "予測が当たった"
           }
         }
       ]
@@ -7041,7 +6948,22 @@ export const PLAN = {
       "done": false,
       "rest": false,
       "spare": false,
-      "plan": []
+      "plan": [
+        {
+          "id": "v5s56",
+          "cat": "TS/React/Next",
+          "todo": "絞り込みUIを作る。状態をどこに持つかは自分で決める",
+          "h": 2.5,
+          "tier": "コア",
+          "track": "React",
+          "refs": [],
+          "check": {
+            "type": "説明",
+            "q": "絞り込みの状態をどこに持ったか、その理由を1行。",
+            "judge": "別の場所に置いた場合の弊害を1つ言えた"
+          }
+        }
+      ]
     },
     {
       "date": "2027-02-06",
@@ -7073,19 +6995,19 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s64",
+          "id": "v5s57",
           "cat": "TS/React/Next",
-          "todo": "Escキーでも閉じられるようにする。後片付け(クリーンアップ)まで書く",
-          "h": 1.5,
+          "todo": "★キーワード検索。部分一致・大文字小文字を無視する(課題A-2)",
+          "h": 2.5,
           "tier": "コア",
           "track": "React",
           "refs": [
-            "keyboard"
+            "search"
           ],
           "check": {
-            "type": "予測",
-            "q": "後片付けを書かずに5回開け閉めしたら、リスナーは何個になるか。予測してから数える。",
-            "judge": "予測が当たり、直したあと1個になった"
+            "type": "説明",
+            "q": "正規表現を使ったか、使わなかったか。その判断の理由を1行。",
+            "judge": "「includes で足りた／足りなかった」の根拠が具体的だった"
           }
         }
       ]
@@ -7100,17 +7022,19 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s65",
+          "id": "v5s58",
           "cat": "TS/React/Next",
-          "todo": "localStorageに保存して復元する。壊れたデータが入っていても落ちないようにする",
-          "h": 2.0,
+          "todo": "★日付での絞り込みと並べ替えを作る(課題A-3)",
+          "h": 2.5,
           "tier": "コア",
           "track": "React",
-          "refs": [],
+          "refs": [
+            "date"
+          ],
           "check": {
             "type": "予測",
-            "q": "保存データを手で壊してリロードしたらどうなるか予測してからやる。",
-            "judge": "予測が当たり、落ちないように直せた"
+            "q": "new Date('2026-10-19') と new Date('2026/10/19') は同じ時刻になるか。予測してから両方 console.log する。",
+            "judge": "予測が当たった。違ったなら、なぜ違うのかを言えた"
           }
         }
       ]
@@ -7125,17 +7049,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s27",
+          "id": "v5s60",
           "cat": "TS/React/Next",
-          "todo": "★依存配列を空にして古い値を掴むバグを再現し、直す(課題R-2)",
+          "todo": "ここまでをVercelにデプロイして一度公開する",
           "h": 1.5,
           "tier": "コア",
-          "track": "React",
+          "track": "設計・公開",
           "refs": [],
           "check": {
             "type": "再現",
-            "q": "直したコードを閉じて、古い値を掴むバグをもう一度自分で再現させる。直す前に「なぜ古い値なのか」を1行書く。",
-            "judge": "再現できて、説明がクロージャの話になっていた"
+            "q": "手元では動くのに公開後に壊れる箇所を1つ探す。",
+            "judge": "見つけて直したか、無いことを確認できた"
           }
         }
       ]
@@ -7158,24 +7082,7 @@ export const PLAN = {
       "done": false,
       "rest": false,
       "spare": false,
-      "plan": [
-        {
-          "id": "v5s68",
-          "cat": "TS/React/Next",
-          "todo": "集計を作る。件数・合計・割合のどれかを出す（トラッカーなら週別の合計と達成率）",
-          "h": 2.5,
-          "tier": "コア",
-          "track": "React",
-          "refs": [
-            "subject"
-          ],
-          "check": {
-            "type": "予測",
-            "q": "データが0件のとき達成率の表示はどうなるか、予測してから0件にする。",
-            "judge": "予測が当たった（NaN や Infinity が出たなら直した）"
-          }
-        }
-      ]
+      "plan": []
     },
     {
       "date": "2027-02-13",
@@ -7207,17 +7114,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s119",
+          "id": "v5s59",
           "cat": "TS/React/Next",
-          "todo": "★useReducer に書き換える。自作アプリの追加・削除・絞り込みの更新を reducer 1か所に集める(課題R-5)",
+          "todo": "絞り込み条件をURLのクエリに持たせる(URLSearchParams。リロードしても残る)",
           "h": 2.0,
           "tier": "コア",
           "track": "React",
           "refs": [],
           "check": {
-            "type": "説明",
-            "q": "useState のままのときと useReducer にした後で、何が楽になり何が面倒になったかを1行ずつ。",
-            "judge": "両方を具体的に言えた"
+            "type": "予測",
+            "q": "絞り込んだ状態でリロードしたら、何が残って何が消えるか予測してからやる。",
+            "judge": "予測どおりになるまで直せた"
           }
         }
       ]
@@ -7232,17 +7139,19 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s120",
+          "id": "v5s62",
           "cat": "TS/React/Next",
-          "todo": "カスタムフックに切り出す(useLocalStorage など)。戻り値に型を付ける",
-          "h": 1.5,
+          "todo": "★フォームで記録を追加する。送信でページが再読み込みされる問題を直す(課題A-4)",
+          "h": 2.5,
           "tier": "コア",
           "track": "React",
-          "refs": [],
+          "refs": [
+            "form"
+          ],
           "check": {
-            "type": "再現",
-            "q": "見ないで useLocalStorage を書き直す。戻り値の型も書く。",
-            "judge": "動き、戻り値に型が付いた"
+            "type": "説明",
+            "q": "preventDefault を書く前に一度送信した。そのとき何が起きたかを1行。",
+            "judge": "「ページが再読み込みされた」に相当することが書け、なぜかも言えた"
           }
         }
       ]
@@ -7257,17 +7166,19 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s122",
+          "id": "v5s63",
           "cat": "TS/React/Next",
-          "todo": "ジェネリックなコンポーネントを書く。List<T> で自作アプリの別の一覧も描けるようにする",
-          "h": 1.0,
+          "todo": "★モーダルを作る。外側をクリックしたら閉じるようにする(課題A-5)",
+          "h": 2.5,
           "tier": "コア",
-          "track": "TypeScript",
-          "refs": [],
+          "track": "React",
+          "refs": [
+            "modal"
+          ],
           "check": {
-            "type": "再現",
-            "q": "List<T> を見ないで書き、商品以外の配列（例: カテゴリ名の配列）でも使う。",
-            "judge": "型エラーなしで2種類の配列を描けた"
+            "type": "説明",
+            "q": "中身をクリックしても閉じてしまったのはなぜか。stopPropagation を書く前に、自分の言葉で1行。",
+            "judge": "クリックが親まで伝わることに触れられた"
           }
         }
       ]
@@ -7290,22 +7201,7 @@ export const PLAN = {
       "done": false,
       "rest": false,
       "spare": false,
-      "plan": [
-        {
-          "id": "v5s69",
-          "cat": "TS/React/Next",
-          "todo": "進捗バーかグラフで見えるようにする",
-          "h": 2.0,
-          "tier": "コア",
-          "track": "React",
-          "refs": [],
-          "check": {
-            "type": "説明",
-            "q": "100%を超えたときどう表示されるか。実際に超えさせて確認し、1行で書く。",
-            "judge": "実際に超えさせて目で見た"
-          }
-        }
-      ]
+      "plan": []
     },
     {
       "date": "2027-02-20",
@@ -7337,17 +7233,19 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s123",
+          "id": "v5s64",
           "cat": "TS/React/Next",
-          "todo": "★自作アプリの型を見直す。ユーティリティ型とタグ付きユニオンで書き直せる所を直す",
-          "h": 2.0,
+          "todo": "Escキーでも閉じられるようにする。後片付け(クリーンアップ)まで書く",
+          "h": 1.5,
           "tier": "コア",
-          "track": "TypeScript",
-          "refs": [],
+          "track": "React",
+          "refs": [
+            "keyboard"
+          ],
           "check": {
-            "type": "説明",
-            "q": "直した型を1つ選び、前の書き方のままだと何が起きえたかを1行。",
-            "judge": "起きえたバグを具体的に言えた"
+            "type": "予測",
+            "q": "後片付けを書かずに5回開け閉めしたら、リスナーは何個になるか。予測してから数える。",
+            "judge": "予測が当たり、直したあと1個になった"
           }
         }
       ]
@@ -7362,17 +7260,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s70",
+          "id": "v5s65",
           "cat": "TS/React/Next",
-          "todo": "READMEと設計判断メモを書く(何を作ったか / なぜそう作ったか)",
-          "h": 1.5,
+          "todo": "localStorageに保存して復元する。壊れたデータが入っていても落ちないようにする",
+          "h": 2.0,
           "tier": "コア",
-          "track": "設計・公開",
+          "track": "React",
           "refs": [],
           "check": {
             "type": "予測",
-            "q": "初めて見る人が最初に詰まるのはどこか予測して、そこに1行足す。",
-            "judge": "足した箇所を挙げられた"
+            "q": "保存データを手で壊してリロードしたらどうなるか予測してからやる。",
+            "judge": "予測が当たり、落ちないように直せた"
           }
         }
       ]
@@ -7387,19 +7285,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s71",
+          "id": "v5s27",
           "cat": "TS/React/Next",
-          "todo": "★人が書いた同じ規模のコードと自分の設計を読み比べる(課題A-6)。トラッカーを作ったなら配布版を初めて開く。別の題材なら公開リポジトリを1つ選ぶ",
-          "h": 2.5,
+          "todo": "★依存配列を空にして古い値を掴むバグを再現し、直す(課題R-2)",
+          "h": 1.5,
           "tier": "コア",
-          "track": "設計・公開",
-          "refs": [
-            "subject"
-          ],
+          "track": "React",
+          "refs": [],
           "check": {
-            "type": "予測",
-            "q": "★配布版を開く前に「相手はここが自分と違うはず」を1つ書いてから開く。",
-            "judge": "開く前に予測を書けた（当たり外れは問わない）"
+            "type": "再現",
+            "q": "直したコードを閉じて、古い値を掴むバグをもう一度自分で再現させる。直す前に「なぜ古い値なのか」を1行書く。",
+            "judge": "再現できて、説明がクロージャの話になっていた"
           }
         }
       ]
@@ -7424,17 +7320,19 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s72",
+          "id": "v5s68",
           "cat": "TS/React/Next",
-          "todo": "差分を言語化して design-log.md に書く。どちらが良いかも自分で判断する",
-          "h": 1.5,
+          "todo": "集計を作る。件数・合計・割合のどれかを出す（トラッカーなら週別の合計と達成率）",
+          "h": 2.5,
           "tier": "コア",
-          "track": "設計・公開",
-          "refs": [],
+          "track": "React",
+          "refs": [
+            "subject"
+          ],
           "check": {
-            "type": "説明",
-            "q": "取り込まないと決めた点を1つ選び、その理由を1行。",
-            "judge": "「好みだから」以外の理由になった"
+            "type": "予測",
+            "q": "データが0件のとき達成率の表示はどうなるか、予測してから0件にする。",
+            "judge": "予測が当たった（NaN や Infinity が出たなら直した）"
           }
         }
       ]
@@ -7469,17 +7367,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s164",
+          "id": "v5s119",
           "cat": "TS/React/Next",
-          "todo": "TS本2周目 1〜2章：予想問題を解く（結果を先に書いてから実行）",
+          "todo": "★useReducer に書き換える。自作アプリの追加・削除・絞り込みの更新を reducer 1か所に集める(課題R-5)",
           "h": 2.0,
           "tier": "コア",
-          "track": "TypeScript",
+          "track": "React",
           "refs": [],
           "check": {
-            "type": "予測",
-            "q": "2周目の問題を、結果を先に書いてから実行する。",
-            "judge": "×が出た問題の理由が書けた（×の数より理由を重視）"
+            "type": "説明",
+            "q": "useState のままのときと useReducer にした後で、何が楽になり何が面倒になったかを1行ずつ。",
+            "judge": "両方を具体的に言えた"
           }
         }
       ]
@@ -7494,17 +7392,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s165",
+          "id": "v5s120",
           "cat": "TS/React/Next",
-          "todo": "TS本2周目 3章：予想問題（オブジェクト・部分型・配列・分割代入）",
-          "h": 2.5,
+          "todo": "カスタムフックに切り出す(useLocalStorage など)。戻り値に型を付ける",
+          "h": 1.5,
           "tier": "コア",
-          "track": "TypeScript",
+          "track": "React",
           "refs": [],
           "check": {
-            "type": "予測",
-            "q": "TS本2周目の問題を、結果を先に書いてから実行する（3章）。特に分割代入・スプレッドの問題。",
-            "judge": "×の理由が書けた"
+            "type": "再現",
+            "q": "見ないで useLocalStorage を書き直す。戻り値の型も書く。",
+            "judge": "動き、戻り値に型が付いた"
           }
         }
       ]
@@ -7519,17 +7417,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s166",
+          "id": "v5s122",
           "cat": "TS/React/Next",
-          "todo": "TS本2周目 4章：予想問題（関数の型・ジェネリクス）",
-          "h": 2.5,
+          "todo": "ジェネリックなコンポーネントを書く。List<T> で自作アプリの別の一覧も描けるようにする",
+          "h": 1.0,
           "tier": "コア",
           "track": "TypeScript",
           "refs": [],
           "check": {
-            "type": "予測",
-            "q": "TS本2周目の問題を、結果を先に書いてから実行する（4章）。特にアロー関数の戻り値とジェネリクスの推論。",
-            "judge": "×の理由が書けた"
+            "type": "再現",
+            "q": "List<T> を見ないで書き、商品以外の配列（例: カテゴリ名の配列）でも使う。",
+            "judge": "型エラーなしで2種類の配列を描けた"
           }
         }
       ]
@@ -7552,7 +7450,22 @@ export const PLAN = {
       "done": false,
       "rest": false,
       "spare": false,
-      "plan": []
+      "plan": [
+        {
+          "id": "v5s69",
+          "cat": "TS/React/Next",
+          "todo": "進捗バーかグラフで見えるようにする",
+          "h": 2.0,
+          "tier": "コア",
+          "track": "React",
+          "refs": [],
+          "check": {
+            "type": "説明",
+            "q": "100%を超えたときどう表示されるか。実際に超えさせて確認し、1行で書く。",
+            "judge": "実際に超えさせて目で見た"
+          }
+        }
+      ]
     },
     {
       "date": "2027-03-06",
@@ -7584,17 +7497,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s167",
+          "id": "v5s123",
           "cat": "TS/React/Next",
-          "todo": "TS本2周目 5章：予想問題（クラス・this・例外）",
+          "todo": "★自作アプリの型を見直す。ユーティリティ型とタグ付きユニオンで書き直せる所を直す",
           "h": 2.0,
           "tier": "コア",
           "track": "TypeScript",
           "refs": [],
           "check": {
-            "type": "予測",
-            "q": "TS本2周目の問題を、結果を先に書いてから実行する（5章）。特に this。",
-            "judge": "×の理由が書けた"
+            "type": "説明",
+            "q": "直した型を1つ選び、前の書き方のままだと何が起きえたかを1行。",
+            "judge": "起きえたバグを具体的に言えた"
           }
         }
       ]
@@ -7609,17 +7522,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s168",
+          "id": "v5s70",
           "cat": "TS/React/Next",
-          "todo": "TS本2周目 6.1〜6.4：予想問題（ユニオン・リテラル・絞り込み・keyof）",
-          "h": 2.5,
+          "todo": "READMEと設計判断メモを書く(何を作ったか / なぜそう作ったか)",
+          "h": 1.5,
           "tier": "コア",
-          "track": "TypeScript",
+          "track": "設計・公開",
           "refs": [],
           "check": {
             "type": "予測",
-            "q": "TS本2周目の問題を、結果を先に書いてから実行する（6.1〜6.4）。",
-            "judge": "×の理由が書けた"
+            "q": "初めて見る人が最初に詰まるのはどこか予測して、そこに1行足す。",
+            "judge": "足した箇所を挙げられた"
           }
         }
       ]
@@ -7634,17 +7547,19 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s169",
+          "id": "v5s71",
           "cat": "TS/React/Next",
-          "todo": "TS本2周目 6.5〜6.8：予想問題（as・unknown・高度な型・タグ付きユニオン）",
+          "todo": "★人が書いた同じ規模のコードと自分の設計を読み比べる(課題A-6)。トラッカーを作ったなら配布版を初めて開く。別の題材なら公開リポジトリを1つ選ぶ",
           "h": 2.5,
           "tier": "コア",
-          "track": "TypeScript",
-          "refs": [],
+          "track": "設計・公開",
+          "refs": [
+            "subject"
+          ],
           "check": {
             "type": "予測",
-            "q": "TS本2周目の問題を、結果を先に書いてから実行する（6.5〜6.8）。",
-            "judge": "×の理由が書けた"
+            "q": "★配布版を開く前に「相手はここが自分と違うはず」を1つ書いてから開く。",
+            "judge": "開く前に予測を書けた（当たり外れは問わない）"
           }
         }
       ]
@@ -7667,7 +7582,22 @@ export const PLAN = {
       "done": false,
       "rest": false,
       "spare": false,
-      "plan": []
+      "plan": [
+        {
+          "id": "v5s72",
+          "cat": "TS/React/Next",
+          "todo": "差分を言語化して design-log.md に書く。どちらが良いかも自分で判断する",
+          "h": 1.5,
+          "tier": "コア",
+          "track": "設計・公開",
+          "refs": [],
+          "check": {
+            "type": "説明",
+            "q": "取り込まないと決めた点を1つ選び、その理由を1行。",
+            "judge": "「好みだから」以外の理由になった"
+          }
+        }
+      ]
     },
     {
       "date": "2027-03-13",
@@ -7699,17 +7629,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s170",
+          "id": "v5s164",
           "cat": "TS/React/Next",
-          "todo": "TS本2周目 7〜8章：予想問題（モジュール・非同期の実行順）",
-          "h": 2.5,
+          "todo": "TS本2周目 1〜2章：予想問題を解く（結果を先に書いてから実行）",
+          "h": 2.0,
           "tier": "コア",
           "track": "TypeScript",
           "refs": [],
           "check": {
             "type": "予測",
-            "q": "TS本2周目の問題を、結果を先に書いてから実行する（7〜8章）。特に非同期の実行順。",
-            "judge": "×の理由が書けた"
+            "q": "2周目の問題を、結果を先に書いてから実行する。",
+            "judge": "×が出た問題の理由が書けた（×の数より理由を重視）"
           }
         }
       ]
@@ -7724,17 +7654,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s171",
+          "id": "v5s165",
           "cat": "TS/React/Next",
-          "todo": "TS本2周目 9章 ＋ ×が付いた問題の解き直し",
-          "h": 1.0,
+          "todo": "TS本2周目 3章：予想問題（オブジェクト・部分型・配列・分割代入）",
+          "h": 2.5,
           "tier": "コア",
           "track": "TypeScript",
           "refs": [],
           "check": {
-            "type": "説明",
-            "q": "2周目で×が残った問題を数え、1周目の力試しで解けなかった章と比べて1行。",
-            "judge": "重なり（または違い）を言えた"
+            "type": "予測",
+            "q": "TS本2周目の問題を、結果を先に書いてから実行する（3章）。特に分割代入・スプレッドの問題。",
+            "judge": "×の理由が書けた"
           }
         }
       ]
@@ -7749,16 +7679,16 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s172",
+          "id": "v5s166",
           "cat": "TS/React/Next",
-          "todo": "React本2周目 1〜2章：予想問題（JSの基礎）",
-          "h": 2.0,
+          "todo": "TS本2周目 4章：予想問題（関数の型・ジェネリクス）",
+          "h": 2.5,
           "tier": "コア",
-          "track": "React",
+          "track": "TypeScript",
           "refs": [],
           "check": {
             "type": "予測",
-            "q": "React本2周目の問題を、結果を先に書いてから実行する（1〜2章）。",
+            "q": "TS本2周目の問題を、結果を先に書いてから実行する（4章）。特にアロー関数の戻り値とジェネリクスの推論。",
             "judge": "×の理由が書けた"
           }
         }
@@ -7782,22 +7712,7 @@ export const PLAN = {
       "done": false,
       "rest": false,
       "spare": false,
-      "plan": [
-        {
-          "id": "v5s173",
-          "cat": "TS/React/Next",
-          "todo": "React本2周目 3.1〜3.5：予想問題（JSX・props）",
-          "h": 2.0,
-          "tier": "コア",
-          "track": "React",
-          "refs": [],
-          "check": {
-            "type": "予測",
-            "q": "React本2周目の問題を、結果を先に書いてから実行する（3.1〜3.5）。",
-            "judge": "×の理由が書けた"
-          }
-        }
-      ]
+      "plan": []
     },
     {
       "date": "2027-03-20",
@@ -7829,16 +7744,16 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s174",
+          "id": "v5s167",
           "cat": "TS/React/Next",
-          "todo": "React本2周目 3.6〜3.9：予想問題（state・イベント・レンダリング・key）",
-          "h": 2.5,
+          "todo": "TS本2周目 5章：予想問題（クラス・this・例外）",
+          "h": 2.0,
           "tier": "コア",
-          "track": "React",
+          "track": "TypeScript",
           "refs": [],
           "check": {
             "type": "予測",
-            "q": "React本2周目の問題を、結果を先に書いてから実行する（3.6〜3.9）。特に state 更新のタイミング。",
+            "q": "TS本2周目の問題を、結果を先に書いてから実行する（5章）。特に this。",
             "judge": "×の理由が書けた"
           }
         }
@@ -7854,16 +7769,16 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s175",
+          "id": "v5s168",
           "cat": "TS/React/Next",
-          "todo": "React本2周目 4章：予想問題（ToDoアプリのコード）",
+          "todo": "TS本2周目 6.1〜6.4：予想問題（ユニオン・リテラル・絞り込み・keyof）",
           "h": 2.5,
           "tier": "コア",
-          "track": "React",
+          "track": "TypeScript",
           "refs": [],
           "check": {
             "type": "予測",
-            "q": "React本2周目の問題を、結果を先に書いてから実行する（4章）。",
+            "q": "TS本2周目の問題を、結果を先に書いてから実行する（6.1〜6.4）。",
             "judge": "×の理由が書けた"
           }
         }
@@ -7879,16 +7794,16 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s176",
+          "id": "v5s169",
           "cat": "TS/React/Next",
-          "todo": "React本2周目 5章：予想問題（Context）",
-          "h": 1.5,
+          "todo": "TS本2周目 6.5〜6.8：予想問題（as・unknown・高度な型・タグ付きユニオン）",
+          "h": 2.5,
           "tier": "コア",
-          "track": "React",
+          "track": "TypeScript",
           "refs": [],
           "check": {
             "type": "予測",
-            "q": "React本2周目の問題を、結果を先に書いてから実行する（5章）。",
+            "q": "TS本2周目の問題を、結果を先に書いてから実行する（6.5〜6.8）。",
             "judge": "×の理由が書けた"
           }
         }
@@ -7944,16 +7859,16 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s177",
+          "id": "v5s170",
           "cat": "TS/React/Next",
-          "todo": "React本2周目 6.1〜6.5：予想問題（ルーティング・一覧・追加）",
+          "todo": "TS本2周目 7〜8章：予想問題（モジュール・非同期の実行順）",
           "h": 2.5,
           "tier": "コア",
-          "track": "React",
+          "track": "TypeScript",
           "refs": [],
           "check": {
             "type": "予測",
-            "q": "React本2周目の問題を、結果を先に書いてから実行する（6.1〜6.5）。特に useEffect の実行回数。",
+            "q": "TS本2周目の問題を、結果を先に書いてから実行する（7〜8章）。特に非同期の実行順。",
             "judge": "×の理由が書けた"
           }
         }
@@ -7969,17 +7884,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s178",
+          "id": "v5s171",
           "cat": "TS/React/Next",
-          "todo": "React本2周目 6.6〜6.10：予想問題（通知・編集・削除・ページネーション・検索）",
-          "h": 2.5,
+          "todo": "TS本2周目 9章 ＋ ×が付いた問題の解き直し",
+          "h": 1.0,
           "tier": "コア",
-          "track": "React",
+          "track": "TypeScript",
           "refs": [],
           "check": {
-            "type": "予測",
-            "q": "React本2周目の問題を、結果を先に書いてから実行する（6.6〜6.10）。",
-            "judge": "×の理由が書けた"
+            "type": "説明",
+            "q": "2周目で×が残った問題を数え、1周目の力試しで解けなかった章と比べて1行。",
+            "judge": "重なり（または違い）を言えた"
           }
         }
       ]
@@ -7994,17 +7909,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s179",
+          "id": "v5s172",
           "cat": "TS/React/Next",
-          "todo": "React本2周目 7章 ＋ ×が付いた問題の解き直し",
-          "h": 1.5,
+          "todo": "React本2周目 1〜2章：予想問題（JSの基礎）",
+          "h": 2.0,
           "tier": "コア",
           "track": "React",
           "refs": [],
           "check": {
-            "type": "説明",
-            "q": "React本2周目で×が残った問題を数え、3周目で書くお題を優先順に3つ決める。",
-            "judge": "3つ決められた"
+            "type": "予測",
+            "q": "React本2周目の問題を、結果を先に書いてから実行する（1〜2章）。",
+            "judge": "×の理由が書けた"
           }
         }
       ]
@@ -8027,7 +7942,22 @@ export const PLAN = {
       "done": false,
       "rest": false,
       "spare": false,
-      "plan": []
+      "plan": [
+        {
+          "id": "v5s173",
+          "cat": "TS/React/Next",
+          "todo": "React本2周目 3.1〜3.5：予想問題（JSX・props）",
+          "h": 2.0,
+          "tier": "コア",
+          "track": "React",
+          "refs": [],
+          "check": {
+            "type": "予測",
+            "q": "React本2周目の問題を、結果を先に書いてから実行する（3.1〜3.5）。",
+            "judge": "×の理由が書けた"
+          }
+        }
+      ]
     },
     {
       "date": "2027-04-03",
@@ -8059,17 +7989,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s180",
+          "id": "v5s174",
           "cat": "TS/React/Next",
-          "todo": "TS本3周目 2〜3章：白紙お題（基本の型・オブジェクトの型）",
+          "todo": "React本2周目 3.6〜3.9：予想問題（state・イベント・レンダリング・key）",
           "h": 2.5,
           "tier": "コア",
-          "track": "TypeScript",
+          "track": "React",
           "refs": [],
           "check": {
-            "type": "再現",
-            "q": "お題だけを見て、本を閉じて書く（2〜3章）。",
-            "judge": "見ないで動いた"
+            "type": "予測",
+            "q": "React本2周目の問題を、結果を先に書いてから実行する（3.6〜3.9）。特に state 更新のタイミング。",
+            "judge": "×の理由が書けた"
           }
         }
       ]
@@ -8084,17 +8014,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s181",
+          "id": "v5s175",
           "cat": "TS/React/Next",
-          "todo": "TS本3周目 4章：白紙お題（関数・ジェネリクス）",
-          "h": 2.0,
+          "todo": "React本2周目 4章：予想問題（ToDoアプリのコード）",
+          "h": 2.5,
           "tier": "コア",
-          "track": "TypeScript",
+          "track": "React",
           "refs": [],
           "check": {
-            "type": "再現",
-            "q": "TS本3周目のお題だけを見て、本を閉じて書く（4章）。",
-            "judge": "見ないで動いた"
+            "type": "予測",
+            "q": "React本2周目の問題を、結果を先に書いてから実行する（4章）。",
+            "judge": "×の理由が書けた"
           }
         }
       ]
@@ -8109,17 +8039,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s182",
+          "id": "v5s176",
           "cat": "TS/React/Next",
-          "todo": "TS本3周目 5章：白紙お題（クラス）",
+          "todo": "React本2周目 5章：予想問題（Context）",
           "h": 1.5,
           "tier": "コア",
-          "track": "TypeScript",
+          "track": "React",
           "refs": [],
           "check": {
-            "type": "再現",
-            "q": "TS本3周目のお題だけを見て、本を閉じて書く（5章）。",
-            "judge": "見ないで動いた"
+            "type": "予測",
+            "q": "React本2周目の問題を、結果を先に書いてから実行する（5章）。",
+            "judge": "×の理由が書けた"
           }
         }
       ]
@@ -8174,17 +8104,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s183",
+          "id": "v5s177",
           "cat": "TS/React/Next",
-          "todo": "TS本3周目 6章：白紙お題（ユニオン・絞り込み・タグ付きユニオン・組み込みの型）",
+          "todo": "React本2周目 6.1〜6.5：予想問題（ルーティング・一覧・追加）",
           "h": 2.5,
           "tier": "コア",
-          "track": "TypeScript",
+          "track": "React",
           "refs": [],
           "check": {
-            "type": "再現",
-            "q": "TS本3周目のお題だけを見て、本を閉じて書く（6章）。",
-            "judge": "見ないで動いた"
+            "type": "予測",
+            "q": "React本2周目の問題を、結果を先に書いてから実行する（6.1〜6.5）。特に useEffect の実行回数。",
+            "judge": "×の理由が書けた"
           }
         }
       ]
@@ -8199,17 +8129,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s184",
+          "id": "v5s178",
           "cat": "TS/React/Next",
-          "todo": "TS本3周目 7〜9章：白紙お題（モジュール・非同期・tsconfig）",
-          "h": 2.0,
+          "todo": "React本2周目 6.6〜6.10：予想問題（通知・編集・削除・ページネーション・検索）",
+          "h": 2.5,
           "tier": "コア",
-          "track": "TypeScript",
+          "track": "React",
           "refs": [],
           "check": {
-            "type": "再現",
-            "q": "TS本3周目のお題だけを見て、本を閉じて書く（7〜9章）。",
-            "judge": "見ないで動いた"
+            "type": "予測",
+            "q": "React本2周目の問題を、結果を先に書いてから実行する（6.6〜6.10）。",
+            "judge": "×の理由が書けた"
           }
         }
       ]
@@ -8224,17 +8154,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s185",
+          "id": "v5s179",
           "cat": "TS/React/Next",
-          "todo": "TS本3周目の締め：全章の力試しを白紙で解き直す",
+          "todo": "React本2周目 7章 ＋ ×が付いた問題の解き直し",
           "h": 1.5,
           "tier": "コア",
-          "track": "TypeScript",
+          "track": "React",
           "refs": [],
           "check": {
             "type": "説明",
-            "q": "白紙で解けなかった力試しを書き出し、weak-points.md に移す。",
-            "judge": "一覧が書けた"
+            "q": "React本2周目で×が残った問題を数え、3周目で書くお題を優先順に3つ決める。",
+            "judge": "3つ決められた"
           }
         }
       ]
@@ -8289,12 +8219,12 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s186",
+          "id": "v5s180",
           "cat": "TS/React/Next",
-          "todo": "React本3周目 2〜3章：白紙お題（JSの基礎・JSX・props・state・リスト）",
+          "todo": "TS本3周目 2〜3章：白紙お題（基本の型・オブジェクトの型）",
           "h": 2.5,
           "tier": "コア",
-          "track": "React",
+          "track": "TypeScript",
           "refs": [],
           "check": {
             "type": "再現",
@@ -8314,16 +8244,16 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s187",
+          "id": "v5s181",
           "cat": "TS/React/Next",
-          "todo": "React本3周目 4章：★ToDoアプリを白紙からTSで作る",
-          "h": 2.5,
+          "todo": "TS本3周目 4章：白紙お題（関数・ジェネリクス）",
+          "h": 2.0,
           "tier": "コア",
-          "track": "React",
+          "track": "TypeScript",
           "refs": [],
           "check": {
             "type": "再現",
-            "q": "ToDoアプリを白紙からTSで作る。本と見比べるのは動いてから。",
+            "q": "TS本3周目のお題だけを見て、本を閉じて書く（4章）。",
             "judge": "見ないで動いた"
           }
         }
@@ -8339,16 +8269,16 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s188",
+          "id": "v5s182",
           "cat": "TS/React/Next",
-          "todo": "React本3周目 5章：白紙お題（Context）",
+          "todo": "TS本3周目 5章：白紙お題（クラス）",
           "h": 1.5,
           "tier": "コア",
-          "track": "React",
+          "track": "TypeScript",
           "refs": [],
           "check": {
             "type": "再現",
-            "q": "お題だけを見て、本を閉じて書く（5章）。",
+            "q": "TS本3周目のお題だけを見て、本を閉じて書く（5章）。",
             "judge": "見ないで動いた"
           }
         }
@@ -8404,16 +8334,16 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s189",
+          "id": "v5s183",
           "cat": "TS/React/Next",
-          "todo": "React本3周目 6章：★メモアプリの要所（一覧・追加・編集）を白紙からTSで書く",
+          "todo": "TS本3周目 6章：白紙お題（ユニオン・絞り込み・タグ付きユニオン・組み込みの型）",
           "h": 2.5,
           "tier": "コア",
-          "track": "React",
+          "track": "TypeScript",
           "refs": [],
           "check": {
             "type": "再現",
-            "q": "メモアプリの一覧・追加・編集を白紙からTSで書く。",
+            "q": "TS本3周目のお題だけを見て、本を閉じて書く（6章）。",
             "judge": "見ないで動いた"
           }
         }
@@ -8429,16 +8359,16 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s190",
+          "id": "v5s184",
           "cat": "TS/React/Next",
-          "todo": "React本3周目 7章：白紙お題（最適化・TSでReact）",
-          "h": 1.5,
+          "todo": "TS本3周目 7〜9章：白紙お題（モジュール・非同期・tsconfig）",
+          "h": 2.0,
           "tier": "コア",
-          "track": "React",
+          "track": "TypeScript",
           "refs": [],
           "check": {
             "type": "再現",
-            "q": "お題だけを見て、本を閉じて書く（7章）。",
+            "q": "TS本3周目のお題だけを見て、本を閉じて書く（7〜9章）。",
             "judge": "見ないで動いた"
           }
         }
@@ -8454,17 +8384,17 @@ export const PLAN = {
       "spare": false,
       "plan": [
         {
-          "id": "v5s191",
-          "cat": "振り返り",
-          "todo": "★全体の締め（5/2）：3周の○△×を振り返り、weak-points.md を整理し、次の計画を決める",
-          "h": 2.0,
+          "id": "v5s185",
+          "cat": "TS/React/Next",
+          "todo": "TS本3周目の締め：全章の力試しを白紙で解き直す",
+          "h": 1.5,
           "tier": "コア",
-          "track": "振り返り",
+          "track": "TypeScript",
           "refs": [],
           "check": {
             "type": "説明",
-            "q": "3周で一番伸びたものと、まだ穴が残っているものを1つずつ。次の3ヶ月で何をやるかも1行。",
-            "judge": "3つとも書けた"
+            "q": "白紙で解けなかった力試しを書き出し、weak-points.md に移す。",
+            "judge": "一覧が書けた"
           }
         }
       ]
@@ -8516,8 +8446,23 @@ export const PLAN = {
       "target": 1.5,
       "done": false,
       "rest": false,
-      "spare": true,
-      "plan": []
+      "spare": false,
+      "plan": [
+        {
+          "id": "v5s186",
+          "cat": "TS/React/Next",
+          "todo": "React本3周目 2〜3章：白紙お題（JSの基礎・JSX・props・state・リスト）",
+          "h": 2.5,
+          "tier": "コア",
+          "track": "React",
+          "refs": [],
+          "check": {
+            "type": "再現",
+            "q": "お題だけを見て、本を閉じて書く（2〜3章）。",
+            "judge": "見ないで動いた"
+          }
+        }
+      ]
     },
     {
       "date": "2027-05-04",
@@ -8526,8 +8471,23 @@ export const PLAN = {
       "target": 1.5,
       "done": false,
       "rest": false,
-      "spare": true,
-      "plan": []
+      "spare": false,
+      "plan": [
+        {
+          "id": "v5s187",
+          "cat": "TS/React/Next",
+          "todo": "React本3周目 4章：★ToDoアプリを白紙からTSで作る",
+          "h": 2.5,
+          "tier": "コア",
+          "track": "React",
+          "refs": [],
+          "check": {
+            "type": "再現",
+            "q": "ToDoアプリを白紙からTSで作る。本と見比べるのは動いてから。",
+            "judge": "見ないで動いた"
+          }
+        }
+      ]
     },
     {
       "date": "2027-05-05",
@@ -8536,8 +8496,23 @@ export const PLAN = {
       "target": 1.5,
       "done": false,
       "rest": false,
-      "spare": true,
-      "plan": []
+      "spare": false,
+      "plan": [
+        {
+          "id": "v5s188",
+          "cat": "TS/React/Next",
+          "todo": "React本3周目 5章：白紙お題（Context）",
+          "h": 1.5,
+          "tier": "コア",
+          "track": "React",
+          "refs": [],
+          "check": {
+            "type": "再現",
+            "q": "お題だけを見て、本を閉じて書く（5章）。",
+            "judge": "見ないで動いた"
+          }
+        }
+      ]
     },
     {
       "date": "2027-05-06",
@@ -8556,7 +8531,7 @@ export const PLAN = {
       "target": 1.5,
       "done": false,
       "rest": false,
-      "spare": true,
+      "spare": false,
       "plan": []
     },
     {
@@ -8566,13 +8541,198 @@ export const PLAN = {
       "target": 2.0,
       "done": false,
       "rest": false,
-      "spare": true,
+      "spare": false,
       "plan": []
     },
     {
       "date": "2027-05-09",
       "wd": "日",
       "week": 34,
+      "target": 2.0,
+      "done": false,
+      "rest": false,
+      "spare": true,
+      "plan": []
+    },
+    {
+      "date": "2027-05-10",
+      "wd": "月",
+      "week": 35,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": [
+        {
+          "id": "v5s189",
+          "cat": "TS/React/Next",
+          "todo": "React本3周目 6章：★メモアプリの要所（一覧・追加・編集）を白紙からTSで書く",
+          "h": 2.5,
+          "tier": "コア",
+          "track": "React",
+          "refs": [],
+          "check": {
+            "type": "再現",
+            "q": "メモアプリの一覧・追加・編集を白紙からTSで書く。",
+            "judge": "見ないで動いた"
+          }
+        }
+      ]
+    },
+    {
+      "date": "2027-05-11",
+      "wd": "火",
+      "week": 35,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": [
+        {
+          "id": "v5s190",
+          "cat": "TS/React/Next",
+          "todo": "React本3周目 7章：白紙お題（最適化・TSでReact）",
+          "h": 1.5,
+          "tier": "コア",
+          "track": "React",
+          "refs": [],
+          "check": {
+            "type": "再現",
+            "q": "お題だけを見て、本を閉じて書く（7章）。",
+            "judge": "見ないで動いた"
+          }
+        }
+      ]
+    },
+    {
+      "date": "2027-05-12",
+      "wd": "水",
+      "week": 35,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": [
+        {
+          "id": "v5s191",
+          "cat": "振り返り",
+          "todo": "★全体の締め（5/16）：3周の○△×を振り返り、weak-points.md を整理し、次の計画を決める",
+          "h": 2.0,
+          "tier": "コア",
+          "track": "振り返り",
+          "refs": [],
+          "check": {
+            "type": "説明",
+            "q": "3周で一番伸びたものと、まだ穴が残っているものを1つずつ。次の3ヶ月で何をやるかも1行。",
+            "judge": "3つとも書けた"
+          }
+        }
+      ]
+    },
+    {
+      "date": "2027-05-13",
+      "wd": "木",
+      "week": 35,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": true,
+      "plan": []
+    },
+    {
+      "date": "2027-05-14",
+      "wd": "金",
+      "week": 35,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": []
+    },
+    {
+      "date": "2027-05-15",
+      "wd": "土",
+      "week": 35,
+      "target": 2.0,
+      "done": false,
+      "rest": false,
+      "spare": false,
+      "plan": []
+    },
+    {
+      "date": "2027-05-16",
+      "wd": "日",
+      "week": 35,
+      "target": 2.0,
+      "done": false,
+      "rest": false,
+      "spare": true,
+      "plan": []
+    },
+    {
+      "date": "2027-05-17",
+      "wd": "月",
+      "week": 36,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": true,
+      "plan": []
+    },
+    {
+      "date": "2027-05-18",
+      "wd": "火",
+      "week": 36,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": true,
+      "plan": []
+    },
+    {
+      "date": "2027-05-19",
+      "wd": "水",
+      "week": 36,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": true,
+      "plan": []
+    },
+    {
+      "date": "2027-05-20",
+      "wd": "木",
+      "week": 36,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": true,
+      "plan": []
+    },
+    {
+      "date": "2027-05-21",
+      "wd": "金",
+      "week": 36,
+      "target": 1.5,
+      "done": false,
+      "rest": false,
+      "spare": true,
+      "plan": []
+    },
+    {
+      "date": "2027-05-22",
+      "wd": "土",
+      "week": 36,
+      "target": 2.0,
+      "done": false,
+      "rest": false,
+      "spare": true,
+      "plan": []
+    },
+    {
+      "date": "2027-05-23",
+      "wd": "日",
+      "week": 36,
       "target": 2.0,
       "done": false,
       "rest": false,
@@ -8634,7 +8794,7 @@ export const PLAN = {
     {
       "no": "5b",
       "title": "★Reactは「写経 → 改造 → 自作」の3段で進める",
-      "body": "JS基礎は本を読めばゼロから書けるが、Reactは書き方の型を知らないと1行も書けない。①写経: React本のアプリを見ながらそのまま書く（AIは見ない）。②改造: 写経したものを本を閉じてTSで書き直す。壊して直す。ここで理解が入る。③自作: 何も見ずに書く。ルール5が効くのはここから。★10/25から、第2期（React本1周目）が①②、フェーズA（18〜24週目）が③にあたる。"
+      "body": "JS基礎は本を読めばゼロから書けるが、Reactは書き方の型を知らないと1行も書けない。①写経: React本のアプリを見ながらそのまま書く（AIは見ない）。②改造: 写経したものを本を閉じてTSで書き直す。壊して直す。ここで理解が入る。③自作: 何も見ずに書く。ルール5が効くのはここから。★10/25から、第2期（React本1周目）が①②、フェーズA（20〜26週目）が③にあたる。"
     },
     {
       "no": "6",
@@ -8669,7 +8829,7 @@ export const PLAN = {
     {
       "no": "12",
       "title": "★中身は削らない。期限で吸収する",
-      "body": "TS本1周目 11/29 → React本1周目 1/10 → 自作 2/28 → 2・3周目 5/2。9/30に一度40.0hを削ったが、全部戻して期限を伸ばす方に決めた。10/15にも本人の指示で、実績（週6.5h）に合わせて終了を2/21から3/28へ延ばした。★10/25に本を3周する形に組み替え、終了を5/2（予備込みで5/9）にした（本人が了承）。★「時間が足りないから内容を削る」ではなく「必要なものは全部やる。かかる時間を認める」を選んだということ。全部終わらなくてよい。各期のコアが終わっていれば成功。"
+      "body": "TS本1周目 12/13 → React本1周目 1/24 → 自作 3/14 → 2・3周目 5/16。9/30に一度40.0hを削ったが、全部戻して期限を伸ばす方に決めた。10/15にも本人の指示で、実績（週6.5h）に合わせて終了を2/21から3/28へ延ばした。★10/25に本を3周する形に組み替え、終了を5/2（予備込みで5/9）にした（本人が了承）。★11/11にも本人の指示で、学習が滞った2週ぶん後ろへずらした（終了5/16・予備込みで5/23）。★「時間が足りないから内容を削る」ではなく「必要なものは全部やる。かかる時間を認める」を選んだということ。全部終わらなくてよい。各期のコアが終わっていれば成功。"
     },
     {
       "no": "12c",
@@ -8679,11 +8839,11 @@ export const PLAN = {
     {
       "no": "12b",
       "title": "★遅れたときに削る順番は決めてある",
-      "body": "無理だと分かった時点で日付を倒すのではなく、この順で落とす。（10/15・10/25は本人の指示で例外的に日付を倒した。5/9からは、またこの順で削る）①React本3周目の5章・7章（Context・最適化）3.0h②TS本3周目の5章（クラス）1.5h と 7〜9章 2.0h③2周目の「×の解き直し」2.5h（×の一覧だけ残す）。★フェーズA（自作アプリ）と、3周目のToDo・メモアプリを白紙で書く手順は最後まで落とさない。白紙で書けることが、3周する目的そのものだから。"
+      "body": "無理だと分かった時点で日付を倒すのではなく、この順で落とす。（10/15・10/25・11/11は本人の指示で例外的に日付を倒した。5/23からは、またこの順で削る）①React本3周目の5章・7章（Context・最適化）3.0h②TS本3周目の5章（クラス）1.5h と 7〜9章 2.0h③2周目の「×の解き直し」2.5h（×の一覧だけ残す）。★フェーズA（自作アプリ）と、3周目のToDo・メモアプリを白紙で書く手順は最後まで落とさない。白紙で書けることが、3周する目的そのものだから。"
     },
     {
       "no": "12d",
-      "title": "★フェーズAの題材は自由。18週目のA-1で決める",
+      "title": "★フェーズAの題材は自由。20週目のA-1で決める",
       "body": "手順は題材に依存していない。学習トラッカーでも、自分の作りたいアプリでも、家族の事業のサイトでもよい。条件は8機能が一通り入ること。①一覧 ②絞り込み ③キーワード検索 ④日付での並べ替え ⑤URLクエリ ⑥フォームで追加 ⑦モーダル ⑧保存と復元。★③④⑥⑦は飛ばしたJSの章（Ch10・Ch15）を回収する枠なので抜かさない（ルール14）。静的な紹介サイトだけだと②③④⑦⑧が出てこないので、要件を足して満たすこと。★実際に納品するものは選ばない。壊して直せないとフェーズAの意味が無くなる。題材を変えても書き換えが必要なのは2手順だけ（集計の中身・読み比べる相手）。"
     },
     {
@@ -8799,7 +8959,7 @@ export const PLAN = {
       "name": "プロを目指す人のためのTypeScript入門（Software Design plus・技術評論社）",
       "cost": "要購入",
       "url": "",
-      "week": "7〜11週目・25〜27週目・30〜31週目",
+      "week": "7・9〜13週目・27〜29週目・32〜33週目",
       "scope": "★1章から9章まで通読（1周目）→ 予想問題（2周目）→ 白紙お題（3周目）",
       "note": "★主教材（10/25から）。各章の「力試し」は解説の前に自分で解く。紙の本をすすめた（自分で打つため）"
     },
@@ -8853,7 +9013,7 @@ export const PLAN = {
       "name": "挫折しないReactの教科書 作りながら学ぶWeb開発",
       "cost": "要購入",
       "url": "",
-      "week": "12〜17週目・27〜29週目・32〜33週目",
+      "week": "14〜19週目・29〜31週目・34〜35週目",
       "scope": "★1章から7章まで通読（1周目）→ 予想問題（2周目）→ 白紙お題（3周目）",
       "note": "★主教材（10/25から）。4章ToDo・6章メモアプリは写経のあと本を閉じてTSで書き直す。コードは基本JSで、TSは7.3だけ。React公式は答え合わせ用に回す"
     },

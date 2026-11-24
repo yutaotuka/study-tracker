@@ -1,6 +1,6 @@
 // 画面描画（DOM組み立てのみ。イベント登録は main.js 側）
-import { PLAN } from "./data.js?v=24";
-import * as store from "./storage.js?v=24";
+import { PLAN } from "./data.js?v=25";
+import * as store from "./storage.js?v=25";
 import {
   CATS,
   CAT_CLASS,
@@ -16,7 +16,7 @@ import {
   TRACK_LIST,
   TRACK_CLASS,
   wdOf,
-} from "./utils.js?v=24";
+} from "./utils.js?v=25";
 
 // ---------- 集計 ----------
 export function weekStats(weekNo) {
